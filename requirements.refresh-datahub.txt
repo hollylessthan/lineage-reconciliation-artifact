@@ -1,0 +1,3 @@
+-r requirements.txt
+acryl-datahub[dbt,postgres]==1.7.0.19
+dbt-postgres==1.11.0

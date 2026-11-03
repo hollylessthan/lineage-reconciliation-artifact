@@ -1,0 +1,35 @@
+name: Bounded Spark OpenLineage producer probe
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  spark-probe:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.11'
+      - name: Install local Spark
+        run: pip install 'pyspark==3.5.3'
+      - name: Native producer experiment
+        env:
+          OL_PROBE_DIR: /tmp/ol-spark-events
+        run: |
+          mkdir -p "$OL_PROBE_DIR" results/spark
+          spark-submit --master local[2] \
+            --packages io.openlineage:openlineage-spark_2.12:1.27.0 \
+            --conf spark.extraListeners=io.openlineage.spark.agent.OpenLineageSparkListener \
+            --conf spark.openlineage.transport.type=file \
+            --conf spark.openlineage.transport.location=/tmp/ol-spark-events/events.jsonl \
+            --conf spark.openlineage.namespace=metamorphic-spark-probe \
+            probes/spark/probe.py | tee results/spark/probe-summary.txt
+          cp /tmp/ol-spark-events/events.jsonl results/spark/events.jsonl
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: native-spark-openlineage-probe
+          path: results/spark/
+          retention-days: 90

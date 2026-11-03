@@ -1,0 +1,21 @@
+# Disposable CI overrides; upstream compose.openmetadata.yml remains unmodified.
+services:
+  elasticsearch:
+    environment:
+      - discovery.type=single-node
+      - ES_JAVA_OPTS=-Xms1024m -Xmx1024m
+      - xpack.security.enabled=false
+      - cluster.routing.allocation.disk.threshold_enabled=false
+  execute-migrate-all:
+    environment:
+      AUTHENTICATION_PROVIDER: basic
+      AUTHORIZER_CLASS_NAME: org.openmetadata.service.security.NoopAuthorizer
+      AUTHORIZER_REQUEST_FILTER: org.openmetadata.service.security.NoopFilter
+      PIPELINE_SERVICE_CLIENT_ENABLED: 'false'
+  openmetadata-server:
+    environment:
+      AUTHENTICATION_PROVIDER: basic
+      AUTHORIZER_CLASS_NAME: org.openmetadata.service.security.NoopAuthorizer
+      AUTHORIZER_REQUEST_FILTER: org.openmetadata.service.security.NoopFilter
+      PIPELINE_SERVICE_CLIENT_ENABLED: 'false'
+      EVENT_MONITOR: prometheus

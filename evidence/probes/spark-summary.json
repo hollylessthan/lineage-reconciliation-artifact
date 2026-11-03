@@ -1,0 +1,30 @@
+{
+  "schema": "native-spark-openlineage-probe/v1",
+  "engine": "Spark 3.5.3",
+  "integration": "openlineage-spark_2.12 1.27.0",
+  "captured_events": 26,
+  "inputs_present_at_start_running_complete": true,
+  "cases": [
+    {
+      "operation": "two-input union write",
+      "start": 2,
+      "running": 2,
+      "complete": 2
+    },
+    {
+      "operation": "one-input write",
+      "start": 1,
+      "running": 1,
+      "complete": 1
+    },
+    {
+      "operation": "zero-input generated write",
+      "start": 0,
+      "running": 0,
+      "complete": 0
+    }
+  ],
+  "finding": "No producer-native partial cross-event input pattern in these bounded local Parquet writes",
+  "provenance": "Original run 41368320510; raw artifact native-spark-openlineage-probe",
+  "limitations": "Curated numerical summary only; raw 26-event JSONL is held in source-run ZIP pending redaction, privacy review, and inclusion."
+}

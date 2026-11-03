@@ -1,0 +1,328 @@
+{
+  "nodes": {
+    "model.my_new_project.int_sales_margin": {
+      "unique_id": "model.my_new_project.int_sales_margin",
+      "name": "int_sales_margin",
+      "alias": "int_sales_margin",
+      "database": "zero-dep-check",
+      "schema": "main",
+      "relation_name": "\"zero-dep-check\".\"main\".\"int_sales_margin\"",
+      "resource_type": "model",
+      "package_name": "my_new_project",
+      "fqn": [
+        "my_new_project",
+        "int_sales_margin"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": []
+      },
+      "config": {
+        "materialized": "view",
+        "enabled": true
+      }
+    },
+    "model.my_new_project.stg_raw__product": {
+      "unique_id": "model.my_new_project.stg_raw__product",
+      "name": "stg_raw__product",
+      "alias": "stg_raw__product",
+      "database": "zero-dep-check",
+      "schema": "main",
+      "relation_name": "\"zero-dep-check\".\"main\".\"stg_raw__product\"",
+      "resource_type": "model",
+      "package_name": "my_new_project",
+      "fqn": [
+        "my_new_project",
+        "staging",
+        "raw",
+        "stg_raw__product"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": [
+          "source.my_new_project.raw.product"
+        ]
+      },
+      "config": {
+        "materialized": "view",
+        "enabled": true
+      }
+    },
+    "model.my_new_project.stg_raw__sales": {
+      "unique_id": "model.my_new_project.stg_raw__sales",
+      "name": "stg_raw__sales",
+      "alias": "stg_raw__sales",
+      "database": "zero-dep-check",
+      "schema": "main",
+      "relation_name": "\"zero-dep-check\".\"main\".\"stg_raw__sales\"",
+      "resource_type": "model",
+      "package_name": "my_new_project",
+      "fqn": [
+        "my_new_project",
+        "staging",
+        "raw",
+        "stg_raw__sales"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": [
+          "source.my_new_project.raw.sales"
+        ]
+      },
+      "config": {
+        "materialized": "view",
+        "enabled": true
+      }
+    },
+    "model.my_new_project.stg_raw__ship": {
+      "unique_id": "model.my_new_project.stg_raw__ship",
+      "name": "stg_raw__ship",
+      "alias": "stg_raw__ship",
+      "database": "zero-dep-check",
+      "schema": "main",
+      "relation_name": "\"zero-dep-check\".\"main\".\"stg_raw__ship\"",
+      "resource_type": "model",
+      "package_name": "my_new_project",
+      "fqn": [
+        "my_new_project",
+        "staging",
+        "raw",
+        "stg_raw__ship"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": [
+          "source.my_new_project.raw.ship"
+        ]
+      },
+      "config": {
+        "materialized": "view",
+        "enabled": true
+      }
+    },
+    "test.my_new_project.source_not_null_raw_product_products_id.baf6fb9ef3": {
+      "unique_id": "test.my_new_project.source_not_null_raw_product_products_id.baf6fb9ef3",
+      "name": "source_not_null_raw_product_products_id",
+      "alias": "source_not_null_raw_product_products_id",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "my_new_project",
+      "fqn": [
+        "my_new_project",
+        "source_not_null_raw_product_products_id"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_not_null"
+        ],
+        "nodes": [
+          "source.my_new_project.raw.product"
+        ]
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": true
+      }
+    },
+    "test.my_new_project.source_unique_raw_product_products_id.a7b3b2f4f2": {
+      "unique_id": "test.my_new_project.source_unique_raw_product_products_id.a7b3b2f4f2",
+      "name": "source_unique_raw_product_products_id",
+      "alias": "source_unique_raw_product_products_id",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "my_new_project",
+      "fqn": [
+        "my_new_project",
+        "source_unique_raw_product_products_id"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_unique"
+        ],
+        "nodes": [
+          "source.my_new_project.raw.product"
+        ]
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": true
+      }
+    },
+    "test.my_new_project.source_unique_raw_sales__orders_id___pdt_id_.47697cfe1c": {
+      "unique_id": "test.my_new_project.source_unique_raw_sales__orders_id___pdt_id_.47697cfe1c",
+      "name": "source_unique_raw_sales__orders_id___pdt_id_",
+      "alias": "source_unique_raw_sales__orders_id___pdt_id_",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "my_new_project",
+      "fqn": [
+        "my_new_project",
+        "source_unique_raw_sales__orders_id___pdt_id_"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_unique"
+        ],
+        "nodes": [
+          "source.my_new_project.raw.sales"
+        ]
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": true
+      }
+    },
+    "test.my_new_project.source_unique_raw_ship_orders_id.8a6af0b611": {
+      "unique_id": "test.my_new_project.source_unique_raw_ship_orders_id.8a6af0b611",
+      "name": "source_unique_raw_ship_orders_id",
+      "alias": "source_unique_raw_ship_orders_id",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "my_new_project",
+      "fqn": [
+        "my_new_project",
+        "source_unique_raw_ship_orders_id"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_unique"
+        ],
+        "nodes": [
+          "source.my_new_project.raw.ship"
+        ]
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": true
+      }
+    }
+  },
+  "sources": {
+    "source.my_new_project.raw.product": {
+      "unique_id": "source.my_new_project.raw.product",
+      "name": "product",
+      "identifier": "raw_gz_product",
+      "database": "zero-dep-check",
+      "schema": "gz_raw_data",
+      "relation_name": "\"zero-dep-check\".\"gz_raw_data\".\"raw_gz_product\"",
+      "resource_type": "source",
+      "package_name": "my_new_project",
+      "fqn": [
+        "my_new_project",
+        "raw",
+        "product"
+      ]
+    },
+    "source.my_new_project.raw.sales": {
+      "unique_id": "source.my_new_project.raw.sales",
+      "name": "sales",
+      "identifier": "raw_gz_sales",
+      "database": "zero-dep-check",
+      "schema": "gz_raw_data",
+      "relation_name": "\"zero-dep-check\".\"gz_raw_data\".\"raw_gz_sales\"",
+      "resource_type": "source",
+      "package_name": "my_new_project",
+      "fqn": [
+        "my_new_project",
+        "raw",
+        "sales"
+      ]
+    },
+    "source.my_new_project.raw.ship": {
+      "unique_id": "source.my_new_project.raw.ship",
+      "name": "ship",
+      "identifier": "raw_gz_ship",
+      "database": "zero-dep-check",
+      "schema": "gz_raw_data",
+      "relation_name": "\"zero-dep-check\".\"gz_raw_data\".\"raw_gz_ship\"",
+      "resource_type": "source",
+      "package_name": "my_new_project",
+      "fqn": [
+        "my_new_project",
+        "raw",
+        "ship"
+      ]
+    }
+  },
+  "macros": {},
+  "docs": {},
+  "exposures": {},
+  "metrics": {},
+  "semantic_models": {},
+  "saved_queries": {},
+  "unit_tests": {},
+  "selectors": {},
+  "groups": {},
+  "group_map": {},
+  "disabled": {},
+  "metadata": {
+    "adapter_type": "duckdb",
+    "dbt_schema_version": "https://schemas.getdbt.com/dbt/manifest/v12.json",
+    "dbt_version": "1.10.19",
+    "project_name": "my_new_project",
+    "quoting": {
+      "column": null,
+      "database": true,
+      "identifier": true,
+      "schema": true
+    }
+  },
+  "parent_map": {
+    "model.my_new_project.int_sales_margin": [],
+    "model.my_new_project.stg_raw__product": [
+      "source.my_new_project.raw.product"
+    ],
+    "model.my_new_project.stg_raw__sales": [
+      "source.my_new_project.raw.sales"
+    ],
+    "model.my_new_project.stg_raw__ship": [
+      "source.my_new_project.raw.ship"
+    ],
+    "source.my_new_project.raw.product": [],
+    "source.my_new_project.raw.sales": [],
+    "source.my_new_project.raw.ship": [],
+    "test.my_new_project.source_not_null_raw_product_products_id.baf6fb9ef3": [
+      "source.my_new_project.raw.product"
+    ],
+    "test.my_new_project.source_unique_raw_product_products_id.a7b3b2f4f2": [
+      "source.my_new_project.raw.product"
+    ],
+    "test.my_new_project.source_unique_raw_sales__orders_id___pdt_id_.47697cfe1c": [
+      "source.my_new_project.raw.sales"
+    ],
+    "test.my_new_project.source_unique_raw_ship_orders_id.8a6af0b611": [
+      "source.my_new_project.raw.ship"
+    ]
+  },
+  "child_map": {
+    "model.my_new_project.int_sales_margin": [],
+    "model.my_new_project.stg_raw__product": [],
+    "model.my_new_project.stg_raw__sales": [],
+    "model.my_new_project.stg_raw__ship": [],
+    "source.my_new_project.raw.product": [
+      "model.my_new_project.stg_raw__product",
+      "test.my_new_project.source_not_null_raw_product_products_id.baf6fb9ef3",
+      "test.my_new_project.source_unique_raw_product_products_id.a7b3b2f4f2"
+    ],
+    "source.my_new_project.raw.sales": [
+      "model.my_new_project.stg_raw__sales",
+      "test.my_new_project.source_unique_raw_sales__orders_id___pdt_id_.47697cfe1c"
+    ],
+    "source.my_new_project.raw.ship": [
+      "model.my_new_project.stg_raw__ship",
+      "test.my_new_project.source_unique_raw_ship_orders_id.8a6af0b611"
+    ],
+    "test.my_new_project.source_not_null_raw_product_products_id.baf6fb9ef3": [],
+    "test.my_new_project.source_unique_raw_product_products_id.a7b3b2f4f2": [],
+    "test.my_new_project.source_unique_raw_sales__orders_id___pdt_id_.47697cfe1c": [],
+    "test.my_new_project.source_unique_raw_ship_orders_id.8a6af0b611": []
+  }
+}

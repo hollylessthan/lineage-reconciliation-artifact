@@ -1,0 +1,2 @@
+-r requirements.txt
+acryl-datahub[mysql,mariadb,clickhouse,trino,mssql]==1.7.0.19

@@ -1,0 +1,21 @@
+{
+  "note": "Checksums for reviewed export, not the unchanged original workflow ZIP contents.",
+  "sha256": {
+    "compiler/zero-dep-compile-check.json": "0a30635622dcd192499c208dc0a5c09d76fc9c28df8635c4d7a0a159b0066038",
+    "compiler/zero-manifests/index.json": "a475825d1bc8fe5c4d70cb542a95ce44bc13c52668f2e068c702efd3801706f4",
+    "compiler/zero-manifests/zero00/after/manifest.json": "3d173c7a89a411bcf882daf7a2a3e95f347e7c9a259cca031fe9231ab2eaac0d",
+    "compiler/zero-manifests/zero00/before/manifest.json": "0e4cb0dadc03fb74cc17ca305fe7c26fd6aee8115744bc9c6f5bd7ae84ac180c",
+    "compiler/zero-manifests/zero01/after/manifest.json": "acc64475b5c4aa6348369357892d6b71be16b2bf2dacf10c384ea7b57a18ac9d",
+    "compiler/zero-manifests/zero01/before/manifest.json": "63adb0cd2842a7b468a5b874191ad4f5df3d5ec560a014771e0575065a7aada3",
+    "compiler/zero-manifests/zero02/after/manifest.json": "ae62220eb8f91461d00666954ff13fe275b77d4cb4d002ec11273f89a2040b18",
+    "compiler/zero-manifests/zero02/before/manifest.json": "7b2c1789a0f2719a1a488b82c5d057b66099422b1bbc416792d0ab3af3c0a792",
+    "compiler/zero-manifests/zero03/after/manifest.json": "a6aceea7114f952c61537eba86490aadab76df13c6f62ecb8279540c76bafe0f",
+    "compiler/zero-manifests/zero03/before/manifest.json": "e8ffa1fa99154ad54249d352910367ff909f25a274181f30ed9c587fabb4b72f",
+    "compiler/zero-manifests/zero04/after/manifest.json": "e18117ad2544cd7cf33f39bf2362677679611f39be1d696b612b903ab0254c81",
+    "compiler/zero-manifests/zero04/before/manifest.json": "d329f29aa8d7bf866ac8648bf6ab74afd4c4d7983ed0a2d9ac804159e61d0286",
+    "compiler/zero-manifests/zero05/after/manifest.json": "96aa5e125e6ad727ba0eb30450a17635fae6d7975a28c86f5b5b59cb86467089",
+    "compiler/zero-manifests/zero05/before/manifest.json": "7ed57d307a73052aa6ddfa926d53c71738b7991815fb87ae522e34e2bac6ecf5",
+    "spark/events.jsonl": "11e9b4b7fd9d93f202d9afa2f962d9df9a7ce9b81892feec29b18209de55bb30",
+    "spark/probe-summary.txt": "a8837e70dbf22a56b079a675b1121c0a392088dd7df4568111120148b7d353f7"
+  }
+}

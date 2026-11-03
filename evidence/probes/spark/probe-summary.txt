@@ -1,0 +1,202 @@
+:: loading settings :: url = jar:file:/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pyspark/jars/ivy-2.5.1.jar!/org/apache/ivy/core/settings/ivysettings.xml
+{
+  "events": 26,
+  "jobs": {
+    "lineage_contract_spark_probe": [
+      {
+        "type": "START",
+        "runId": "01a199b3-1088-74b3-b518-ae856be76e68",
+        "inputs_present": true,
+        "input_count": 0,
+        "output_count": 0
+      },
+      {
+        "type": "COMPLETE",
+        "runId": "01a199b3-1088-74b3-b518-ae856be76e68",
+        "inputs_present": true,
+        "input_count": 0,
+        "output_count": 0
+      }
+    ],
+    "lineage_contract_spark_probe.execute_insert_into_hadoop_fs_relation_command.ol-spark-probe-data_a": [
+      {
+        "type": "START",
+        "runId": "01a199b3-192c-7845-b1f6-06504d4afefc",
+        "inputs_present": true,
+        "input_count": 0,
+        "output_count": 1
+      },
+      {
+        "type": "RUNNING",
+        "runId": "01a199b3-192c-7845-b1f6-06504d4afefc",
+        "inputs_present": true,
+        "input_count": 0,
+        "output_count": 1
+      },
+      {
+        "type": "RUNNING",
+        "runId": "01a199b3-192c-7845-b1f6-06504d4afefc",
+        "inputs_present": true,
+        "input_count": 0,
+        "output_count": 1
+      },
+      {
+        "type": "COMPLETE",
+        "runId": "01a199b3-192c-7845-b1f6-06504d4afefc",
+        "inputs_present": true,
+        "input_count": 0,
+        "output_count": 1
+      }
+    ],
+    "lineage_contract_spark_probe.execute_insert_into_hadoop_fs_relation_command.ol-spark-probe-data_b": [
+      {
+        "type": "START",
+        "runId": "01a199b3-23d7-7bef-ae94-534ee65721bc",
+        "inputs_present": true,
+        "input_count": 0,
+        "output_count": 1
+      },
+      {
+        "type": "RUNNING",
+        "runId": "01a199b3-23d7-7bef-ae94-534ee65721bc",
+        "inputs_present": true,
+        "input_count": 0,
+        "output_count": 1
+      },
+      {
+        "type": "RUNNING",
+        "runId": "01a199b3-23d7-7bef-ae94-534ee65721bc",
+        "inputs_present": true,
+        "input_count": 0,
+        "output_count": 1
+      },
+      {
+        "type": "COMPLETE",
+        "runId": "01a199b3-23d7-7bef-ae94-534ee65721bc",
+        "inputs_present": true,
+        "input_count": 0,
+        "output_count": 1
+      }
+    ],
+    "lineage_contract_spark_probe.map_partitions_parallel_collection": [
+      {
+        "type": "START",
+        "runId": "01a199b3-26fd-7b1f-809b-40454e4cfafa",
+        "inputs_present": true,
+        "input_count": 1,
+        "output_count": 1
+      },
+      {
+        "type": "COMPLETE",
+        "runId": "01a199b3-26fd-7b1f-809b-40454e4cfafa",
+        "inputs_present": true,
+        "input_count": 1,
+        "output_count": 1
+      },
+      {
+        "type": "START",
+        "runId": "01a199b3-27ed-73c4-84f6-0391294336cc",
+        "inputs_present": true,
+        "input_count": 1,
+        "output_count": 1
+      },
+      {
+        "type": "COMPLETE",
+        "runId": "01a199b3-27ed-73c4-84f6-0391294336cc",
+        "inputs_present": true,
+        "input_count": 1,
+        "output_count": 1
+      }
+    ],
+    "lineage_contract_spark_probe.execute_insert_into_hadoop_fs_relation_command.ol-spark-probe-data_out_ab": [
+      {
+        "type": "START",
+        "runId": "01a199b3-28c4-7970-b68f-1b7bb06862b6",
+        "inputs_present": true,
+        "input_count": 2,
+        "output_count": 1
+      },
+      {
+        "type": "RUNNING",
+        "runId": "01a199b3-28c4-7970-b68f-1b7bb06862b6",
+        "inputs_present": true,
+        "input_count": 2,
+        "output_count": 1
+      },
+      {
+        "type": "RUNNING",
+        "runId": "01a199b3-28c4-7970-b68f-1b7bb06862b6",
+        "inputs_present": true,
+        "input_count": 2,
+        "output_count": 1
+      },
+      {
+        "type": "COMPLETE",
+        "runId": "01a199b3-28c4-7970-b68f-1b7bb06862b6",
+        "inputs_present": true,
+        "input_count": 2,
+        "output_count": 1
+      }
+    ],
+    "lineage_contract_spark_probe.execute_insert_into_hadoop_fs_relation_command.ol-spark-probe-data_out_a": [
+      {
+        "type": "START",
+        "runId": "01a199b3-2bb2-7cf7-9c19-922717878428",
+        "inputs_present": true,
+        "input_count": 1,
+        "output_count": 1
+      },
+      {
+        "type": "RUNNING",
+        "runId": "01a199b3-2bb2-7cf7-9c19-922717878428",
+        "inputs_present": true,
+        "input_count": 1,
+        "output_count": 1
+      },
+      {
+        "type": "RUNNING",
+        "runId": "01a199b3-2bb2-7cf7-9c19-922717878428",
+        "inputs_present": true,
+        "input_count": 1,
+        "output_count": 1
+      },
+      {
+        "type": "COMPLETE",
+        "runId": "01a199b3-2bb2-7cf7-9c19-922717878428",
+        "inputs_present": true,
+        "input_count": 1,
+        "output_count": 1
+      }
+    ],
+    "lineage_contract_spark_probe.execute_insert_into_hadoop_fs_relation_command.ol-spark-probe-data_out_empty": [
+      {
+        "type": "START",
+        "runId": "01a199b3-30cc-70c6-b946-ff47f2044909",
+        "inputs_present": true,
+        "input_count": 0,
+        "output_count": 1
+      },
+      {
+        "type": "RUNNING",
+        "runId": "01a199b3-30cc-70c6-b946-ff47f2044909",
+        "inputs_present": true,
+        "input_count": 0,
+        "output_count": 1
+      },
+      {
+        "type": "RUNNING",
+        "runId": "01a199b3-30cc-70c6-b946-ff47f2044909",
+        "inputs_present": true,
+        "input_count": 0,
+        "output_count": 1
+      },
+      {
+        "type": "COMPLETE",
+        "runId": "01a199b3-30cc-70c6-b946-ff47f2044909",
+        "inputs_present": true,
+        "input_count": 0,
+        "output_count": 1
+      }
+    ]
+  }
+}

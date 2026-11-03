@@ -1,0 +1,11 @@
+# Evidence export review
+
+The twelve dbt manifests had their generated `metadata.user_id`, `metadata.invocation_id`, and `metadata.invocation_started_at` removed. Other model, dependency, and relation fields were retained. Synthetic `/tmp/` Spark data URIs and temporary dbt compiler paths were left unchanged because they identify disposable experiment resources and do not reveal local home directories. No obvious access credentials, email addresses, or private repository URLs were found in a content scan. This is a scoped content review rather than proof that arbitrary embedded source code is free of every sensitive string. The original ZIPs remain separate provenance records.
+
+## Subsequent source-licensing minimization
+
+Eight manifests (`zero01`, `zero03`, `zero04`, `zero05`, before/after) from four public repositories with no declared license were further reduced to graph-only metadata. Source-derived SQL, macro definitions, text descriptions, and other nonessential fields were removed. The source repository, pinned revision, selected model identity and dependency deltas remain in `evidence/compiler/zero-manifests/index.json`. `SHA256.json` now records the checksums of the current minimized manifests, not the eight original ZIP-imported bytes. The minimizer verifies graph preservation and the expected changed-model dependencies; actual catalog replay of the reduced files is still unverified.
+
+## Clean release repository scope
+
+All twelve selected before/after manifests (including `zero00` and `zero02`, whose sources carry MIT licenses) were reduced to node identities, dependencies and minimal declarative dbt metadata. Original SQL, macro bodies, project descriptions and generated tracking metadata are not redistributed. The selected node identity and dependency change were cross-checked against the frozen index for each of the twelve files. Current hashes replace the ZIP-import hashes in `SHA256.json`. Both occurrences of the ephemeral runner hostname in `evidence/probes/spark/events.jsonl` (`driverHost` and `uiWebUrl`) were replaced with `redacted-runner.invalid`, preserving all 26 JSON events. The separate private development repository retains the original forensic evidence.

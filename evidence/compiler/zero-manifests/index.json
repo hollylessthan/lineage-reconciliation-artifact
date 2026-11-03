@@ -1,0 +1,172 @@
+[
+  {
+    "id": "zero00",
+    "repository": "Jam516/BundleBear",
+    "commit": "21ae90ae32cbdda42c966205c8937789309663b5",
+    "parent": "ab0556338d83f1b6ddcb02f52d180ffb94f17ea3",
+    "path": "models/eip7702/metrics/eip7702_metrics_total_summary.sql",
+    "status": "accepted",
+    "node": {
+      "unique_id": "model.bundlebear.eip7702_metrics_total_summary",
+      "depends_on_nodes": [],
+      "database": "zero-dep-check",
+      "schema": "main",
+      "alias": "eip7702_metrics_total_summary",
+      "materialized": "table",
+      "enabled": true
+    },
+    "before_deps": [
+      "model.bundlebear.eip7702_all_authorizations",
+      "model.bundlebear.eip7702_metrics_daily_authority_state"
+    ],
+    "after_deps": [],
+    "removed": [
+      "model.bundlebear.eip7702_all_authorizations",
+      "model.bundlebear.eip7702_metrics_daily_authority_state"
+    ],
+    "added": []
+  },
+  {
+    "id": "zero01",
+    "repository": "abduldjafar/elt-with-dagster",
+    "commit": "8e3b50b821bb377c837fcb07e817a108205999bc",
+    "parent": "de0e289f3a0547e711251f2efb251e4287fcd1d3",
+    "path": "pipelines/pipelines/dbt_project/models/eight_weeksqlchallenge/eight_weeksqlchallenge_case_study_2_chalange.sql",
+    "status": "accepted",
+    "node": {
+      "unique_id": "model.dbt_project.eight_weeksqlchallenge_case_study_2_chalange",
+      "depends_on_nodes": [],
+      "database": "zero-dep-check",
+      "schema": "main",
+      "alias": "eight_weeksqlchallenge_case_study_2_chalange",
+      "materialized": "view",
+      "enabled": true
+    },
+    "before_deps": [
+      "model.dbt_project.eight_weeksqlchallenge_case_study_1_fact_table"
+    ],
+    "after_deps": [],
+    "removed": [
+      "model.dbt_project.eight_weeksqlchallenge_case_study_1_fact_table"
+    ],
+    "added": []
+  },
+  {
+    "id": "zero02",
+    "repository": "synccomputingcode/databricks-tpcdi",
+    "commit": "7d6033848a7fb7635206f41557b5c699f2e489b3",
+    "parent": "22f613794f82a8521a627ed2780bd1af42a58857",
+    "path": "models/silver/financials.sql",
+    "status": "accepted",
+    "node": {
+      "unique_id": "model.tpcdi.financials",
+      "depends_on_nodes": [],
+      "database": "zero-dep-check",
+      "schema": "main_silver",
+      "alias": "financials",
+      "materialized": "table",
+      "enabled": true
+    },
+    "before_deps": [
+      "model.tpcdi.companies",
+      "model.tpcdi.finwire_financial"
+    ],
+    "after_deps": [],
+    "removed": [
+      "model.tpcdi.companies",
+      "model.tpcdi.finwire_financial"
+    ],
+    "added": []
+  },
+  {
+    "id": "zero03",
+    "repository": "gip-inclusion/pilotage-airflow",
+    "commit": "74c9022800c3fabda9069fd3bb1da2c4d56b9696",
+    "parent": "5c2015e46dcd90c996895c7217b334dd52ce679d",
+    "path": "dbt/models/staging/stg_nb_consult_utilisateur_semaine.sql",
+    "status": "accepted",
+    "node": {
+      "unique_id": "model.dbt_pilotage.stg_nb_consult_utilisateur_semaine",
+      "depends_on_nodes": [],
+      "database": "zero-dep-check",
+      "schema": "main",
+      "alias": "stg_nb_consult_utilisateur_semaine",
+      "materialized": "view",
+      "enabled": true
+    },
+    "before_deps": [
+      "model.dbt_pilotage.suivi_utilisateurs_tb_prive_semaine"
+    ],
+    "after_deps": [],
+    "removed": [
+      "model.dbt_pilotage.suivi_utilisateurs_tb_prive_semaine"
+    ],
+    "added": []
+  },
+  {
+    "id": "zero04",
+    "repository": "winniemutai21/gz-dbt-repository",
+    "commit": "0c9aefa81c4afbc49ff577a3bae9dce52c5edb30",
+    "parent": "3bde1c97e17705d0ef961e66830048eed048dc4e",
+    "path": "models/int_sales_margin.sql",
+    "status": "accepted",
+    "node": {
+      "unique_id": "model.my_new_project.int_sales_margin",
+      "depends_on_nodes": [],
+      "database": "zero-dep-check",
+      "schema": "main",
+      "alias": "int_sales_margin",
+      "materialized": "view",
+      "enabled": true
+    },
+    "before_deps": [
+      "model.my_new_project.stg_raw__product",
+      "model.my_new_project.stg_raw__sales"
+    ],
+    "after_deps": [],
+    "removed": [
+      "model.my_new_project.stg_raw__product",
+      "model.my_new_project.stg_raw__sales"
+    ],
+    "added": []
+  },
+  {
+    "id": "zero05",
+    "repository": "TherNgyn/Vietnam_economic_lakehouse",
+    "commit": "6d36bf0d4b34323dadbd978784f45f38b4a4de5c",
+    "parent": "3a5588cf1144c97a4a18da255617efb0c273589e",
+    "path": "dbt/models/dimensions/dim_time.sql",
+    "status": "accepted",
+    "node": {
+      "unique_id": "model.Vietnam_economic_lakehouse.dim_time",
+      "depends_on_nodes": [],
+      "database": "zero-dep-check",
+      "schema": "main_gold",
+      "alias": "dim_time",
+      "materialized": "delta_table",
+      "enabled": true
+    },
+    "before_deps": [
+      "model.Vietnam_economic_lakehouse.stg_agriculture",
+      "model.Vietnam_economic_lakehouse.stg_gdp",
+      "model.Vietnam_economic_lakehouse.stg_interest_rate",
+      "model.Vietnam_economic_lakehouse.stg_investment",
+      "model.Vietnam_economic_lakehouse.stg_macro_indicator",
+      "model.Vietnam_economic_lakehouse.stg_ohlc",
+      "model.Vietnam_economic_lakehouse.stg_product_market",
+      "model.Vietnam_economic_lakehouse.stg_social_investment"
+    ],
+    "after_deps": [],
+    "removed": [
+      "model.Vietnam_economic_lakehouse.stg_agriculture",
+      "model.Vietnam_economic_lakehouse.stg_gdp",
+      "model.Vietnam_economic_lakehouse.stg_interest_rate",
+      "model.Vietnam_economic_lakehouse.stg_investment",
+      "model.Vietnam_economic_lakehouse.stg_macro_indicator",
+      "model.Vietnam_economic_lakehouse.stg_ohlc",
+      "model.Vietnam_economic_lakehouse.stg_product_market",
+      "model.Vietnam_economic_lakehouse.stg_social_investment"
+    ],
+    "added": []
+  }
+]

@@ -1,0 +1,288 @@
+name: Metamorphic ingestion relations (G2/G3)
+on:
+  workflow_call:
+    inputs:
+      rep:
+        type: string
+        required: false
+        default: ''
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  export-revisions:
+    if: inputs.rep != '' || github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[mm:all]') || contains(github.event.head_commit.message, '[mm:real]')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.11'
+      - name: Install pinned dbt compilers
+        run: python -m pip install 'dbt-core>=1.10.6,<1.11' 'dbt-duckdb>=1.10,<1.11' 'dbt-bigquery>=1.10,<1.11'
+      - name: Clone revisions and configure non-executing parser profiles
+        run: |
+          mkdir -p /tmp/gate-repos /tmp/gate-profiles results
+          git clone --quiet https://github.com/dbt-labs/jaffle-shop.git /tmp/gate-repos/jaffle-shop
+          git clone --quiet https://github.com/stellar/stellar-dbt-public.git /tmp/gate-repos/stellar-dbt-public
+          cat > /tmp/gate-profiles/profiles.yml <<'YAML'
+          default:
+            target: dev
+            outputs:
+              dev:
+                type: duckdb
+                path: /tmp/jaffle-gate.duckdb
+          jaffle_shop:
+            target: dev
+            outputs:
+              dev:
+                type: duckdb
+                path: /tmp/jaffle-gate.duckdb
+          stellar_dbt_public:
+            target: dev
+            outputs:
+              dev:
+                type: bigquery
+                method: oauth
+                project: offline-dbt-validation
+                dataset: gate_validation
+                threads: 1
+                location: US
+          YAML
+          echo '{"dbt-labs/jaffle-shop":{"path":"/tmp/gate-repos/jaffle-shop"},"stellar/stellar-dbt-public":{"path":"/tmp/gate-repos/stellar-dbt-public"}}' > results/repositories.json
+      - name: Export compiled manifests for both sides
+        run: |
+          cd scripts && python export_revision_manifests.py --cases ../docs/compiler-candidates.json \
+            --repos ../results/repositories.json --profiles /tmp/gate-profiles --output ../results/real-manifests
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: real-manifests${{ inputs.rep }}
+          path: results/real-manifests/
+          retention-days: 90
+
+  datahub:
+    if: inputs.rep != '' || github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[mm:all]') || contains(github.event.head_commit.message, '[mm:dh]')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    services:
+      postgres:
+        image: postgres:16.6
+        env:
+          POSTGRES_USER: pilot
+          POSTGRES_PASSWORD: pilot
+          POSTGRES_DB: fixture
+        ports: ['5432:5432']
+        options: --health-cmd "pg_isready -U pilot -d fixture" --health-interval 5s --health-timeout 5s --health-retries 12
+    env:
+      DATAHUB_VERSION: v1.8.0
+      DATAHUB_TOKEN_SERVICE_SALT: disposable-pilot-salt
+      DATAHUB_TOKEN_SERVICE_SIGNING_KEY: disposable-pilot-signing-key-0123456789
+      DO_NOT_TRACK: '1'
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.11'
+          cache: pip
+      - run: pip install -r requirements.refresh-datahub.txt
+      - run: python -m unittest discover -s tests -v
+      - name: Start disposable DataHub
+        run: |
+          mkdir -p results
+          sudo sysctl -w vm.max_map_count=262144
+          docker compose -f compose.datahub.yml --profile quickstart-backend up -d --wait --wait-timeout 180 opensearch
+          curl --fail -X PUT http://127.0.0.1:9200/_cluster/settings -H 'Content-Type: application/json' --data-binary @ci-opensearch-settings.json
+          docker compose -f compose.datahub.yml --profile quickstart-backend up -d --wait --wait-timeout 600 datahub-gms-quickstart
+          curl --fail --retry 10 --retry-delay 3 http://127.0.0.1:8080/config > results/server-config.json
+          docker compose -f compose.datahub.yml images --format json > results/images.json
+      - name: dbt (Replace)
+        # Run every path even if an earlier path trips the integrity gate; the job still fails.
+        if: ${{ !cancelled() }}
+        run: python scripts/metamorphic_native.py dh-dbt --server http://127.0.0.1:8080 --output results/dh-dbt
+      - name: PostgreSQL views (Replace)
+        # Run every path even if an earlier path trips the integrity gate; the job still fails.
+        if: ${{ !cancelled() }}
+        run: python scripts/metamorphic_native.py dh-view --server http://127.0.0.1:8080 --output results/dh-view
+      - name: PostgreSQL views, incremental_lineage (Additive)
+        # Run every path even if an earlier path trips the integrity gate; the job still fails.
+        if: ${{ !cancelled() }}
+        run: python scripts/metamorphic_native.py dh-view-incremental --server http://127.0.0.1:8080 --output results/dh-view-incremental
+      - name: OpenLineage endpoint
+        # Run every path even if an earlier path trips the integrity gate; the job still fails.
+        if: ${{ !cancelled() }}
+        run: python scripts/metamorphic_native.py dh-ol --server http://127.0.0.1:8080 --output results/dh-ol
+      - name: Diagnostics
+        if: always()
+        run: |
+          mkdir -p results
+          pip freeze > results/pip-freeze.txt
+          docker compose -f compose.datahub.yml --profile quickstart-backend logs --no-color > results/server.log 2>&1
+          rm -rf results/real-manifests
+          find results -path '*projects*' -name 'target' -type d -prune -exec rm -rf {} +
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: metamorphic-datahub${{ inputs.rep }}
+          path: results/
+          retention-days: 90
+      - if: always()
+        run: docker compose -f compose.datahub.yml --profile quickstart-backend down -v
+
+  datahub-real:
+    needs: export-revisions
+    if: inputs.rep != '' || github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[mm:all]') || contains(github.event.head_commit.message, '[mm:real]')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    services:
+      postgres:
+        image: postgres:16.6
+        env:
+          POSTGRES_USER: pilot
+          POSTGRES_PASSWORD: pilot
+          POSTGRES_DB: fixture
+        ports: ['5432:5432']
+        options: --health-cmd "pg_isready -U pilot -d fixture" --health-interval 5s --health-timeout 5s --health-retries 12
+    env:
+      DATAHUB_VERSION: v1.8.0
+      DATAHUB_TOKEN_SERVICE_SALT: disposable-pilot-salt
+      DATAHUB_TOKEN_SERVICE_SIGNING_KEY: disposable-pilot-signing-key-0123456789
+      DO_NOT_TRACK: '1'
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.11'
+          cache: pip
+      - run: pip install -r requirements.refresh-datahub.txt
+      - run: python -m unittest discover -s tests -v
+      - name: Start disposable DataHub
+        run: |
+          mkdir -p results
+          sudo sysctl -w vm.max_map_count=262144
+          docker compose -f compose.datahub.yml --profile quickstart-backend up -d --wait --wait-timeout 180 opensearch
+          curl --fail -X PUT http://127.0.0.1:9200/_cluster/settings -H 'Content-Type: application/json' --data-binary @ci-opensearch-settings.json
+          docker compose -f compose.datahub.yml --profile quickstart-backend up -d --wait --wait-timeout 600 datahub-gms-quickstart
+          curl --fail --retry 10 --retry-delay 3 http://127.0.0.1:8080/config > results/server-config.json
+          docker compose -f compose.datahub.yml images --format json > results/images.json
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: real-manifests${{ inputs.rep }}
+          path: results/real-manifests
+      - name: Real revision replay (dbt)
+        run: python scripts/real_revisions.py --manifests results/real-manifests --server http://127.0.0.1:8080 --output results/dh-real
+      - name: Diagnostics
+        if: always()
+        run: |
+          mkdir -p results
+          pip freeze > results/pip-freeze.txt
+          docker compose -f compose.datahub.yml --profile quickstart-backend logs --no-color > results/server.log 2>&1
+          rm -rf results/real-manifests
+          find results -path '*projects*' -name 'target' -type d -prune -exec rm -rf {} +
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: metamorphic-datahub-real${{ inputs.rep }}
+          path: results/
+          retention-days: 90
+      - if: always()
+        run: docker compose -f compose.datahub.yml --profile quickstart-backend down -v
+
+  openmetadata:
+    if: inputs.rep != '' || github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[mm:all]') || contains(github.event.head_commit.message, '[mm:om]')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    services:
+      postgres:
+        image: postgres:16.6
+        env:
+          POSTGRES_USER: pilot
+          POSTGRES_PASSWORD: pilot
+          POSTGRES_DB: fixture
+        ports: ['5432:5432']
+        options: --health-cmd "pg_isready -U pilot -d fixture" --health-interval 5s --health-timeout 5s --health-retries 12
+    env:
+      DO_NOT_TRACK: '1'
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: pip install -r requirements.refresh-openmetadata.txt
+      - name: Start disposable OpenMetadata
+        run: |
+          mkdir -p results
+          sudo sysctl -w vm.max_map_count=262144
+          docker compose -f compose.openmetadata.yml -f compose.openmetadata-pilot.yml up -d --wait --wait-timeout 600 openmetadata-server
+          curl --fail --retry 10 --retry-delay 3 http://127.0.0.1:8585/api/v1/system/version > results/server-version.json
+      - name: dbt overrideLineage=true (Replace)
+        # Run every path even if an earlier path trips the integrity gate; the job still fails.
+        if: ${{ !cancelled() }}
+        run: python scripts/metamorphic_native.py om-dbt-override --server http://127.0.0.1:8585 --output results/om-dbt-override
+      - name: dbt default (Additive)
+        # Run every path even if an earlier path trips the integrity gate; the job still fails.
+        if: ${{ !cancelled() }}
+        run: python scripts/metamorphic_native.py om-dbt-default --server http://127.0.0.1:8585 --output results/om-dbt-default
+      - name: PostgreSQL views overrideViewLineage=true (Replace)
+        # Run every path even if an earlier path trips the integrity gate; the job still fails.
+        if: ${{ !cancelled() }}
+        run: python scripts/metamorphic_native.py om-view --server http://127.0.0.1:8585 --output results/om-view
+      - name: OpenLineage REST endpoint
+        # Run every path even if an earlier path trips the integrity gate; the job still fails.
+        if: ${{ !cancelled() }}
+        run: python scripts/metamorphic_native.py om-ol --server http://127.0.0.1:8585 --output results/om-ol
+      - name: Diagnostics
+        if: always()
+        run: |
+          mkdir -p results
+          pip freeze > results/pip-freeze.txt
+          docker compose -f compose.openmetadata.yml -f compose.openmetadata-pilot.yml logs --no-color openmetadata-server > results/server.log 2>&1
+          find results -path '*projects*' -name 'target' -type d -prune -exec rm -rf {} +
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: metamorphic-openmetadata${{ inputs.rep }}
+          path: results/
+          retention-days: 90
+      - if: always()
+        run: docker compose -f compose.openmetadata.yml -f compose.openmetadata-pilot.yml down -v
+
+  marquez:
+    if: inputs.rep != '' || github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[mm:all]') || contains(github.event.head_commit.message, '[mm:mq]')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    services:
+      postgres:
+        image: postgres:14
+        env:
+          POSTGRES_USER: marquez
+          POSTGRES_PASSWORD: marquez
+          POSTGRES_DB: marquez
+        ports: ['5432:5432']
+        options: --health-cmd "pg_isready -U marquez -d marquez" --health-interval 5s --health-timeout 5s --health-retries 12
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.11'
+      - run: pip install requests==2.32.3
+      - run: python -m unittest tests.test_metamorphic_core -v
+      - name: Start disposable Marquez 0.51.1
+        run: |
+          mkdir -p results
+          docker run -d --name marquez --network host -e MARQUEZ_CONFIG=marquez.dev.yml \
+            -e POSTGRES_HOST=127.0.0.1 -e POSTGRES_PORT=5432 marquezproject/marquez:0.51.1
+          for i in $(seq 1 60); do curl -sf http://127.0.0.1:5000/api/v1/namespaces > results/namespaces.json && break; sleep 3; done
+          curl --fail http://127.0.0.1:5000/api/v1/namespaces
+          docker image inspect marquezproject/marquez:0.51.1 --format '{{json .RepoDigests}}' > results/image.json
+      - name: OpenLineage consumer (Replace per job version)
+        run: python scripts/metamorphic_native.py marquez-ol --server http://127.0.0.1:5000 --output results/marquez-ol
+      - if: always()
+        run: docker logs marquez > results/server.log 2>&1 || true
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: metamorphic-marquez${{ inputs.rep }}
+          path: results/
+          retention-days: 90

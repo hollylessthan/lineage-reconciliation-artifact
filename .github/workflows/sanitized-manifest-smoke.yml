@@ -1,0 +1,103 @@
+name: Sanitized dbt manifest live smoke test
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  datahub:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    env:
+      DATAHUB_VERSION: v1.8.0
+      DATAHUB_TOKEN_SERVICE_SALT: disposable-pilot-salt
+      DATAHUB_TOKEN_SERVICE_SIGNING_KEY: disposable-pilot-signing-key-0123456789
+      DO_NOT_TRACK: '1'
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.refresh-datahub.txt
+      - name: Generate source-free dbt manifests
+        run: |
+          python scripts/sanitize_unlicensed_manifests.py --check
+          python scripts/generate_synthetic_dbt_manifest.py --case zero01 --output results/smoke
+      - name: Start fresh DataHub
+        run: |
+          sudo sysctl -w vm.max_map_count=262144
+          docker compose -f compose.datahub.yml --profile quickstart-backend up -d --wait --wait-timeout 180 opensearch
+          curl --fail -X PUT http://127.0.0.1:9200/_cluster/settings -H 'Content-Type: application/json' --data-binary @ci-opensearch-settings.json
+          docker compose -f compose.datahub.yml --profile quickstart-backend up -d --wait --wait-timeout 600 datahub-gms-quickstart
+      - name: Run changed-model live replay
+        run: python scripts/real_revisions.py --manifests results/smoke --server http://127.0.0.1:8080 --output results/datahub-smoke
+      - name: Assert valid lineage observations
+        run: |
+          python - <<'PY'
+          import json, pathlib, sys
+          files=list(pathlib.Path('results').rglob('real-revision-results.json'))
+          if len(files)!=1:
+              sys.exit(f'Expected one result file, found {files}')
+          rows=json.loads(files[0].read_text())
+          if len(rows)!=1 or rows[0].get('sanity_before') is not True or rows[0].get('sanity_after') is not True or any(rows[0].get(k) in (None, 'not_testable') for k in ('MR1_forward','MR1_reverse')):
+              sys.exit(f'FAIL: lineage sanity or testability: {rows}')
+          print('PASS: both baseline sanity checks and both MR1 comparisons are testable')
+          PY
+      - name: Upload bounded diagnostics
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: sanitized-datahub-smoke
+          path: results/datahub-smoke/
+          retention-days: 7
+      - if: always()
+        run: docker compose -f compose.datahub.yml --profile quickstart-backend down -v
+  openmetadata:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    env:
+      DO_NOT_TRACK: '1'
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements.refresh-openmetadata.txt
+      - name: Generate source-free dbt manifests
+        run: python scripts/generate_synthetic_dbt_manifest.py --case zero01 --output results/smoke
+      - name: Start fresh OpenMetadata
+        run: |
+          sudo sysctl -w vm.max_map_count=262144
+          for attempt in 1 2 3; do
+            if docker compose -f compose.openmetadata.yml -f compose.openmetadata-pilot.yml pull; then
+              break
+            fi
+            if [ "$attempt" -eq 3 ]; then
+              echo "OpenMetadata image pull failed after 3 attempts"
+              exit 1
+            fi
+            sleep $((attempt * 15))
+          done
+          docker compose -f compose.openmetadata.yml -f compose.openmetadata-pilot.yml up -d --wait --wait-timeout 600 openmetadata-server
+      - name: Run changed-model live replay
+        run: python scripts/real_revisions_om.py --override --manifests results/smoke --server http://127.0.0.1:8585 --output results/om-smoke
+      - name: Assert valid lineage observations
+        run: |
+          python - <<'PY'
+          import json, pathlib, sys
+          files=list(pathlib.Path('results').rglob('real-revision-results.json'))
+          if len(files)!=1:
+              sys.exit(f'Expected one result file, found {files}')
+          rows=json.loads(files[0].read_text())
+          if len(rows)!=1 or rows[0].get('sanity_before') is not True or rows[0].get('sanity_after') is not True or any(rows[0].get(k) in (None, 'not_testable') for k in ('MR1_forward','MR1_reverse')):
+              sys.exit(f'FAIL: lineage sanity or testability: {rows}')
+          print('PASS: both baseline sanity checks and both MR1 comparisons are testable')
+          PY
+      - name: Upload bounded diagnostics
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: sanitized-openmetadata-smoke
+          path: results/om-smoke/
+          retention-days: 7
+      - if: always()
+        run: docker compose -f compose.openmetadata.yml -f compose.openmetadata-pilot.yml down -v

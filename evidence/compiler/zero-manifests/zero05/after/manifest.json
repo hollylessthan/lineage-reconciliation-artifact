@@ -1,0 +1,3878 @@
+{
+  "nodes": {
+    "model.Vietnam_economic_lakehouse.dim_asset": {
+      "unique_id": "model.Vietnam_economic_lakehouse.dim_asset",
+      "name": "dim_asset",
+      "alias": "dim_asset",
+      "database": "zero-dep-check",
+      "schema": "main_gold",
+      "relation_name": "\"zero-dep-check\".\"main_gold\".\"dim_asset\"",
+      "resource_type": "model",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "dimensions",
+        "dim_asset"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.Vietnam_economic_lakehouse.sk"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.stg_ohlc",
+          "model.Vietnam_economic_lakehouse.stg_interest_rate",
+          "model.Vietnam_economic_lakehouse.dim_asset_class",
+          "model.Vietnam_economic_lakehouse.dim_market"
+        ]
+      },
+      "config": {
+        "materialized": "delta_table",
+        "enabled": true
+      }
+    },
+    "model.Vietnam_economic_lakehouse.dim_asset_class": {
+      "unique_id": "model.Vietnam_economic_lakehouse.dim_asset_class",
+      "name": "dim_asset_class",
+      "alias": "dim_asset_class",
+      "database": "zero-dep-check",
+      "schema": "main_gold",
+      "relation_name": "\"zero-dep-check\".\"main_gold\".\"dim_asset_class\"",
+      "resource_type": "model",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "dimensions",
+        "dim_asset_class"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.Vietnam_economic_lakehouse.sk"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.stg_ohlc",
+          "model.Vietnam_economic_lakehouse.stg_interest_rate"
+        ]
+      },
+      "config": {
+        "materialized": "delta_table",
+        "enabled": true
+      }
+    },
+    "model.Vietnam_economic_lakehouse.dim_capital_source": {
+      "unique_id": "model.Vietnam_economic_lakehouse.dim_capital_source",
+      "name": "dim_capital_source",
+      "alias": "dim_capital_source",
+      "database": "zero-dep-check",
+      "schema": "main_gold",
+      "relation_name": "\"zero-dep-check\".\"main_gold\".\"dim_capital_source\"",
+      "resource_type": "model",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "dimensions",
+        "dim_capital_source"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.Vietnam_economic_lakehouse.sk"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.stg_total_investment"
+        ]
+      },
+      "config": {
+        "materialized": "delta_table",
+        "enabled": true
+      }
+    },
+    "model.Vietnam_economic_lakehouse.dim_crop": {
+      "unique_id": "model.Vietnam_economic_lakehouse.dim_crop",
+      "name": "dim_crop",
+      "alias": "dim_crop",
+      "database": "zero-dep-check",
+      "schema": "main_gold",
+      "relation_name": "\"zero-dep-check\".\"main_gold\".\"dim_crop\"",
+      "resource_type": "model",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "dimensions",
+        "dim_crop"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.Vietnam_economic_lakehouse.sk"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.stg_agriculture",
+          "model.Vietnam_economic_lakehouse.dim_crop_group"
+        ]
+      },
+      "config": {
+        "materialized": "delta_table",
+        "enabled": true
+      }
+    },
+    "model.Vietnam_economic_lakehouse.dim_crop_group": {
+      "unique_id": "model.Vietnam_economic_lakehouse.dim_crop_group",
+      "name": "dim_crop_group",
+      "alias": "dim_crop_group",
+      "database": "zero-dep-check",
+      "schema": "main_gold",
+      "relation_name": "\"zero-dep-check\".\"main_gold\".\"dim_crop_group\"",
+      "resource_type": "model",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "dimensions",
+        "dim_crop_group"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": []
+      },
+      "config": {
+        "materialized": "delta_table",
+        "enabled": true
+      }
+    },
+    "model.Vietnam_economic_lakehouse.dim_indicator": {
+      "unique_id": "model.Vietnam_economic_lakehouse.dim_indicator",
+      "name": "dim_indicator",
+      "alias": "dim_indicator",
+      "database": "zero-dep-check",
+      "schema": "main_gold",
+      "relation_name": "\"zero-dep-check\".\"main_gold\".\"dim_indicator\"",
+      "resource_type": "model",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "dimensions",
+        "dim_indicator"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.Vietnam_economic_lakehouse.sk"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.stg_macro_indicator",
+          "model.Vietnam_economic_lakehouse.dim_indicator_group"
+        ]
+      },
+      "config": {
+        "materialized": "delta_table",
+        "enabled": true
+      }
+    },
+    "model.Vietnam_economic_lakehouse.dim_indicator_group": {
+      "unique_id": "model.Vietnam_economic_lakehouse.dim_indicator_group",
+      "name": "dim_indicator_group",
+      "alias": "dim_indicator_group",
+      "database": "zero-dep-check",
+      "schema": "main_gold",
+      "relation_name": "\"zero-dep-check\".\"main_gold\".\"dim_indicator_group\"",
+      "resource_type": "model",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "dimensions",
+        "dim_indicator_group"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.Vietnam_economic_lakehouse.sk"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.stg_macro_indicator"
+        ]
+      },
+      "config": {
+        "materialized": "delta_table",
+        "enabled": true
+      }
+    },
+    "model.Vietnam_economic_lakehouse.dim_market": {
+      "unique_id": "model.Vietnam_economic_lakehouse.dim_market",
+      "name": "dim_market",
+      "alias": "dim_market",
+      "database": "zero-dep-check",
+      "schema": "main_gold",
+      "relation_name": "\"zero-dep-check\".\"main_gold\".\"dim_market\"",
+      "resource_type": "model",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "dimensions",
+        "dim_market"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.Vietnam_economic_lakehouse.sk"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.stg_ohlc",
+          "model.Vietnam_economic_lakehouse.stg_interest_rate"
+        ]
+      },
+      "config": {
+        "materialized": "delta_table",
+        "enabled": true
+      }
+    },
+    "model.Vietnam_economic_lakehouse.dim_product": {
+      "unique_id": "model.Vietnam_economic_lakehouse.dim_product",
+      "name": "dim_product",
+      "alias": "dim_product",
+      "database": "zero-dep-check",
+      "schema": "main_gold",
+      "relation_name": "\"zero-dep-check\".\"main_gold\".\"dim_product\"",
+      "resource_type": "model",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "dimensions",
+        "dim_product"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.Vietnam_economic_lakehouse.sk"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.stg_production_output",
+          "model.Vietnam_economic_lakehouse.dim_product_category"
+        ]
+      },
+      "config": {
+        "materialized": "delta_table",
+        "enabled": true
+      }
+    },
+    "model.Vietnam_economic_lakehouse.dim_product_category": {
+      "unique_id": "model.Vietnam_economic_lakehouse.dim_product_category",
+      "name": "dim_product_category",
+      "alias": "dim_product_category",
+      "database": "zero-dep-check",
+      "schema": "main_gold",
+      "relation_name": "\"zero-dep-check\".\"main_gold\".\"dim_product_category\"",
+      "resource_type": "model",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "dimensions",
+        "dim_product_category"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.Vietnam_economic_lakehouse.sk"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.stg_production_output"
+        ]
+      },
+      "config": {
+        "materialized": "delta_table",
+        "enabled": true
+      }
+    },
+    "model.Vietnam_economic_lakehouse.dim_sector": {
+      "unique_id": "model.Vietnam_economic_lakehouse.dim_sector",
+      "name": "dim_sector",
+      "alias": "dim_sector",
+      "database": "zero-dep-check",
+      "schema": "main_gold",
+      "relation_name": "\"zero-dep-check\".\"main_gold\".\"dim_sector\"",
+      "resource_type": "model",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "dimensions",
+        "dim_sector"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.Vietnam_economic_lakehouse.sk"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.stg_gdp"
+        ]
+      },
+      "config": {
+        "materialized": "delta_table",
+        "enabled": true
+      }
+    },
+    "model.Vietnam_economic_lakehouse.dim_source": {
+      "unique_id": "model.Vietnam_economic_lakehouse.dim_source",
+      "name": "dim_source",
+      "alias": "dim_source",
+      "database": "zero-dep-check",
+      "schema": "main_gold",
+      "relation_name": "\"zero-dep-check\".\"main_gold\".\"dim_source\"",
+      "resource_type": "model",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "dimensions",
+        "dim_source"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.Vietnam_economic_lakehouse.sk"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.stg_macro_indicator",
+          "model.Vietnam_economic_lakehouse.stg_ohlc",
+          "model.Vietnam_economic_lakehouse.stg_interest_rate",
+          "model.Vietnam_economic_lakehouse.stg_production_output",
+          "model.Vietnam_economic_lakehouse.stg_gdp",
+          "model.Vietnam_economic_lakehouse.stg_total_investment"
+        ]
+      },
+      "config": {
+        "materialized": "delta_table",
+        "enabled": true
+      }
+    },
+    "model.Vietnam_economic_lakehouse.dim_sub_sector": {
+      "unique_id": "model.Vietnam_economic_lakehouse.dim_sub_sector",
+      "name": "dim_sub_sector",
+      "alias": "dim_sub_sector",
+      "database": "zero-dep-check",
+      "schema": "main_gold",
+      "relation_name": "\"zero-dep-check\".\"main_gold\".\"dim_sub_sector\"",
+      "resource_type": "model",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "dimensions",
+        "dim_sub_sector"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.Vietnam_economic_lakehouse.sk"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.stg_gdp",
+          "model.Vietnam_economic_lakehouse.dim_sector"
+        ]
+      },
+      "config": {
+        "materialized": "delta_table",
+        "enabled": true
+      }
+    },
+    "model.Vietnam_economic_lakehouse.dim_term": {
+      "unique_id": "model.Vietnam_economic_lakehouse.dim_term",
+      "name": "dim_term",
+      "alias": "dim_term",
+      "database": "zero-dep-check",
+      "schema": "main_gold",
+      "relation_name": "\"zero-dep-check\".\"main_gold\".\"dim_term\"",
+      "resource_type": "model",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "dimensions",
+        "dim_term"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.Vietnam_economic_lakehouse.sk"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.stg_interest_rate"
+        ]
+      },
+      "config": {
+        "materialized": "delta_table",
+        "enabled": true
+      }
+    },
+    "model.Vietnam_economic_lakehouse.dim_time": {
+      "unique_id": "model.Vietnam_economic_lakehouse.dim_time",
+      "name": "dim_time",
+      "alias": "dim_time",
+      "database": "zero-dep-check",
+      "schema": "main_gold",
+      "relation_name": "\"zero-dep-check\".\"main_gold\".\"dim_time\"",
+      "resource_type": "model",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "dimensions",
+        "dim_time"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": []
+      },
+      "config": {
+        "materialized": "delta_table",
+        "enabled": true
+      }
+    },
+    "model.Vietnam_economic_lakehouse.dim_unit": {
+      "unique_id": "model.Vietnam_economic_lakehouse.dim_unit",
+      "name": "dim_unit",
+      "alias": "dim_unit",
+      "database": "zero-dep-check",
+      "schema": "main_gold",
+      "relation_name": "\"zero-dep-check\".\"main_gold\".\"dim_unit\"",
+      "resource_type": "model",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "dimensions",
+        "dim_unit"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.Vietnam_economic_lakehouse.sk"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.stg_macro_indicator",
+          "model.Vietnam_economic_lakehouse.stg_ohlc",
+          "model.Vietnam_economic_lakehouse.stg_interest_rate",
+          "model.Vietnam_economic_lakehouse.stg_production_output",
+          "model.Vietnam_economic_lakehouse.stg_agriculture",
+          "model.Vietnam_economic_lakehouse.stg_gdp",
+          "model.Vietnam_economic_lakehouse.stg_total_investment"
+        ]
+      },
+      "config": {
+        "materialized": "delta_table",
+        "enabled": true
+      }
+    },
+    "model.Vietnam_economic_lakehouse.dim_unit_type": {
+      "unique_id": "model.Vietnam_economic_lakehouse.dim_unit_type",
+      "name": "dim_unit_type",
+      "alias": "dim_unit_type",
+      "database": "zero-dep-check",
+      "schema": "main_gold",
+      "relation_name": "\"zero-dep-check\".\"main_gold\".\"dim_unit_type\"",
+      "resource_type": "model",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "dimensions",
+        "dim_unit_type"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": []
+      },
+      "config": {
+        "materialized": "delta_table",
+        "enabled": true
+      }
+    },
+    "model.Vietnam_economic_lakehouse.fact_agriculture": {
+      "unique_id": "model.Vietnam_economic_lakehouse.fact_agriculture",
+      "name": "fact_agriculture",
+      "alias": "fact_agriculture",
+      "database": "zero-dep-check",
+      "schema": "main_gold",
+      "relation_name": "\"zero-dep-check\".\"main_gold\".\"fact_agriculture\"",
+      "resource_type": "model",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "facts",
+        "fact_agriculture"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.Vietnam_economic_lakehouse.sk"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.stg_agriculture",
+          "model.Vietnam_economic_lakehouse.dim_crop",
+          "model.Vietnam_economic_lakehouse.dim_time"
+        ]
+      },
+      "config": {
+        "materialized": "delta_table",
+        "enabled": true
+      }
+    },
+    "model.Vietnam_economic_lakehouse.fact_gdp": {
+      "unique_id": "model.Vietnam_economic_lakehouse.fact_gdp",
+      "name": "fact_gdp",
+      "alias": "fact_gdp",
+      "database": "zero-dep-check",
+      "schema": "main_gold",
+      "relation_name": "\"zero-dep-check\".\"main_gold\".\"fact_gdp\"",
+      "resource_type": "model",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "facts",
+        "fact_gdp"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.Vietnam_economic_lakehouse.sk"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.stg_gdp",
+          "model.Vietnam_economic_lakehouse.dim_time",
+          "model.Vietnam_economic_lakehouse.dim_sub_sector",
+          "model.Vietnam_economic_lakehouse.dim_unit",
+          "model.Vietnam_economic_lakehouse.dim_source"
+        ]
+      },
+      "config": {
+        "materialized": "delta_table",
+        "enabled": true
+      }
+    },
+    "model.Vietnam_economic_lakehouse.fact_interest_rate": {
+      "unique_id": "model.Vietnam_economic_lakehouse.fact_interest_rate",
+      "name": "fact_interest_rate",
+      "alias": "fact_interest_rate",
+      "database": "zero-dep-check",
+      "schema": "main_gold",
+      "relation_name": "\"zero-dep-check\".\"main_gold\".\"fact_interest_rate\"",
+      "resource_type": "model",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "facts",
+        "fact_interest_rate"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.Vietnam_economic_lakehouse.sk"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.dim_asset",
+          "model.Vietnam_economic_lakehouse.dim_asset_class",
+          "model.Vietnam_economic_lakehouse.dim_market",
+          "model.Vietnam_economic_lakehouse.stg_interest_rate",
+          "model.Vietnam_economic_lakehouse.dim_time",
+          "model.Vietnam_economic_lakehouse.dim_term",
+          "model.Vietnam_economic_lakehouse.dim_unit",
+          "model.Vietnam_economic_lakehouse.dim_source"
+        ]
+      },
+      "config": {
+        "materialized": "delta_table",
+        "enabled": true
+      }
+    },
+    "model.Vietnam_economic_lakehouse.fact_international_trade": {
+      "unique_id": "model.Vietnam_economic_lakehouse.fact_international_trade",
+      "name": "fact_international_trade",
+      "alias": "fact_international_trade",
+      "database": "zero-dep-check",
+      "schema": "main_gold",
+      "relation_name": "\"zero-dep-check\".\"main_gold\".\"fact_international_trade\"",
+      "resource_type": "model",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "facts",
+        "fact_international_trade"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.Vietnam_economic_lakehouse.sk"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.stg_trade_international",
+          "model.Vietnam_economic_lakehouse.dim_product_category",
+          "model.Vietnam_economic_lakehouse.dim_product",
+          "model.Vietnam_economic_lakehouse.dim_time"
+        ]
+      },
+      "config": {
+        "materialized": "delta_table",
+        "enabled": true
+      }
+    },
+    "model.Vietnam_economic_lakehouse.fact_macro_indicator": {
+      "unique_id": "model.Vietnam_economic_lakehouse.fact_macro_indicator",
+      "name": "fact_macro_indicator",
+      "alias": "fact_macro_indicator",
+      "database": "zero-dep-check",
+      "schema": "main_gold",
+      "relation_name": "\"zero-dep-check\".\"main_gold\".\"fact_macro_indicator\"",
+      "resource_type": "model",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "facts",
+        "fact_macro_indicator"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.Vietnam_economic_lakehouse.sk"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.stg_macro_indicator",
+          "model.Vietnam_economic_lakehouse.dim_time",
+          "model.Vietnam_economic_lakehouse.dim_indicator",
+          "model.Vietnam_economic_lakehouse.dim_unit",
+          "model.Vietnam_economic_lakehouse.dim_source"
+        ]
+      },
+      "config": {
+        "materialized": "delta_table",
+        "enabled": true
+      }
+    },
+    "model.Vietnam_economic_lakehouse.fact_ohlc": {
+      "unique_id": "model.Vietnam_economic_lakehouse.fact_ohlc",
+      "name": "fact_ohlc",
+      "alias": "fact_ohlc",
+      "database": "zero-dep-check",
+      "schema": "main_gold",
+      "relation_name": "\"zero-dep-check\".\"main_gold\".\"fact_ohlc\"",
+      "resource_type": "model",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "facts",
+        "fact_ohlc"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.Vietnam_economic_lakehouse.sk"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.dim_asset",
+          "model.Vietnam_economic_lakehouse.dim_asset_class",
+          "model.Vietnam_economic_lakehouse.dim_market",
+          "model.Vietnam_economic_lakehouse.stg_ohlc",
+          "model.Vietnam_economic_lakehouse.dim_time",
+          "model.Vietnam_economic_lakehouse.dim_source"
+        ]
+      },
+      "config": {
+        "materialized": "delta_table",
+        "enabled": true
+      }
+    },
+    "model.Vietnam_economic_lakehouse.fact_production_output": {
+      "unique_id": "model.Vietnam_economic_lakehouse.fact_production_output",
+      "name": "fact_production_output",
+      "alias": "fact_production_output",
+      "database": "zero-dep-check",
+      "schema": "main_gold",
+      "relation_name": "\"zero-dep-check\".\"main_gold\".\"fact_production_output\"",
+      "resource_type": "model",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "facts",
+        "fact_production_output"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.Vietnam_economic_lakehouse.sk"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.stg_production_output",
+          "model.Vietnam_economic_lakehouse.dim_time",
+          "model.Vietnam_economic_lakehouse.dim_product_category",
+          "model.Vietnam_economic_lakehouse.dim_product"
+        ]
+      },
+      "config": {
+        "materialized": "delta_table",
+        "enabled": true
+      }
+    },
+    "model.Vietnam_economic_lakehouse.fact_total_investment": {
+      "unique_id": "model.Vietnam_economic_lakehouse.fact_total_investment",
+      "name": "fact_total_investment",
+      "alias": "fact_total_investment",
+      "database": "zero-dep-check",
+      "schema": "main_gold",
+      "relation_name": "\"zero-dep-check\".\"main_gold\".\"fact_total_investment\"",
+      "resource_type": "model",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "facts",
+        "fact_total_investment"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.Vietnam_economic_lakehouse.sk"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.stg_total_investment",
+          "model.Vietnam_economic_lakehouse.dim_time",
+          "model.Vietnam_economic_lakehouse.dim_capital_source",
+          "model.Vietnam_economic_lakehouse.dim_unit",
+          "model.Vietnam_economic_lakehouse.dim_source"
+        ]
+      },
+      "config": {
+        "materialized": "delta_table",
+        "enabled": true
+      }
+    },
+    "model.Vietnam_economic_lakehouse.mart_agriculture_metrics": {
+      "unique_id": "model.Vietnam_economic_lakehouse.mart_agriculture_metrics",
+      "name": "mart_agriculture_metrics",
+      "alias": "mart_agriculture_metrics",
+      "database": "zero-dep-check",
+      "schema": "main_marts",
+      "relation_name": "\"zero-dep-check\".\"main_marts\".\"mart_agriculture_metrics\"",
+      "resource_type": "model",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "marts",
+        "mart_agriculture_metrics"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.Vietnam_economic_lakehouse.safe_divide"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.fact_agriculture",
+          "model.Vietnam_economic_lakehouse.dim_time",
+          "model.Vietnam_economic_lakehouse.dim_crop",
+          "model.Vietnam_economic_lakehouse.dim_crop_group"
+        ]
+      },
+      "config": {
+        "materialized": "delta_table",
+        "enabled": true
+      }
+    },
+    "model.Vietnam_economic_lakehouse.mart_gdp_metrics": {
+      "unique_id": "model.Vietnam_economic_lakehouse.mart_gdp_metrics",
+      "name": "mart_gdp_metrics",
+      "alias": "mart_gdp_metrics",
+      "database": "zero-dep-check",
+      "schema": "main_marts",
+      "relation_name": "\"zero-dep-check\".\"main_marts\".\"mart_gdp_metrics\"",
+      "resource_type": "model",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "marts",
+        "mart_gdp_metrics"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.Vietnam_economic_lakehouse.safe_divide"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.fact_gdp",
+          "model.Vietnam_economic_lakehouse.dim_time",
+          "model.Vietnam_economic_lakehouse.dim_sub_sector",
+          "model.Vietnam_economic_lakehouse.dim_sector",
+          "model.Vietnam_economic_lakehouse.dim_unit"
+        ]
+      },
+      "config": {
+        "materialized": "delta_table",
+        "enabled": true
+      }
+    },
+    "model.Vietnam_economic_lakehouse.mart_macro_metrics": {
+      "unique_id": "model.Vietnam_economic_lakehouse.mart_macro_metrics",
+      "name": "mart_macro_metrics",
+      "alias": "mart_macro_metrics",
+      "database": "zero-dep-check",
+      "schema": "main_marts",
+      "relation_name": "\"zero-dep-check\".\"main_marts\".\"mart_macro_metrics\"",
+      "resource_type": "model",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "marts",
+        "mart_macro_metrics"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.Vietnam_economic_lakehouse.safe_divide"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.fact_macro_indicator",
+          "model.Vietnam_economic_lakehouse.dim_time",
+          "model.Vietnam_economic_lakehouse.dim_indicator",
+          "model.Vietnam_economic_lakehouse.dim_indicator_group",
+          "model.Vietnam_economic_lakehouse.dim_unit",
+          "model.Vietnam_economic_lakehouse.dim_source"
+        ]
+      },
+      "config": {
+        "materialized": "delta_table",
+        "enabled": true
+      }
+    },
+    "model.Vietnam_economic_lakehouse.mart_ohlc_metrics": {
+      "unique_id": "model.Vietnam_economic_lakehouse.mart_ohlc_metrics",
+      "name": "mart_ohlc_metrics",
+      "alias": "mart_ohlc_metrics",
+      "database": "zero-dep-check",
+      "schema": "main_marts",
+      "relation_name": "\"zero-dep-check\".\"main_marts\".\"mart_ohlc_metrics\"",
+      "resource_type": "model",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "marts",
+        "mart_ohlc_metrics"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.Vietnam_economic_lakehouse.safe_divide"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.fact_ohlc",
+          "model.Vietnam_economic_lakehouse.dim_time",
+          "model.Vietnam_economic_lakehouse.dim_asset",
+          "model.Vietnam_economic_lakehouse.dim_asset_class",
+          "model.Vietnam_economic_lakehouse.dim_market",
+          "model.Vietnam_economic_lakehouse.dim_source"
+        ]
+      },
+      "config": {
+        "materialized": "delta_table",
+        "enabled": true
+      }
+    },
+    "model.Vietnam_economic_lakehouse.mart_product_market_metrics": {
+      "unique_id": "model.Vietnam_economic_lakehouse.mart_product_market_metrics",
+      "name": "mart_product_market_metrics",
+      "alias": "mart_product_market_metrics",
+      "database": "zero-dep-check",
+      "schema": "main_marts",
+      "relation_name": "\"zero-dep-check\".\"main_marts\".\"mart_product_market_metrics\"",
+      "resource_type": "model",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "marts",
+        "mart_product_market_metrics"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.Vietnam_economic_lakehouse.safe_divide"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.fact_production_output",
+          "model.Vietnam_economic_lakehouse.dim_time",
+          "model.Vietnam_economic_lakehouse.dim_product",
+          "model.Vietnam_economic_lakehouse.dim_product_category",
+          "model.Vietnam_economic_lakehouse.dim_unit"
+        ]
+      },
+      "config": {
+        "materialized": "delta_table",
+        "enabled": true
+      }
+    },
+    "model.Vietnam_economic_lakehouse.stg_agriculture": {
+      "unique_id": "model.Vietnam_economic_lakehouse.stg_agriculture",
+      "name": "stg_agriculture",
+      "alias": "stg_agriculture",
+      "database": "zero-dep-check",
+      "schema": "main_staging",
+      "relation_name": "\"zero-dep-check\".\"main_staging\".\"stg_agriculture\"",
+      "resource_type": "model",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "staging",
+        "stg_agriculture"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": [
+          "source.Vietnam_economic_lakehouse.silver.staple_crops",
+          "source.Vietnam_economic_lakehouse.silver.perennial_crops",
+          "source.Vietnam_economic_lakehouse.silver.annual_crops"
+        ]
+      },
+      "config": {
+        "materialized": "view",
+        "enabled": true
+      }
+    },
+    "model.Vietnam_economic_lakehouse.stg_gdp": {
+      "unique_id": "model.Vietnam_economic_lakehouse.stg_gdp",
+      "name": "stg_gdp",
+      "alias": "stg_gdp",
+      "database": "zero-dep-check",
+      "schema": "main_staging",
+      "relation_name": "\"zero-dep-check\".\"main_staging\".\"stg_gdp\"",
+      "resource_type": "model",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "staging",
+        "stg_gdp"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": [
+          "source.Vietnam_economic_lakehouse.silver.gdp"
+        ]
+      },
+      "config": {
+        "materialized": "view",
+        "enabled": true
+      }
+    },
+    "model.Vietnam_economic_lakehouse.stg_interest_rate": {
+      "unique_id": "model.Vietnam_economic_lakehouse.stg_interest_rate",
+      "name": "stg_interest_rate",
+      "alias": "stg_interest_rate",
+      "database": "zero-dep-check",
+      "schema": "main_staging",
+      "relation_name": "\"zero-dep-check\".\"main_staging\".\"stg_interest_rate\"",
+      "resource_type": "model",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "staging",
+        "stg_interest_rate"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": [
+          "source.Vietnam_economic_lakehouse.silver.interest_rate"
+        ]
+      },
+      "config": {
+        "materialized": "view",
+        "enabled": true
+      }
+    },
+    "model.Vietnam_economic_lakehouse.stg_macro_indicator": {
+      "unique_id": "model.Vietnam_economic_lakehouse.stg_macro_indicator",
+      "name": "stg_macro_indicator",
+      "alias": "stg_macro_indicator",
+      "database": "zero-dep-check",
+      "schema": "main_staging",
+      "relation_name": "\"zero-dep-check\".\"main_staging\".\"stg_macro_indicator\"",
+      "resource_type": "model",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "staging",
+        "stg_macro_indicator"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": [
+          "source.Vietnam_economic_lakehouse.silver.cpi_mom",
+          "source.Vietnam_economic_lakehouse.silver.core_inflation_rate",
+          "source.Vietnam_economic_lakehouse.silver.ppi_qoq",
+          "source.Vietnam_economic_lakehouse.silver.cpi_base_year",
+          "source.Vietnam_economic_lakehouse.silver.m2",
+          "source.Vietnam_economic_lakehouse.silver.broad_money"
+        ]
+      },
+      "config": {
+        "materialized": "view",
+        "enabled": true
+      }
+    },
+    "model.Vietnam_economic_lakehouse.stg_ohlc": {
+      "unique_id": "model.Vietnam_economic_lakehouse.stg_ohlc",
+      "name": "stg_ohlc",
+      "alias": "stg_ohlc",
+      "database": "zero-dep-check",
+      "schema": "main_staging",
+      "relation_name": "\"zero-dep-check\".\"main_staging\".\"stg_ohlc\"",
+      "resource_type": "model",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "staging",
+        "stg_ohlc"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": [
+          "source.Vietnam_economic_lakehouse.silver.ohlc_vietnam_index",
+          "source.Vietnam_economic_lakehouse.silver.ohlc_index",
+          "source.Vietnam_economic_lakehouse.silver.ohlc_currency",
+          "source.Vietnam_economic_lakehouse.silver.ohlc_commodity"
+        ]
+      },
+      "config": {
+        "materialized": "view",
+        "enabled": true
+      }
+    },
+    "model.Vietnam_economic_lakehouse.stg_production_output": {
+      "unique_id": "model.Vietnam_economic_lakehouse.stg_production_output",
+      "name": "stg_production_output",
+      "alias": "stg_production_output",
+      "database": "zero-dep-check",
+      "schema": "main_staging",
+      "relation_name": "\"zero-dep-check\".\"main_staging\".\"stg_production_output\"",
+      "resource_type": "model",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "staging",
+        "stg_production_output"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": [
+          "source.Vietnam_economic_lakehouse.silver.aquatic_products",
+          "source.Vietnam_economic_lakehouse.silver.livestock",
+          "source.Vietnam_economic_lakehouse.silver.gasoline",
+          "source.Vietnam_economic_lakehouse.silver.forestry",
+          "source.Vietnam_economic_lakehouse.silver.industry_product"
+        ]
+      },
+      "config": {
+        "materialized": "view",
+        "enabled": true
+      }
+    },
+    "model.Vietnam_economic_lakehouse.stg_total_investment": {
+      "unique_id": "model.Vietnam_economic_lakehouse.stg_total_investment",
+      "name": "stg_total_investment",
+      "alias": "stg_total_investment",
+      "database": "zero-dep-check",
+      "schema": "main_staging",
+      "relation_name": "\"zero-dep-check\".\"main_staging\".\"stg_total_investment\"",
+      "resource_type": "model",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "staging",
+        "stg_total_investment"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": [
+          "source.Vietnam_economic_lakehouse.silver.investment"
+        ]
+      },
+      "config": {
+        "materialized": "view",
+        "enabled": true
+      }
+    },
+    "model.Vietnam_economic_lakehouse.stg_trade_international": {
+      "unique_id": "model.Vietnam_economic_lakehouse.stg_trade_international",
+      "name": "stg_trade_international",
+      "alias": "stg_trade_international",
+      "database": "zero-dep-check",
+      "schema": "main_staging",
+      "relation_name": "\"zero-dep-check\".\"main_staging\".\"stg_trade_international\"",
+      "resource_type": "model",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "staging",
+        "stg_trade_international"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": [
+          "source.Vietnam_economic_lakehouse.silver.international_ecommerce"
+        ]
+      },
+      "config": {
+        "materialized": "view",
+        "enabled": true
+      }
+    },
+    "test.Vietnam_economic_lakehouse.not_null_dim_asset_asset_key.a810898cee": {
+      "unique_id": "test.Vietnam_economic_lakehouse.not_null_dim_asset_asset_key.a810898cee",
+      "name": "not_null_dim_asset_asset_key",
+      "alias": "not_null_dim_asset_asset_key",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "not_null_dim_asset_asset_key"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_not_null"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.dim_asset"
+        ]
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": true
+      }
+    },
+    "test.Vietnam_economic_lakehouse.not_null_dim_crop_crop_key.15381b42ae": {
+      "unique_id": "test.Vietnam_economic_lakehouse.not_null_dim_crop_crop_key.15381b42ae",
+      "name": "not_null_dim_crop_crop_key",
+      "alias": "not_null_dim_crop_crop_key",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "not_null_dim_crop_crop_key"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_not_null"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.dim_crop"
+        ]
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": true
+      }
+    },
+    "test.Vietnam_economic_lakehouse.not_null_dim_indicator_indicator_key.45b7ea1a1c": {
+      "unique_id": "test.Vietnam_economic_lakehouse.not_null_dim_indicator_indicator_key.45b7ea1a1c",
+      "name": "not_null_dim_indicator_indicator_key",
+      "alias": "not_null_dim_indicator_indicator_key",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "not_null_dim_indicator_indicator_key"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_not_null"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.dim_indicator"
+        ]
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": true
+      }
+    },
+    "test.Vietnam_economic_lakehouse.not_null_dim_product_product_key.f0e1d838d3": {
+      "unique_id": "test.Vietnam_economic_lakehouse.not_null_dim_product_product_key.f0e1d838d3",
+      "name": "not_null_dim_product_product_key",
+      "alias": "not_null_dim_product_product_key",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "not_null_dim_product_product_key"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_not_null"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.dim_product"
+        ]
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": true
+      }
+    },
+    "test.Vietnam_economic_lakehouse.not_null_dim_source_source_key.72641c79b5": {
+      "unique_id": "test.Vietnam_economic_lakehouse.not_null_dim_source_source_key.72641c79b5",
+      "name": "not_null_dim_source_source_key",
+      "alias": "not_null_dim_source_source_key",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "not_null_dim_source_source_key"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_not_null"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.dim_source"
+        ]
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": true
+      }
+    },
+    "test.Vietnam_economic_lakehouse.not_null_dim_sub_sector_sub_sector_key.086336310b": {
+      "unique_id": "test.Vietnam_economic_lakehouse.not_null_dim_sub_sector_sub_sector_key.086336310b",
+      "name": "not_null_dim_sub_sector_sub_sector_key",
+      "alias": "not_null_dim_sub_sector_sub_sector_key",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "not_null_dim_sub_sector_sub_sector_key"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_not_null"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.dim_sub_sector"
+        ]
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": true
+      }
+    },
+    "test.Vietnam_economic_lakehouse.not_null_dim_time_time_key.0069bfd97e": {
+      "unique_id": "test.Vietnam_economic_lakehouse.not_null_dim_time_time_key.0069bfd97e",
+      "name": "not_null_dim_time_time_key",
+      "alias": "not_null_dim_time_time_key",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "not_null_dim_time_time_key"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_not_null"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.dim_time"
+        ]
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": true
+      }
+    },
+    "test.Vietnam_economic_lakehouse.not_null_dim_unit_unit_key.6bc86b08f4": {
+      "unique_id": "test.Vietnam_economic_lakehouse.not_null_dim_unit_unit_key.6bc86b08f4",
+      "name": "not_null_dim_unit_unit_key",
+      "alias": "not_null_dim_unit_unit_key",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "not_null_dim_unit_unit_key"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_not_null"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.dim_unit"
+        ]
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": true
+      }
+    },
+    "test.Vietnam_economic_lakehouse.not_null_fact_agriculture_crop_key.2821bbbc77": {
+      "unique_id": "test.Vietnam_economic_lakehouse.not_null_fact_agriculture_crop_key.2821bbbc77",
+      "name": "not_null_fact_agriculture_crop_key",
+      "alias": "not_null_fact_agriculture_crop_key",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "not_null_fact_agriculture_crop_key"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_not_null"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.fact_agriculture"
+        ]
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": true
+      }
+    },
+    "test.Vietnam_economic_lakehouse.not_null_fact_agriculture_fact_agri_key.6192f37ab7": {
+      "unique_id": "test.Vietnam_economic_lakehouse.not_null_fact_agriculture_fact_agri_key.6192f37ab7",
+      "name": "not_null_fact_agriculture_fact_agri_key",
+      "alias": "not_null_fact_agriculture_fact_agri_key",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "not_null_fact_agriculture_fact_agri_key"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_not_null"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.fact_agriculture"
+        ]
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": true
+      }
+    },
+    "test.Vietnam_economic_lakehouse.not_null_fact_agriculture_source_key.b21abb5e99": {
+      "unique_id": "test.Vietnam_economic_lakehouse.not_null_fact_agriculture_source_key.b21abb5e99",
+      "name": "not_null_fact_agriculture_source_key",
+      "alias": "not_null_fact_agriculture_source_key",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "not_null_fact_agriculture_source_key"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_not_null"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.fact_agriculture"
+        ]
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": true
+      }
+    },
+    "test.Vietnam_economic_lakehouse.not_null_fact_agriculture_time_key.719845a137": {
+      "unique_id": "test.Vietnam_economic_lakehouse.not_null_fact_agriculture_time_key.719845a137",
+      "name": "not_null_fact_agriculture_time_key",
+      "alias": "not_null_fact_agriculture_time_key",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "not_null_fact_agriculture_time_key"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_not_null"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.fact_agriculture"
+        ]
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": true
+      }
+    },
+    "test.Vietnam_economic_lakehouse.not_null_fact_gdp_fact_gdp_key.7d238e6839": {
+      "unique_id": "test.Vietnam_economic_lakehouse.not_null_fact_gdp_fact_gdp_key.7d238e6839",
+      "name": "not_null_fact_gdp_fact_gdp_key",
+      "alias": "not_null_fact_gdp_fact_gdp_key",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "not_null_fact_gdp_fact_gdp_key"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_not_null"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.fact_gdp"
+        ]
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": true
+      }
+    },
+    "test.Vietnam_economic_lakehouse.not_null_fact_interest_rate_fact_interest_key.609a3dfb70": {
+      "unique_id": "test.Vietnam_economic_lakehouse.not_null_fact_interest_rate_fact_interest_key.609a3dfb70",
+      "name": "not_null_fact_interest_rate_fact_interest_key",
+      "alias": "not_null_fact_interest_rate_fact_interest_key",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "not_null_fact_interest_rate_fact_interest_key"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_not_null"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.fact_interest_rate"
+        ]
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": true
+      }
+    },
+    "test.Vietnam_economic_lakehouse.not_null_fact_international_trade_fact_trade_key.505c6f56b0": {
+      "unique_id": "test.Vietnam_economic_lakehouse.not_null_fact_international_trade_fact_trade_key.505c6f56b0",
+      "name": "not_null_fact_international_trade_fact_trade_key",
+      "alias": "not_null_fact_international_trade_fact_trade_key",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "not_null_fact_international_trade_fact_trade_key"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_not_null"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.fact_international_trade"
+        ]
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": true
+      }
+    },
+    "test.Vietnam_economic_lakehouse.not_null_fact_international_trade_product_key.0267c9e8d5": {
+      "unique_id": "test.Vietnam_economic_lakehouse.not_null_fact_international_trade_product_key.0267c9e8d5",
+      "name": "not_null_fact_international_trade_product_key",
+      "alias": "not_null_fact_international_trade_product_key",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "not_null_fact_international_trade_product_key"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_not_null"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.fact_international_trade"
+        ]
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": true
+      }
+    },
+    "test.Vietnam_economic_lakehouse.not_null_fact_international_trade_time_key.215855037b": {
+      "unique_id": "test.Vietnam_economic_lakehouse.not_null_fact_international_trade_time_key.215855037b",
+      "name": "not_null_fact_international_trade_time_key",
+      "alias": "not_null_fact_international_trade_time_key",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "not_null_fact_international_trade_time_key"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_not_null"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.fact_international_trade"
+        ]
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": true
+      }
+    },
+    "test.Vietnam_economic_lakehouse.not_null_fact_macro_indicator_fact_key.8075f821de": {
+      "unique_id": "test.Vietnam_economic_lakehouse.not_null_fact_macro_indicator_fact_key.8075f821de",
+      "name": "not_null_fact_macro_indicator_fact_key",
+      "alias": "not_null_fact_macro_indicator_fact_key",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "not_null_fact_macro_indicator_fact_key"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_not_null"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.fact_macro_indicator"
+        ]
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": true
+      }
+    },
+    "test.Vietnam_economic_lakehouse.not_null_fact_ohlc_fact_ohlc_key.13a2d473c0": {
+      "unique_id": "test.Vietnam_economic_lakehouse.not_null_fact_ohlc_fact_ohlc_key.13a2d473c0",
+      "name": "not_null_fact_ohlc_fact_ohlc_key",
+      "alias": "not_null_fact_ohlc_fact_ohlc_key",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "not_null_fact_ohlc_fact_ohlc_key"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_not_null"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.fact_ohlc"
+        ]
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": true
+      }
+    },
+    "test.Vietnam_economic_lakehouse.not_null_fact_production_output_fact_production_key.f2c1742ccd": {
+      "unique_id": "test.Vietnam_economic_lakehouse.not_null_fact_production_output_fact_production_key.f2c1742ccd",
+      "name": "not_null_fact_production_output_fact_production_key",
+      "alias": "not_null_fact_production_output_fact_production_key",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "not_null_fact_production_output_fact_production_key"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_not_null"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.fact_production_output"
+        ]
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": true
+      }
+    },
+    "test.Vietnam_economic_lakehouse.not_null_fact_production_output_product_category_key.8afbc83794": {
+      "unique_id": "test.Vietnam_economic_lakehouse.not_null_fact_production_output_product_category_key.8afbc83794",
+      "name": "not_null_fact_production_output_product_category_key",
+      "alias": "not_null_fact_production_output_product_category_key",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "not_null_fact_production_output_product_category_key"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_not_null"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.fact_production_output"
+        ]
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": true
+      }
+    },
+    "test.Vietnam_economic_lakehouse.not_null_fact_production_output_product_key.628825d4fd": {
+      "unique_id": "test.Vietnam_economic_lakehouse.not_null_fact_production_output_product_key.628825d4fd",
+      "name": "not_null_fact_production_output_product_key",
+      "alias": "not_null_fact_production_output_product_key",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "not_null_fact_production_output_product_key"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_not_null"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.fact_production_output"
+        ]
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": true
+      }
+    },
+    "test.Vietnam_economic_lakehouse.not_null_fact_production_output_time_key.2d868d7063": {
+      "unique_id": "test.Vietnam_economic_lakehouse.not_null_fact_production_output_time_key.2d868d7063",
+      "name": "not_null_fact_production_output_time_key",
+      "alias": "not_null_fact_production_output_time_key",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "not_null_fact_production_output_time_key"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_not_null"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.fact_production_output"
+        ]
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": true
+      }
+    },
+    "test.Vietnam_economic_lakehouse.not_null_fact_production_output_value.b31104d276": {
+      "unique_id": "test.Vietnam_economic_lakehouse.not_null_fact_production_output_value.b31104d276",
+      "name": "not_null_fact_production_output_value",
+      "alias": "not_null_fact_production_output_value",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "not_null_fact_production_output_value"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_not_null"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.fact_production_output"
+        ]
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": true
+      }
+    },
+    "test.Vietnam_economic_lakehouse.not_null_fact_total_investment_fact_total_investment_key.a3269e1c27": {
+      "unique_id": "test.Vietnam_economic_lakehouse.not_null_fact_total_investment_fact_total_investment_key.a3269e1c27",
+      "name": "not_null_fact_total_investment_fact_total_investment_key",
+      "alias": "not_null_fact_total_investment_fact_total_investment_key",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "not_null_fact_total_investment_fact_total_investment_key"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_not_null"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.fact_total_investment"
+        ]
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": true
+      }
+    },
+    "test.Vietnam_economic_lakehouse.not_null_fact_total_investment_source_key.e569c9aff5": {
+      "unique_id": "test.Vietnam_economic_lakehouse.not_null_fact_total_investment_source_key.e569c9aff5",
+      "name": "not_null_fact_total_investment_source_key",
+      "alias": "not_null_fact_total_investment_source_key",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "not_null_fact_total_investment_source_key"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_not_null"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.fact_total_investment"
+        ]
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": true
+      }
+    },
+    "test.Vietnam_economic_lakehouse.not_null_fact_total_investment_time_key.d82cd8714a": {
+      "unique_id": "test.Vietnam_economic_lakehouse.not_null_fact_total_investment_time_key.d82cd8714a",
+      "name": "not_null_fact_total_investment_time_key",
+      "alias": "not_null_fact_total_investment_time_key",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "not_null_fact_total_investment_time_key"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_not_null"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.fact_total_investment"
+        ]
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": true
+      }
+    },
+    "test.Vietnam_economic_lakehouse.not_null_fact_total_investment_unit_key.75f71a6f11": {
+      "unique_id": "test.Vietnam_economic_lakehouse.not_null_fact_total_investment_unit_key.75f71a6f11",
+      "name": "not_null_fact_total_investment_unit_key",
+      "alias": "not_null_fact_total_investment_unit_key",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "not_null_fact_total_investment_unit_key"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_not_null"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.fact_total_investment"
+        ]
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": true
+      }
+    },
+    "test.Vietnam_economic_lakehouse.relationships_dim_unit_unit_type_key__unit_type_key__ref_dim_unit_type_.ecf9ad1f78": {
+      "unique_id": "test.Vietnam_economic_lakehouse.relationships_dim_unit_unit_type_key__unit_type_key__ref_dim_unit_type_.ecf9ad1f78",
+      "name": "relationships_dim_unit_unit_type_key__unit_type_key__ref_dim_unit_type_",
+      "alias": "relationships_dim_unit_107a416d43a66a3874c36329577bb2b3",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "relationships_dim_unit_unit_type_key__unit_type_key__ref_dim_unit_type_"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_relationships",
+          "macro.dbt.get_where_subquery"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.dim_unit_type",
+          "model.Vietnam_economic_lakehouse.dim_unit"
+        ]
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": true
+      }
+    },
+    "test.Vietnam_economic_lakehouse.relationships_fact_gdp_sub_sector_key__sub_sector_key__ref_dim_sub_sector_.9753573e53": {
+      "unique_id": "test.Vietnam_economic_lakehouse.relationships_fact_gdp_sub_sector_key__sub_sector_key__ref_dim_sub_sector_.9753573e53",
+      "name": "relationships_fact_gdp_sub_sector_key__sub_sector_key__ref_dim_sub_sector_",
+      "alias": "relationships_fact_gdp_bb67ee654683f71db07d2f306898242b",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "relationships_fact_gdp_sub_sector_key__sub_sector_key__ref_dim_sub_sector_"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_relationships",
+          "macro.dbt.get_where_subquery"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.dim_sub_sector",
+          "model.Vietnam_economic_lakehouse.fact_gdp"
+        ]
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": true
+      }
+    },
+    "test.Vietnam_economic_lakehouse.relationships_fact_gdp_time_key__time_key__ref_dim_time_.6986cecc35": {
+      "unique_id": "test.Vietnam_economic_lakehouse.relationships_fact_gdp_time_key__time_key__ref_dim_time_.6986cecc35",
+      "name": "relationships_fact_gdp_time_key__time_key__ref_dim_time_",
+      "alias": "relationships_fact_gdp_time_key__time_key__ref_dim_time_",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "relationships_fact_gdp_time_key__time_key__ref_dim_time_"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_relationships",
+          "macro.dbt.get_where_subquery"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.dim_time",
+          "model.Vietnam_economic_lakehouse.fact_gdp"
+        ]
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": true
+      }
+    },
+    "test.Vietnam_economic_lakehouse.relationships_fact_interest_rate_asset_key__asset_key__ref_dim_asset_.b1780523db": {
+      "unique_id": "test.Vietnam_economic_lakehouse.relationships_fact_interest_rate_asset_key__asset_key__ref_dim_asset_.b1780523db",
+      "name": "relationships_fact_interest_rate_asset_key__asset_key__ref_dim_asset_",
+      "alias": "relationships_fact_interest_ra_582c873d42802744c257b49003084dad",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "relationships_fact_interest_rate_asset_key__asset_key__ref_dim_asset_"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_relationships",
+          "macro.dbt.get_where_subquery"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.dim_asset",
+          "model.Vietnam_economic_lakehouse.fact_interest_rate"
+        ]
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": true
+      }
+    },
+    "test.Vietnam_economic_lakehouse.relationships_fact_interest_rate_time_key__time_key__ref_dim_time_.0037dd9219": {
+      "unique_id": "test.Vietnam_economic_lakehouse.relationships_fact_interest_rate_time_key__time_key__ref_dim_time_.0037dd9219",
+      "name": "relationships_fact_interest_rate_time_key__time_key__ref_dim_time_",
+      "alias": "relationships_fact_interest_ra_e80101330f97de1cd97ca5f2123e6224",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "relationships_fact_interest_rate_time_key__time_key__ref_dim_time_"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_relationships",
+          "macro.dbt.get_where_subquery"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.dim_time",
+          "model.Vietnam_economic_lakehouse.fact_interest_rate"
+        ]
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": true
+      }
+    },
+    "test.Vietnam_economic_lakehouse.relationships_fact_international_trade_product_key__product_key__ref_dim_product_.1a6f7cdd7d": {
+      "unique_id": "test.Vietnam_economic_lakehouse.relationships_fact_international_trade_product_key__product_key__ref_dim_product_.1a6f7cdd7d",
+      "name": "relationships_fact_international_trade_product_key__product_key__ref_dim_product_",
+      "alias": "relationships_fact_internation_aca585585ad0c761757c9fa034e85d55",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "relationships_fact_international_trade_product_key__product_key__ref_dim_product_"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_relationships",
+          "macro.dbt.get_where_subquery"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.dim_product",
+          "model.Vietnam_economic_lakehouse.fact_international_trade"
+        ]
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": true
+      }
+    },
+    "test.Vietnam_economic_lakehouse.relationships_fact_international_trade_time_key__time_key__ref_dim_time_.253cb8b531": {
+      "unique_id": "test.Vietnam_economic_lakehouse.relationships_fact_international_trade_time_key__time_key__ref_dim_time_.253cb8b531",
+      "name": "relationships_fact_international_trade_time_key__time_key__ref_dim_time_",
+      "alias": "relationships_fact_internation_2f73436d64b45302931c001b12f922e2",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "relationships_fact_international_trade_time_key__time_key__ref_dim_time_"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_relationships",
+          "macro.dbt.get_where_subquery"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.dim_time",
+          "model.Vietnam_economic_lakehouse.fact_international_trade"
+        ]
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": true
+      }
+    },
+    "test.Vietnam_economic_lakehouse.relationships_fact_macro_indicator_indicator_key__indicator_key__ref_dim_indicator_.b58a88090d": {
+      "unique_id": "test.Vietnam_economic_lakehouse.relationships_fact_macro_indicator_indicator_key__indicator_key__ref_dim_indicator_.b58a88090d",
+      "name": "relationships_fact_macro_indicator_indicator_key__indicator_key__ref_dim_indicator_",
+      "alias": "relationships_fact_macro_indic_1a19275ad2429e540b595072bedbc6ff",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "relationships_fact_macro_indicator_indicator_key__indicator_key__ref_dim_indicator_"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_relationships",
+          "macro.dbt.get_where_subquery"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.dim_indicator",
+          "model.Vietnam_economic_lakehouse.fact_macro_indicator"
+        ]
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": true
+      }
+    },
+    "test.Vietnam_economic_lakehouse.relationships_fact_macro_indicator_time_key__time_key__ref_dim_time_.5203e23f51": {
+      "unique_id": "test.Vietnam_economic_lakehouse.relationships_fact_macro_indicator_time_key__time_key__ref_dim_time_.5203e23f51",
+      "name": "relationships_fact_macro_indicator_time_key__time_key__ref_dim_time_",
+      "alias": "relationships_fact_macro_indic_0bc30d6737e25830e2897f37c92d887e",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "relationships_fact_macro_indicator_time_key__time_key__ref_dim_time_"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_relationships",
+          "macro.dbt.get_where_subquery"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.dim_time",
+          "model.Vietnam_economic_lakehouse.fact_macro_indicator"
+        ]
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": true
+      }
+    },
+    "test.Vietnam_economic_lakehouse.relationships_fact_ohlc_asset_key__asset_key__ref_dim_asset_.7c542296ce": {
+      "unique_id": "test.Vietnam_economic_lakehouse.relationships_fact_ohlc_asset_key__asset_key__ref_dim_asset_.7c542296ce",
+      "name": "relationships_fact_ohlc_asset_key__asset_key__ref_dim_asset_",
+      "alias": "relationships_fact_ohlc_asset_key__asset_key__ref_dim_asset_",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "relationships_fact_ohlc_asset_key__asset_key__ref_dim_asset_"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_relationships",
+          "macro.dbt.get_where_subquery"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.dim_asset",
+          "model.Vietnam_economic_lakehouse.fact_ohlc"
+        ]
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": true
+      }
+    },
+    "test.Vietnam_economic_lakehouse.relationships_fact_ohlc_time_key__time_key__ref_dim_time_.45800ebe0d": {
+      "unique_id": "test.Vietnam_economic_lakehouse.relationships_fact_ohlc_time_key__time_key__ref_dim_time_.45800ebe0d",
+      "name": "relationships_fact_ohlc_time_key__time_key__ref_dim_time_",
+      "alias": "relationships_fact_ohlc_time_key__time_key__ref_dim_time_",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "relationships_fact_ohlc_time_key__time_key__ref_dim_time_"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_relationships",
+          "macro.dbt.get_where_subquery"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.dim_time",
+          "model.Vietnam_economic_lakehouse.fact_ohlc"
+        ]
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": true
+      }
+    },
+    "test.Vietnam_economic_lakehouse.relationships_fact_production_output_product_category_key__product_category_key__ref_dim_product_category_.bf3e9249f6": {
+      "unique_id": "test.Vietnam_economic_lakehouse.relationships_fact_production_output_product_category_key__product_category_key__ref_dim_product_category_.bf3e9249f6",
+      "name": "relationships_fact_production_output_product_category_key__product_category_key__ref_dim_product_category_",
+      "alias": "relationships_fact_production__a67025939fc3b56a2234bdc490c1c56c",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "relationships_fact_production_output_product_category_key__product_category_key__ref_dim_product_category_"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_relationships",
+          "macro.dbt.get_where_subquery"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.dim_product_category",
+          "model.Vietnam_economic_lakehouse.fact_production_output"
+        ]
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": true
+      }
+    },
+    "test.Vietnam_economic_lakehouse.relationships_fact_production_output_product_key__product_key__ref_dim_product_.580a6faa38": {
+      "unique_id": "test.Vietnam_economic_lakehouse.relationships_fact_production_output_product_key__product_key__ref_dim_product_.580a6faa38",
+      "name": "relationships_fact_production_output_product_key__product_key__ref_dim_product_",
+      "alias": "relationships_fact_production__c0281c7614c28cf1a6c0b479fb751a5b",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "relationships_fact_production_output_product_key__product_key__ref_dim_product_"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_relationships",
+          "macro.dbt.get_where_subquery"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.dim_product",
+          "model.Vietnam_economic_lakehouse.fact_production_output"
+        ]
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": true
+      }
+    },
+    "test.Vietnam_economic_lakehouse.relationships_fact_production_output_time_key__time_key__ref_dim_time_.834349b157": {
+      "unique_id": "test.Vietnam_economic_lakehouse.relationships_fact_production_output_time_key__time_key__ref_dim_time_.834349b157",
+      "name": "relationships_fact_production_output_time_key__time_key__ref_dim_time_",
+      "alias": "relationships_fact_production__2848384a6088d6b92e02b1a5a6e1e0da",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "relationships_fact_production_output_time_key__time_key__ref_dim_time_"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_relationships",
+          "macro.dbt.get_where_subquery"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.dim_time",
+          "model.Vietnam_economic_lakehouse.fact_production_output"
+        ]
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": true
+      }
+    },
+    "test.Vietnam_economic_lakehouse.relationships_fact_total_investment_source_key__source_key__ref_dim_source_.0babfe6fdc": {
+      "unique_id": "test.Vietnam_economic_lakehouse.relationships_fact_total_investment_source_key__source_key__ref_dim_source_.0babfe6fdc",
+      "name": "relationships_fact_total_investment_source_key__source_key__ref_dim_source_",
+      "alias": "relationships_fact_total_inves_d021ac8dea2fa35dce50bd7c9ee597e7",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "relationships_fact_total_investment_source_key__source_key__ref_dim_source_"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_relationships",
+          "macro.dbt.get_where_subquery"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.dim_source",
+          "model.Vietnam_economic_lakehouse.fact_total_investment"
+        ]
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": true
+      }
+    },
+    "test.Vietnam_economic_lakehouse.relationships_fact_total_investment_time_key__time_key__ref_dim_time_.862496b6c2": {
+      "unique_id": "test.Vietnam_economic_lakehouse.relationships_fact_total_investment_time_key__time_key__ref_dim_time_.862496b6c2",
+      "name": "relationships_fact_total_investment_time_key__time_key__ref_dim_time_",
+      "alias": "relationships_fact_total_inves_9a4599583d5829a685043ea52f2b8462",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "relationships_fact_total_investment_time_key__time_key__ref_dim_time_"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_relationships",
+          "macro.dbt.get_where_subquery"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.dim_time",
+          "model.Vietnam_economic_lakehouse.fact_total_investment"
+        ]
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": true
+      }
+    },
+    "test.Vietnam_economic_lakehouse.relationships_fact_total_investment_unit_key__unit_key__ref_dim_unit_.62309f4936": {
+      "unique_id": "test.Vietnam_economic_lakehouse.relationships_fact_total_investment_unit_key__unit_key__ref_dim_unit_.62309f4936",
+      "name": "relationships_fact_total_investment_unit_key__unit_key__ref_dim_unit_",
+      "alias": "relationships_fact_total_inves_ddffc0c5d5d76098cf522ebfc3485534",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "relationships_fact_total_investment_unit_key__unit_key__ref_dim_unit_"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_relationships",
+          "macro.dbt.get_where_subquery"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.dim_unit",
+          "model.Vietnam_economic_lakehouse.fact_total_investment"
+        ]
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": true
+      }
+    },
+    "test.Vietnam_economic_lakehouse.unique_dim_asset_asset_key.1e356d7858": {
+      "unique_id": "test.Vietnam_economic_lakehouse.unique_dim_asset_asset_key.1e356d7858",
+      "name": "unique_dim_asset_asset_key",
+      "alias": "unique_dim_asset_asset_key",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "unique_dim_asset_asset_key"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_unique"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.dim_asset"
+        ]
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": true
+      }
+    },
+    "test.Vietnam_economic_lakehouse.unique_dim_crop_crop_key.93163998cd": {
+      "unique_id": "test.Vietnam_economic_lakehouse.unique_dim_crop_crop_key.93163998cd",
+      "name": "unique_dim_crop_crop_key",
+      "alias": "unique_dim_crop_crop_key",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "unique_dim_crop_crop_key"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_unique"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.dim_crop"
+        ]
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": true
+      }
+    },
+    "test.Vietnam_economic_lakehouse.unique_dim_indicator_indicator_key.438ea2349e": {
+      "unique_id": "test.Vietnam_economic_lakehouse.unique_dim_indicator_indicator_key.438ea2349e",
+      "name": "unique_dim_indicator_indicator_key",
+      "alias": "unique_dim_indicator_indicator_key",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "unique_dim_indicator_indicator_key"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_unique"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.dim_indicator"
+        ]
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": true
+      }
+    },
+    "test.Vietnam_economic_lakehouse.unique_dim_product_product_key.1753236bd0": {
+      "unique_id": "test.Vietnam_economic_lakehouse.unique_dim_product_product_key.1753236bd0",
+      "name": "unique_dim_product_product_key",
+      "alias": "unique_dim_product_product_key",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "unique_dim_product_product_key"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_unique"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.dim_product"
+        ]
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": true
+      }
+    },
+    "test.Vietnam_economic_lakehouse.unique_dim_source_source_key.f6e6a307c2": {
+      "unique_id": "test.Vietnam_economic_lakehouse.unique_dim_source_source_key.f6e6a307c2",
+      "name": "unique_dim_source_source_key",
+      "alias": "unique_dim_source_source_key",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "unique_dim_source_source_key"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_unique"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.dim_source"
+        ]
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": true
+      }
+    },
+    "test.Vietnam_economic_lakehouse.unique_dim_sub_sector_sub_sector_key.fc5fade0d2": {
+      "unique_id": "test.Vietnam_economic_lakehouse.unique_dim_sub_sector_sub_sector_key.fc5fade0d2",
+      "name": "unique_dim_sub_sector_sub_sector_key",
+      "alias": "unique_dim_sub_sector_sub_sector_key",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "unique_dim_sub_sector_sub_sector_key"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_unique"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.dim_sub_sector"
+        ]
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": true
+      }
+    },
+    "test.Vietnam_economic_lakehouse.unique_dim_time_time_key.d3eade6aef": {
+      "unique_id": "test.Vietnam_economic_lakehouse.unique_dim_time_time_key.d3eade6aef",
+      "name": "unique_dim_time_time_key",
+      "alias": "unique_dim_time_time_key",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "unique_dim_time_time_key"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_unique"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.dim_time"
+        ]
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": true
+      }
+    },
+    "test.Vietnam_economic_lakehouse.unique_dim_unit_unit_key.53e22fe15a": {
+      "unique_id": "test.Vietnam_economic_lakehouse.unique_dim_unit_unit_key.53e22fe15a",
+      "name": "unique_dim_unit_unit_key",
+      "alias": "unique_dim_unit_unit_key",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "unique_dim_unit_unit_key"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_unique"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.dim_unit"
+        ]
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": true
+      }
+    },
+    "test.Vietnam_economic_lakehouse.unique_fact_agriculture_fact_agri_key.c0e7294305": {
+      "unique_id": "test.Vietnam_economic_lakehouse.unique_fact_agriculture_fact_agri_key.c0e7294305",
+      "name": "unique_fact_agriculture_fact_agri_key",
+      "alias": "unique_fact_agriculture_fact_agri_key",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "unique_fact_agriculture_fact_agri_key"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_unique"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.fact_agriculture"
+        ]
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": true
+      }
+    },
+    "test.Vietnam_economic_lakehouse.unique_fact_gdp_fact_gdp_key.c80728f341": {
+      "unique_id": "test.Vietnam_economic_lakehouse.unique_fact_gdp_fact_gdp_key.c80728f341",
+      "name": "unique_fact_gdp_fact_gdp_key",
+      "alias": "unique_fact_gdp_fact_gdp_key",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "unique_fact_gdp_fact_gdp_key"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_unique"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.fact_gdp"
+        ]
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": true
+      }
+    },
+    "test.Vietnam_economic_lakehouse.unique_fact_interest_rate_fact_interest_key.b647b0d44b": {
+      "unique_id": "test.Vietnam_economic_lakehouse.unique_fact_interest_rate_fact_interest_key.b647b0d44b",
+      "name": "unique_fact_interest_rate_fact_interest_key",
+      "alias": "unique_fact_interest_rate_fact_interest_key",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "unique_fact_interest_rate_fact_interest_key"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_unique"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.fact_interest_rate"
+        ]
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": true
+      }
+    },
+    "test.Vietnam_economic_lakehouse.unique_fact_international_trade_fact_trade_key.60eb4328e8": {
+      "unique_id": "test.Vietnam_economic_lakehouse.unique_fact_international_trade_fact_trade_key.60eb4328e8",
+      "name": "unique_fact_international_trade_fact_trade_key",
+      "alias": "unique_fact_international_trade_fact_trade_key",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "unique_fact_international_trade_fact_trade_key"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_unique"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.fact_international_trade"
+        ]
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": true
+      }
+    },
+    "test.Vietnam_economic_lakehouse.unique_fact_macro_indicator_fact_key.6ae6c8ba36": {
+      "unique_id": "test.Vietnam_economic_lakehouse.unique_fact_macro_indicator_fact_key.6ae6c8ba36",
+      "name": "unique_fact_macro_indicator_fact_key",
+      "alias": "unique_fact_macro_indicator_fact_key",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "unique_fact_macro_indicator_fact_key"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_unique"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.fact_macro_indicator"
+        ]
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": true
+      }
+    },
+    "test.Vietnam_economic_lakehouse.unique_fact_ohlc_fact_ohlc_key.80f717a49b": {
+      "unique_id": "test.Vietnam_economic_lakehouse.unique_fact_ohlc_fact_ohlc_key.80f717a49b",
+      "name": "unique_fact_ohlc_fact_ohlc_key",
+      "alias": "unique_fact_ohlc_fact_ohlc_key",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "unique_fact_ohlc_fact_ohlc_key"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_unique"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.fact_ohlc"
+        ]
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": true
+      }
+    },
+    "test.Vietnam_economic_lakehouse.unique_fact_production_output_fact_production_key.f9affb73ef": {
+      "unique_id": "test.Vietnam_economic_lakehouse.unique_fact_production_output_fact_production_key.f9affb73ef",
+      "name": "unique_fact_production_output_fact_production_key",
+      "alias": "unique_fact_production_output_fact_production_key",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "unique_fact_production_output_fact_production_key"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_unique"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.fact_production_output"
+        ]
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": true
+      }
+    },
+    "test.Vietnam_economic_lakehouse.unique_fact_total_investment_fact_total_investment_key.462c1eb9fb": {
+      "unique_id": "test.Vietnam_economic_lakehouse.unique_fact_total_investment_fact_total_investment_key.462c1eb9fb",
+      "name": "unique_fact_total_investment_fact_total_investment_key",
+      "alias": "unique_fact_total_investment_fact_total_investment_key",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "unique_fact_total_investment_fact_total_investment_key"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_unique"
+        ],
+        "nodes": [
+          "model.Vietnam_economic_lakehouse.fact_total_investment"
+        ]
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": true
+      }
+    }
+  },
+  "sources": {
+    "source.Vietnam_economic_lakehouse.silver.annual_crops": {
+      "unique_id": "source.Vietnam_economic_lakehouse.silver.annual_crops",
+      "name": "annual_crops",
+      "identifier": "annual_crops",
+      "database": "zero-dep-check",
+      "schema": "silver",
+      "relation_name": "\"zero-dep-check\".\"silver\".\"annual_crops\"",
+      "resource_type": "source",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "silver",
+        "annual_crops"
+      ]
+    },
+    "source.Vietnam_economic_lakehouse.silver.aquatic_products": {
+      "unique_id": "source.Vietnam_economic_lakehouse.silver.aquatic_products",
+      "name": "aquatic_products",
+      "identifier": "aquatic_products",
+      "database": "zero-dep-check",
+      "schema": "silver",
+      "relation_name": "\"zero-dep-check\".\"silver\".\"aquatic_products\"",
+      "resource_type": "source",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "silver",
+        "aquatic_products"
+      ]
+    },
+    "source.Vietnam_economic_lakehouse.silver.broad_money": {
+      "unique_id": "source.Vietnam_economic_lakehouse.silver.broad_money",
+      "name": "broad_money",
+      "identifier": "broad_money",
+      "database": "zero-dep-check",
+      "schema": "silver",
+      "relation_name": "\"zero-dep-check\".\"silver\".\"broad_money\"",
+      "resource_type": "source",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "silver",
+        "broad_money"
+      ]
+    },
+    "source.Vietnam_economic_lakehouse.silver.core_inflation_rate": {
+      "unique_id": "source.Vietnam_economic_lakehouse.silver.core_inflation_rate",
+      "name": "core_inflation_rate",
+      "identifier": "core_inflation_rate",
+      "database": "zero-dep-check",
+      "schema": "silver",
+      "relation_name": "\"zero-dep-check\".\"silver\".\"core_inflation_rate\"",
+      "resource_type": "source",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "silver",
+        "core_inflation_rate"
+      ]
+    },
+    "source.Vietnam_economic_lakehouse.silver.cpi_base_year": {
+      "unique_id": "source.Vietnam_economic_lakehouse.silver.cpi_base_year",
+      "name": "cpi_base_year",
+      "identifier": "cpi_base_year",
+      "database": "zero-dep-check",
+      "schema": "silver",
+      "relation_name": "\"zero-dep-check\".\"silver\".\"cpi_base_year\"",
+      "resource_type": "source",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "silver",
+        "cpi_base_year"
+      ]
+    },
+    "source.Vietnam_economic_lakehouse.silver.cpi_mom": {
+      "unique_id": "source.Vietnam_economic_lakehouse.silver.cpi_mom",
+      "name": "cpi_mom",
+      "identifier": "cpi_mom",
+      "database": "zero-dep-check",
+      "schema": "silver",
+      "relation_name": "\"zero-dep-check\".\"silver\".\"cpi_mom\"",
+      "resource_type": "source",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "silver",
+        "cpi_mom"
+      ]
+    },
+    "source.Vietnam_economic_lakehouse.silver.forestry": {
+      "unique_id": "source.Vietnam_economic_lakehouse.silver.forestry",
+      "name": "forestry",
+      "identifier": "forestry",
+      "database": "zero-dep-check",
+      "schema": "silver",
+      "relation_name": "\"zero-dep-check\".\"silver\".\"forestry\"",
+      "resource_type": "source",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "silver",
+        "forestry"
+      ]
+    },
+    "source.Vietnam_economic_lakehouse.silver.gasoline": {
+      "unique_id": "source.Vietnam_economic_lakehouse.silver.gasoline",
+      "name": "gasoline",
+      "identifier": "gasoline",
+      "database": "zero-dep-check",
+      "schema": "silver",
+      "relation_name": "\"zero-dep-check\".\"silver\".\"gasoline\"",
+      "resource_type": "source",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "silver",
+        "gasoline"
+      ]
+    },
+    "source.Vietnam_economic_lakehouse.silver.gdp": {
+      "unique_id": "source.Vietnam_economic_lakehouse.silver.gdp",
+      "name": "gdp",
+      "identifier": "gdp",
+      "database": "zero-dep-check",
+      "schema": "silver",
+      "relation_name": "\"zero-dep-check\".\"silver\".\"gdp\"",
+      "resource_type": "source",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "silver",
+        "gdp"
+      ]
+    },
+    "source.Vietnam_economic_lakehouse.silver.industry_product": {
+      "unique_id": "source.Vietnam_economic_lakehouse.silver.industry_product",
+      "name": "industry_product",
+      "identifier": "industry_product",
+      "database": "zero-dep-check",
+      "schema": "silver",
+      "relation_name": "\"zero-dep-check\".\"silver\".\"industry_product\"",
+      "resource_type": "source",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "silver",
+        "industry_product"
+      ]
+    },
+    "source.Vietnam_economic_lakehouse.silver.interest_rate": {
+      "unique_id": "source.Vietnam_economic_lakehouse.silver.interest_rate",
+      "name": "interest_rate",
+      "identifier": "interest_rate",
+      "database": "zero-dep-check",
+      "schema": "silver",
+      "relation_name": "\"zero-dep-check\".\"silver\".\"interest_rate\"",
+      "resource_type": "source",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "silver",
+        "interest_rate"
+      ]
+    },
+    "source.Vietnam_economic_lakehouse.silver.international_ecommerce": {
+      "unique_id": "source.Vietnam_economic_lakehouse.silver.international_ecommerce",
+      "name": "international_ecommerce",
+      "identifier": "international_ecommerce",
+      "database": "zero-dep-check",
+      "schema": "silver",
+      "relation_name": "\"zero-dep-check\".\"silver\".\"international_ecommerce\"",
+      "resource_type": "source",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "silver",
+        "international_ecommerce"
+      ]
+    },
+    "source.Vietnam_economic_lakehouse.silver.investment": {
+      "unique_id": "source.Vietnam_economic_lakehouse.silver.investment",
+      "name": "investment",
+      "identifier": "investment",
+      "database": "zero-dep-check",
+      "schema": "silver",
+      "relation_name": "\"zero-dep-check\".\"silver\".\"investment\"",
+      "resource_type": "source",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "silver",
+        "investment"
+      ]
+    },
+    "source.Vietnam_economic_lakehouse.silver.investment_by_sector": {
+      "unique_id": "source.Vietnam_economic_lakehouse.silver.investment_by_sector",
+      "name": "investment_by_sector",
+      "identifier": "investment_by_sector",
+      "database": "zero-dep-check",
+      "schema": "silver",
+      "relation_name": "\"zero-dep-check\".\"silver\".\"investment_by_sector\"",
+      "resource_type": "source",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "silver",
+        "investment_by_sector"
+      ]
+    },
+    "source.Vietnam_economic_lakehouse.silver.livestock": {
+      "unique_id": "source.Vietnam_economic_lakehouse.silver.livestock",
+      "name": "livestock",
+      "identifier": "livestock",
+      "database": "zero-dep-check",
+      "schema": "silver",
+      "relation_name": "\"zero-dep-check\".\"silver\".\"livestock\"",
+      "resource_type": "source",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "silver",
+        "livestock"
+      ]
+    },
+    "source.Vietnam_economic_lakehouse.silver.m2": {
+      "unique_id": "source.Vietnam_economic_lakehouse.silver.m2",
+      "name": "m2",
+      "identifier": "m2",
+      "database": "zero-dep-check",
+      "schema": "silver",
+      "relation_name": "\"zero-dep-check\".\"silver\".\"m2\"",
+      "resource_type": "source",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "silver",
+        "m2"
+      ]
+    },
+    "source.Vietnam_economic_lakehouse.silver.ohlc_commodity": {
+      "unique_id": "source.Vietnam_economic_lakehouse.silver.ohlc_commodity",
+      "name": "ohlc_commodity",
+      "identifier": "ohlc_commodity",
+      "database": "zero-dep-check",
+      "schema": "silver",
+      "relation_name": "\"zero-dep-check\".\"silver\".\"ohlc_commodity\"",
+      "resource_type": "source",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "silver",
+        "ohlc_commodity"
+      ]
+    },
+    "source.Vietnam_economic_lakehouse.silver.ohlc_currency": {
+      "unique_id": "source.Vietnam_economic_lakehouse.silver.ohlc_currency",
+      "name": "ohlc_currency",
+      "identifier": "ohlc_currency",
+      "database": "zero-dep-check",
+      "schema": "silver",
+      "relation_name": "\"zero-dep-check\".\"silver\".\"ohlc_currency\"",
+      "resource_type": "source",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "silver",
+        "ohlc_currency"
+      ]
+    },
+    "source.Vietnam_economic_lakehouse.silver.ohlc_index": {
+      "unique_id": "source.Vietnam_economic_lakehouse.silver.ohlc_index",
+      "name": "ohlc_index",
+      "identifier": "ohlc_index",
+      "database": "zero-dep-check",
+      "schema": "silver",
+      "relation_name": "\"zero-dep-check\".\"silver\".\"ohlc_index\"",
+      "resource_type": "source",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "silver",
+        "ohlc_index"
+      ]
+    },
+    "source.Vietnam_economic_lakehouse.silver.ohlc_vietnam_index": {
+      "unique_id": "source.Vietnam_economic_lakehouse.silver.ohlc_vietnam_index",
+      "name": "ohlc_vietnam_index",
+      "identifier": "ohlc_vietnam_index",
+      "database": "zero-dep-check",
+      "schema": "silver",
+      "relation_name": "\"zero-dep-check\".\"silver\".\"ohlc_vietnam_index\"",
+      "resource_type": "source",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "silver",
+        "ohlc_vietnam_index"
+      ]
+    },
+    "source.Vietnam_economic_lakehouse.silver.perennial_crops": {
+      "unique_id": "source.Vietnam_economic_lakehouse.silver.perennial_crops",
+      "name": "perennial_crops",
+      "identifier": "perennial_crops",
+      "database": "zero-dep-check",
+      "schema": "silver",
+      "relation_name": "\"zero-dep-check\".\"silver\".\"perennial_crops\"",
+      "resource_type": "source",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "silver",
+        "perennial_crops"
+      ]
+    },
+    "source.Vietnam_economic_lakehouse.silver.ppi_qoq": {
+      "unique_id": "source.Vietnam_economic_lakehouse.silver.ppi_qoq",
+      "name": "ppi_qoq",
+      "identifier": "ppi_qoq",
+      "database": "zero-dep-check",
+      "schema": "silver",
+      "relation_name": "\"zero-dep-check\".\"silver\".\"ppi_qoq\"",
+      "resource_type": "source",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "silver",
+        "ppi_qoq"
+      ]
+    },
+    "source.Vietnam_economic_lakehouse.silver.staple_crops": {
+      "unique_id": "source.Vietnam_economic_lakehouse.silver.staple_crops",
+      "name": "staple_crops",
+      "identifier": "staple_crops",
+      "database": "zero-dep-check",
+      "schema": "silver",
+      "relation_name": "\"zero-dep-check\".\"silver\".\"staple_crops\"",
+      "resource_type": "source",
+      "package_name": "Vietnam_economic_lakehouse",
+      "fqn": [
+        "Vietnam_economic_lakehouse",
+        "silver",
+        "staple_crops"
+      ]
+    }
+  },
+  "macros": {},
+  "docs": {},
+  "exposures": {},
+  "metrics": {},
+  "semantic_models": {},
+  "saved_queries": {},
+  "unit_tests": {},
+  "selectors": {},
+  "groups": {},
+  "group_map": {},
+  "disabled": {},
+  "metadata": {
+    "adapter_type": "duckdb",
+    "dbt_schema_version": "https://schemas.getdbt.com/dbt/manifest/v12.json",
+    "dbt_version": "1.10.19",
+    "project_name": "Vietnam_economic_lakehouse",
+    "quoting": {
+      "column": null,
+      "database": true,
+      "identifier": true,
+      "schema": true
+    }
+  },
+  "parent_map": {
+    "model.Vietnam_economic_lakehouse.dim_asset": [
+      "model.Vietnam_economic_lakehouse.dim_asset_class",
+      "model.Vietnam_economic_lakehouse.dim_market",
+      "model.Vietnam_economic_lakehouse.stg_interest_rate",
+      "model.Vietnam_economic_lakehouse.stg_ohlc"
+    ],
+    "model.Vietnam_economic_lakehouse.dim_asset_class": [
+      "model.Vietnam_economic_lakehouse.stg_interest_rate",
+      "model.Vietnam_economic_lakehouse.stg_ohlc"
+    ],
+    "model.Vietnam_economic_lakehouse.dim_capital_source": [
+      "model.Vietnam_economic_lakehouse.stg_total_investment"
+    ],
+    "model.Vietnam_economic_lakehouse.dim_crop": [
+      "model.Vietnam_economic_lakehouse.dim_crop_group",
+      "model.Vietnam_economic_lakehouse.stg_agriculture"
+    ],
+    "model.Vietnam_economic_lakehouse.dim_crop_group": [],
+    "model.Vietnam_economic_lakehouse.dim_indicator": [
+      "model.Vietnam_economic_lakehouse.dim_indicator_group",
+      "model.Vietnam_economic_lakehouse.stg_macro_indicator"
+    ],
+    "model.Vietnam_economic_lakehouse.dim_indicator_group": [
+      "model.Vietnam_economic_lakehouse.stg_macro_indicator"
+    ],
+    "model.Vietnam_economic_lakehouse.dim_market": [
+      "model.Vietnam_economic_lakehouse.stg_interest_rate",
+      "model.Vietnam_economic_lakehouse.stg_ohlc"
+    ],
+    "model.Vietnam_economic_lakehouse.dim_product": [
+      "model.Vietnam_economic_lakehouse.dim_product_category",
+      "model.Vietnam_economic_lakehouse.stg_production_output"
+    ],
+    "model.Vietnam_economic_lakehouse.dim_product_category": [
+      "model.Vietnam_economic_lakehouse.stg_production_output"
+    ],
+    "model.Vietnam_economic_lakehouse.dim_sector": [
+      "model.Vietnam_economic_lakehouse.stg_gdp"
+    ],
+    "model.Vietnam_economic_lakehouse.dim_source": [
+      "model.Vietnam_economic_lakehouse.stg_gdp",
+      "model.Vietnam_economic_lakehouse.stg_interest_rate",
+      "model.Vietnam_economic_lakehouse.stg_macro_indicator",
+      "model.Vietnam_economic_lakehouse.stg_ohlc",
+      "model.Vietnam_economic_lakehouse.stg_production_output",
+      "model.Vietnam_economic_lakehouse.stg_total_investment"
+    ],
+    "model.Vietnam_economic_lakehouse.dim_sub_sector": [
+      "model.Vietnam_economic_lakehouse.dim_sector",
+      "model.Vietnam_economic_lakehouse.stg_gdp"
+    ],
+    "model.Vietnam_economic_lakehouse.dim_term": [
+      "model.Vietnam_economic_lakehouse.stg_interest_rate"
+    ],
+    "model.Vietnam_economic_lakehouse.dim_time": [],
+    "model.Vietnam_economic_lakehouse.dim_unit": [
+      "model.Vietnam_economic_lakehouse.stg_agriculture",
+      "model.Vietnam_economic_lakehouse.stg_gdp",
+      "model.Vietnam_economic_lakehouse.stg_interest_rate",
+      "model.Vietnam_economic_lakehouse.stg_macro_indicator",
+      "model.Vietnam_economic_lakehouse.stg_ohlc",
+      "model.Vietnam_economic_lakehouse.stg_production_output",
+      "model.Vietnam_economic_lakehouse.stg_total_investment"
+    ],
+    "model.Vietnam_economic_lakehouse.dim_unit_type": [],
+    "model.Vietnam_economic_lakehouse.fact_agriculture": [
+      "model.Vietnam_economic_lakehouse.dim_crop",
+      "model.Vietnam_economic_lakehouse.dim_time",
+      "model.Vietnam_economic_lakehouse.stg_agriculture"
+    ],
+    "model.Vietnam_economic_lakehouse.fact_gdp": [
+      "model.Vietnam_economic_lakehouse.dim_source",
+      "model.Vietnam_economic_lakehouse.dim_sub_sector",
+      "model.Vietnam_economic_lakehouse.dim_time",
+      "model.Vietnam_economic_lakehouse.dim_unit",
+      "model.Vietnam_economic_lakehouse.stg_gdp"
+    ],
+    "model.Vietnam_economic_lakehouse.fact_interest_rate": [
+      "model.Vietnam_economic_lakehouse.dim_asset",
+      "model.Vietnam_economic_lakehouse.dim_asset_class",
+      "model.Vietnam_economic_lakehouse.dim_market",
+      "model.Vietnam_economic_lakehouse.dim_source",
+      "model.Vietnam_economic_lakehouse.dim_term",
+      "model.Vietnam_economic_lakehouse.dim_time",
+      "model.Vietnam_economic_lakehouse.dim_unit",
+      "model.Vietnam_economic_lakehouse.stg_interest_rate"
+    ],
+    "model.Vietnam_economic_lakehouse.fact_international_trade": [
+      "model.Vietnam_economic_lakehouse.dim_product",
+      "model.Vietnam_economic_lakehouse.dim_product_category",
+      "model.Vietnam_economic_lakehouse.dim_time",
+      "model.Vietnam_economic_lakehouse.stg_trade_international"
+    ],
+    "model.Vietnam_economic_lakehouse.fact_macro_indicator": [
+      "model.Vietnam_economic_lakehouse.dim_indicator",
+      "model.Vietnam_economic_lakehouse.dim_source",
+      "model.Vietnam_economic_lakehouse.dim_time",
+      "model.Vietnam_economic_lakehouse.dim_unit",
+      "model.Vietnam_economic_lakehouse.stg_macro_indicator"
+    ],
+    "model.Vietnam_economic_lakehouse.fact_ohlc": [
+      "model.Vietnam_economic_lakehouse.dim_asset",
+      "model.Vietnam_economic_lakehouse.dim_asset_class",
+      "model.Vietnam_economic_lakehouse.dim_market",
+      "model.Vietnam_economic_lakehouse.dim_source",
+      "model.Vietnam_economic_lakehouse.dim_time",
+      "model.Vietnam_economic_lakehouse.stg_ohlc"
+    ],
+    "model.Vietnam_economic_lakehouse.fact_production_output": [
+      "model.Vietnam_economic_lakehouse.dim_product",
+      "model.Vietnam_economic_lakehouse.dim_product_category",
+      "model.Vietnam_economic_lakehouse.dim_time",
+      "model.Vietnam_economic_lakehouse.stg_production_output"
+    ],
+    "model.Vietnam_economic_lakehouse.fact_total_investment": [
+      "model.Vietnam_economic_lakehouse.dim_capital_source",
+      "model.Vietnam_economic_lakehouse.dim_source",
+      "model.Vietnam_economic_lakehouse.dim_time",
+      "model.Vietnam_economic_lakehouse.dim_unit",
+      "model.Vietnam_economic_lakehouse.stg_total_investment"
+    ],
+    "model.Vietnam_economic_lakehouse.mart_agriculture_metrics": [
+      "model.Vietnam_economic_lakehouse.dim_crop",
+      "model.Vietnam_economic_lakehouse.dim_crop_group",
+      "model.Vietnam_economic_lakehouse.dim_time",
+      "model.Vietnam_economic_lakehouse.fact_agriculture"
+    ],
+    "model.Vietnam_economic_lakehouse.mart_gdp_metrics": [
+      "model.Vietnam_economic_lakehouse.dim_sector",
+      "model.Vietnam_economic_lakehouse.dim_sub_sector",
+      "model.Vietnam_economic_lakehouse.dim_time",
+      "model.Vietnam_economic_lakehouse.dim_unit",
+      "model.Vietnam_economic_lakehouse.fact_gdp"
+    ],
+    "model.Vietnam_economic_lakehouse.mart_macro_metrics": [
+      "model.Vietnam_economic_lakehouse.dim_indicator",
+      "model.Vietnam_economic_lakehouse.dim_indicator_group",
+      "model.Vietnam_economic_lakehouse.dim_source",
+      "model.Vietnam_economic_lakehouse.dim_time",
+      "model.Vietnam_economic_lakehouse.dim_unit",
+      "model.Vietnam_economic_lakehouse.fact_macro_indicator"
+    ],
+    "model.Vietnam_economic_lakehouse.mart_ohlc_metrics": [
+      "model.Vietnam_economic_lakehouse.dim_asset",
+      "model.Vietnam_economic_lakehouse.dim_asset_class",
+      "model.Vietnam_economic_lakehouse.dim_market",
+      "model.Vietnam_economic_lakehouse.dim_source",
+      "model.Vietnam_economic_lakehouse.dim_time",
+      "model.Vietnam_economic_lakehouse.fact_ohlc"
+    ],
+    "model.Vietnam_economic_lakehouse.mart_product_market_metrics": [
+      "model.Vietnam_economic_lakehouse.dim_product",
+      "model.Vietnam_economic_lakehouse.dim_product_category",
+      "model.Vietnam_economic_lakehouse.dim_time",
+      "model.Vietnam_economic_lakehouse.dim_unit",
+      "model.Vietnam_economic_lakehouse.fact_production_output"
+    ],
+    "model.Vietnam_economic_lakehouse.stg_agriculture": [
+      "source.Vietnam_economic_lakehouse.silver.annual_crops",
+      "source.Vietnam_economic_lakehouse.silver.perennial_crops",
+      "source.Vietnam_economic_lakehouse.silver.staple_crops"
+    ],
+    "model.Vietnam_economic_lakehouse.stg_gdp": [
+      "source.Vietnam_economic_lakehouse.silver.gdp"
+    ],
+    "model.Vietnam_economic_lakehouse.stg_interest_rate": [
+      "source.Vietnam_economic_lakehouse.silver.interest_rate"
+    ],
+    "model.Vietnam_economic_lakehouse.stg_macro_indicator": [
+      "source.Vietnam_economic_lakehouse.silver.broad_money",
+      "source.Vietnam_economic_lakehouse.silver.core_inflation_rate",
+      "source.Vietnam_economic_lakehouse.silver.cpi_base_year",
+      "source.Vietnam_economic_lakehouse.silver.cpi_mom",
+      "source.Vietnam_economic_lakehouse.silver.m2",
+      "source.Vietnam_economic_lakehouse.silver.ppi_qoq"
+    ],
+    "model.Vietnam_economic_lakehouse.stg_ohlc": [
+      "source.Vietnam_economic_lakehouse.silver.ohlc_commodity",
+      "source.Vietnam_economic_lakehouse.silver.ohlc_currency",
+      "source.Vietnam_economic_lakehouse.silver.ohlc_index",
+      "source.Vietnam_economic_lakehouse.silver.ohlc_vietnam_index"
+    ],
+    "model.Vietnam_economic_lakehouse.stg_production_output": [
+      "source.Vietnam_economic_lakehouse.silver.aquatic_products",
+      "source.Vietnam_economic_lakehouse.silver.forestry",
+      "source.Vietnam_economic_lakehouse.silver.gasoline",
+      "source.Vietnam_economic_lakehouse.silver.industry_product",
+      "source.Vietnam_economic_lakehouse.silver.livestock"
+    ],
+    "model.Vietnam_economic_lakehouse.stg_total_investment": [
+      "source.Vietnam_economic_lakehouse.silver.investment"
+    ],
+    "model.Vietnam_economic_lakehouse.stg_trade_international": [
+      "source.Vietnam_economic_lakehouse.silver.international_ecommerce"
+    ],
+    "source.Vietnam_economic_lakehouse.silver.annual_crops": [],
+    "source.Vietnam_economic_lakehouse.silver.aquatic_products": [],
+    "source.Vietnam_economic_lakehouse.silver.broad_money": [],
+    "source.Vietnam_economic_lakehouse.silver.core_inflation_rate": [],
+    "source.Vietnam_economic_lakehouse.silver.cpi_base_year": [],
+    "source.Vietnam_economic_lakehouse.silver.cpi_mom": [],
+    "source.Vietnam_economic_lakehouse.silver.forestry": [],
+    "source.Vietnam_economic_lakehouse.silver.gasoline": [],
+    "source.Vietnam_economic_lakehouse.silver.gdp": [],
+    "source.Vietnam_economic_lakehouse.silver.industry_product": [],
+    "source.Vietnam_economic_lakehouse.silver.interest_rate": [],
+    "source.Vietnam_economic_lakehouse.silver.international_ecommerce": [],
+    "source.Vietnam_economic_lakehouse.silver.investment": [],
+    "source.Vietnam_economic_lakehouse.silver.investment_by_sector": [],
+    "source.Vietnam_economic_lakehouse.silver.livestock": [],
+    "source.Vietnam_economic_lakehouse.silver.m2": [],
+    "source.Vietnam_economic_lakehouse.silver.ohlc_commodity": [],
+    "source.Vietnam_economic_lakehouse.silver.ohlc_currency": [],
+    "source.Vietnam_economic_lakehouse.silver.ohlc_index": [],
+    "source.Vietnam_economic_lakehouse.silver.ohlc_vietnam_index": [],
+    "source.Vietnam_economic_lakehouse.silver.perennial_crops": [],
+    "source.Vietnam_economic_lakehouse.silver.ppi_qoq": [],
+    "source.Vietnam_economic_lakehouse.silver.staple_crops": [],
+    "test.Vietnam_economic_lakehouse.not_null_dim_asset_asset_key.a810898cee": [
+      "model.Vietnam_economic_lakehouse.dim_asset"
+    ],
+    "test.Vietnam_economic_lakehouse.not_null_dim_crop_crop_key.15381b42ae": [
+      "model.Vietnam_economic_lakehouse.dim_crop"
+    ],
+    "test.Vietnam_economic_lakehouse.not_null_dim_indicator_indicator_key.45b7ea1a1c": [
+      "model.Vietnam_economic_lakehouse.dim_indicator"
+    ],
+    "test.Vietnam_economic_lakehouse.not_null_dim_product_product_key.f0e1d838d3": [
+      "model.Vietnam_economic_lakehouse.dim_product"
+    ],
+    "test.Vietnam_economic_lakehouse.not_null_dim_source_source_key.72641c79b5": [
+      "model.Vietnam_economic_lakehouse.dim_source"
+    ],
+    "test.Vietnam_economic_lakehouse.not_null_dim_sub_sector_sub_sector_key.086336310b": [
+      "model.Vietnam_economic_lakehouse.dim_sub_sector"
+    ],
+    "test.Vietnam_economic_lakehouse.not_null_dim_time_time_key.0069bfd97e": [
+      "model.Vietnam_economic_lakehouse.dim_time"
+    ],
+    "test.Vietnam_economic_lakehouse.not_null_dim_unit_unit_key.6bc86b08f4": [
+      "model.Vietnam_economic_lakehouse.dim_unit"
+    ],
+    "test.Vietnam_economic_lakehouse.not_null_fact_agriculture_crop_key.2821bbbc77": [
+      "model.Vietnam_economic_lakehouse.fact_agriculture"
+    ],
+    "test.Vietnam_economic_lakehouse.not_null_fact_agriculture_fact_agri_key.6192f37ab7": [
+      "model.Vietnam_economic_lakehouse.fact_agriculture"
+    ],
+    "test.Vietnam_economic_lakehouse.not_null_fact_agriculture_source_key.b21abb5e99": [
+      "model.Vietnam_economic_lakehouse.fact_agriculture"
+    ],
+    "test.Vietnam_economic_lakehouse.not_null_fact_agriculture_time_key.719845a137": [
+      "model.Vietnam_economic_lakehouse.fact_agriculture"
+    ],
+    "test.Vietnam_economic_lakehouse.not_null_fact_gdp_fact_gdp_key.7d238e6839": [
+      "model.Vietnam_economic_lakehouse.fact_gdp"
+    ],
+    "test.Vietnam_economic_lakehouse.not_null_fact_interest_rate_fact_interest_key.609a3dfb70": [
+      "model.Vietnam_economic_lakehouse.fact_interest_rate"
+    ],
+    "test.Vietnam_economic_lakehouse.not_null_fact_international_trade_fact_trade_key.505c6f56b0": [
+      "model.Vietnam_economic_lakehouse.fact_international_trade"
+    ],
+    "test.Vietnam_economic_lakehouse.not_null_fact_international_trade_product_key.0267c9e8d5": [
+      "model.Vietnam_economic_lakehouse.fact_international_trade"
+    ],
+    "test.Vietnam_economic_lakehouse.not_null_fact_international_trade_time_key.215855037b": [
+      "model.Vietnam_economic_lakehouse.fact_international_trade"
+    ],
+    "test.Vietnam_economic_lakehouse.not_null_fact_macro_indicator_fact_key.8075f821de": [
+      "model.Vietnam_economic_lakehouse.fact_macro_indicator"
+    ],
+    "test.Vietnam_economic_lakehouse.not_null_fact_ohlc_fact_ohlc_key.13a2d473c0": [
+      "model.Vietnam_economic_lakehouse.fact_ohlc"
+    ],
+    "test.Vietnam_economic_lakehouse.not_null_fact_production_output_fact_production_key.f2c1742ccd": [
+      "model.Vietnam_economic_lakehouse.fact_production_output"
+    ],
+    "test.Vietnam_economic_lakehouse.not_null_fact_production_output_product_category_key.8afbc83794": [
+      "model.Vietnam_economic_lakehouse.fact_production_output"
+    ],
+    "test.Vietnam_economic_lakehouse.not_null_fact_production_output_product_key.628825d4fd": [
+      "model.Vietnam_economic_lakehouse.fact_production_output"
+    ],
+    "test.Vietnam_economic_lakehouse.not_null_fact_production_output_time_key.2d868d7063": [
+      "model.Vietnam_economic_lakehouse.fact_production_output"
+    ],
+    "test.Vietnam_economic_lakehouse.not_null_fact_production_output_value.b31104d276": [
+      "model.Vietnam_economic_lakehouse.fact_production_output"
+    ],
+    "test.Vietnam_economic_lakehouse.not_null_fact_total_investment_fact_total_investment_key.a3269e1c27": [
+      "model.Vietnam_economic_lakehouse.fact_total_investment"
+    ],
+    "test.Vietnam_economic_lakehouse.not_null_fact_total_investment_source_key.e569c9aff5": [
+      "model.Vietnam_economic_lakehouse.fact_total_investment"
+    ],
+    "test.Vietnam_economic_lakehouse.not_null_fact_total_investment_time_key.d82cd8714a": [
+      "model.Vietnam_economic_lakehouse.fact_total_investment"
+    ],
+    "test.Vietnam_economic_lakehouse.not_null_fact_total_investment_unit_key.75f71a6f11": [
+      "model.Vietnam_economic_lakehouse.fact_total_investment"
+    ],
+    "test.Vietnam_economic_lakehouse.relationships_dim_unit_unit_type_key__unit_type_key__ref_dim_unit_type_.ecf9ad1f78": [
+      "model.Vietnam_economic_lakehouse.dim_unit",
+      "model.Vietnam_economic_lakehouse.dim_unit_type"
+    ],
+    "test.Vietnam_economic_lakehouse.relationships_fact_gdp_sub_sector_key__sub_sector_key__ref_dim_sub_sector_.9753573e53": [
+      "model.Vietnam_economic_lakehouse.dim_sub_sector",
+      "model.Vietnam_economic_lakehouse.fact_gdp"
+    ],
+    "test.Vietnam_economic_lakehouse.relationships_fact_gdp_time_key__time_key__ref_dim_time_.6986cecc35": [
+      "model.Vietnam_economic_lakehouse.dim_time",
+      "model.Vietnam_economic_lakehouse.fact_gdp"
+    ],
+    "test.Vietnam_economic_lakehouse.relationships_fact_interest_rate_asset_key__asset_key__ref_dim_asset_.b1780523db": [
+      "model.Vietnam_economic_lakehouse.dim_asset",
+      "model.Vietnam_economic_lakehouse.fact_interest_rate"
+    ],
+    "test.Vietnam_economic_lakehouse.relationships_fact_interest_rate_time_key__time_key__ref_dim_time_.0037dd9219": [
+      "model.Vietnam_economic_lakehouse.dim_time",
+      "model.Vietnam_economic_lakehouse.fact_interest_rate"
+    ],
+    "test.Vietnam_economic_lakehouse.relationships_fact_international_trade_product_key__product_key__ref_dim_product_.1a6f7cdd7d": [
+      "model.Vietnam_economic_lakehouse.dim_product",
+      "model.Vietnam_economic_lakehouse.fact_international_trade"
+    ],
+    "test.Vietnam_economic_lakehouse.relationships_fact_international_trade_time_key__time_key__ref_dim_time_.253cb8b531": [
+      "model.Vietnam_economic_lakehouse.dim_time",
+      "model.Vietnam_economic_lakehouse.fact_international_trade"
+    ],
+    "test.Vietnam_economic_lakehouse.relationships_fact_macro_indicator_indicator_key__indicator_key__ref_dim_indicator_.b58a88090d": [
+      "model.Vietnam_economic_lakehouse.dim_indicator",
+      "model.Vietnam_economic_lakehouse.fact_macro_indicator"
+    ],
+    "test.Vietnam_economic_lakehouse.relationships_fact_macro_indicator_time_key__time_key__ref_dim_time_.5203e23f51": [
+      "model.Vietnam_economic_lakehouse.dim_time",
+      "model.Vietnam_economic_lakehouse.fact_macro_indicator"
+    ],
+    "test.Vietnam_economic_lakehouse.relationships_fact_ohlc_asset_key__asset_key__ref_dim_asset_.7c542296ce": [
+      "model.Vietnam_economic_lakehouse.dim_asset",
+      "model.Vietnam_economic_lakehouse.fact_ohlc"
+    ],
+    "test.Vietnam_economic_lakehouse.relationships_fact_ohlc_time_key__time_key__ref_dim_time_.45800ebe0d": [
+      "model.Vietnam_economic_lakehouse.dim_time",
+      "model.Vietnam_economic_lakehouse.fact_ohlc"
+    ],
+    "test.Vietnam_economic_lakehouse.relationships_fact_production_output_product_category_key__product_category_key__ref_dim_product_category_.bf3e9249f6": [
+      "model.Vietnam_economic_lakehouse.dim_product_category",
+      "model.Vietnam_economic_lakehouse.fact_production_output"
+    ],
+    "test.Vietnam_economic_lakehouse.relationships_fact_production_output_product_key__product_key__ref_dim_product_.580a6faa38": [
+      "model.Vietnam_economic_lakehouse.dim_product",
+      "model.Vietnam_economic_lakehouse.fact_production_output"
+    ],
+    "test.Vietnam_economic_lakehouse.relationships_fact_production_output_time_key__time_key__ref_dim_time_.834349b157": [
+      "model.Vietnam_economic_lakehouse.dim_time",
+      "model.Vietnam_economic_lakehouse.fact_production_output"
+    ],
+    "test.Vietnam_economic_lakehouse.relationships_fact_total_investment_source_key__source_key__ref_dim_source_.0babfe6fdc": [
+      "model.Vietnam_economic_lakehouse.dim_source",
+      "model.Vietnam_economic_lakehouse.fact_total_investment"
+    ],
+    "test.Vietnam_economic_lakehouse.relationships_fact_total_investment_time_key__time_key__ref_dim_time_.862496b6c2": [
+      "model.Vietnam_economic_lakehouse.dim_time",
+      "model.Vietnam_economic_lakehouse.fact_total_investment"
+    ],
+    "test.Vietnam_economic_lakehouse.relationships_fact_total_investment_unit_key__unit_key__ref_dim_unit_.62309f4936": [
+      "model.Vietnam_economic_lakehouse.dim_unit",
+      "model.Vietnam_economic_lakehouse.fact_total_investment"
+    ],
+    "test.Vietnam_economic_lakehouse.unique_dim_asset_asset_key.1e356d7858": [
+      "model.Vietnam_economic_lakehouse.dim_asset"
+    ],
+    "test.Vietnam_economic_lakehouse.unique_dim_crop_crop_key.93163998cd": [
+      "model.Vietnam_economic_lakehouse.dim_crop"
+    ],
+    "test.Vietnam_economic_lakehouse.unique_dim_indicator_indicator_key.438ea2349e": [
+      "model.Vietnam_economic_lakehouse.dim_indicator"
+    ],
+    "test.Vietnam_economic_lakehouse.unique_dim_product_product_key.1753236bd0": [
+      "model.Vietnam_economic_lakehouse.dim_product"
+    ],
+    "test.Vietnam_economic_lakehouse.unique_dim_source_source_key.f6e6a307c2": [
+      "model.Vietnam_economic_lakehouse.dim_source"
+    ],
+    "test.Vietnam_economic_lakehouse.unique_dim_sub_sector_sub_sector_key.fc5fade0d2": [
+      "model.Vietnam_economic_lakehouse.dim_sub_sector"
+    ],
+    "test.Vietnam_economic_lakehouse.unique_dim_time_time_key.d3eade6aef": [
+      "model.Vietnam_economic_lakehouse.dim_time"
+    ],
+    "test.Vietnam_economic_lakehouse.unique_dim_unit_unit_key.53e22fe15a": [
+      "model.Vietnam_economic_lakehouse.dim_unit"
+    ],
+    "test.Vietnam_economic_lakehouse.unique_fact_agriculture_fact_agri_key.c0e7294305": [
+      "model.Vietnam_economic_lakehouse.fact_agriculture"
+    ],
+    "test.Vietnam_economic_lakehouse.unique_fact_gdp_fact_gdp_key.c80728f341": [
+      "model.Vietnam_economic_lakehouse.fact_gdp"
+    ],
+    "test.Vietnam_economic_lakehouse.unique_fact_interest_rate_fact_interest_key.b647b0d44b": [
+      "model.Vietnam_economic_lakehouse.fact_interest_rate"
+    ],
+    "test.Vietnam_economic_lakehouse.unique_fact_international_trade_fact_trade_key.60eb4328e8": [
+      "model.Vietnam_economic_lakehouse.fact_international_trade"
+    ],
+    "test.Vietnam_economic_lakehouse.unique_fact_macro_indicator_fact_key.6ae6c8ba36": [
+      "model.Vietnam_economic_lakehouse.fact_macro_indicator"
+    ],
+    "test.Vietnam_economic_lakehouse.unique_fact_ohlc_fact_ohlc_key.80f717a49b": [
+      "model.Vietnam_economic_lakehouse.fact_ohlc"
+    ],
+    "test.Vietnam_economic_lakehouse.unique_fact_production_output_fact_production_key.f9affb73ef": [
+      "model.Vietnam_economic_lakehouse.fact_production_output"
+    ],
+    "test.Vietnam_economic_lakehouse.unique_fact_total_investment_fact_total_investment_key.462c1eb9fb": [
+      "model.Vietnam_economic_lakehouse.fact_total_investment"
+    ]
+  },
+  "child_map": {
+    "model.Vietnam_economic_lakehouse.dim_asset": [
+      "model.Vietnam_economic_lakehouse.fact_interest_rate",
+      "model.Vietnam_economic_lakehouse.fact_ohlc",
+      "model.Vietnam_economic_lakehouse.mart_ohlc_metrics",
+      "test.Vietnam_economic_lakehouse.not_null_dim_asset_asset_key.a810898cee",
+      "test.Vietnam_economic_lakehouse.relationships_fact_interest_rate_asset_key__asset_key__ref_dim_asset_.b1780523db",
+      "test.Vietnam_economic_lakehouse.relationships_fact_ohlc_asset_key__asset_key__ref_dim_asset_.7c542296ce",
+      "test.Vietnam_economic_lakehouse.unique_dim_asset_asset_key.1e356d7858"
+    ],
+    "model.Vietnam_economic_lakehouse.dim_asset_class": [
+      "model.Vietnam_economic_lakehouse.dim_asset",
+      "model.Vietnam_economic_lakehouse.fact_interest_rate",
+      "model.Vietnam_economic_lakehouse.fact_ohlc",
+      "model.Vietnam_economic_lakehouse.mart_ohlc_metrics"
+    ],
+    "model.Vietnam_economic_lakehouse.dim_capital_source": [
+      "model.Vietnam_economic_lakehouse.fact_total_investment"
+    ],
+    "model.Vietnam_economic_lakehouse.dim_crop": [
+      "model.Vietnam_economic_lakehouse.fact_agriculture",
+      "model.Vietnam_economic_lakehouse.mart_agriculture_metrics",
+      "test.Vietnam_economic_lakehouse.not_null_dim_crop_crop_key.15381b42ae",
+      "test.Vietnam_economic_lakehouse.unique_dim_crop_crop_key.93163998cd"
+    ],
+    "model.Vietnam_economic_lakehouse.dim_crop_group": [
+      "model.Vietnam_economic_lakehouse.dim_crop",
+      "model.Vietnam_economic_lakehouse.mart_agriculture_metrics"
+    ],
+    "model.Vietnam_economic_lakehouse.dim_indicator": [
+      "model.Vietnam_economic_lakehouse.fact_macro_indicator",
+      "model.Vietnam_economic_lakehouse.mart_macro_metrics",
+      "test.Vietnam_economic_lakehouse.not_null_dim_indicator_indicator_key.45b7ea1a1c",
+      "test.Vietnam_economic_lakehouse.relationships_fact_macro_indicator_indicator_key__indicator_key__ref_dim_indicator_.b58a88090d",
+      "test.Vietnam_economic_lakehouse.unique_dim_indicator_indicator_key.438ea2349e"
+    ],
+    "model.Vietnam_economic_lakehouse.dim_indicator_group": [
+      "model.Vietnam_economic_lakehouse.dim_indicator",
+      "model.Vietnam_economic_lakehouse.mart_macro_metrics"
+    ],
+    "model.Vietnam_economic_lakehouse.dim_market": [
+      "model.Vietnam_economic_lakehouse.dim_asset",
+      "model.Vietnam_economic_lakehouse.fact_interest_rate",
+      "model.Vietnam_economic_lakehouse.fact_ohlc",
+      "model.Vietnam_economic_lakehouse.mart_ohlc_metrics"
+    ],
+    "model.Vietnam_economic_lakehouse.dim_product": [
+      "model.Vietnam_economic_lakehouse.fact_international_trade",
+      "model.Vietnam_economic_lakehouse.fact_production_output",
+      "model.Vietnam_economic_lakehouse.mart_product_market_metrics",
+      "test.Vietnam_economic_lakehouse.not_null_dim_product_product_key.f0e1d838d3",
+      "test.Vietnam_economic_lakehouse.relationships_fact_international_trade_product_key__product_key__ref_dim_product_.1a6f7cdd7d",
+      "test.Vietnam_economic_lakehouse.relationships_fact_production_output_product_key__product_key__ref_dim_product_.580a6faa38",
+      "test.Vietnam_economic_lakehouse.unique_dim_product_product_key.1753236bd0"
+    ],
+    "model.Vietnam_economic_lakehouse.dim_product_category": [
+      "model.Vietnam_economic_lakehouse.dim_product",
+      "model.Vietnam_economic_lakehouse.fact_international_trade",
+      "model.Vietnam_economic_lakehouse.fact_production_output",
+      "model.Vietnam_economic_lakehouse.mart_product_market_metrics",
+      "test.Vietnam_economic_lakehouse.relationships_fact_production_output_product_category_key__product_category_key__ref_dim_product_category_.bf3e9249f6"
+    ],
+    "model.Vietnam_economic_lakehouse.dim_sector": [
+      "model.Vietnam_economic_lakehouse.dim_sub_sector",
+      "model.Vietnam_economic_lakehouse.mart_gdp_metrics"
+    ],
+    "model.Vietnam_economic_lakehouse.dim_source": [
+      "model.Vietnam_economic_lakehouse.fact_gdp",
+      "model.Vietnam_economic_lakehouse.fact_interest_rate",
+      "model.Vietnam_economic_lakehouse.fact_macro_indicator",
+      "model.Vietnam_economic_lakehouse.fact_ohlc",
+      "model.Vietnam_economic_lakehouse.fact_total_investment",
+      "model.Vietnam_economic_lakehouse.mart_macro_metrics",
+      "model.Vietnam_economic_lakehouse.mart_ohlc_metrics",
+      "test.Vietnam_economic_lakehouse.not_null_dim_source_source_key.72641c79b5",
+      "test.Vietnam_economic_lakehouse.relationships_fact_total_investment_source_key__source_key__ref_dim_source_.0babfe6fdc",
+      "test.Vietnam_economic_lakehouse.unique_dim_source_source_key.f6e6a307c2"
+    ],
+    "model.Vietnam_economic_lakehouse.dim_sub_sector": [
+      "model.Vietnam_economic_lakehouse.fact_gdp",
+      "model.Vietnam_economic_lakehouse.mart_gdp_metrics",
+      "test.Vietnam_economic_lakehouse.not_null_dim_sub_sector_sub_sector_key.086336310b",
+      "test.Vietnam_economic_lakehouse.relationships_fact_gdp_sub_sector_key__sub_sector_key__ref_dim_sub_sector_.9753573e53",
+      "test.Vietnam_economic_lakehouse.unique_dim_sub_sector_sub_sector_key.fc5fade0d2"
+    ],
+    "model.Vietnam_economic_lakehouse.dim_term": [
+      "model.Vietnam_economic_lakehouse.fact_interest_rate"
+    ],
+    "model.Vietnam_economic_lakehouse.dim_time": [
+      "model.Vietnam_economic_lakehouse.fact_agriculture",
+      "model.Vietnam_economic_lakehouse.fact_gdp",
+      "model.Vietnam_economic_lakehouse.fact_interest_rate",
+      "model.Vietnam_economic_lakehouse.fact_international_trade",
+      "model.Vietnam_economic_lakehouse.fact_macro_indicator",
+      "model.Vietnam_economic_lakehouse.fact_ohlc",
+      "model.Vietnam_economic_lakehouse.fact_production_output",
+      "model.Vietnam_economic_lakehouse.fact_total_investment",
+      "model.Vietnam_economic_lakehouse.mart_agriculture_metrics",
+      "model.Vietnam_economic_lakehouse.mart_gdp_metrics",
+      "model.Vietnam_economic_lakehouse.mart_macro_metrics",
+      "model.Vietnam_economic_lakehouse.mart_ohlc_metrics",
+      "model.Vietnam_economic_lakehouse.mart_product_market_metrics",
+      "test.Vietnam_economic_lakehouse.not_null_dim_time_time_key.0069bfd97e",
+      "test.Vietnam_economic_lakehouse.relationships_fact_gdp_time_key__time_key__ref_dim_time_.6986cecc35",
+      "test.Vietnam_economic_lakehouse.relationships_fact_interest_rate_time_key__time_key__ref_dim_time_.0037dd9219",
+      "test.Vietnam_economic_lakehouse.relationships_fact_international_trade_time_key__time_key__ref_dim_time_.253cb8b531",
+      "test.Vietnam_economic_lakehouse.relationships_fact_macro_indicator_time_key__time_key__ref_dim_time_.5203e23f51",
+      "test.Vietnam_economic_lakehouse.relationships_fact_ohlc_time_key__time_key__ref_dim_time_.45800ebe0d",
+      "test.Vietnam_economic_lakehouse.relationships_fact_production_output_time_key__time_key__ref_dim_time_.834349b157",
+      "test.Vietnam_economic_lakehouse.relationships_fact_total_investment_time_key__time_key__ref_dim_time_.862496b6c2",
+      "test.Vietnam_economic_lakehouse.unique_dim_time_time_key.d3eade6aef"
+    ],
+    "model.Vietnam_economic_lakehouse.dim_unit": [
+      "model.Vietnam_economic_lakehouse.fact_gdp",
+      "model.Vietnam_economic_lakehouse.fact_interest_rate",
+      "model.Vietnam_economic_lakehouse.fact_macro_indicator",
+      "model.Vietnam_economic_lakehouse.fact_total_investment",
+      "model.Vietnam_economic_lakehouse.mart_gdp_metrics",
+      "model.Vietnam_economic_lakehouse.mart_macro_metrics",
+      "model.Vietnam_economic_lakehouse.mart_product_market_metrics",
+      "test.Vietnam_economic_lakehouse.not_null_dim_unit_unit_key.6bc86b08f4",
+      "test.Vietnam_economic_lakehouse.relationships_dim_unit_unit_type_key__unit_type_key__ref_dim_unit_type_.ecf9ad1f78",
+      "test.Vietnam_economic_lakehouse.relationships_fact_total_investment_unit_key__unit_key__ref_dim_unit_.62309f4936",
+      "test.Vietnam_economic_lakehouse.unique_dim_unit_unit_key.53e22fe15a"
+    ],
+    "model.Vietnam_economic_lakehouse.dim_unit_type": [
+      "test.Vietnam_economic_lakehouse.relationships_dim_unit_unit_type_key__unit_type_key__ref_dim_unit_type_.ecf9ad1f78"
+    ],
+    "model.Vietnam_economic_lakehouse.fact_agriculture": [
+      "model.Vietnam_economic_lakehouse.mart_agriculture_metrics",
+      "test.Vietnam_economic_lakehouse.not_null_fact_agriculture_crop_key.2821bbbc77",
+      "test.Vietnam_economic_lakehouse.not_null_fact_agriculture_fact_agri_key.6192f37ab7",
+      "test.Vietnam_economic_lakehouse.not_null_fact_agriculture_source_key.b21abb5e99",
+      "test.Vietnam_economic_lakehouse.not_null_fact_agriculture_time_key.719845a137",
+      "test.Vietnam_economic_lakehouse.unique_fact_agriculture_fact_agri_key.c0e7294305"
+    ],
+    "model.Vietnam_economic_lakehouse.fact_gdp": [
+      "model.Vietnam_economic_lakehouse.mart_gdp_metrics",
+      "test.Vietnam_economic_lakehouse.not_null_fact_gdp_fact_gdp_key.7d238e6839",
+      "test.Vietnam_economic_lakehouse.relationships_fact_gdp_sub_sector_key__sub_sector_key__ref_dim_sub_sector_.9753573e53",
+      "test.Vietnam_economic_lakehouse.relationships_fact_gdp_time_key__time_key__ref_dim_time_.6986cecc35",
+      "test.Vietnam_economic_lakehouse.unique_fact_gdp_fact_gdp_key.c80728f341"
+    ],
+    "model.Vietnam_economic_lakehouse.fact_interest_rate": [
+      "test.Vietnam_economic_lakehouse.not_null_fact_interest_rate_fact_interest_key.609a3dfb70",
+      "test.Vietnam_economic_lakehouse.relationships_fact_interest_rate_asset_key__asset_key__ref_dim_asset_.b1780523db",
+      "test.Vietnam_economic_lakehouse.relationships_fact_interest_rate_time_key__time_key__ref_dim_time_.0037dd9219",
+      "test.Vietnam_economic_lakehouse.unique_fact_interest_rate_fact_interest_key.b647b0d44b"
+    ],
+    "model.Vietnam_economic_lakehouse.fact_international_trade": [
+      "test.Vietnam_economic_lakehouse.not_null_fact_international_trade_fact_trade_key.505c6f56b0",
+      "test.Vietnam_economic_lakehouse.not_null_fact_international_trade_product_key.0267c9e8d5",
+      "test.Vietnam_economic_lakehouse.not_null_fact_international_trade_time_key.215855037b",
+      "test.Vietnam_economic_lakehouse.relationships_fact_international_trade_product_key__product_key__ref_dim_product_.1a6f7cdd7d",
+      "test.Vietnam_economic_lakehouse.relationships_fact_international_trade_time_key__time_key__ref_dim_time_.253cb8b531",
+      "test.Vietnam_economic_lakehouse.unique_fact_international_trade_fact_trade_key.60eb4328e8"
+    ],
+    "model.Vietnam_economic_lakehouse.fact_macro_indicator": [
+      "model.Vietnam_economic_lakehouse.mart_macro_metrics",
+      "test.Vietnam_economic_lakehouse.not_null_fact_macro_indicator_fact_key.8075f821de",
+      "test.Vietnam_economic_lakehouse.relationships_fact_macro_indicator_indicator_key__indicator_key__ref_dim_indicator_.b58a88090d",
+      "test.Vietnam_economic_lakehouse.relationships_fact_macro_indicator_time_key__time_key__ref_dim_time_.5203e23f51",
+      "test.Vietnam_economic_lakehouse.unique_fact_macro_indicator_fact_key.6ae6c8ba36"
+    ],
+    "model.Vietnam_economic_lakehouse.fact_ohlc": [
+      "model.Vietnam_economic_lakehouse.mart_ohlc_metrics",
+      "test.Vietnam_economic_lakehouse.not_null_fact_ohlc_fact_ohlc_key.13a2d473c0",
+      "test.Vietnam_economic_lakehouse.relationships_fact_ohlc_asset_key__asset_key__ref_dim_asset_.7c542296ce",
+      "test.Vietnam_economic_lakehouse.relationships_fact_ohlc_time_key__time_key__ref_dim_time_.45800ebe0d",
+      "test.Vietnam_economic_lakehouse.unique_fact_ohlc_fact_ohlc_key.80f717a49b"
+    ],
+    "model.Vietnam_economic_lakehouse.fact_production_output": [
+      "model.Vietnam_economic_lakehouse.mart_product_market_metrics",
+      "test.Vietnam_economic_lakehouse.not_null_fact_production_output_fact_production_key.f2c1742ccd",
+      "test.Vietnam_economic_lakehouse.not_null_fact_production_output_product_category_key.8afbc83794",
+      "test.Vietnam_economic_lakehouse.not_null_fact_production_output_product_key.628825d4fd",
+      "test.Vietnam_economic_lakehouse.not_null_fact_production_output_time_key.2d868d7063",
+      "test.Vietnam_economic_lakehouse.not_null_fact_production_output_value.b31104d276",
+      "test.Vietnam_economic_lakehouse.relationships_fact_production_output_product_category_key__product_category_key__ref_dim_product_category_.bf3e9249f6",
+      "test.Vietnam_economic_lakehouse.relationships_fact_production_output_product_key__product_key__ref_dim_product_.580a6faa38",
+      "test.Vietnam_economic_lakehouse.relationships_fact_production_output_time_key__time_key__ref_dim_time_.834349b157",
+      "test.Vietnam_economic_lakehouse.unique_fact_production_output_fact_production_key.f9affb73ef"
+    ],
+    "model.Vietnam_economic_lakehouse.fact_total_investment": [
+      "test.Vietnam_economic_lakehouse.not_null_fact_total_investment_fact_total_investment_key.a3269e1c27",
+      "test.Vietnam_economic_lakehouse.not_null_fact_total_investment_source_key.e569c9aff5",
+      "test.Vietnam_economic_lakehouse.not_null_fact_total_investment_time_key.d82cd8714a",
+      "test.Vietnam_economic_lakehouse.not_null_fact_total_investment_unit_key.75f71a6f11",
+      "test.Vietnam_economic_lakehouse.relationships_fact_total_investment_source_key__source_key__ref_dim_source_.0babfe6fdc",
+      "test.Vietnam_economic_lakehouse.relationships_fact_total_investment_time_key__time_key__ref_dim_time_.862496b6c2",
+      "test.Vietnam_economic_lakehouse.relationships_fact_total_investment_unit_key__unit_key__ref_dim_unit_.62309f4936",
+      "test.Vietnam_economic_lakehouse.unique_fact_total_investment_fact_total_investment_key.462c1eb9fb"
+    ],
+    "model.Vietnam_economic_lakehouse.mart_agriculture_metrics": [],
+    "model.Vietnam_economic_lakehouse.mart_gdp_metrics": [],
+    "model.Vietnam_economic_lakehouse.mart_macro_metrics": [],
+    "model.Vietnam_economic_lakehouse.mart_ohlc_metrics": [],
+    "model.Vietnam_economic_lakehouse.mart_product_market_metrics": [],
+    "model.Vietnam_economic_lakehouse.stg_agriculture": [
+      "model.Vietnam_economic_lakehouse.dim_crop",
+      "model.Vietnam_economic_lakehouse.dim_unit",
+      "model.Vietnam_economic_lakehouse.fact_agriculture"
+    ],
+    "model.Vietnam_economic_lakehouse.stg_gdp": [
+      "model.Vietnam_economic_lakehouse.dim_sector",
+      "model.Vietnam_economic_lakehouse.dim_source",
+      "model.Vietnam_economic_lakehouse.dim_sub_sector",
+      "model.Vietnam_economic_lakehouse.dim_unit",
+      "model.Vietnam_economic_lakehouse.fact_gdp"
+    ],
+    "model.Vietnam_economic_lakehouse.stg_interest_rate": [
+      "model.Vietnam_economic_lakehouse.dim_asset",
+      "model.Vietnam_economic_lakehouse.dim_asset_class",
+      "model.Vietnam_economic_lakehouse.dim_market",
+      "model.Vietnam_economic_lakehouse.dim_source",
+      "model.Vietnam_economic_lakehouse.dim_term",
+      "model.Vietnam_economic_lakehouse.dim_unit",
+      "model.Vietnam_economic_lakehouse.fact_interest_rate"
+    ],
+    "model.Vietnam_economic_lakehouse.stg_macro_indicator": [
+      "model.Vietnam_economic_lakehouse.dim_indicator",
+      "model.Vietnam_economic_lakehouse.dim_indicator_group",
+      "model.Vietnam_economic_lakehouse.dim_source",
+      "model.Vietnam_economic_lakehouse.dim_unit",
+      "model.Vietnam_economic_lakehouse.fact_macro_indicator"
+    ],
+    "model.Vietnam_economic_lakehouse.stg_ohlc": [
+      "model.Vietnam_economic_lakehouse.dim_asset",
+      "model.Vietnam_economic_lakehouse.dim_asset_class",
+      "model.Vietnam_economic_lakehouse.dim_market",
+      "model.Vietnam_economic_lakehouse.dim_source",
+      "model.Vietnam_economic_lakehouse.dim_unit",
+      "model.Vietnam_economic_lakehouse.fact_ohlc"
+    ],
+    "model.Vietnam_economic_lakehouse.stg_production_output": [
+      "model.Vietnam_economic_lakehouse.dim_product",
+      "model.Vietnam_economic_lakehouse.dim_product_category",
+      "model.Vietnam_economic_lakehouse.dim_source",
+      "model.Vietnam_economic_lakehouse.dim_unit",
+      "model.Vietnam_economic_lakehouse.fact_production_output"
+    ],
+    "model.Vietnam_economic_lakehouse.stg_total_investment": [
+      "model.Vietnam_economic_lakehouse.dim_capital_source",
+      "model.Vietnam_economic_lakehouse.dim_source",
+      "model.Vietnam_economic_lakehouse.dim_unit",
+      "model.Vietnam_economic_lakehouse.fact_total_investment"
+    ],
+    "model.Vietnam_economic_lakehouse.stg_trade_international": [
+      "model.Vietnam_economic_lakehouse.fact_international_trade"
+    ],
+    "source.Vietnam_economic_lakehouse.silver.annual_crops": [
+      "model.Vietnam_economic_lakehouse.stg_agriculture"
+    ],
+    "source.Vietnam_economic_lakehouse.silver.aquatic_products": [
+      "model.Vietnam_economic_lakehouse.stg_production_output"
+    ],
+    "source.Vietnam_economic_lakehouse.silver.broad_money": [
+      "model.Vietnam_economic_lakehouse.stg_macro_indicator"
+    ],
+    "source.Vietnam_economic_lakehouse.silver.core_inflation_rate": [
+      "model.Vietnam_economic_lakehouse.stg_macro_indicator"
+    ],
+    "source.Vietnam_economic_lakehouse.silver.cpi_base_year": [
+      "model.Vietnam_economic_lakehouse.stg_macro_indicator"
+    ],
+    "source.Vietnam_economic_lakehouse.silver.cpi_mom": [
+      "model.Vietnam_economic_lakehouse.stg_macro_indicator"
+    ],
+    "source.Vietnam_economic_lakehouse.silver.forestry": [
+      "model.Vietnam_economic_lakehouse.stg_production_output"
+    ],
+    "source.Vietnam_economic_lakehouse.silver.gasoline": [
+      "model.Vietnam_economic_lakehouse.stg_production_output"
+    ],
+    "source.Vietnam_economic_lakehouse.silver.gdp": [
+      "model.Vietnam_economic_lakehouse.stg_gdp"
+    ],
+    "source.Vietnam_economic_lakehouse.silver.industry_product": [
+      "model.Vietnam_economic_lakehouse.stg_production_output"
+    ],
+    "source.Vietnam_economic_lakehouse.silver.interest_rate": [
+      "model.Vietnam_economic_lakehouse.stg_interest_rate"
+    ],
+    "source.Vietnam_economic_lakehouse.silver.international_ecommerce": [
+      "model.Vietnam_economic_lakehouse.stg_trade_international"
+    ],
+    "source.Vietnam_economic_lakehouse.silver.investment": [
+      "model.Vietnam_economic_lakehouse.stg_total_investment"
+    ],
+    "source.Vietnam_economic_lakehouse.silver.investment_by_sector": [],
+    "source.Vietnam_economic_lakehouse.silver.livestock": [
+      "model.Vietnam_economic_lakehouse.stg_production_output"
+    ],
+    "source.Vietnam_economic_lakehouse.silver.m2": [
+      "model.Vietnam_economic_lakehouse.stg_macro_indicator"
+    ],
+    "source.Vietnam_economic_lakehouse.silver.ohlc_commodity": [
+      "model.Vietnam_economic_lakehouse.stg_ohlc"
+    ],
+    "source.Vietnam_economic_lakehouse.silver.ohlc_currency": [
+      "model.Vietnam_economic_lakehouse.stg_ohlc"
+    ],
+    "source.Vietnam_economic_lakehouse.silver.ohlc_index": [
+      "model.Vietnam_economic_lakehouse.stg_ohlc"
+    ],
+    "source.Vietnam_economic_lakehouse.silver.ohlc_vietnam_index": [
+      "model.Vietnam_economic_lakehouse.stg_ohlc"
+    ],
+    "source.Vietnam_economic_lakehouse.silver.perennial_crops": [
+      "model.Vietnam_economic_lakehouse.stg_agriculture"
+    ],
+    "source.Vietnam_economic_lakehouse.silver.ppi_qoq": [
+      "model.Vietnam_economic_lakehouse.stg_macro_indicator"
+    ],
+    "source.Vietnam_economic_lakehouse.silver.staple_crops": [
+      "model.Vietnam_economic_lakehouse.stg_agriculture"
+    ],
+    "test.Vietnam_economic_lakehouse.not_null_dim_asset_asset_key.a810898cee": [],
+    "test.Vietnam_economic_lakehouse.not_null_dim_crop_crop_key.15381b42ae": [],
+    "test.Vietnam_economic_lakehouse.not_null_dim_indicator_indicator_key.45b7ea1a1c": [],
+    "test.Vietnam_economic_lakehouse.not_null_dim_product_product_key.f0e1d838d3": [],
+    "test.Vietnam_economic_lakehouse.not_null_dim_source_source_key.72641c79b5": [],
+    "test.Vietnam_economic_lakehouse.not_null_dim_sub_sector_sub_sector_key.086336310b": [],
+    "test.Vietnam_economic_lakehouse.not_null_dim_time_time_key.0069bfd97e": [],
+    "test.Vietnam_economic_lakehouse.not_null_dim_unit_unit_key.6bc86b08f4": [],
+    "test.Vietnam_economic_lakehouse.not_null_fact_agriculture_crop_key.2821bbbc77": [],
+    "test.Vietnam_economic_lakehouse.not_null_fact_agriculture_fact_agri_key.6192f37ab7": [],
+    "test.Vietnam_economic_lakehouse.not_null_fact_agriculture_source_key.b21abb5e99": [],
+    "test.Vietnam_economic_lakehouse.not_null_fact_agriculture_time_key.719845a137": [],
+    "test.Vietnam_economic_lakehouse.not_null_fact_gdp_fact_gdp_key.7d238e6839": [],
+    "test.Vietnam_economic_lakehouse.not_null_fact_interest_rate_fact_interest_key.609a3dfb70": [],
+    "test.Vietnam_economic_lakehouse.not_null_fact_international_trade_fact_trade_key.505c6f56b0": [],
+    "test.Vietnam_economic_lakehouse.not_null_fact_international_trade_product_key.0267c9e8d5": [],
+    "test.Vietnam_economic_lakehouse.not_null_fact_international_trade_time_key.215855037b": [],
+    "test.Vietnam_economic_lakehouse.not_null_fact_macro_indicator_fact_key.8075f821de": [],
+    "test.Vietnam_economic_lakehouse.not_null_fact_ohlc_fact_ohlc_key.13a2d473c0": [],
+    "test.Vietnam_economic_lakehouse.not_null_fact_production_output_fact_production_key.f2c1742ccd": [],
+    "test.Vietnam_economic_lakehouse.not_null_fact_production_output_product_category_key.8afbc83794": [],
+    "test.Vietnam_economic_lakehouse.not_null_fact_production_output_product_key.628825d4fd": [],
+    "test.Vietnam_economic_lakehouse.not_null_fact_production_output_time_key.2d868d7063": [],
+    "test.Vietnam_economic_lakehouse.not_null_fact_production_output_value.b31104d276": [],
+    "test.Vietnam_economic_lakehouse.not_null_fact_total_investment_fact_total_investment_key.a3269e1c27": [],
+    "test.Vietnam_economic_lakehouse.not_null_fact_total_investment_source_key.e569c9aff5": [],
+    "test.Vietnam_economic_lakehouse.not_null_fact_total_investment_time_key.d82cd8714a": [],
+    "test.Vietnam_economic_lakehouse.not_null_fact_total_investment_unit_key.75f71a6f11": [],
+    "test.Vietnam_economic_lakehouse.relationships_dim_unit_unit_type_key__unit_type_key__ref_dim_unit_type_.ecf9ad1f78": [],
+    "test.Vietnam_economic_lakehouse.relationships_fact_gdp_sub_sector_key__sub_sector_key__ref_dim_sub_sector_.9753573e53": [],
+    "test.Vietnam_economic_lakehouse.relationships_fact_gdp_time_key__time_key__ref_dim_time_.6986cecc35": [],
+    "test.Vietnam_economic_lakehouse.relationships_fact_interest_rate_asset_key__asset_key__ref_dim_asset_.b1780523db": [],
+    "test.Vietnam_economic_lakehouse.relationships_fact_interest_rate_time_key__time_key__ref_dim_time_.0037dd9219": [],
+    "test.Vietnam_economic_lakehouse.relationships_fact_international_trade_product_key__product_key__ref_dim_product_.1a6f7cdd7d": [],
+    "test.Vietnam_economic_lakehouse.relationships_fact_international_trade_time_key__time_key__ref_dim_time_.253cb8b531": [],
+    "test.Vietnam_economic_lakehouse.relationships_fact_macro_indicator_indicator_key__indicator_key__ref_dim_indicator_.b58a88090d": [],
+    "test.Vietnam_economic_lakehouse.relationships_fact_macro_indicator_time_key__time_key__ref_dim_time_.5203e23f51": [],
+    "test.Vietnam_economic_lakehouse.relationships_fact_ohlc_asset_key__asset_key__ref_dim_asset_.7c542296ce": [],
+    "test.Vietnam_economic_lakehouse.relationships_fact_ohlc_time_key__time_key__ref_dim_time_.45800ebe0d": [],
+    "test.Vietnam_economic_lakehouse.relationships_fact_production_output_product_category_key__product_category_key__ref_dim_product_category_.bf3e9249f6": [],
+    "test.Vietnam_economic_lakehouse.relationships_fact_production_output_product_key__product_key__ref_dim_product_.580a6faa38": [],
+    "test.Vietnam_economic_lakehouse.relationships_fact_production_output_time_key__time_key__ref_dim_time_.834349b157": [],
+    "test.Vietnam_economic_lakehouse.relationships_fact_total_investment_source_key__source_key__ref_dim_source_.0babfe6fdc": [],
+    "test.Vietnam_economic_lakehouse.relationships_fact_total_investment_time_key__time_key__ref_dim_time_.862496b6c2": [],
+    "test.Vietnam_economic_lakehouse.relationships_fact_total_investment_unit_key__unit_key__ref_dim_unit_.62309f4936": [],
+    "test.Vietnam_economic_lakehouse.unique_dim_asset_asset_key.1e356d7858": [],
+    "test.Vietnam_economic_lakehouse.unique_dim_crop_crop_key.93163998cd": [],
+    "test.Vietnam_economic_lakehouse.unique_dim_indicator_indicator_key.438ea2349e": [],
+    "test.Vietnam_economic_lakehouse.unique_dim_product_product_key.1753236bd0": [],
+    "test.Vietnam_economic_lakehouse.unique_dim_source_source_key.f6e6a307c2": [],
+    "test.Vietnam_economic_lakehouse.unique_dim_sub_sector_sub_sector_key.fc5fade0d2": [],
+    "test.Vietnam_economic_lakehouse.unique_dim_time_time_key.d3eade6aef": [],
+    "test.Vietnam_economic_lakehouse.unique_dim_unit_unit_key.53e22fe15a": [],
+    "test.Vietnam_economic_lakehouse.unique_fact_agriculture_fact_agri_key.c0e7294305": [],
+    "test.Vietnam_economic_lakehouse.unique_fact_gdp_fact_gdp_key.c80728f341": [],
+    "test.Vietnam_economic_lakehouse.unique_fact_interest_rate_fact_interest_key.b647b0d44b": [],
+    "test.Vietnam_economic_lakehouse.unique_fact_international_trade_fact_trade_key.60eb4328e8": [],
+    "test.Vietnam_economic_lakehouse.unique_fact_macro_indicator_fact_key.6ae6c8ba36": [],
+    "test.Vietnam_economic_lakehouse.unique_fact_ohlc_fact_ohlc_key.80f717a49b": [],
+    "test.Vietnam_economic_lakehouse.unique_fact_production_output_fact_production_key.f9affb73ef": [],
+    "test.Vietnam_economic_lakehouse.unique_fact_total_investment_fact_total_investment_key.462c1eb9fb": []
+  }
+}

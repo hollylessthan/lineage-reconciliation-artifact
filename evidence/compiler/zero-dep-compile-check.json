@@ -1,0 +1,643 @@
+{
+  "summary": {
+    "parse_failed": 17,
+    "confirmed_to_zero": 6,
+    "duplicate_history": 1,
+    "identity_changed": 1
+  },
+  "events": [
+    {
+      "repo": "dbt-labs/jaffle-sl-template",
+      "commit": "3133ae1971c19084e9d39ad52960e2d0822fc7ea",
+      "parent": "9cae7a05ac40ec0992dcf0b022bd94ef65dc1adb",
+      "path": "models/staging/stg_customers.sql",
+      "static_removed": [
+        "source.ecom.raw_customers"
+      ],
+      "before_adapter": null,
+      "before_deps": null,
+      "before_error": {
+        "duckdb": "parse_failed",
+        "snowflake": "parse_failed",
+        "bigquery": "parse_failed",
+        "databricks": "parse_failed",
+        "postgres": "parse_failed"
+      },
+      "after_adapter": null,
+      "after_deps": null,
+      "after_error": {
+        "duckdb": "parse_failed",
+        "snowflake": "parse_failed",
+        "bigquery": "parse_failed",
+        "databricks": "parse_failed",
+        "postgres": "parse_failed"
+      },
+      "result": "parse_failed"
+    },
+    {
+      "repo": "dbt-labs/jaffle-sl-template",
+      "commit": "3133ae1971c19084e9d39ad52960e2d0822fc7ea",
+      "parent": "9cae7a05ac40ec0992dcf0b022bd94ef65dc1adb",
+      "path": "models/staging/stg_order_items.sql",
+      "static_removed": [
+        "source.ecom.raw_items"
+      ],
+      "before_adapter": null,
+      "before_deps": null,
+      "before_error": {
+        "duckdb": "parse_failed",
+        "snowflake": "parse_failed",
+        "bigquery": "parse_failed",
+        "databricks": "parse_failed",
+        "postgres": "parse_failed"
+      },
+      "after_adapter": null,
+      "after_deps": null,
+      "after_error": {
+        "duckdb": "parse_failed",
+        "snowflake": "parse_failed",
+        "bigquery": "parse_failed",
+        "databricks": "parse_failed",
+        "postgres": "parse_failed"
+      },
+      "result": "parse_failed"
+    },
+    {
+      "repo": "dbt-labs/jaffle-sl-template",
+      "commit": "3133ae1971c19084e9d39ad52960e2d0822fc7ea",
+      "parent": "9cae7a05ac40ec0992dcf0b022bd94ef65dc1adb",
+      "path": "models/staging/stg_products.sql",
+      "static_removed": [
+        "source.ecom.raw_products"
+      ],
+      "before_adapter": null,
+      "before_deps": null,
+      "before_error": {
+        "duckdb": "parse_failed",
+        "snowflake": "parse_failed",
+        "bigquery": "parse_failed",
+        "databricks": "parse_failed",
+        "postgres": "parse_failed"
+      },
+      "after_adapter": null,
+      "after_deps": null,
+      "after_error": {
+        "duckdb": "parse_failed",
+        "snowflake": "parse_failed",
+        "bigquery": "parse_failed",
+        "databricks": "parse_failed",
+        "postgres": "parse_failed"
+      },
+      "result": "parse_failed"
+    },
+    {
+      "repo": "Jam516/BundleBear",
+      "commit": "21ae90ae32cbdda42c966205c8937789309663b5",
+      "parent": "ab0556338d83f1b6ddcb02f52d180ffb94f17ea3",
+      "path": "models/eip7702/metrics/eip7702_metrics_total_summary.sql",
+      "static_removed": [
+        "ref.eip7702_all_authorizations",
+        "ref.eip7702_metrics_daily_authority_state"
+      ],
+      "before_adapter": "duckdb",
+      "before_deps": [
+        "model.bundlebear.eip7702_all_authorizations",
+        "model.bundlebear.eip7702_metrics_daily_authority_state"
+      ],
+      "after_adapter": "duckdb",
+      "after_deps": [],
+      "result": "confirmed_to_zero",
+      "exported": "zero00"
+    },
+    {
+      "repo": "techvaquero/dbtpcdi",
+      "commit": "17de0cf9cf3c3a8b258d519088099088c80a421c",
+      "parent": "c0c73448893f277b7fe4f0fae309972da8aa06f3",
+      "path": "models/incremental/FactWatches.sql",
+      "static_removed": [
+        "ref.base_supplier"
+      ],
+      "before_adapter": null,
+      "before_deps": null,
+      "before_error": {
+        "duckdb": "parse_failed",
+        "snowflake": "parse_failed",
+        "bigquery": "parse_failed",
+        "databricks": "parse_failed",
+        "postgres": "parse_failed"
+      },
+      "after_adapter": null,
+      "after_deps": null,
+      "after_error": {
+        "duckdb": "parse_failed",
+        "snowflake": "parse_failed",
+        "bigquery": "parse_failed",
+        "databricks": "parse_failed",
+        "postgres": "parse_failed"
+      },
+      "result": "parse_failed"
+    },
+    {
+      "repo": "techvaquero/dbtpcdi",
+      "commit": "c0c73448893f277b7fe4f0fae309972da8aa06f3",
+      "parent": "4164556473fcee1d4ce9120dda161786636dedf7",
+      "path": "models/incremental/FactCashBalances.sql",
+      "static_removed": [
+        "ref.CashTransactionHistory",
+        "ref.CashTransactionIncremental",
+        "ref.DimAccount",
+        "ref.DimDate"
+      ],
+      "before_adapter": null,
+      "before_deps": null,
+      "before_error": {
+        "duckdb": "parse_failed",
+        "snowflake": "parse_failed",
+        "bigquery": "parse_failed",
+        "databricks": "parse_failed",
+        "postgres": "parse_failed"
+      },
+      "after_adapter": null,
+      "after_deps": null,
+      "after_error": {
+        "duckdb": "parse_failed",
+        "snowflake": "parse_failed",
+        "bigquery": "parse_failed",
+        "databricks": "parse_failed",
+        "postgres": "parse_failed"
+      },
+      "result": "parse_failed"
+    },
+    {
+      "repo": "techvaquero/dbtpcdi",
+      "commit": "4164556473fcee1d4ce9120dda161786636dedf7",
+      "parent": "8b11f1e1091432d30eded42f9701731123568535",
+      "path": "models/incremental/FactHoldings.sql",
+      "static_removed": [
+        "ref.DimTrade",
+        "ref.HoldingHistory",
+        "ref.HoldingIncremental"
+      ],
+      "before_adapter": null,
+      "before_deps": null,
+      "before_error": {
+        "duckdb": "parse_failed",
+        "snowflake": "parse_failed",
+        "bigquery": "parse_failed",
+        "databricks": "parse_failed",
+        "postgres": "parse_failed"
+      },
+      "after_adapter": null,
+      "after_deps": null,
+      "after_error": {
+        "duckdb": "parse_failed",
+        "snowflake": "parse_failed",
+        "bigquery": "parse_failed",
+        "databricks": "parse_failed",
+        "postgres": "parse_failed"
+      },
+      "result": "parse_failed"
+    },
+    {
+      "repo": "techvaquero/dbtpcdi",
+      "commit": "8b11f1e1091432d30eded42f9701731123568535",
+      "parent": "4ff7bdf2635e67f9f5969cbf792dd172011ddddb",
+      "path": "models/incremental/DimTrade.sql",
+      "static_removed": [
+        "ref.base_part_supplier",
+        "ref.parts",
+        "ref.suppliers"
+      ],
+      "before_adapter": null,
+      "before_deps": null,
+      "before_error": {
+        "duckdb": "parse_failed",
+        "snowflake": "parse_failed",
+        "bigquery": "parse_failed",
+        "databricks": "parse_failed",
+        "postgres": "parse_failed"
+      },
+      "after_adapter": null,
+      "after_deps": null,
+      "after_error": {
+        "duckdb": "parse_failed",
+        "snowflake": "parse_failed",
+        "bigquery": "parse_failed",
+        "databricks": "parse_failed",
+        "postgres": "parse_failed"
+      },
+      "result": "parse_failed"
+    },
+    {
+      "repo": "techvaquero/dbtpcdi",
+      "commit": "4ff7bdf2635e67f9f5969cbf792dd172011ddddb",
+      "parent": "177ba93b11bcdd246d46673320b5fc949a01e77e",
+      "path": "models/incremental/FactMarketHistory.sql",
+      "static_removed": [
+        "ref.base_part"
+      ],
+      "before_adapter": null,
+      "before_deps": null,
+      "before_error": {
+        "duckdb": "parse_failed",
+        "snowflake": "parse_failed",
+        "bigquery": "parse_failed",
+        "databricks": "parse_failed",
+        "postgres": "parse_failed"
+      },
+      "after_adapter": null,
+      "after_deps": null,
+      "after_error": {
+        "duckdb": "parse_failed",
+        "snowflake": "parse_failed",
+        "bigquery": "parse_failed",
+        "databricks": "parse_failed",
+        "postgres": "parse_failed"
+      },
+      "result": "parse_failed"
+    },
+    {
+      "repo": "techvaquero/dbtpcdi",
+      "commit": "177ba93b11bcdd246d46673320b5fc949a01e77e",
+      "parent": "1406952e2db419772ba2219eaf76b80227361403",
+      "path": "models/incremental/tempSumpFiBasicEps.sql",
+      "static_removed": [
+        "ref.base_part"
+      ],
+      "before_adapter": null,
+      "before_deps": null,
+      "before_error": {
+        "duckdb": "parse_failed",
+        "snowflake": "parse_failed",
+        "bigquery": "parse_failed",
+        "databricks": "parse_failed",
+        "postgres": "parse_failed"
+      },
+      "after_adapter": null,
+      "after_deps": null,
+      "after_error": {
+        "duckdb": "parse_failed",
+        "snowflake": "parse_failed",
+        "bigquery": "parse_failed",
+        "databricks": "parse_failed",
+        "postgres": "parse_failed"
+      },
+      "result": "parse_failed"
+    },
+    {
+      "repo": "techvaquero/dbtpcdi",
+      "commit": "1406952e2db419772ba2219eaf76b80227361403",
+      "parent": "481f80a5f3178fa59d26f10a40ce13c107c4e34d",
+      "path": "models/incremental/tempDailyMarketHisorical.sql",
+      "static_removed": [
+        "ref.base_line_item",
+        "ref.base_orders"
+      ],
+      "before_adapter": null,
+      "before_deps": null,
+      "before_error": {
+        "duckdb": "parse_failed",
+        "snowflake": "parse_failed",
+        "bigquery": "parse_failed",
+        "databricks": "parse_failed",
+        "postgres": "parse_failed"
+      },
+      "after_adapter": null,
+      "after_deps": null,
+      "after_error": {
+        "duckdb": "parse_failed",
+        "snowflake": "parse_failed",
+        "bigquery": "parse_failed",
+        "databricks": "parse_failed",
+        "postgres": "parse_failed"
+      },
+      "result": "parse_failed"
+    },
+    {
+      "repo": "techvaquero/dbtpcdi",
+      "commit": "481f80a5f3178fa59d26f10a40ce13c107c4e34d",
+      "parent": "1e873adca7c0c37745e975eb18d1ce21f89c7fb7",
+      "path": "models/incremental/DimAccount.sql",
+      "static_removed": [
+        "ref.base_line_item",
+        "ref.base_orders"
+      ],
+      "before_adapter": null,
+      "before_deps": null,
+      "before_error": {
+        "duckdb": "parse_failed",
+        "snowflake": "parse_failed",
+        "bigquery": "parse_failed",
+        "databricks": "parse_failed",
+        "postgres": "parse_failed"
+      },
+      "after_adapter": null,
+      "after_deps": null,
+      "after_error": {
+        "duckdb": "parse_failed",
+        "snowflake": "parse_failed",
+        "bigquery": "parse_failed",
+        "databricks": "parse_failed",
+        "postgres": "parse_failed"
+      },
+      "result": "parse_failed"
+    },
+    {
+      "repo": "techvaquero/dbtpcdi",
+      "commit": "1e873adca7c0c37745e975eb18d1ce21f89c7fb7",
+      "parent": "46dd5e290b44a5812f88151ebb7e5c8ddaaadaaa",
+      "path": "models/incremental/Prospect.sql",
+      "static_removed": [
+        "ref.base_orders"
+      ],
+      "before_adapter": null,
+      "before_deps": null,
+      "before_error": {
+        "duckdb": "parse_failed",
+        "snowflake": "parse_failed",
+        "bigquery": "parse_failed",
+        "databricks": "parse_failed",
+        "postgres": "parse_failed"
+      },
+      "after_adapter": null,
+      "after_deps": null,
+      "after_error": {
+        "duckdb": "parse_failed",
+        "snowflake": "parse_failed",
+        "bigquery": "parse_failed",
+        "databricks": "parse_failed",
+        "postgres": "parse_failed"
+      },
+      "result": "parse_failed"
+    },
+    {
+      "repo": "techvaquero/dbtpcdi",
+      "commit": "65289455afce1c968357dced159dd7ce829b257c",
+      "parent": "2b7aa7231720f7a16d8d6078c3c621af71962a60",
+      "path": "models/incremental/DimCustomerStg.sql",
+      "static_removed": [
+        "ref.base_customer"
+      ],
+      "before_adapter": null,
+      "before_deps": null,
+      "before_error": {
+        "duckdb": "parse_failed",
+        "snowflake": "parse_failed",
+        "bigquery": "parse_failed",
+        "databricks": "parse_failed",
+        "postgres": "parse_failed"
+      },
+      "after_adapter": null,
+      "after_deps": null,
+      "after_error": {
+        "duckdb": "parse_failed",
+        "snowflake": "parse_failed",
+        "bigquery": "parse_failed",
+        "databricks": "parse_failed",
+        "postgres": "parse_failed"
+      },
+      "result": "parse_failed"
+    },
+    {
+      "repo": "techvaquero/dbtpcdi",
+      "commit": "4fd25f1a5ac69f864c1309dce31480fa19e1dfe6",
+      "parent": "84554b4de8c61735b1f17f46e8a957abb8199042",
+      "path": "models/incremental/DimCustomer.sql",
+      "static_removed": [
+        "ref.base_nation"
+      ],
+      "before_adapter": null,
+      "before_deps": null,
+      "before_error": {
+        "duckdb": "parse_failed",
+        "snowflake": "parse_failed",
+        "bigquery": "parse_failed",
+        "databricks": "parse_failed",
+        "postgres": "parse_failed"
+      },
+      "after_adapter": null,
+      "after_deps": null,
+      "after_error": {
+        "duckdb": "parse_failed",
+        "snowflake": "parse_failed",
+        "bigquery": "parse_failed",
+        "databricks": "parse_failed",
+        "postgres": "parse_failed"
+      },
+      "result": "parse_failed"
+    },
+    {
+      "repo": "techvaquero/dbtpcdi",
+      "commit": "84554b4de8c61735b1f17f46e8a957abb8199042",
+      "parent": "cfe791c742a375dd9f59855209aa628a1e7b8bf8",
+      "path": "models/incremental/DimAccountStg.sql",
+      "static_removed": [
+        "ref.base_orders"
+      ],
+      "before_adapter": null,
+      "before_deps": null,
+      "before_error": {
+        "duckdb": "parse_failed",
+        "snowflake": "parse_failed",
+        "bigquery": "parse_failed",
+        "databricks": "parse_failed",
+        "postgres": "parse_failed"
+      },
+      "after_adapter": null,
+      "after_deps": null,
+      "after_error": {
+        "duckdb": "parse_failed",
+        "snowflake": "parse_failed",
+        "bigquery": "parse_failed",
+        "databricks": "parse_failed",
+        "postgres": "parse_failed"
+      },
+      "result": "parse_failed"
+    },
+    {
+      "repo": "dpguthrie/snowflake-dbt-demo-project",
+      "commit": "92fa5be053095f2fba3ac957bcb9829fd7c0c6b7",
+      "parent": "20f48b715e0343a0a218af0c780ba9c77922b330",
+      "path": "models/staging/tpch/stg_tpch_suppliers.sql",
+      "static_removed": [
+        "source.tpch.supplier"
+      ],
+      "before_adapter": null,
+      "before_deps": null,
+      "before_error": {
+        "duckdb": "parse_failed",
+        "snowflake": "parse_failed",
+        "bigquery": "parse_failed",
+        "databricks": "parse_failed",
+        "postgres": "parse_failed"
+      },
+      "after_adapter": null,
+      "after_deps": null,
+      "after_error": {
+        "duckdb": "parse_failed",
+        "snowflake": "parse_failed",
+        "bigquery": "parse_failed",
+        "databricks": "parse_failed",
+        "postgres": "parse_failed"
+      },
+      "result": "parse_failed"
+    },
+    {
+      "repo": "abduldjafar/elt-with-dagster",
+      "commit": "8e3b50b821bb377c837fcb07e817a108205999bc",
+      "parent": "de0e289f3a0547e711251f2efb251e4287fcd1d3",
+      "path": "pipelines/pipelines/dbt_project/models/eight_weeksqlchallenge/eight_weeksqlchallenge_case_study_2_chalange.sql",
+      "static_removed": [
+        "ref.eight_weeksqlchallenge_case_study_1_fact_table"
+      ],
+      "before_adapter": "duckdb",
+      "before_deps": [
+        "model.dbt_project.eight_weeksqlchallenge_case_study_1_fact_table"
+      ],
+      "after_adapter": "duckdb",
+      "after_deps": [],
+      "result": "confirmed_to_zero",
+      "exported": "zero01"
+    },
+    {
+      "repo": "synccomputingcode/databricks-tpcdi",
+      "commit": "7d6033848a7fb7635206f41557b5c699f2e489b3",
+      "parent": "22f613794f82a8521a627ed2780bd1af42a58857",
+      "path": "models/silver/financials.sql",
+      "static_removed": [
+        "ref.companies",
+        "ref.finwire_financial"
+      ],
+      "before_adapter": "duckdb",
+      "before_deps": [
+        "model.tpcdi.companies",
+        "model.tpcdi.finwire_financial"
+      ],
+      "after_adapter": "duckdb",
+      "after_deps": [],
+      "result": "confirmed_to_zero",
+      "exported": "zero02"
+    },
+    {
+      "repo": "mayurjainf007/dbtDemo",
+      "duplicate_of": "techvaquero/dbtpcdi",
+      "events": 12
+    },
+    {
+      "repo": "gip-inclusion/pilotage-airflow",
+      "commit": "e10be39fcbfd28b4e558baaef1573c1e74147430",
+      "parent": "aeba3253860c4f33d4d1ca6e0d8e7d1830171ad3",
+      "path": "dbt/models/marts/daily/fiches_deposte_en_tension_recrutement.sql",
+      "static_removed": [
+        "ref.stg_fdp",
+        "ref.stg_fdp_actives",
+        "ref.stg_fdp_actives_sans_rec_30jrs",
+        "ref.stg_fdp_actives_sans_rec_30jrs_sans_motif_pasdeposteouvert",
+        "ref.stg_fdp_difficulte_recrutement",
+        "ref.stg_fdp_difficulte_recrutement_sans_candidatures"
+      ],
+      "before_adapter": null,
+      "before_deps": null,
+      "before_error": {
+        "duckdb": "parse_failed",
+        "snowflake": "parse_failed",
+        "bigquery": "parse_failed",
+        "databricks": "parse_failed",
+        "postgres": "parse_failed"
+      },
+      "after_adapter": null,
+      "after_deps": null,
+      "after_error": {
+        "duckdb": "parse_failed",
+        "snowflake": "parse_failed",
+        "bigquery": "parse_failed",
+        "databricks": "parse_failed",
+        "postgres": "parse_failed"
+      },
+      "result": "parse_failed"
+    },
+    {
+      "repo": "gip-inclusion/pilotage-airflow",
+      "commit": "74c9022800c3fabda9069fd3bb1da2c4d56b9696",
+      "parent": "5c2015e46dcd90c996895c7217b334dd52ce679d",
+      "path": "dbt/models/staging/stg_nb_consult_utilisateur_semaine.sql",
+      "static_removed": [
+        "ref.suivi_utilisateurs_tb_prive_semaine"
+      ],
+      "before_adapter": "duckdb",
+      "before_deps": [
+        "model.dbt_pilotage.suivi_utilisateurs_tb_prive_semaine"
+      ],
+      "after_adapter": "duckdb",
+      "after_deps": [],
+      "result": "confirmed_to_zero",
+      "exported": "zero03"
+    },
+    {
+      "repo": "datalakehouse/dlh-stripe-analytics-dbt",
+      "commit": "ef6d8125bb29f29899889d6753d6c2401aedace1",
+      "parent": "d0831289707415b4977355ed12d91c8f7cc134db",
+      "path": "models/staging/WEATHER_CONDITIONS/V_COUNTRY_CODES_STG.sql",
+      "static_removed": [
+        "source.TEST_SCHEMA_EXT_DEV.COUNTRY_CODES"
+      ],
+      "before_adapter": "duckdb",
+      "before_deps": [
+        "source.snowflake_aicd.TEST_SCHEMA_EXT_DEV.COUNTRY_CODES"
+      ],
+      "after_adapter": "duckdb",
+      "after_deps": [],
+      "result": "identity_changed"
+    },
+    {
+      "repo": "winniemutai21/gz-dbt-repository",
+      "commit": "0c9aefa81c4afbc49ff577a3bae9dce52c5edb30",
+      "parent": "3bde1c97e17705d0ef961e66830048eed048dc4e",
+      "path": "models/int_sales_margin.sql",
+      "static_removed": [
+        "ref.stg_raw__product",
+        "ref.stg_raw__sales"
+      ],
+      "before_adapter": "duckdb",
+      "before_deps": [
+        "model.my_new_project.stg_raw__product",
+        "model.my_new_project.stg_raw__sales"
+      ],
+      "after_adapter": "duckdb",
+      "after_deps": [],
+      "result": "confirmed_to_zero",
+      "exported": "zero04"
+    },
+    {
+      "repo": "TherNgyn/Vietnam_economic_lakehouse",
+      "commit": "6d36bf0d4b34323dadbd978784f45f38b4a4de5c",
+      "parent": "3a5588cf1144c97a4a18da255617efb0c273589e",
+      "path": "dbt/models/dimensions/dim_time.sql",
+      "static_removed": [
+        "ref.stg_agriculture",
+        "ref.stg_gdp",
+        "ref.stg_interest_rate",
+        "ref.stg_investment",
+        "ref.stg_macro_indicator",
+        "ref.stg_ohlc",
+        "ref.stg_product_market",
+        "ref.stg_social_investment"
+      ],
+      "before_adapter": "duckdb",
+      "before_deps": [
+        "model.Vietnam_economic_lakehouse.stg_agriculture",
+        "model.Vietnam_economic_lakehouse.stg_gdp",
+        "model.Vietnam_economic_lakehouse.stg_interest_rate",
+        "model.Vietnam_economic_lakehouse.stg_investment",
+        "model.Vietnam_economic_lakehouse.stg_macro_indicator",
+        "model.Vietnam_economic_lakehouse.stg_ohlc",
+        "model.Vietnam_economic_lakehouse.stg_product_market",
+        "model.Vietnam_economic_lakehouse.stg_social_investment"
+      ],
+      "after_adapter": "duckdb",
+      "after_deps": [],
+      "result": "confirmed_to_zero",
+      "exported": "zero05"
+    }
+  ]
+}

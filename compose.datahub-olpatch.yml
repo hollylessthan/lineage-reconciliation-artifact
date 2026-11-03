@@ -1,0 +1,4 @@
+services:
+  datahub-gms-quickstart:
+    environment:
+      DATAHUB_OPENLINEAGE_USEPATCH: "true"

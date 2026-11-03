@@ -1,0 +1,8 @@
+name: reconciliation_fixture
+version: '1.0'
+config-version: 2
+profile: reconciliation_fixture
+model-paths: [models]
+models:
+  reconciliation_fixture:
+    +materialized: table

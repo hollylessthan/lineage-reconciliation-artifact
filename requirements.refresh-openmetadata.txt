@@ -1,0 +1,3 @@
+-r requirements.openmetadata.txt
+openmetadata-ingestion[dbt,postgres]==2.0.7.0
+dbt-postgres==1.11.0

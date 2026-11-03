@@ -1,0 +1,165 @@
+name: Round 2B catalog breadth
+on:
+  workflow_call:
+    inputs:
+      rep:
+        type: string
+        required: false
+        default: ''
+  workflow_dispatch:
+permissions:
+  contents: read
+env:
+  DATAHUB_TOKEN_SERVICE_SALT: disposable-pilot-salt
+  DATAHUB_TOKEN_SERVICE_SIGNING_KEY: disposable-pilot-signing-key-0123456789
+  DO_NOT_TRACK: '1'
+jobs:
+  datahub-old:
+    if: inputs.rep != '' || github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[r2b:all]') || contains(github.event.head_commit.message, '[r2b:dhold]')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    services:
+      postgres:
+        image: postgres:16.6
+        env: {POSTGRES_USER: pilot, POSTGRES_PASSWORD: pilot, POSTGRES_DB: fixture}
+        ports: ['5432:5432']
+        options: --health-cmd "pg_isready -U pilot -d fixture" --health-interval 5s --health-timeout 5s --health-retries 12
+    env:
+      DATAHUB_VERSION: v1.5.0
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with: {python-version: '3.11', cache: pip}
+      - run: pip install -r requirements.old-datahub.txt
+      - name: Start disposable DataHub v1.5.0
+        run: |
+          mkdir -p results; sudo sysctl -w vm.max_map_count=262144
+          docker compose -f compose.datahub-1.5.0.yml --profile quickstart-backend up -d --wait --wait-timeout 180 opensearch
+          # CI disk-watermark tuning only; v1.5.0's OpenSearch can reset the first request after reporting healthy.
+          for i in $(seq 1 20); do curl -sf -X PUT http://127.0.0.1:9200/_cluster/settings -H 'Content-Type: application/json' --data-binary @ci-opensearch-settings.json && break; sleep 6; done || echo "::warning::OpenSearch settings not applied"
+          docker compose -f compose.datahub-1.5.0.yml --profile quickstart-backend up -d --wait --wait-timeout 600 datahub-gms-quickstart
+          curl --fail --retry 10 --retry-delay 3 http://127.0.0.1:8080/config > results/server-config.json
+      - name: dbt (Replace)
+        if: ${{ !cancelled() }}
+        run: python scripts/metamorphic_native.py dh-dbt --server http://127.0.0.1:8080 --output results/dh-dbt
+      - name: PostgreSQL views (Replace)
+        if: ${{ !cancelled() }}
+        run: python scripts/metamorphic_native.py dh-view --server http://127.0.0.1:8080 --output results/dh-view
+      - name: OpenLineage endpoint (UPSERT)
+        if: ${{ !cancelled() }}
+        run: python scripts/metamorphic_native.py dh-ol --server http://127.0.0.1:8080 --output results/dh-ol
+      - if: always()
+        run: pip freeze > results/pip-freeze.txt; docker compose -f compose.datahub-1.5.0.yml --profile quickstart-backend logs --no-color datahub-gms-quickstart > results/server.log 2>&1 || true
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with: {name: 'round2b-datahub-v1.5.0${{ inputs.rep }}', path: results/, retention-days: 90}
+
+  datahub-olpatch:
+    if: inputs.rep != '' || github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[r2b:all]') || contains(github.event.head_commit.message, '[r2b:olpatch]')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 75
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {version: v1.5.0, compose: compose.datahub-1.5.0.yml, req: requirements.old-datahub.txt}
+          - {version: v1.8.0, compose: compose.datahub.yml, req: requirements.refresh-datahub.txt}
+    env:
+      DATAHUB_VERSION: ${{ matrix.version }}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with: {python-version: '3.11', cache: pip}
+      - run: pip install -r ${{ matrix.req }}
+      - name: Start disposable DataHub with OpenLineage usePatch=true
+        run: |
+          mkdir -p results; sudo sysctl -w vm.max_map_count=262144
+          C="-f ${{ matrix.compose }} -f compose.datahub-olpatch.yml --profile quickstart-backend"
+          docker compose $C up -d --wait --wait-timeout 180 opensearch
+          # CI disk-watermark tuning only; v1.5.0's OpenSearch can reset the first request after reporting healthy.
+          for i in $(seq 1 20); do curl -sf -X PUT http://127.0.0.1:9200/_cluster/settings -H 'Content-Type: application/json' --data-binary @ci-opensearch-settings.json && break; sleep 6; done || echo "::warning::OpenSearch settings not applied"
+          docker compose $C up -d --wait --wait-timeout 600 datahub-gms-quickstart
+          docker compose $C exec -T datahub-gms-quickstart env | grep -i OPENLINEAGE | tee results/gms-openlineage-env.txt
+      - name: OpenLineage endpoint (PATCH, Additive)
+        run: python scripts/round2b.py dh-ol-patch --server http://127.0.0.1:8080 --output results/dh-ol-patch
+      - if: always()
+        run: pip freeze > results/pip-freeze.txt
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with: {name: 'round2b-olpatch-${{ matrix.version }}${{ inputs.rep }}', path: results/, retention-days: 90}
+
+  openmetadata-old:
+    if: inputs.rep != '' || github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[r2b:all]') || contains(github.event.head_commit.message, '[r2b:omold]')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    services:
+      postgres:
+        image: postgres:16.6
+        env: {POSTGRES_USER: pilot, POSTGRES_PASSWORD: pilot, POSTGRES_DB: fixture}
+        ports: ['5432:5432']
+        options: --health-cmd "pg_isready -U pilot -d fixture" --health-interval 5s --health-timeout 5s --health-retries 12
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with: {python-version: '3.11', cache: pip}
+      - run: pip install -r requirements.old-openmetadata.txt
+      - name: Start disposable OpenMetadata 1.13.6
+        run: |
+          mkdir -p results; sudo sysctl -w vm.max_map_count=262144
+          docker compose -f compose.openmetadata-1.13.6.yml -f compose.openmetadata-pilot.yml up -d --wait --wait-timeout 600 openmetadata-server
+          curl --fail --retry 10 --retry-delay 3 http://127.0.0.1:8585/api/v1/system/version > results/server-version.json
+      - name: dbt overrideLineage=true (Replace)
+        if: ${{ !cancelled() }}
+        run: python scripts/metamorphic_native.py om-dbt-override --server http://127.0.0.1:8585 --output results/om-dbt-override
+      - name: PostgreSQL views overrideViewLineage=true (Replace)
+        if: ${{ !cancelled() }}
+        run: python scripts/metamorphic_native.py om-view --server http://127.0.0.1:8585 --output results/om-view
+      - name: OpenLineage REST endpoint
+        if: ${{ !cancelled() }}
+        run: python scripts/metamorphic_native.py om-ol --server http://127.0.0.1:8585 --output results/om-ol
+      - if: always()
+        run: pip freeze > results/pip-freeze.txt
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with: {name: 'round2b-openmetadata-1.13.6${{ inputs.rep }}', path: results/, retention-days: 90}
+
+  odd:
+    if: inputs.rep != '' || github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[r2b:all]') || contains(github.event.head_commit.message, '[r2b:odd]')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    services:
+      postgres:
+        image: postgres:16.6
+        env: {POSTGRES_USER: pilot, POSTGRES_PASSWORD: pilot, POSTGRES_DB: fixture}
+        ports: ['5432:5432']
+        options: --health-cmd "pg_isready -U pilot -d fixture" --health-interval 5s --health-timeout 5s --health-retries 12
+      odddb:
+        image: postgres:16.6
+        env: {POSTGRES_USER: odd-platform, POSTGRES_PASSWORD: odd-platform-password, POSTGRES_DB: odd-platform}
+        ports: ['15432:5432']
+        options: --health-cmd "pg_isready -U odd-platform -d odd-platform" --health-interval 5s --health-timeout 5s --health-retries 12
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with: {python-version: '3.11', cache: pip}
+      - run: pip install -r requirements.round2-odd.txt
+      - run: python -m unittest tests.test_metamorphic_core -v
+      - name: Start disposable ODD Platform 0.29.0
+        run: |
+          mkdir -p results
+          docker run -d --name odd --network host -e SERVER_PORT=18080 \
+            -e SPRING_DATASOURCE_URL=jdbc:postgresql://127.0.0.1:15432/odd-platform \
+            -e SPRING_DATASOURCE_USERNAME=odd-platform -e SPRING_DATASOURCE_PASSWORD=odd-platform-password \
+            -e SPRING_CUSTOM-DATASOURCE_URL='jdbc:postgresql://127.0.0.1:15432/odd-platform?schema=lookup_tables_schema' \
+            -e SPRING_CUSTOM-DATASOURCE_USERNAME=odd-platform -e SPRING_CUSTOM-DATASOURCE_PASSWORD=odd-platform-password \
+            ghcr.io/opendatadiscovery/odd-platform:0.29.0
+          for i in $(seq 1 80); do curl -sf http://127.0.0.1:18080/actuator/health && break; sleep 3; done
+          curl --fail http://127.0.0.1:18080/actuator/health | tee results/health.json
+          docker image inspect ghcr.io/opendatadiscovery/odd-platform:0.29.0 --format '{{json .RepoDigests}}' > results/image.json
+      - name: dbt via odd-dbt (Replace)
+        run: python scripts/round2b.py odd-dbt --server http://127.0.0.1:18080 --output results/odd-dbt
+      - if: always()
+        run: pip freeze > results/pip-freeze.txt; docker logs odd > results/server.log 2>&1 || true
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with: {name: 'round2b-odd${{ inputs.rep }}', path: results/, retention-days: 90}

@@ -1,0 +1,8 @@
+odd-dbt==0.2.13
+# odd-dbt 0.2.13 imports dbt internals removed after dbt 1.7
+dbt-core==1.7.18
+dbt-postgres==1.7.18
+dbt-snowflake<1.8
+click<8.2
+requests==2.32.3
+psycopg2-binary<3

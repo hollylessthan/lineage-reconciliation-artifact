@@ -1,0 +1,92 @@
+name: Round 2A engine breadth (SQL views)
+on:
+  workflow_call:
+    inputs:
+      rep:
+        type: string
+        required: false
+        default: ''
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  views:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 75
+    strategy:
+      fail-fast: false
+      matrix:
+        catalog: [dh, om]
+        engine: [mysql, mariadb, clickhouse, trino, mssql]
+    env:
+      DATAHUB_VERSION: v1.8.0
+      DATAHUB_TOKEN_SERVICE_SALT: disposable-pilot-salt
+      DATAHUB_TOKEN_SERVICE_SIGNING_KEY: disposable-pilot-signing-key-0123456789
+      DO_NOT_TRACK: '1'
+      PW: Pilot_pass1
+    steps:
+      - name: Select engines for this run
+        id: gate
+        env:
+          MSG: ${{ github.event.head_commit.message }}
+        run: |
+          if [ -n "${{ inputs.rep }}" ] || [ "${{ github.event_name }}" = workflow_dispatch ] || [[ "$MSG" == *"[r2:all]"* ]] || [[ "$MSG" == *"[r2:${{ matrix.engine }}]"* ]]; then
+            echo run=true >> "$GITHUB_OUTPUT"
+          else
+            echo run=false >> "$GITHUB_OUTPUT"; echo "Skipped: engine not selected in commit message"
+          fi
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        if: steps.gate.outputs.run == 'true'
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        if: steps.gate.outputs.run == 'true'
+        with:
+          python-version: ${{ matrix.catalog == 'dh' && '3.11' || '3.12' }}
+          cache: pip
+      - name: Install pinned clients
+        if: steps.gate.outputs.run == 'true'
+        run: pip install -r requirements.round2-${{ matrix.catalog == 'dh' && 'datahub' || 'openmetadata' }}.txt
+      - name: Start engine container (${{ matrix.engine }})
+        if: steps.gate.outputs.run == 'true'
+        run: |
+          mkdir -p results
+          case "${{ matrix.engine }}" in
+            mysql) docker run -d --name eng -p 13306:3306 -e MYSQL_ROOT_PASSWORD=$PW mysql:8.4.6 ;;
+            mariadb) docker run -d --name eng -p 13307:3306 -e MARIADB_ROOT_PASSWORD=$PW mariadb:11.4.8 ;;
+            clickhouse) docker run -d --name eng -p 18123:8123 -e CLICKHOUSE_PASSWORD=$PW -e CLICKHOUSE_DEFAULT_ACCESS_MANAGEMENT=1 --ulimit nofile=262144:262144 clickhouse/clickhouse-server:24.8 ;;
+            trino) docker run -d --name eng -p 18090:8080 trinodb/trino:476 ;;
+            mssql) docker run -d --name eng -p 11433:1433 -e ACCEPT_EULA=Y -e MSSQL_SA_PASSWORD=$PW mcr.microsoft.com/mssql/server:2022-latest ;;
+          esac
+          docker inspect eng --format '{{.Config.Image}} {{.Image}}' > results/engine-image.txt
+      - name: Start disposable DataHub
+        if: steps.gate.outputs.run == 'true' && matrix.catalog == 'dh'
+        run: |
+          sudo sysctl -w vm.max_map_count=262144
+          docker compose -f compose.datahub.yml --profile quickstart-backend up -d --wait --wait-timeout 180 opensearch
+          curl --fail -X PUT http://127.0.0.1:9200/_cluster/settings -H 'Content-Type: application/json' --data-binary @ci-opensearch-settings.json
+          docker compose -f compose.datahub.yml --profile quickstart-backend up -d --wait --wait-timeout 600 datahub-gms-quickstart
+          curl --fail --retry 10 --retry-delay 3 http://127.0.0.1:8080/config > results/server-config.json
+      - name: Start disposable OpenMetadata
+        if: steps.gate.outputs.run == 'true' && matrix.catalog == 'om'
+        run: |
+          sudo sysctl -w vm.max_map_count=262144
+          docker compose -f compose.openmetadata.yml -f compose.openmetadata-pilot.yml up -d --wait --wait-timeout 600 openmetadata-server
+          curl --fail --retry 10 --retry-delay 3 http://127.0.0.1:8585/api/v1/system/version > results/server-version.json
+      - name: Relations
+        if: steps.gate.outputs.run == 'true'
+        run: |
+          SERVER=${{ matrix.catalog == 'dh' && 'http://127.0.0.1:8080' || 'http://127.0.0.1:8585' }}
+          python scripts/engines.py ${{ matrix.catalog }}-view-${{ matrix.engine }} --server $SERVER --output results/${{ matrix.catalog }}-view-${{ matrix.engine }}
+      - name: Diagnostics
+        if: always() && steps.gate.outputs.run == 'true'
+        run: |
+          mkdir -p results
+          pip freeze > results/pip-freeze.txt
+          docker logs eng > results/engine.log 2>&1 || true
+          f=$(find results -path '*histories*' -name ingest.log | sort | head -1); [ -n "$f" ] && { echo "== view lineage report: $f"; grep -iE 'view|lineage|sql_pars|aggregator|warning' "$f" | grep -v DeprecationWarning | head -60; } || true
+          for f in $(grep -rlE 'Pipeline finished with at least 1 failures|Traceback|ValidationError' results --include=ingest.log | head -2); do echo "== $f"; grep -E 'ERROR|Error|error' "$f" | tail -n 15; done
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always() && steps.gate.outputs.run == 'true'
+        with:
+          name: round2-${{ matrix.catalog }}-${{ matrix.engine }}${{ inputs.rep }}
+          path: results/
+          retention-days: 90

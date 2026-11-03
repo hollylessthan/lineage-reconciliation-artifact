@@ -1,0 +1,39 @@
+name: Item 3 probe - Airflow OpenLineage events
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  airflow:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    services:
+      postgres:
+        image: postgres:16.6
+        env: {POSTGRES_USER: pilot, POSTGRES_PASSWORD: pilot, POSTGRES_DB: fixture}
+        ports: ['5432:5432']
+        options: --health-cmd "pg_isready -U pilot -d fixture" --health-interval 5s --health-timeout 5s --health-retries 12
+    env:
+      AIRFLOW_HOME: /tmp/airflow
+      AIRFLOW__CORE__DAGS_FOLDER: ${{ github.workspace }}/probes/airflow/dags
+      AIRFLOW__CORE__LOAD_EXAMPLES: 'False'
+      AIRFLOW__OPENLINEAGE__NAMESPACE: probe
+      AIRFLOW__OPENLINEAGE__TRANSPORT: '{"type": "file", "log_file_path": "/tmp/ol/events.jsonl", "append": true}'
+      AIRFLOW_CONN_PG: postgres://pilot:pilot@127.0.0.1:5432/fixture
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with: {python-version: '3.11'}
+      - name: Install Airflow 2.10.5 with OpenLineage provider (official constraints)
+        run: |
+          pip install "apache-airflow==2.10.5" apache-airflow-providers-openlineage apache-airflow-providers-postgres apache-airflow-providers-common-sql \
+            --constraint https://raw.githubusercontent.com/apache/airflow/constraints-2.10.5/constraints-3.11.txt
+          pip freeze | grep -iE "airflow|openlineage" | tee versions.txt
+      - name: Run the DAG once with the file transport
+        run: |
+          mkdir -p /tmp/ol
+          airflow db migrate > /dev/null
+          airflow dags test ol_probe 2026-01-01 > dagtest.log 2>&1 || (tail -80 dagtest.log; exit 1)
+          wc -l /tmp/ol/events.jsonl
+      - name: Summarize events per task run
+        run: python probes/airflow/summarize.py /tmp/ol/events.jsonl

@@ -1,0 +1,1983 @@
+{
+  "nodes": {
+    "model.tpcdi.accounts": {
+      "unique_id": "model.tpcdi.accounts",
+      "name": "accounts",
+      "alias": "accounts",
+      "database": "zero-dep-check",
+      "schema": "main_silver",
+      "relation_name": "\"zero-dep-check\".\"main_silver\".\"accounts\"",
+      "resource_type": "model",
+      "package_name": "tpcdi",
+      "fqn": [
+        "tpcdi",
+        "silver",
+        "accounts"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": [
+          "model.tpcdi.crm_customer_mgmt",
+          "model.tpcdi.reference_tax_rate"
+        ]
+      },
+      "config": {
+        "materialized": "table",
+        "enabled": true
+      }
+    },
+    "model.tpcdi.brokerage_cash_transaction": {
+      "unique_id": "model.tpcdi.brokerage_cash_transaction",
+      "name": "brokerage_cash_transaction",
+      "alias": "brokerage_cash_transaction",
+      "database": "zero-dep-check",
+      "schema": "main_bronze",
+      "relation_name": "\"zero-dep-check\".\"main_bronze\".\"brokerage_cash_transaction\"",
+      "resource_type": "model",
+      "package_name": "tpcdi",
+      "fqn": [
+        "tpcdi",
+        "bronze",
+        "brokerage",
+        "brokerage_cash_transaction"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": [
+          "source.tpcdi.brokerage.cash_transaction"
+        ]
+      },
+      "config": {
+        "materialized": "table",
+        "enabled": true
+      }
+    },
+    "model.tpcdi.brokerage_daily_market": {
+      "unique_id": "model.tpcdi.brokerage_daily_market",
+      "name": "brokerage_daily_market",
+      "alias": "brokerage_daily_market",
+      "database": "zero-dep-check",
+      "schema": "main_bronze",
+      "relation_name": "\"zero-dep-check\".\"main_bronze\".\"brokerage_daily_market\"",
+      "resource_type": "model",
+      "package_name": "tpcdi",
+      "fqn": [
+        "tpcdi",
+        "bronze",
+        "brokerage",
+        "brokerage_daily_market"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": [
+          "source.tpcdi.brokerage.daily_market"
+        ]
+      },
+      "config": {
+        "materialized": "table",
+        "enabled": true
+      }
+    },
+    "model.tpcdi.brokerage_holding_history": {
+      "unique_id": "model.tpcdi.brokerage_holding_history",
+      "name": "brokerage_holding_history",
+      "alias": "brokerage_holding_history",
+      "database": "zero-dep-check",
+      "schema": "main_bronze",
+      "relation_name": "\"zero-dep-check\".\"main_bronze\".\"brokerage_holding_history\"",
+      "resource_type": "model",
+      "package_name": "tpcdi",
+      "fqn": [
+        "tpcdi",
+        "bronze",
+        "brokerage",
+        "brokerage_holding_history"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": [
+          "source.tpcdi.brokerage.holding_history"
+        ]
+      },
+      "config": {
+        "materialized": "table",
+        "enabled": true
+      }
+    },
+    "model.tpcdi.brokerage_trade": {
+      "unique_id": "model.tpcdi.brokerage_trade",
+      "name": "brokerage_trade",
+      "alias": "brokerage_trade",
+      "database": "zero-dep-check",
+      "schema": "main_bronze",
+      "relation_name": "\"zero-dep-check\".\"main_bronze\".\"brokerage_trade\"",
+      "resource_type": "model",
+      "package_name": "tpcdi",
+      "fqn": [
+        "tpcdi",
+        "bronze",
+        "brokerage",
+        "brokerage_trade"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": [
+          "source.tpcdi.brokerage.trade"
+        ]
+      },
+      "config": {
+        "materialized": "table",
+        "enabled": true
+      }
+    },
+    "model.tpcdi.brokerage_trade_history": {
+      "unique_id": "model.tpcdi.brokerage_trade_history",
+      "name": "brokerage_trade_history",
+      "alias": "brokerage_trade_history",
+      "database": "zero-dep-check",
+      "schema": "main_bronze",
+      "relation_name": "\"zero-dep-check\".\"main_bronze\".\"brokerage_trade_history\"",
+      "resource_type": "model",
+      "package_name": "tpcdi",
+      "fqn": [
+        "tpcdi",
+        "bronze",
+        "brokerage",
+        "brokerage_trade_history"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": [
+          "source.tpcdi.brokerage.trade_history"
+        ]
+      },
+      "config": {
+        "materialized": "table",
+        "enabled": true
+      }
+    },
+    "model.tpcdi.brokerage_watch_history": {
+      "unique_id": "model.tpcdi.brokerage_watch_history",
+      "name": "brokerage_watch_history",
+      "alias": "brokerage_watch_history",
+      "database": "zero-dep-check",
+      "schema": "main_bronze",
+      "relation_name": "\"zero-dep-check\".\"main_bronze\".\"brokerage_watch_history\"",
+      "resource_type": "model",
+      "package_name": "tpcdi",
+      "fqn": [
+        "tpcdi",
+        "bronze",
+        "brokerage",
+        "brokerage_watch_history"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": [
+          "source.tpcdi.brokerage.watch_history"
+        ]
+      },
+      "config": {
+        "materialized": "table",
+        "enabled": true
+      }
+    },
+    "model.tpcdi.cash_transactions": {
+      "unique_id": "model.tpcdi.cash_transactions",
+      "name": "cash_transactions",
+      "alias": "cash_transactions",
+      "database": "zero-dep-check",
+      "schema": "main_silver",
+      "relation_name": "\"zero-dep-check\".\"main_silver\".\"cash_transactions\"",
+      "resource_type": "model",
+      "package_name": "tpcdi",
+      "fqn": [
+        "tpcdi",
+        "silver",
+        "cash_transactions"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": [
+          "model.tpcdi.brokerage_cash_transaction",
+          "model.tpcdi.accounts"
+        ]
+      },
+      "config": {
+        "materialized": "table",
+        "enabled": true
+      }
+    },
+    "model.tpcdi.companies": {
+      "unique_id": "model.tpcdi.companies",
+      "name": "companies",
+      "alias": "companies",
+      "database": "zero-dep-check",
+      "schema": "main_silver",
+      "relation_name": "\"zero-dep-check\".\"main_silver\".\"companies\"",
+      "resource_type": "model",
+      "package_name": "tpcdi",
+      "fqn": [
+        "tpcdi",
+        "silver",
+        "companies"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": [
+          "model.tpcdi.finwire_company",
+          "model.tpcdi.reference_status_type",
+          "model.tpcdi.reference_industry"
+        ]
+      },
+      "config": {
+        "materialized": "table",
+        "enabled": true
+      }
+    },
+    "model.tpcdi.crm_customer_mgmt": {
+      "unique_id": "model.tpcdi.crm_customer_mgmt",
+      "name": "crm_customer_mgmt",
+      "alias": "crm_customer_mgmt",
+      "database": "zero-dep-check",
+      "schema": "main_bronze",
+      "relation_name": "\"zero-dep-check\".\"main_bronze\".\"crm_customer_mgmt\"",
+      "resource_type": "model",
+      "package_name": "tpcdi",
+      "fqn": [
+        "tpcdi",
+        "bronze",
+        "crm",
+        "crm_customer_mgmt"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": [
+          "source.tpcdi.crm.customer_mgmt"
+        ]
+      },
+      "config": {
+        "materialized": "table",
+        "enabled": true
+      }
+    },
+    "model.tpcdi.customers": {
+      "unique_id": "model.tpcdi.customers",
+      "name": "customers",
+      "alias": "customers",
+      "database": "zero-dep-check",
+      "schema": "main_silver",
+      "relation_name": "\"zero-dep-check\".\"main_silver\".\"customers\"",
+      "resource_type": "model",
+      "package_name": "tpcdi",
+      "fqn": [
+        "tpcdi",
+        "silver",
+        "customers"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": [
+          "model.tpcdi.crm_customer_mgmt",
+          "model.tpcdi.reference_tax_rate"
+        ]
+      },
+      "config": {
+        "materialized": "table",
+        "enabled": true
+      }
+    },
+    "model.tpcdi.daily_market": {
+      "unique_id": "model.tpcdi.daily_market",
+      "name": "daily_market",
+      "alias": "daily_market",
+      "database": "zero-dep-check",
+      "schema": "main_silver",
+      "relation_name": "\"zero-dep-check\".\"main_silver\".\"daily_market\"",
+      "resource_type": "model",
+      "package_name": "tpcdi",
+      "fqn": [
+        "tpcdi",
+        "silver",
+        "daily_market"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": [
+          "model.tpcdi.brokerage_daily_market"
+        ]
+      },
+      "config": {
+        "materialized": "table",
+        "enabled": true
+      }
+    },
+    "model.tpcdi.date": {
+      "unique_id": "model.tpcdi.date",
+      "name": "date",
+      "alias": "date",
+      "database": "zero-dep-check",
+      "schema": "main_silver",
+      "relation_name": "\"zero-dep-check\".\"main_silver\".\"date\"",
+      "resource_type": "model",
+      "package_name": "tpcdi",
+      "fqn": [
+        "tpcdi",
+        "silver",
+        "date"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": [
+          "model.tpcdi.reference_date"
+        ]
+      },
+      "config": {
+        "materialized": "table",
+        "enabled": true
+      }
+    },
+    "model.tpcdi.dim_account": {
+      "unique_id": "model.tpcdi.dim_account",
+      "name": "dim_account",
+      "alias": "dim_account",
+      "database": "zero-dep-check",
+      "schema": "main_gold",
+      "relation_name": "\"zero-dep-check\".\"main_gold\".\"dim_account\"",
+      "resource_type": "model",
+      "package_name": "tpcdi",
+      "fqn": [
+        "tpcdi",
+        "gold",
+        "dim_account"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt_utils.generate_surrogate_key"
+        ],
+        "nodes": [
+          "model.tpcdi.accounts",
+          "model.tpcdi.dim_customer",
+          "model.tpcdi.dim_broker"
+        ]
+      },
+      "config": {
+        "materialized": "table",
+        "enabled": true
+      }
+    },
+    "model.tpcdi.dim_broker": {
+      "unique_id": "model.tpcdi.dim_broker",
+      "name": "dim_broker",
+      "alias": "dim_broker",
+      "database": "zero-dep-check",
+      "schema": "main_gold",
+      "relation_name": "\"zero-dep-check\".\"main_gold\".\"dim_broker\"",
+      "resource_type": "model",
+      "package_name": "tpcdi",
+      "fqn": [
+        "tpcdi",
+        "gold",
+        "dim_broker"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt_utils.generate_surrogate_key"
+        ],
+        "nodes": [
+          "model.tpcdi.employees"
+        ]
+      },
+      "config": {
+        "materialized": "table",
+        "enabled": true
+      }
+    },
+    "model.tpcdi.dim_company": {
+      "unique_id": "model.tpcdi.dim_company",
+      "name": "dim_company",
+      "alias": "dim_company",
+      "database": "zero-dep-check",
+      "schema": "main_gold",
+      "relation_name": "\"zero-dep-check\".\"main_gold\".\"dim_company\"",
+      "resource_type": "model",
+      "package_name": "tpcdi",
+      "fqn": [
+        "tpcdi",
+        "gold",
+        "dim_company"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt_utils.generate_surrogate_key"
+        ],
+        "nodes": [
+          "model.tpcdi.companies"
+        ]
+      },
+      "config": {
+        "materialized": "table",
+        "enabled": true
+      }
+    },
+    "model.tpcdi.dim_customer": {
+      "unique_id": "model.tpcdi.dim_customer",
+      "name": "dim_customer",
+      "alias": "dim_customer",
+      "database": "zero-dep-check",
+      "schema": "main_gold",
+      "relation_name": "\"zero-dep-check\".\"main_gold\".\"dim_customer\"",
+      "resource_type": "model",
+      "package_name": "tpcdi",
+      "fqn": [
+        "tpcdi",
+        "gold",
+        "dim_customer"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt_utils.generate_surrogate_key"
+        ],
+        "nodes": [
+          "model.tpcdi.customers",
+          "model.tpcdi.syndicated_prospect"
+        ]
+      },
+      "config": {
+        "materialized": "table",
+        "enabled": true
+      }
+    },
+    "model.tpcdi.dim_date": {
+      "unique_id": "model.tpcdi.dim_date",
+      "name": "dim_date",
+      "alias": "dim_date",
+      "database": "zero-dep-check",
+      "schema": "main_gold",
+      "relation_name": "\"zero-dep-check\".\"main_gold\".\"dim_date\"",
+      "resource_type": "model",
+      "package_name": "tpcdi",
+      "fqn": [
+        "tpcdi",
+        "gold",
+        "dim_date"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": [
+          "model.tpcdi.date"
+        ]
+      },
+      "config": {
+        "materialized": "table",
+        "enabled": true
+      }
+    },
+    "model.tpcdi.dim_security": {
+      "unique_id": "model.tpcdi.dim_security",
+      "name": "dim_security",
+      "alias": "dim_security",
+      "database": "zero-dep-check",
+      "schema": "main_gold",
+      "relation_name": "\"zero-dep-check\".\"main_gold\".\"dim_security\"",
+      "resource_type": "model",
+      "package_name": "tpcdi",
+      "fqn": [
+        "tpcdi",
+        "gold",
+        "dim_security"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt_utils.generate_surrogate_key"
+        ],
+        "nodes": [
+          "model.tpcdi.securities",
+          "model.tpcdi.dim_company"
+        ]
+      },
+      "config": {
+        "materialized": "table",
+        "enabled": true
+      }
+    },
+    "model.tpcdi.dim_trade": {
+      "unique_id": "model.tpcdi.dim_trade",
+      "name": "dim_trade",
+      "alias": "dim_trade",
+      "database": "zero-dep-check",
+      "schema": "main_gold",
+      "relation_name": "\"zero-dep-check\".\"main_gold\".\"dim_trade\"",
+      "resource_type": "model",
+      "package_name": "tpcdi",
+      "fqn": [
+        "tpcdi",
+        "gold",
+        "dim_trade"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt_utils.generate_surrogate_key"
+        ],
+        "nodes": [
+          "model.tpcdi.trades_history"
+        ]
+      },
+      "config": {
+        "materialized": "table",
+        "enabled": true
+      }
+    },
+    "model.tpcdi.employees": {
+      "unique_id": "model.tpcdi.employees",
+      "name": "employees",
+      "alias": "employees",
+      "database": "zero-dep-check",
+      "schema": "main_silver",
+      "relation_name": "\"zero-dep-check\".\"main_silver\".\"employees\"",
+      "resource_type": "model",
+      "package_name": "tpcdi",
+      "fqn": [
+        "tpcdi",
+        "silver",
+        "employees"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": [
+          "model.tpcdi.hr_employee"
+        ]
+      },
+      "config": {
+        "materialized": "table",
+        "enabled": true
+      }
+    },
+    "model.tpcdi.fact_cash_balances": {
+      "unique_id": "model.tpcdi.fact_cash_balances",
+      "name": "fact_cash_balances",
+      "alias": "fact_cash_balances",
+      "database": "zero-dep-check",
+      "schema": "main_gold",
+      "relation_name": "\"zero-dep-check\".\"main_gold\".\"fact_cash_balances\"",
+      "resource_type": "model",
+      "package_name": "tpcdi",
+      "fqn": [
+        "tpcdi",
+        "gold",
+        "fact_cash_balances"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": [
+          "model.tpcdi.fact_cash_transactions"
+        ]
+      },
+      "config": {
+        "materialized": "table",
+        "enabled": true
+      }
+    },
+    "model.tpcdi.fact_cash_transactions": {
+      "unique_id": "model.tpcdi.fact_cash_transactions",
+      "name": "fact_cash_transactions",
+      "alias": "fact_cash_transactions",
+      "database": "zero-dep-check",
+      "schema": "main_gold",
+      "relation_name": "\"zero-dep-check\".\"main_gold\".\"fact_cash_transactions\"",
+      "resource_type": "model",
+      "package_name": "tpcdi",
+      "fqn": [
+        "tpcdi",
+        "gold",
+        "fact_cash_transactions"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": [
+          "model.tpcdi.cash_transactions",
+          "model.tpcdi.dim_account"
+        ]
+      },
+      "config": {
+        "materialized": "table",
+        "enabled": true
+      }
+    },
+    "model.tpcdi.fact_holdings": {
+      "unique_id": "model.tpcdi.fact_holdings",
+      "name": "fact_holdings",
+      "alias": "fact_holdings",
+      "database": "zero-dep-check",
+      "schema": "main_gold",
+      "relation_name": "\"zero-dep-check\".\"main_gold\".\"fact_holdings\"",
+      "resource_type": "model",
+      "package_name": "tpcdi",
+      "fqn": [
+        "tpcdi",
+        "gold",
+        "fact_holdings"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": [
+          "model.tpcdi.holdings_history",
+          "model.tpcdi.dim_trade",
+          "model.tpcdi.dim_account",
+          "model.tpcdi.dim_security"
+        ]
+      },
+      "config": {
+        "materialized": "table",
+        "enabled": true
+      }
+    },
+    "model.tpcdi.fact_market_history": {
+      "unique_id": "model.tpcdi.fact_market_history",
+      "name": "fact_market_history",
+      "alias": "fact_market_history",
+      "database": "zero-dep-check",
+      "schema": "main_gold",
+      "relation_name": "\"zero-dep-check\".\"main_gold\".\"fact_market_history\"",
+      "resource_type": "model",
+      "package_name": "tpcdi",
+      "fqn": [
+        "tpcdi",
+        "gold",
+        "fact_market_history"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": [
+          "model.tpcdi.daily_market",
+          "model.tpcdi.dim_security",
+          "model.tpcdi.wrk_company_financials"
+        ]
+      },
+      "config": {
+        "materialized": "table",
+        "enabled": true
+      }
+    },
+    "model.tpcdi.fact_trade": {
+      "unique_id": "model.tpcdi.fact_trade",
+      "name": "fact_trade",
+      "alias": "fact_trade",
+      "database": "zero-dep-check",
+      "schema": "main_gold",
+      "relation_name": "\"zero-dep-check\".\"main_gold\".\"fact_trade\"",
+      "resource_type": "model",
+      "package_name": "tpcdi",
+      "fqn": [
+        "tpcdi",
+        "gold",
+        "fact_trade"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": [
+          "model.tpcdi.trades",
+          "model.tpcdi.dim_trade",
+          "model.tpcdi.dim_account",
+          "model.tpcdi.dim_security"
+        ]
+      },
+      "config": {
+        "materialized": "table",
+        "enabled": true
+      }
+    },
+    "model.tpcdi.fact_watches": {
+      "unique_id": "model.tpcdi.fact_watches",
+      "name": "fact_watches",
+      "alias": "fact_watches",
+      "database": "zero-dep-check",
+      "schema": "main_gold",
+      "relation_name": "\"zero-dep-check\".\"main_gold\".\"fact_watches\"",
+      "resource_type": "model",
+      "package_name": "tpcdi",
+      "fqn": [
+        "tpcdi",
+        "gold",
+        "fact_watches"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": [
+          "model.tpcdi.watches",
+          "model.tpcdi.dim_customer",
+          "model.tpcdi.dim_security"
+        ]
+      },
+      "config": {
+        "materialized": "table",
+        "enabled": true
+      }
+    },
+    "model.tpcdi.financials": {
+      "unique_id": "model.tpcdi.financials",
+      "name": "financials",
+      "alias": "financials",
+      "database": "zero-dep-check",
+      "schema": "main_silver",
+      "relation_name": "\"zero-dep-check\".\"main_silver\".\"financials\"",
+      "resource_type": "model",
+      "package_name": "tpcdi",
+      "fqn": [
+        "tpcdi",
+        "silver",
+        "financials"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": [
+          "model.tpcdi.finwire_financial",
+          "model.tpcdi.companies"
+        ]
+      },
+      "config": {
+        "materialized": "table",
+        "enabled": true
+      }
+    },
+    "model.tpcdi.finwire_company": {
+      "unique_id": "model.tpcdi.finwire_company",
+      "name": "finwire_company",
+      "alias": "finwire_company",
+      "database": "zero-dep-check",
+      "schema": "main_bronze",
+      "relation_name": "\"zero-dep-check\".\"main_bronze\".\"finwire_company\"",
+      "resource_type": "model",
+      "package_name": "tpcdi",
+      "fqn": [
+        "tpcdi",
+        "bronze",
+        "finwire",
+        "finwire_company"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": [
+          "source.tpcdi.finwire.cmp"
+        ]
+      },
+      "config": {
+        "materialized": "table",
+        "enabled": true
+      }
+    },
+    "model.tpcdi.finwire_financial": {
+      "unique_id": "model.tpcdi.finwire_financial",
+      "name": "finwire_financial",
+      "alias": "finwire_financial",
+      "database": "zero-dep-check",
+      "schema": "main_bronze",
+      "relation_name": "\"zero-dep-check\".\"main_bronze\".\"finwire_financial\"",
+      "resource_type": "model",
+      "package_name": "tpcdi",
+      "fqn": [
+        "tpcdi",
+        "bronze",
+        "finwire",
+        "finwire_financial"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": [
+          "source.tpcdi.finwire.fin"
+        ]
+      },
+      "config": {
+        "materialized": "table",
+        "enabled": true
+      }
+    },
+    "model.tpcdi.finwire_security": {
+      "unique_id": "model.tpcdi.finwire_security",
+      "name": "finwire_security",
+      "alias": "finwire_security",
+      "database": "zero-dep-check",
+      "schema": "main_bronze",
+      "relation_name": "\"zero-dep-check\".\"main_bronze\".\"finwire_security\"",
+      "resource_type": "model",
+      "package_name": "tpcdi",
+      "fqn": [
+        "tpcdi",
+        "bronze",
+        "finwire",
+        "finwire_security"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": [
+          "source.tpcdi.finwire.sec"
+        ]
+      },
+      "config": {
+        "materialized": "table",
+        "enabled": true
+      }
+    },
+    "model.tpcdi.holdings_history": {
+      "unique_id": "model.tpcdi.holdings_history",
+      "name": "holdings_history",
+      "alias": "holdings_history",
+      "database": "zero-dep-check",
+      "schema": "main_silver",
+      "relation_name": "\"zero-dep-check\".\"main_silver\".\"holdings_history\"",
+      "resource_type": "model",
+      "package_name": "tpcdi",
+      "fqn": [
+        "tpcdi",
+        "silver",
+        "holdings_history"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": [
+          "model.tpcdi.brokerage_holding_history",
+          "model.tpcdi.trades"
+        ]
+      },
+      "config": {
+        "materialized": "table",
+        "enabled": true
+      }
+    },
+    "model.tpcdi.hr_employee": {
+      "unique_id": "model.tpcdi.hr_employee",
+      "name": "hr_employee",
+      "alias": "hr_employee",
+      "database": "zero-dep-check",
+      "schema": "main_bronze",
+      "relation_name": "\"zero-dep-check\".\"main_bronze\".\"hr_employee\"",
+      "resource_type": "model",
+      "package_name": "tpcdi",
+      "fqn": [
+        "tpcdi",
+        "bronze",
+        "hr",
+        "hr_employee"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": [
+          "source.tpcdi.hr.hr"
+        ]
+      },
+      "config": {
+        "materialized": "table",
+        "enabled": true
+      }
+    },
+    "model.tpcdi.reference_date": {
+      "unique_id": "model.tpcdi.reference_date",
+      "name": "reference_date",
+      "alias": "reference_date",
+      "database": "zero-dep-check",
+      "schema": "main_bronze",
+      "relation_name": "\"zero-dep-check\".\"main_bronze\".\"reference_date\"",
+      "resource_type": "model",
+      "package_name": "tpcdi",
+      "fqn": [
+        "tpcdi",
+        "bronze",
+        "reference",
+        "reference_date"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": [
+          "source.tpcdi.reference.date"
+        ]
+      },
+      "config": {
+        "materialized": "table",
+        "enabled": true
+      }
+    },
+    "model.tpcdi.reference_industry": {
+      "unique_id": "model.tpcdi.reference_industry",
+      "name": "reference_industry",
+      "alias": "reference_industry",
+      "database": "zero-dep-check",
+      "schema": "main_bronze",
+      "relation_name": "\"zero-dep-check\".\"main_bronze\".\"reference_industry\"",
+      "resource_type": "model",
+      "package_name": "tpcdi",
+      "fqn": [
+        "tpcdi",
+        "bronze",
+        "reference",
+        "reference_industry"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": [
+          "source.tpcdi.reference.industry"
+        ]
+      },
+      "config": {
+        "materialized": "table",
+        "enabled": true
+      }
+    },
+    "model.tpcdi.reference_status_type": {
+      "unique_id": "model.tpcdi.reference_status_type",
+      "name": "reference_status_type",
+      "alias": "reference_status_type",
+      "database": "zero-dep-check",
+      "schema": "main_bronze",
+      "relation_name": "\"zero-dep-check\".\"main_bronze\".\"reference_status_type\"",
+      "resource_type": "model",
+      "package_name": "tpcdi",
+      "fqn": [
+        "tpcdi",
+        "bronze",
+        "reference",
+        "reference_status_type"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": [
+          "source.tpcdi.reference.status_type"
+        ]
+      },
+      "config": {
+        "materialized": "table",
+        "enabled": true
+      }
+    },
+    "model.tpcdi.reference_tax_rate": {
+      "unique_id": "model.tpcdi.reference_tax_rate",
+      "name": "reference_tax_rate",
+      "alias": "reference_tax_rate",
+      "database": "zero-dep-check",
+      "schema": "main_bronze",
+      "relation_name": "\"zero-dep-check\".\"main_bronze\".\"reference_tax_rate\"",
+      "resource_type": "model",
+      "package_name": "tpcdi",
+      "fqn": [
+        "tpcdi",
+        "bronze",
+        "reference",
+        "reference_tax_rate"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": [
+          "source.tpcdi.reference.tax_rate"
+        ]
+      },
+      "config": {
+        "materialized": "table",
+        "enabled": true
+      }
+    },
+    "model.tpcdi.reference_trade_type": {
+      "unique_id": "model.tpcdi.reference_trade_type",
+      "name": "reference_trade_type",
+      "alias": "reference_trade_type",
+      "database": "zero-dep-check",
+      "schema": "main_bronze",
+      "relation_name": "\"zero-dep-check\".\"main_bronze\".\"reference_trade_type\"",
+      "resource_type": "model",
+      "package_name": "tpcdi",
+      "fqn": [
+        "tpcdi",
+        "bronze",
+        "reference",
+        "reference_trade_type"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": [
+          "source.tpcdi.reference.trade_type"
+        ]
+      },
+      "config": {
+        "materialized": "table",
+        "enabled": true
+      }
+    },
+    "model.tpcdi.securities": {
+      "unique_id": "model.tpcdi.securities",
+      "name": "securities",
+      "alias": "securities",
+      "database": "zero-dep-check",
+      "schema": "main_silver",
+      "relation_name": "\"zero-dep-check\".\"main_silver\".\"securities\"",
+      "resource_type": "model",
+      "package_name": "tpcdi",
+      "fqn": [
+        "tpcdi",
+        "silver",
+        "securities"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": [
+          "model.tpcdi.finwire_security",
+          "model.tpcdi.companies"
+        ]
+      },
+      "config": {
+        "materialized": "table",
+        "enabled": true
+      }
+    },
+    "model.tpcdi.syndicated_prospect": {
+      "unique_id": "model.tpcdi.syndicated_prospect",
+      "name": "syndicated_prospect",
+      "alias": "syndicated_prospect",
+      "database": "zero-dep-check",
+      "schema": "main_bronze",
+      "relation_name": "\"zero-dep-check\".\"main_bronze\".\"syndicated_prospect\"",
+      "resource_type": "model",
+      "package_name": "tpcdi",
+      "fqn": [
+        "tpcdi",
+        "bronze",
+        "syndicated",
+        "syndicated_prospect"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": [
+          "source.tpcdi.syndicated.prospect"
+        ]
+      },
+      "config": {
+        "materialized": "table",
+        "enabled": true
+      }
+    },
+    "model.tpcdi.trades": {
+      "unique_id": "model.tpcdi.trades",
+      "name": "trades",
+      "alias": "trades",
+      "database": "zero-dep-check",
+      "schema": "main_silver",
+      "relation_name": "\"zero-dep-check\".\"main_silver\".\"trades\"",
+      "resource_type": "model",
+      "package_name": "tpcdi",
+      "fqn": [
+        "tpcdi",
+        "silver",
+        "trades"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": [
+          "model.tpcdi.trades_history"
+        ]
+      },
+      "config": {
+        "materialized": "table",
+        "enabled": true
+      }
+    },
+    "model.tpcdi.trades_history": {
+      "unique_id": "model.tpcdi.trades_history",
+      "name": "trades_history",
+      "alias": "trades_history",
+      "database": "zero-dep-check",
+      "schema": "main_silver",
+      "relation_name": "\"zero-dep-check\".\"main_silver\".\"trades_history\"",
+      "resource_type": "model",
+      "package_name": "tpcdi",
+      "fqn": [
+        "tpcdi",
+        "silver",
+        "trades_history"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": [
+          "model.tpcdi.brokerage_trade",
+          "model.tpcdi.brokerage_trade_history",
+          "model.tpcdi.reference_trade_type",
+          "model.tpcdi.reference_status_type"
+        ]
+      },
+      "config": {
+        "materialized": "table",
+        "enabled": true
+      }
+    },
+    "model.tpcdi.watches": {
+      "unique_id": "model.tpcdi.watches",
+      "name": "watches",
+      "alias": "watches",
+      "database": "zero-dep-check",
+      "schema": "main_silver",
+      "relation_name": "\"zero-dep-check\".\"main_silver\".\"watches\"",
+      "resource_type": "model",
+      "package_name": "tpcdi",
+      "fqn": [
+        "tpcdi",
+        "silver",
+        "watches"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": [
+          "model.tpcdi.watches_history"
+        ]
+      },
+      "config": {
+        "materialized": "table",
+        "enabled": true
+      }
+    },
+    "model.tpcdi.watches_history": {
+      "unique_id": "model.tpcdi.watches_history",
+      "name": "watches_history",
+      "alias": "watches_history",
+      "database": "zero-dep-check",
+      "schema": "main_silver",
+      "relation_name": "\"zero-dep-check\".\"main_silver\".\"watches_history\"",
+      "resource_type": "model",
+      "package_name": "tpcdi",
+      "fqn": [
+        "tpcdi",
+        "silver",
+        "watches_history"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": [
+          "model.tpcdi.brokerage_watch_history",
+          "model.tpcdi.securities"
+        ]
+      },
+      "config": {
+        "materialized": "table",
+        "enabled": true
+      }
+    },
+    "model.tpcdi.wrk_company_financials": {
+      "unique_id": "model.tpcdi.wrk_company_financials",
+      "name": "wrk_company_financials",
+      "alias": "wrk_company_financials",
+      "database": "zero-dep-check",
+      "schema": "main_work",
+      "relation_name": null,
+      "resource_type": "model",
+      "package_name": "tpcdi",
+      "fqn": [
+        "tpcdi",
+        "work",
+        "wrk_company_financials"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": [
+          "model.tpcdi.financials",
+          "model.tpcdi.dim_company"
+        ]
+      },
+      "config": {
+        "materialized": "ephemeral",
+        "enabled": true
+      }
+    },
+    "test.tpcdi.not_null_my_first_dbt_model_id.5fb22c2710": {
+      "unique_id": "test.tpcdi.not_null_my_first_dbt_model_id.5fb22c2710",
+      "name": "not_null_my_first_dbt_model_id",
+      "alias": "not_null_my_first_dbt_model_id",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "tpcdi",
+      "fqn": [
+        "tpcdi",
+        "example",
+        "not_null_my_first_dbt_model_id"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_not_null"
+        ],
+        "nodes": []
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": false
+      }
+    },
+    "test.tpcdi.not_null_my_second_dbt_model_id.151b76d778": {
+      "unique_id": "test.tpcdi.not_null_my_second_dbt_model_id.151b76d778",
+      "name": "not_null_my_second_dbt_model_id",
+      "alias": "not_null_my_second_dbt_model_id",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "tpcdi",
+      "fqn": [
+        "tpcdi",
+        "example",
+        "not_null_my_second_dbt_model_id"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_not_null"
+        ],
+        "nodes": []
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": false
+      }
+    },
+    "test.tpcdi.unique_my_first_dbt_model_id.16e066b321": {
+      "unique_id": "test.tpcdi.unique_my_first_dbt_model_id.16e066b321",
+      "name": "unique_my_first_dbt_model_id",
+      "alias": "unique_my_first_dbt_model_id",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "tpcdi",
+      "fqn": [
+        "tpcdi",
+        "example",
+        "unique_my_first_dbt_model_id"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_unique"
+        ],
+        "nodes": []
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": false
+      }
+    },
+    "test.tpcdi.unique_my_second_dbt_model_id.57a0f8c493": {
+      "unique_id": "test.tpcdi.unique_my_second_dbt_model_id.57a0f8c493",
+      "name": "unique_my_second_dbt_model_id",
+      "alias": "unique_my_second_dbt_model_id",
+      "database": "zero-dep-check",
+      "schema": "main_dbt_test__audit",
+      "relation_name": null,
+      "resource_type": "test",
+      "package_name": "tpcdi",
+      "fqn": [
+        "tpcdi",
+        "example",
+        "unique_my_second_dbt_model_id"
+      ],
+      "depends_on": {
+        "macros": [
+          "macro.dbt.test_unique"
+        ],
+        "nodes": []
+      },
+      "config": {
+        "materialized": "test",
+        "enabled": false
+      }
+    }
+  },
+  "sources": {
+    "source.tpcdi.brokerage.cash_transaction": {
+      "unique_id": "source.tpcdi.brokerage.cash_transaction",
+      "name": "cash_transaction",
+      "identifier": "cash_transaction",
+      "database": "stewart",
+      "schema": "tpcdi_sf10",
+      "relation_name": "\"stewart\".\"tpcdi_sf10\".\"cash_transaction\"",
+      "resource_type": "source",
+      "package_name": "tpcdi",
+      "fqn": [
+        "tpcdi",
+        "bronze",
+        "brokerage",
+        "brokerage",
+        "cash_transaction"
+      ]
+    },
+    "source.tpcdi.brokerage.daily_market": {
+      "unique_id": "source.tpcdi.brokerage.daily_market",
+      "name": "daily_market",
+      "identifier": "daily_market",
+      "database": "stewart",
+      "schema": "tpcdi_sf10",
+      "relation_name": "\"stewart\".\"tpcdi_sf10\".\"daily_market\"",
+      "resource_type": "source",
+      "package_name": "tpcdi",
+      "fqn": [
+        "tpcdi",
+        "bronze",
+        "brokerage",
+        "brokerage",
+        "daily_market"
+      ]
+    },
+    "source.tpcdi.brokerage.holding_history": {
+      "unique_id": "source.tpcdi.brokerage.holding_history",
+      "name": "holding_history",
+      "identifier": "holding_history",
+      "database": "stewart",
+      "schema": "tpcdi_sf10",
+      "relation_name": "\"stewart\".\"tpcdi_sf10\".\"holding_history\"",
+      "resource_type": "source",
+      "package_name": "tpcdi",
+      "fqn": [
+        "tpcdi",
+        "bronze",
+        "brokerage",
+        "brokerage",
+        "holding_history"
+      ]
+    },
+    "source.tpcdi.brokerage.trade": {
+      "unique_id": "source.tpcdi.brokerage.trade",
+      "name": "trade",
+      "identifier": "trade",
+      "database": "stewart",
+      "schema": "tpcdi_sf10",
+      "relation_name": "\"stewart\".\"tpcdi_sf10\".\"trade\"",
+      "resource_type": "source",
+      "package_name": "tpcdi",
+      "fqn": [
+        "tpcdi",
+        "bronze",
+        "brokerage",
+        "brokerage",
+        "trade"
+      ]
+    },
+    "source.tpcdi.brokerage.trade_history": {
+      "unique_id": "source.tpcdi.brokerage.trade_history",
+      "name": "trade_history",
+      "identifier": "trade_history",
+      "database": "stewart",
+      "schema": "tpcdi_sf10",
+      "relation_name": "\"stewart\".\"tpcdi_sf10\".\"trade_history\"",
+      "resource_type": "source",
+      "package_name": "tpcdi",
+      "fqn": [
+        "tpcdi",
+        "bronze",
+        "brokerage",
+        "brokerage",
+        "trade_history"
+      ]
+    },
+    "source.tpcdi.brokerage.watch_history": {
+      "unique_id": "source.tpcdi.brokerage.watch_history",
+      "name": "watch_history",
+      "identifier": "watch_history",
+      "database": "stewart",
+      "schema": "tpcdi_sf10",
+      "relation_name": "\"stewart\".\"tpcdi_sf10\".\"watch_history\"",
+      "resource_type": "source",
+      "package_name": "tpcdi",
+      "fqn": [
+        "tpcdi",
+        "bronze",
+        "brokerage",
+        "brokerage",
+        "watch_history"
+      ]
+    },
+    "source.tpcdi.crm.customer_mgmt": {
+      "unique_id": "source.tpcdi.crm.customer_mgmt",
+      "name": "customer_mgmt",
+      "identifier": "customer_mgmt",
+      "database": "stewart",
+      "schema": "tpcdi_sf10",
+      "relation_name": "\"stewart\".\"tpcdi_sf10\".\"customer_mgmt\"",
+      "resource_type": "source",
+      "package_name": "tpcdi",
+      "fqn": [
+        "tpcdi",
+        "bronze",
+        "crm",
+        "crm",
+        "customer_mgmt"
+      ]
+    },
+    "source.tpcdi.finwire.cmp": {
+      "unique_id": "source.tpcdi.finwire.cmp",
+      "name": "cmp",
+      "identifier": "cmp",
+      "database": "stewart",
+      "schema": "tpcdi_sf10",
+      "relation_name": "\"stewart\".\"tpcdi_sf10\".\"cmp\"",
+      "resource_type": "source",
+      "package_name": "tpcdi",
+      "fqn": [
+        "tpcdi",
+        "bronze",
+        "finwire",
+        "finwire",
+        "cmp"
+      ]
+    },
+    "source.tpcdi.finwire.fin": {
+      "unique_id": "source.tpcdi.finwire.fin",
+      "name": "fin",
+      "identifier": "fin",
+      "database": "stewart",
+      "schema": "tpcdi_sf10",
+      "relation_name": "\"stewart\".\"tpcdi_sf10\".\"fin\"",
+      "resource_type": "source",
+      "package_name": "tpcdi",
+      "fqn": [
+        "tpcdi",
+        "bronze",
+        "finwire",
+        "finwire",
+        "fin"
+      ]
+    },
+    "source.tpcdi.finwire.sec": {
+      "unique_id": "source.tpcdi.finwire.sec",
+      "name": "sec",
+      "identifier": "sec",
+      "database": "stewart",
+      "schema": "tpcdi_sf10",
+      "relation_name": "\"stewart\".\"tpcdi_sf10\".\"sec\"",
+      "resource_type": "source",
+      "package_name": "tpcdi",
+      "fqn": [
+        "tpcdi",
+        "bronze",
+        "finwire",
+        "finwire",
+        "sec"
+      ]
+    },
+    "source.tpcdi.hr.hr": {
+      "unique_id": "source.tpcdi.hr.hr",
+      "name": "hr",
+      "identifier": "hr",
+      "database": "stewart",
+      "schema": "tpcdi_sf10",
+      "relation_name": "\"stewart\".\"tpcdi_sf10\".\"hr\"",
+      "resource_type": "source",
+      "package_name": "tpcdi",
+      "fqn": [
+        "tpcdi",
+        "bronze",
+        "hr",
+        "hr",
+        "hr"
+      ]
+    },
+    "source.tpcdi.reference.date": {
+      "unique_id": "source.tpcdi.reference.date",
+      "name": "date",
+      "identifier": "date",
+      "database": "stewart",
+      "schema": "tpcdi_sf10",
+      "relation_name": "\"stewart\".\"tpcdi_sf10\".\"date\"",
+      "resource_type": "source",
+      "package_name": "tpcdi",
+      "fqn": [
+        "tpcdi",
+        "bronze",
+        "reference",
+        "reference",
+        "date"
+      ]
+    },
+    "source.tpcdi.reference.industry": {
+      "unique_id": "source.tpcdi.reference.industry",
+      "name": "industry",
+      "identifier": "industry",
+      "database": "stewart",
+      "schema": "tpcdi_sf10",
+      "relation_name": "\"stewart\".\"tpcdi_sf10\".\"industry\"",
+      "resource_type": "source",
+      "package_name": "tpcdi",
+      "fqn": [
+        "tpcdi",
+        "bronze",
+        "reference",
+        "reference",
+        "industry"
+      ]
+    },
+    "source.tpcdi.reference.status_type": {
+      "unique_id": "source.tpcdi.reference.status_type",
+      "name": "status_type",
+      "identifier": "status_type",
+      "database": "stewart",
+      "schema": "tpcdi_sf10",
+      "relation_name": "\"stewart\".\"tpcdi_sf10\".\"status_type\"",
+      "resource_type": "source",
+      "package_name": "tpcdi",
+      "fqn": [
+        "tpcdi",
+        "bronze",
+        "reference",
+        "reference",
+        "status_type"
+      ]
+    },
+    "source.tpcdi.reference.tax_rate": {
+      "unique_id": "source.tpcdi.reference.tax_rate",
+      "name": "tax_rate",
+      "identifier": "tax_rate",
+      "database": "stewart",
+      "schema": "tpcdi_sf10",
+      "relation_name": "\"stewart\".\"tpcdi_sf10\".\"tax_rate\"",
+      "resource_type": "source",
+      "package_name": "tpcdi",
+      "fqn": [
+        "tpcdi",
+        "bronze",
+        "reference",
+        "reference",
+        "tax_rate"
+      ]
+    },
+    "source.tpcdi.reference.trade_type": {
+      "unique_id": "source.tpcdi.reference.trade_type",
+      "name": "trade_type",
+      "identifier": "trade_type",
+      "database": "stewart",
+      "schema": "tpcdi_sf10",
+      "relation_name": "\"stewart\".\"tpcdi_sf10\".\"trade_type\"",
+      "resource_type": "source",
+      "package_name": "tpcdi",
+      "fqn": [
+        "tpcdi",
+        "bronze",
+        "reference",
+        "reference",
+        "trade_type"
+      ]
+    },
+    "source.tpcdi.syndicated.prospect": {
+      "unique_id": "source.tpcdi.syndicated.prospect",
+      "name": "prospect",
+      "identifier": "prospect",
+      "database": "stewart",
+      "schema": "tpcdi_sf10",
+      "relation_name": "\"stewart\".\"tpcdi_sf10\".\"prospect\"",
+      "resource_type": "source",
+      "package_name": "tpcdi",
+      "fqn": [
+        "tpcdi",
+        "bronze",
+        "syndicated",
+        "syndicated",
+        "prospect"
+      ]
+    }
+  },
+  "macros": {},
+  "docs": {},
+  "exposures": {},
+  "metrics": {},
+  "semantic_models": {},
+  "saved_queries": {},
+  "unit_tests": {},
+  "selectors": {},
+  "groups": {},
+  "group_map": {},
+  "disabled": {},
+  "metadata": {
+    "adapter_type": "duckdb",
+    "dbt_schema_version": "https://schemas.getdbt.com/dbt/manifest/v12.json",
+    "dbt_version": "1.10.19",
+    "project_name": "tpcdi",
+    "quoting": {
+      "column": null,
+      "database": true,
+      "identifier": true,
+      "schema": true
+    }
+  },
+  "parent_map": {
+    "model.tpcdi.accounts": [
+      "model.tpcdi.crm_customer_mgmt",
+      "model.tpcdi.reference_tax_rate"
+    ],
+    "model.tpcdi.brokerage_cash_transaction": [
+      "source.tpcdi.brokerage.cash_transaction"
+    ],
+    "model.tpcdi.brokerage_daily_market": [
+      "source.tpcdi.brokerage.daily_market"
+    ],
+    "model.tpcdi.brokerage_holding_history": [
+      "source.tpcdi.brokerage.holding_history"
+    ],
+    "model.tpcdi.brokerage_trade": [
+      "source.tpcdi.brokerage.trade"
+    ],
+    "model.tpcdi.brokerage_trade_history": [
+      "source.tpcdi.brokerage.trade_history"
+    ],
+    "model.tpcdi.brokerage_watch_history": [
+      "source.tpcdi.brokerage.watch_history"
+    ],
+    "model.tpcdi.cash_transactions": [
+      "model.tpcdi.accounts",
+      "model.tpcdi.brokerage_cash_transaction"
+    ],
+    "model.tpcdi.companies": [
+      "model.tpcdi.finwire_company",
+      "model.tpcdi.reference_industry",
+      "model.tpcdi.reference_status_type"
+    ],
+    "model.tpcdi.crm_customer_mgmt": [
+      "source.tpcdi.crm.customer_mgmt"
+    ],
+    "model.tpcdi.customers": [
+      "model.tpcdi.crm_customer_mgmt",
+      "model.tpcdi.reference_tax_rate"
+    ],
+    "model.tpcdi.daily_market": [
+      "model.tpcdi.brokerage_daily_market"
+    ],
+    "model.tpcdi.date": [
+      "model.tpcdi.reference_date"
+    ],
+    "model.tpcdi.dim_account": [
+      "model.tpcdi.accounts",
+      "model.tpcdi.dim_broker",
+      "model.tpcdi.dim_customer"
+    ],
+    "model.tpcdi.dim_broker": [
+      "model.tpcdi.employees"
+    ],
+    "model.tpcdi.dim_company": [
+      "model.tpcdi.companies"
+    ],
+    "model.tpcdi.dim_customer": [
+      "model.tpcdi.customers",
+      "model.tpcdi.syndicated_prospect"
+    ],
+    "model.tpcdi.dim_date": [
+      "model.tpcdi.date"
+    ],
+    "model.tpcdi.dim_security": [
+      "model.tpcdi.dim_company",
+      "model.tpcdi.securities"
+    ],
+    "model.tpcdi.dim_trade": [
+      "model.tpcdi.trades_history"
+    ],
+    "model.tpcdi.employees": [
+      "model.tpcdi.hr_employee"
+    ],
+    "model.tpcdi.fact_cash_balances": [
+      "model.tpcdi.fact_cash_transactions"
+    ],
+    "model.tpcdi.fact_cash_transactions": [
+      "model.tpcdi.cash_transactions",
+      "model.tpcdi.dim_account"
+    ],
+    "model.tpcdi.fact_holdings": [
+      "model.tpcdi.dim_account",
+      "model.tpcdi.dim_security",
+      "model.tpcdi.dim_trade",
+      "model.tpcdi.holdings_history"
+    ],
+    "model.tpcdi.fact_market_history": [
+      "model.tpcdi.daily_market",
+      "model.tpcdi.dim_security",
+      "model.tpcdi.wrk_company_financials"
+    ],
+    "model.tpcdi.fact_trade": [
+      "model.tpcdi.dim_account",
+      "model.tpcdi.dim_security",
+      "model.tpcdi.dim_trade",
+      "model.tpcdi.trades"
+    ],
+    "model.tpcdi.fact_watches": [
+      "model.tpcdi.dim_customer",
+      "model.tpcdi.dim_security",
+      "model.tpcdi.watches"
+    ],
+    "model.tpcdi.financials": [
+      "model.tpcdi.companies",
+      "model.tpcdi.finwire_financial"
+    ],
+    "model.tpcdi.finwire_company": [
+      "source.tpcdi.finwire.cmp"
+    ],
+    "model.tpcdi.finwire_financial": [
+      "source.tpcdi.finwire.fin"
+    ],
+    "model.tpcdi.finwire_security": [
+      "source.tpcdi.finwire.sec"
+    ],
+    "model.tpcdi.holdings_history": [
+      "model.tpcdi.brokerage_holding_history",
+      "model.tpcdi.trades"
+    ],
+    "model.tpcdi.hr_employee": [
+      "source.tpcdi.hr.hr"
+    ],
+    "model.tpcdi.reference_date": [
+      "source.tpcdi.reference.date"
+    ],
+    "model.tpcdi.reference_industry": [
+      "source.tpcdi.reference.industry"
+    ],
+    "model.tpcdi.reference_status_type": [
+      "source.tpcdi.reference.status_type"
+    ],
+    "model.tpcdi.reference_tax_rate": [
+      "source.tpcdi.reference.tax_rate"
+    ],
+    "model.tpcdi.reference_trade_type": [
+      "source.tpcdi.reference.trade_type"
+    ],
+    "model.tpcdi.securities": [
+      "model.tpcdi.companies",
+      "model.tpcdi.finwire_security"
+    ],
+    "model.tpcdi.syndicated_prospect": [
+      "source.tpcdi.syndicated.prospect"
+    ],
+    "model.tpcdi.trades": [
+      "model.tpcdi.trades_history"
+    ],
+    "model.tpcdi.trades_history": [
+      "model.tpcdi.brokerage_trade",
+      "model.tpcdi.brokerage_trade_history",
+      "model.tpcdi.reference_status_type",
+      "model.tpcdi.reference_trade_type"
+    ],
+    "model.tpcdi.watches": [
+      "model.tpcdi.watches_history"
+    ],
+    "model.tpcdi.watches_history": [
+      "model.tpcdi.brokerage_watch_history",
+      "model.tpcdi.securities"
+    ],
+    "model.tpcdi.wrk_company_financials": [
+      "model.tpcdi.dim_company",
+      "model.tpcdi.financials"
+    ],
+    "source.tpcdi.brokerage.cash_transaction": [],
+    "source.tpcdi.brokerage.daily_market": [],
+    "source.tpcdi.brokerage.holding_history": [],
+    "source.tpcdi.brokerage.trade": [],
+    "source.tpcdi.brokerage.trade_history": [],
+    "source.tpcdi.brokerage.watch_history": [],
+    "source.tpcdi.crm.customer_mgmt": [],
+    "source.tpcdi.finwire.cmp": [],
+    "source.tpcdi.finwire.fin": [],
+    "source.tpcdi.finwire.sec": [],
+    "source.tpcdi.hr.hr": [],
+    "source.tpcdi.reference.date": [],
+    "source.tpcdi.reference.industry": [],
+    "source.tpcdi.reference.status_type": [],
+    "source.tpcdi.reference.tax_rate": [],
+    "source.tpcdi.reference.trade_type": [],
+    "source.tpcdi.syndicated.prospect": [],
+    "test.tpcdi.not_null_my_first_dbt_model_id.5fb22c2710": [],
+    "test.tpcdi.not_null_my_second_dbt_model_id.151b76d778": [],
+    "test.tpcdi.unique_my_first_dbt_model_id.16e066b321": [],
+    "test.tpcdi.unique_my_second_dbt_model_id.57a0f8c493": []
+  },
+  "child_map": {
+    "model.tpcdi.accounts": [
+      "model.tpcdi.cash_transactions",
+      "model.tpcdi.dim_account"
+    ],
+    "model.tpcdi.brokerage_cash_transaction": [
+      "model.tpcdi.cash_transactions"
+    ],
+    "model.tpcdi.brokerage_daily_market": [
+      "model.tpcdi.daily_market"
+    ],
+    "model.tpcdi.brokerage_holding_history": [
+      "model.tpcdi.holdings_history"
+    ],
+    "model.tpcdi.brokerage_trade": [
+      "model.tpcdi.trades_history"
+    ],
+    "model.tpcdi.brokerage_trade_history": [
+      "model.tpcdi.trades_history"
+    ],
+    "model.tpcdi.brokerage_watch_history": [
+      "model.tpcdi.watches_history"
+    ],
+    "model.tpcdi.cash_transactions": [
+      "model.tpcdi.fact_cash_transactions"
+    ],
+    "model.tpcdi.companies": [
+      "model.tpcdi.dim_company",
+      "model.tpcdi.financials",
+      "model.tpcdi.securities"
+    ],
+    "model.tpcdi.crm_customer_mgmt": [
+      "model.tpcdi.accounts",
+      "model.tpcdi.customers"
+    ],
+    "model.tpcdi.customers": [
+      "model.tpcdi.dim_customer"
+    ],
+    "model.tpcdi.daily_market": [
+      "model.tpcdi.fact_market_history"
+    ],
+    "model.tpcdi.date": [
+      "model.tpcdi.dim_date"
+    ],
+    "model.tpcdi.dim_account": [
+      "model.tpcdi.fact_cash_transactions",
+      "model.tpcdi.fact_holdings",
+      "model.tpcdi.fact_trade"
+    ],
+    "model.tpcdi.dim_broker": [
+      "model.tpcdi.dim_account"
+    ],
+    "model.tpcdi.dim_company": [
+      "model.tpcdi.dim_security",
+      "model.tpcdi.wrk_company_financials"
+    ],
+    "model.tpcdi.dim_customer": [
+      "model.tpcdi.dim_account",
+      "model.tpcdi.fact_watches"
+    ],
+    "model.tpcdi.dim_date": [],
+    "model.tpcdi.dim_security": [
+      "model.tpcdi.fact_holdings",
+      "model.tpcdi.fact_market_history",
+      "model.tpcdi.fact_trade",
+      "model.tpcdi.fact_watches"
+    ],
+    "model.tpcdi.dim_trade": [
+      "model.tpcdi.fact_holdings",
+      "model.tpcdi.fact_trade"
+    ],
+    "model.tpcdi.employees": [
+      "model.tpcdi.dim_broker"
+    ],
+    "model.tpcdi.fact_cash_balances": [],
+    "model.tpcdi.fact_cash_transactions": [
+      "model.tpcdi.fact_cash_balances"
+    ],
+    "model.tpcdi.fact_holdings": [],
+    "model.tpcdi.fact_market_history": [],
+    "model.tpcdi.fact_trade": [],
+    "model.tpcdi.fact_watches": [],
+    "model.tpcdi.financials": [
+      "model.tpcdi.wrk_company_financials"
+    ],
+    "model.tpcdi.finwire_company": [
+      "model.tpcdi.companies"
+    ],
+    "model.tpcdi.finwire_financial": [
+      "model.tpcdi.financials"
+    ],
+    "model.tpcdi.finwire_security": [
+      "model.tpcdi.securities"
+    ],
+    "model.tpcdi.holdings_history": [
+      "model.tpcdi.fact_holdings"
+    ],
+    "model.tpcdi.hr_employee": [
+      "model.tpcdi.employees"
+    ],
+    "model.tpcdi.reference_date": [
+      "model.tpcdi.date"
+    ],
+    "model.tpcdi.reference_industry": [
+      "model.tpcdi.companies"
+    ],
+    "model.tpcdi.reference_status_type": [
+      "model.tpcdi.companies",
+      "model.tpcdi.trades_history"
+    ],
+    "model.tpcdi.reference_tax_rate": [
+      "model.tpcdi.accounts",
+      "model.tpcdi.customers"
+    ],
+    "model.tpcdi.reference_trade_type": [
+      "model.tpcdi.trades_history"
+    ],
+    "model.tpcdi.securities": [
+      "model.tpcdi.dim_security",
+      "model.tpcdi.watches_history"
+    ],
+    "model.tpcdi.syndicated_prospect": [
+      "model.tpcdi.dim_customer"
+    ],
+    "model.tpcdi.trades": [
+      "model.tpcdi.fact_trade",
+      "model.tpcdi.holdings_history"
+    ],
+    "model.tpcdi.trades_history": [
+      "model.tpcdi.dim_trade",
+      "model.tpcdi.trades"
+    ],
+    "model.tpcdi.watches": [
+      "model.tpcdi.fact_watches"
+    ],
+    "model.tpcdi.watches_history": [
+      "model.tpcdi.watches"
+    ],
+    "model.tpcdi.wrk_company_financials": [
+      "model.tpcdi.fact_market_history"
+    ],
+    "source.tpcdi.brokerage.cash_transaction": [
+      "model.tpcdi.brokerage_cash_transaction"
+    ],
+    "source.tpcdi.brokerage.daily_market": [
+      "model.tpcdi.brokerage_daily_market"
+    ],
+    "source.tpcdi.brokerage.holding_history": [
+      "model.tpcdi.brokerage_holding_history"
+    ],
+    "source.tpcdi.brokerage.trade": [
+      "model.tpcdi.brokerage_trade"
+    ],
+    "source.tpcdi.brokerage.trade_history": [
+      "model.tpcdi.brokerage_trade_history"
+    ],
+    "source.tpcdi.brokerage.watch_history": [
+      "model.tpcdi.brokerage_watch_history"
+    ],
+    "source.tpcdi.crm.customer_mgmt": [
+      "model.tpcdi.crm_customer_mgmt"
+    ],
+    "source.tpcdi.finwire.cmp": [
+      "model.tpcdi.finwire_company"
+    ],
+    "source.tpcdi.finwire.fin": [
+      "model.tpcdi.finwire_financial"
+    ],
+    "source.tpcdi.finwire.sec": [
+      "model.tpcdi.finwire_security"
+    ],
+    "source.tpcdi.hr.hr": [
+      "model.tpcdi.hr_employee"
+    ],
+    "source.tpcdi.reference.date": [
+      "model.tpcdi.reference_date"
+    ],
+    "source.tpcdi.reference.industry": [
+      "model.tpcdi.reference_industry"
+    ],
+    "source.tpcdi.reference.status_type": [
+      "model.tpcdi.reference_status_type"
+    ],
+    "source.tpcdi.reference.tax_rate": [
+      "model.tpcdi.reference_tax_rate"
+    ],
+    "source.tpcdi.reference.trade_type": [
+      "model.tpcdi.reference_trade_type"
+    ],
+    "source.tpcdi.syndicated.prospect": [
+      "model.tpcdi.syndicated_prospect"
+    ],
+    "test.tpcdi.not_null_my_first_dbt_model_id.5fb22c2710": [],
+    "test.tpcdi.not_null_my_second_dbt_model_id.151b76d778": [],
+    "test.tpcdi.unique_my_first_dbt_model_id.16e066b321": [],
+    "test.tpcdi.unique_my_second_dbt_model_id.57a0f8c493": []
+  }
+}

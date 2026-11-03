@@ -1,0 +1,8 @@
+{
+  "persistent": {
+    "cluster.routing.allocation.disk.watermark.low": "1500mb",
+    "cluster.routing.allocation.disk.watermark.high": "1000mb",
+    "cluster.routing.allocation.disk.watermark.flood_stage": "500mb",
+    "cluster.blocks.create_index": null
+  }
+}

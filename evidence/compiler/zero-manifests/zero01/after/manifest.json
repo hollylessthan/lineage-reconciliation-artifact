@@ -1,0 +1,638 @@
+{
+  "nodes": {
+    "model.dbt_project.avg_item_price_in_year": {
+      "unique_id": "model.dbt_project.avg_item_price_in_year",
+      "name": "avg_item_price_in_year",
+      "alias": "avg_item_price_in_year",
+      "database": "zero-dep-check",
+      "schema": "main",
+      "relation_name": "\"zero-dep-check\".\"main\".\"avg_item_price_in_year\"",
+      "resource_type": "model",
+      "package_name": "dbt_project",
+      "fqn": [
+        "dbt_project",
+        "mongo_schema",
+        "avg_item_price_in_year"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": [
+          "model.dbt_project.cleanned_mongo_transactions"
+        ]
+      },
+      "config": {
+        "materialized": "table",
+        "enabled": true
+      }
+    },
+    "model.dbt_project.cleanned_airbnb_room": {
+      "unique_id": "model.dbt_project.cleanned_airbnb_room",
+      "name": "cleanned_airbnb_room",
+      "alias": "cleanned_airbnb_room",
+      "database": "zero-dep-check",
+      "schema": "main",
+      "relation_name": "\"zero-dep-check\".\"main\".\"cleanned_airbnb_room\"",
+      "resource_type": "model",
+      "package_name": "dbt_project",
+      "fqn": [
+        "dbt_project",
+        "mongo_schema",
+        "cleanned_airbnb_room"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": []
+      },
+      "config": {
+        "materialized": "view",
+        "enabled": true
+      }
+    },
+    "model.dbt_project.cleanned_mongo_accounts": {
+      "unique_id": "model.dbt_project.cleanned_mongo_accounts",
+      "name": "cleanned_mongo_accounts",
+      "alias": "cleanned_mongo_accounts",
+      "database": "zero-dep-check",
+      "schema": "main",
+      "relation_name": "\"zero-dep-check\".\"main\".\"cleanned_mongo_accounts\"",
+      "resource_type": "model",
+      "package_name": "dbt_project",
+      "fqn": [
+        "dbt_project",
+        "mongo_schema",
+        "cleanned_mongo_accounts"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": []
+      },
+      "config": {
+        "materialized": "table",
+        "enabled": true
+      }
+    },
+    "model.dbt_project.cleanned_mongo_customers": {
+      "unique_id": "model.dbt_project.cleanned_mongo_customers",
+      "name": "cleanned_mongo_customers",
+      "alias": "cleanned_mongo_customers",
+      "database": "zero-dep-check",
+      "schema": "main",
+      "relation_name": "\"zero-dep-check\".\"main\".\"cleanned_mongo_customers\"",
+      "resource_type": "model",
+      "package_name": "dbt_project",
+      "fqn": [
+        "dbt_project",
+        "mongo_schema",
+        "cleanned_mongo_customers"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": []
+      },
+      "config": {
+        "materialized": "table",
+        "enabled": true
+      }
+    },
+    "model.dbt_project.cleanned_mongo_transactions": {
+      "unique_id": "model.dbt_project.cleanned_mongo_transactions",
+      "name": "cleanned_mongo_transactions",
+      "alias": "cleanned_mongo_transactions",
+      "database": "zero-dep-check",
+      "schema": "main",
+      "relation_name": "\"zero-dep-check\".\"main\".\"cleanned_mongo_transactions\"",
+      "resource_type": "model",
+      "package_name": "dbt_project",
+      "fqn": [
+        "dbt_project",
+        "mongo_schema",
+        "cleanned_mongo_transactions"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": []
+      },
+      "config": {
+        "materialized": "table",
+        "enabled": true
+      }
+    },
+    "model.dbt_project.cleanned_sales_dataset": {
+      "unique_id": "model.dbt_project.cleanned_sales_dataset",
+      "name": "cleanned_sales_dataset",
+      "alias": "cleanned_sales_dataset",
+      "database": "zero-dep-check",
+      "schema": "main",
+      "relation_name": "\"zero-dep-check\".\"main\".\"cleanned_sales_dataset\"",
+      "resource_type": "model",
+      "package_name": "dbt_project",
+      "fqn": [
+        "dbt_project",
+        "sales_dataset",
+        "cleanned_sales_dataset"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": []
+      },
+      "config": {
+        "materialized": "view",
+        "enabled": true
+      }
+    },
+    "model.dbt_project.covid_19_data_filtered": {
+      "unique_id": "model.dbt_project.covid_19_data_filtered",
+      "name": "covid_19_data_filtered",
+      "alias": "covid_19_data_filtered",
+      "database": "zero-dep-check",
+      "schema": "main",
+      "relation_name": "\"zero-dep-check\".\"main\".\"covid_19_data_filtered\"",
+      "resource_type": "model",
+      "package_name": "dbt_project",
+      "fqn": [
+        "dbt_project",
+        "covid_19_schema",
+        "covid_19_data_filtered"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": []
+      },
+      "config": {
+        "materialized": "table",
+        "enabled": true
+      }
+    },
+    "model.dbt_project.dwh_employees": {
+      "unique_id": "model.dbt_project.dwh_employees",
+      "name": "dwh_employees",
+      "alias": "dwh_employees",
+      "database": "zero-dep-check",
+      "schema": "main",
+      "relation_name": "\"zero-dep-check\".\"main\".\"dwh_employees\"",
+      "resource_type": "model",
+      "package_name": "dbt_project",
+      "fqn": [
+        "dbt_project",
+        "dwh",
+        "dwh_employees"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": [
+          "model.dbt_project.employees_cleanned_dept_emp",
+          "model.dbt_project.employees_cleanned_titles"
+        ]
+      },
+      "config": {
+        "materialized": "view",
+        "enabled": true
+      }
+    },
+    "model.dbt_project.eight_weeksqlchallenge_case_study_1_chalange": {
+      "unique_id": "model.dbt_project.eight_weeksqlchallenge_case_study_1_chalange",
+      "name": "eight_weeksqlchallenge_case_study_1_chalange",
+      "alias": "eight_weeksqlchallenge_case_study_1_chalange",
+      "database": "zero-dep-check",
+      "schema": "main",
+      "relation_name": "\"zero-dep-check\".\"main\".\"eight_weeksqlchallenge_case_study_1_chalange\"",
+      "resource_type": "model",
+      "package_name": "dbt_project",
+      "fqn": [
+        "dbt_project",
+        "eight_weeksqlchallenge",
+        "eight_weeksqlchallenge_case_study_1_chalange"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": [
+          "model.dbt_project.eight_weeksqlchallenge_case_study_1_fact_table"
+        ]
+      },
+      "config": {
+        "materialized": "view",
+        "enabled": true
+      }
+    },
+    "model.dbt_project.eight_weeksqlchallenge_case_study_1_fact_table": {
+      "unique_id": "model.dbt_project.eight_weeksqlchallenge_case_study_1_fact_table",
+      "name": "eight_weeksqlchallenge_case_study_1_fact_table",
+      "alias": "eight_weeksqlchallenge_case_study_1_fact_table",
+      "database": "zero-dep-check",
+      "schema": "main",
+      "relation_name": "\"zero-dep-check\".\"main\".\"eight_weeksqlchallenge_case_study_1_fact_table\"",
+      "resource_type": "model",
+      "package_name": "dbt_project",
+      "fqn": [
+        "dbt_project",
+        "eight_weeksqlchallenge",
+        "eight_weeksqlchallenge_case_study_1_fact_table"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": []
+      },
+      "config": {
+        "materialized": "table",
+        "enabled": true
+      }
+    },
+    "model.dbt_project.eight_weeksqlchallenge_case_study_2_chalange": {
+      "unique_id": "model.dbt_project.eight_weeksqlchallenge_case_study_2_chalange",
+      "name": "eight_weeksqlchallenge_case_study_2_chalange",
+      "alias": "eight_weeksqlchallenge_case_study_2_chalange",
+      "database": "zero-dep-check",
+      "schema": "main",
+      "relation_name": "\"zero-dep-check\".\"main\".\"eight_weeksqlchallenge_case_study_2_chalange\"",
+      "resource_type": "model",
+      "package_name": "dbt_project",
+      "fqn": [
+        "dbt_project",
+        "eight_weeksqlchallenge",
+        "eight_weeksqlchallenge_case_study_2_chalange"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": []
+      },
+      "config": {
+        "materialized": "view",
+        "enabled": true
+      }
+    },
+    "model.dbt_project.eight_weeksqlchallenge_case_study_2_chalange_cleanned_customers_orders": {
+      "unique_id": "model.dbt_project.eight_weeksqlchallenge_case_study_2_chalange_cleanned_customers_orders",
+      "name": "eight_weeksqlchallenge_case_study_2_chalange_cleanned_customers_orders",
+      "alias": "eight_weeksqlchallenge_case_study_2_chalange_cleanned_customers_orders",
+      "database": "zero-dep-check",
+      "schema": "main",
+      "relation_name": "\"zero-dep-check\".\"main\".\"eight_weeksqlchallenge_case_study_2_chalange_cleanned_customers_orders\"",
+      "resource_type": "model",
+      "package_name": "dbt_project",
+      "fqn": [
+        "dbt_project",
+        "eight_weeksqlchallenge",
+        "eight_weeksqlchallenge_case_study_2_chalange_cleanned_customers_orders"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": []
+      },
+      "config": {
+        "materialized": "table",
+        "enabled": true
+      }
+    },
+    "model.dbt_project.eight_weeksqlchallenge_case_study_2_chalange_cleanned_reciepes": {
+      "unique_id": "model.dbt_project.eight_weeksqlchallenge_case_study_2_chalange_cleanned_reciepes",
+      "name": "eight_weeksqlchallenge_case_study_2_chalange_cleanned_reciepes",
+      "alias": "eight_weeksqlchallenge_case_study_2_chalange_cleanned_reciepes",
+      "database": "zero-dep-check",
+      "schema": "main",
+      "relation_name": "\"zero-dep-check\".\"main\".\"eight_weeksqlchallenge_case_study_2_chalange_cleanned_reciepes\"",
+      "resource_type": "model",
+      "package_name": "dbt_project",
+      "fqn": [
+        "dbt_project",
+        "eight_weeksqlchallenge",
+        "eight_weeksqlchallenge_case_study_2_chalange_cleanned_reciepes"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": []
+      },
+      "config": {
+        "materialized": "table",
+        "enabled": true
+      }
+    },
+    "model.dbt_project.eight_weeksqlchallenge_case_study_2_chalange_cleanned_runner_orders": {
+      "unique_id": "model.dbt_project.eight_weeksqlchallenge_case_study_2_chalange_cleanned_runner_orders",
+      "name": "eight_weeksqlchallenge_case_study_2_chalange_cleanned_runner_orders",
+      "alias": "eight_weeksqlchallenge_case_study_2_chalange_cleanned_runner_orders",
+      "database": "zero-dep-check",
+      "schema": "main",
+      "relation_name": "\"zero-dep-check\".\"main\".\"eight_weeksqlchallenge_case_study_2_chalange_cleanned_runner_orders\"",
+      "resource_type": "model",
+      "package_name": "dbt_project",
+      "fqn": [
+        "dbt_project",
+        "eight_weeksqlchallenge",
+        "eight_weeksqlchallenge_case_study_2_chalange_cleanned_runner_orders"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": []
+      },
+      "config": {
+        "materialized": "table",
+        "enabled": true
+      }
+    },
+    "model.dbt_project.employees_cleanned_dept_emp": {
+      "unique_id": "model.dbt_project.employees_cleanned_dept_emp",
+      "name": "employees_cleanned_dept_emp",
+      "alias": "employees_cleanned_dept_emp",
+      "database": "zero-dep-check",
+      "schema": "main",
+      "relation_name": "\"zero-dep-check\".\"main\".\"employees_cleanned_dept_emp\"",
+      "resource_type": "model",
+      "package_name": "dbt_project",
+      "fqn": [
+        "dbt_project",
+        "employees_cleanned",
+        "employees_cleanned_dept_emp"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": []
+      },
+      "config": {
+        "materialized": "table",
+        "enabled": true
+      }
+    },
+    "model.dbt_project.employees_cleanned_dept_manager": {
+      "unique_id": "model.dbt_project.employees_cleanned_dept_manager",
+      "name": "employees_cleanned_dept_manager",
+      "alias": "employees_cleanned_dept_manager",
+      "database": "zero-dep-check",
+      "schema": "main",
+      "relation_name": "\"zero-dep-check\".\"main\".\"employees_cleanned_dept_manager\"",
+      "resource_type": "model",
+      "package_name": "dbt_project",
+      "fqn": [
+        "dbt_project",
+        "employees_cleanned",
+        "employees_cleanned_dept_manager"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": []
+      },
+      "config": {
+        "materialized": "table",
+        "enabled": true
+      }
+    },
+    "model.dbt_project.employees_cleanned_salaries": {
+      "unique_id": "model.dbt_project.employees_cleanned_salaries",
+      "name": "employees_cleanned_salaries",
+      "alias": "employees_cleanned_salaries",
+      "database": "zero-dep-check",
+      "schema": "main",
+      "relation_name": "\"zero-dep-check\".\"main\".\"employees_cleanned_salaries\"",
+      "resource_type": "model",
+      "package_name": "dbt_project",
+      "fqn": [
+        "dbt_project",
+        "employees_cleanned",
+        "employees_cleanned_salaries"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": []
+      },
+      "config": {
+        "materialized": "table",
+        "enabled": true
+      }
+    },
+    "model.dbt_project.employees_cleanned_titles": {
+      "unique_id": "model.dbt_project.employees_cleanned_titles",
+      "name": "employees_cleanned_titles",
+      "alias": "employees_cleanned_titles",
+      "database": "zero-dep-check",
+      "schema": "main",
+      "relation_name": "\"zero-dep-check\".\"main\".\"employees_cleanned_titles\"",
+      "resource_type": "model",
+      "package_name": "dbt_project",
+      "fqn": [
+        "dbt_project",
+        "employees_cleanned",
+        "employees_cleanned_titles"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": []
+      },
+      "config": {
+        "materialized": "table",
+        "enabled": true
+      }
+    },
+    "model.dbt_project.employees_resume_increasing_salary": {
+      "unique_id": "model.dbt_project.employees_resume_increasing_salary",
+      "name": "employees_resume_increasing_salary",
+      "alias": "employees_resume_increasing_salary",
+      "database": "zero-dep-check",
+      "schema": "main",
+      "relation_name": "\"zero-dep-check\".\"main\".\"employees_resume_increasing_salary\"",
+      "resource_type": "model",
+      "package_name": "dbt_project",
+      "fqn": [
+        "dbt_project",
+        "employees_schema",
+        "employees_resume_increasing_salary"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": [
+          "model.dbt_project.employees_cleanned_dept_emp",
+          "model.dbt_project.employees_cleanned_salaries"
+        ]
+      },
+      "config": {
+        "materialized": "view",
+        "enabled": true
+      }
+    },
+    "model.dbt_project.sakila_actor_detailed": {
+      "unique_id": "model.dbt_project.sakila_actor_detailed",
+      "name": "sakila_actor_detailed",
+      "alias": "sakila_actor_detailed",
+      "database": "zero-dep-check",
+      "schema": "main",
+      "relation_name": "\"zero-dep-check\".\"main\".\"sakila_actor_detailed\"",
+      "resource_type": "model",
+      "package_name": "dbt_project",
+      "fqn": [
+        "dbt_project",
+        "sakila_schema",
+        "sakila_actor_detailed"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": []
+      },
+      "config": {
+        "materialized": "view",
+        "enabled": true
+      }
+    },
+    "model.dbt_project.sakila_film_information": {
+      "unique_id": "model.dbt_project.sakila_film_information",
+      "name": "sakila_film_information",
+      "alias": "sakila_film_information",
+      "database": "zero-dep-check",
+      "schema": "main",
+      "relation_name": "\"zero-dep-check\".\"main\".\"sakila_film_information\"",
+      "resource_type": "model",
+      "package_name": "dbt_project",
+      "fqn": [
+        "dbt_project",
+        "sakila_schema",
+        "sakila_film_information"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": []
+      },
+      "config": {
+        "materialized": "view",
+        "enabled": true
+      }
+    },
+    "model.dbt_project.sakila_rental_transaction_details": {
+      "unique_id": "model.dbt_project.sakila_rental_transaction_details",
+      "name": "sakila_rental_transaction_details",
+      "alias": "sakila_rental_transaction_details",
+      "database": "zero-dep-check",
+      "schema": "main",
+      "relation_name": "\"zero-dep-check\".\"main\".\"sakila_rental_transaction_details\"",
+      "resource_type": "model",
+      "package_name": "dbt_project",
+      "fqn": [
+        "dbt_project",
+        "sakila_schema",
+        "sakila_rental_transaction_details"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": []
+      },
+      "config": {
+        "materialized": "table",
+        "enabled": true
+      }
+    },
+    "model.dbt_project.sakila_store_detailed": {
+      "unique_id": "model.dbt_project.sakila_store_detailed",
+      "name": "sakila_store_detailed",
+      "alias": "sakila_store_detailed",
+      "database": "zero-dep-check",
+      "schema": "main",
+      "relation_name": "\"zero-dep-check\".\"main\".\"sakila_store_detailed\"",
+      "resource_type": "model",
+      "package_name": "dbt_project",
+      "fqn": [
+        "dbt_project",
+        "sakila_schema",
+        "sakila_store_detailed"
+      ],
+      "depends_on": {
+        "macros": [],
+        "nodes": []
+      },
+      "config": {
+        "materialized": "view",
+        "enabled": true
+      }
+    }
+  },
+  "sources": {},
+  "macros": {},
+  "docs": {},
+  "exposures": {},
+  "metrics": {},
+  "semantic_models": {},
+  "saved_queries": {},
+  "unit_tests": {},
+  "selectors": {},
+  "groups": {},
+  "group_map": {},
+  "disabled": {},
+  "metadata": {
+    "adapter_type": "duckdb",
+    "dbt_schema_version": "https://schemas.getdbt.com/dbt/manifest/v12.json",
+    "dbt_version": "1.10.19",
+    "project_name": "dbt_project",
+    "quoting": {
+      "column": null,
+      "database": true,
+      "identifier": true,
+      "schema": true
+    }
+  },
+  "parent_map": {
+    "model.dbt_project.avg_item_price_in_year": [
+      "model.dbt_project.cleanned_mongo_transactions"
+    ],
+    "model.dbt_project.cleanned_airbnb_room": [],
+    "model.dbt_project.cleanned_mongo_accounts": [],
+    "model.dbt_project.cleanned_mongo_customers": [],
+    "model.dbt_project.cleanned_mongo_transactions": [],
+    "model.dbt_project.cleanned_sales_dataset": [],
+    "model.dbt_project.covid_19_data_filtered": [],
+    "model.dbt_project.dwh_employees": [
+      "model.dbt_project.employees_cleanned_dept_emp",
+      "model.dbt_project.employees_cleanned_titles"
+    ],
+    "model.dbt_project.eight_weeksqlchallenge_case_study_1_chalange": [
+      "model.dbt_project.eight_weeksqlchallenge_case_study_1_fact_table"
+    ],
+    "model.dbt_project.eight_weeksqlchallenge_case_study_1_fact_table": [],
+    "model.dbt_project.eight_weeksqlchallenge_case_study_2_chalange": [],
+    "model.dbt_project.eight_weeksqlchallenge_case_study_2_chalange_cleanned_customers_orders": [],
+    "model.dbt_project.eight_weeksqlchallenge_case_study_2_chalange_cleanned_reciepes": [],
+    "model.dbt_project.eight_weeksqlchallenge_case_study_2_chalange_cleanned_runner_orders": [],
+    "model.dbt_project.employees_cleanned_dept_emp": [],
+    "model.dbt_project.employees_cleanned_dept_manager": [],
+    "model.dbt_project.employees_cleanned_salaries": [],
+    "model.dbt_project.employees_cleanned_titles": [],
+    "model.dbt_project.employees_resume_increasing_salary": [
+      "model.dbt_project.employees_cleanned_dept_emp",
+      "model.dbt_project.employees_cleanned_salaries"
+    ],
+    "model.dbt_project.sakila_actor_detailed": [],
+    "model.dbt_project.sakila_film_information": [],
+    "model.dbt_project.sakila_rental_transaction_details": [],
+    "model.dbt_project.sakila_store_detailed": []
+  },
+  "child_map": {
+    "model.dbt_project.avg_item_price_in_year": [],
+    "model.dbt_project.cleanned_airbnb_room": [],
+    "model.dbt_project.cleanned_mongo_accounts": [],
+    "model.dbt_project.cleanned_mongo_customers": [],
+    "model.dbt_project.cleanned_mongo_transactions": [
+      "model.dbt_project.avg_item_price_in_year"
+    ],
+    "model.dbt_project.cleanned_sales_dataset": [],
+    "model.dbt_project.covid_19_data_filtered": [],
+    "model.dbt_project.dwh_employees": [],
+    "model.dbt_project.eight_weeksqlchallenge_case_study_1_chalange": [],
+    "model.dbt_project.eight_weeksqlchallenge_case_study_1_fact_table": [
+      "model.dbt_project.eight_weeksqlchallenge_case_study_1_chalange"
+    ],
+    "model.dbt_project.eight_weeksqlchallenge_case_study_2_chalange": [],
+    "model.dbt_project.eight_weeksqlchallenge_case_study_2_chalange_cleanned_customers_orders": [],
+    "model.dbt_project.eight_weeksqlchallenge_case_study_2_chalange_cleanned_reciepes": [],
+    "model.dbt_project.eight_weeksqlchallenge_case_study_2_chalange_cleanned_runner_orders": [],
+    "model.dbt_project.employees_cleanned_dept_emp": [
+      "model.dbt_project.dwh_employees",
+      "model.dbt_project.employees_resume_increasing_salary"
+    ],
+    "model.dbt_project.employees_cleanned_dept_manager": [],
+    "model.dbt_project.employees_cleanned_salaries": [
+      "model.dbt_project.employees_resume_increasing_salary"
+    ],
+    "model.dbt_project.employees_cleanned_titles": [
+      "model.dbt_project.dwh_employees"
+    ],
+    "model.dbt_project.employees_resume_increasing_salary": [],
+    "model.dbt_project.sakila_actor_detailed": [],
+    "model.dbt_project.sakila_film_information": [],
+    "model.dbt_project.sakila_rental_transaction_details": [],
+    "model.dbt_project.sakila_store_detailed": []
+  }
+}

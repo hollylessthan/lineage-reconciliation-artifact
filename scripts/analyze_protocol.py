@@ -1,0 +1,161 @@
+"""Apply the protocol-v1 analysis rules (docs/protocol-v1.md) to a paper run's job logs.
+
+Usage: python scripts/analyze_protocol.py RUN_ID --output docs/protocol-v1-results.md
+Reads job logs through `gh api` (artifacts are not required). This script is analysis,
+not part of the frozen measurement; it only implements the pre-declared rules.
+"""
+import argparse
+import json
+import re
+import subprocess
+from collections import defaultdict
+from pathlib import Path
+
+import os
+REPO = os.environ.get('LINEAGE_SOURCE_REPO')
+REP = re.compile(r'rep(\d)')
+
+
+def gh(path):
+    return subprocess.run(['gh', 'api', path], capture_output=True, text=True, check=True).stdout
+
+
+def jobs(run_id):
+    out, page = [], 1
+    while True:
+        batch = json.loads(gh(f'repos/{REPO}/actions/runs/{run_id}/jobs?per_page=100&page={page}'))['jobs']
+        out += batch
+        if len(batch) < 100:
+            return out
+        page += 1
+
+
+def parse(log):
+    """Split one job log into per-path records (a job may run several paths)."""
+    paths = defaultdict(lambda: {'rels': {}, 'oracle_bad': 0, 'unstable': 0, 'errors': 0,
+                                 'cal': None, 'gate': None, 'real': []})
+    current = None
+    for line in log.splitlines():
+        body = line[29:] if len(line) > 29 and line[4] == '-' else line
+        for tag in ('MMREL ', 'MMORACLE ', 'MMCAL ', 'MMHIST ', 'MMREAL '):
+            i = body.find(tag)
+            if i < 0:
+                continue
+            rec = json.loads(body[i + len(tag):])
+            if tag == 'MMREAL ':
+                paths['dh-real']['real'].append(rec)
+                continue
+            p = paths[rec['path']]
+            current = rec['path']
+            if tag == 'MMREL ':
+                p['rels'][rec['rel']] = rec['verdict']
+            elif tag == 'MMORACLE ' and not rec['match']:
+                exempt = any(rec['history'][0].endswith(x) for x in
+                             ('inputs_in_start', 'inputs_omitted_complete', 'inputs_in_complete', 'start_only'))
+                p['oracle_bad'] += 0 if exempt else 1
+            elif tag == 'MMCAL ':
+                p['cal'] = rec['false_alarms']
+            elif tag == 'MMHIST ':
+                p['errors'] += 'error' in rec
+                p['unstable'] += 'error' not in rec and not rec.get('stable', False)
+    return paths
+
+
+def admissible(rec):
+    # Same conditions as the frozen integrity gate, computed from the logged evidence
+    # (the gate's own stderr line can interleave with another path's buffered stdout).
+    reasons = []
+    if rec['cal'] is None:
+        reasons.append('calibration missing')
+    elif rec['cal']:
+        reasons.append('calibration inconsistent')
+    if rec['errors'] or rec['unstable']:
+        reasons.append(f"{rec['errors']} history errors, {rec['unstable']} unstable")
+    if any(v in ('not_testable', 'control_failed') for v in rec['rels'].values()):
+        reasons.append('relation/control not testable or failed')
+    if rec['oracle_bad']:
+        reasons.append(f"{rec['oracle_bad']} fresh-state oracle mismatches")
+    if not rec['rels']:
+        reasons.append('no relations recorded')
+    return not reasons, '; '.join(reasons)
+
+
+def label(job_name, path):
+    m = re.search(r'\(([^)]*)\)', job_name)
+    extra = m.group(1) if m else ''
+    if 'olpatch' in job_name:
+        extra = extra.split(',')[0]
+        return f'{path} [{extra}]'
+    if job_name.split(' / ')[-1].startswith('datahub-old') or 'openmetadata-old' in job_name:
+        return f"{path} [{'DataHub 1.5.0' if 'datahub' in job_name else 'OpenMetadata 1.13.6'}]"
+    return path
+
+
+def main():
+    a = argparse.ArgumentParser()
+    a.add_argument('run_id')
+    a.add_argument('--output', type=Path, required=True)
+    args = a.parse_args()
+    if not REPO:
+        a.error('Set LINEAGE_SOURCE_REPO=owner/repo for an authorized original-run source; archived logs are not in this artifact repository')
+    table = defaultdict(dict)  # label -> rep -> record
+    real = defaultdict(dict)
+    for j in jobs(args.run_id):
+        if j['conclusion'] == 'skipped' or j['status'] != 'completed':
+            continue
+        m = REP.search(j['name'])
+        if not m:
+            continue
+        rep = int(m.group(1))
+        try:
+            log = gh(f"repos/{REPO}/actions/jobs/{j['id']}/logs")
+        except subprocess.CalledProcessError:
+            continue
+        for path, rec in parse(log).items():
+            if path == 'dh-real':
+                for r in rec['real']:
+                    real[r['id']][rep] = r
+                continue
+            rec['admissible'], rec['gate'] = admissible(rec)
+            table[label(j['name'], path)][rep] = rec
+    lines = ['# protocol-v1 results', '',
+             f'Run [{args.run_id}](https://github.com/{REPO}/actions/runs/{args.run_id}) at tag `protocol-v1`. '
+             'Rules from [protocol-v1.md](protocol-v1.md). Generated by `scripts/analyze_protocol.py`.', '',
+             '## Per-path replication', '',
+             '| Path | Admissible reps | Replicated violations | Unstable relations | Characterization | Inadmissible reasons |',
+             '|---|---|---|---|---|---|']
+    findings = []
+    for name in sorted(table):
+        reps = table[name]
+        adm = {r: v for r, v in reps.items() if v['admissible']}
+        rels = sorted({k for v in adm.values() for k in v['rels']})
+        replicated, unstable, chars = [], [], []
+        for rel in rels:
+            vals = {v['rels'].get(rel) for v in adm.values()}
+            if len(vals) > 1:
+                unstable.append(rel)
+            elif vals == {'violation'}:
+                replicated.append(rel)
+            elif vals == {'differs'}:
+                chars.append(rel)
+        if len(adm) == 3:
+            findings += [(name, r) for r in replicated]
+        gates = ' | '.join(sorted({f"rep{r}: {v['gate']}" for r, v in reps.items() if v['gate']})) or '—'
+        lines.append(f"| {name} | {len(adm)}/3 | {', '.join(replicated) or '—'} | {', '.join(unstable) or '—'} | "
+                     f"{', '.join(chars) or '—'} | {gates[:160]} |")
+    lines += ['', '## Replicated findings (3/3 admissible)', '']
+    lines += [f'- {n}: {r}' for n, r in findings] or ['- none']
+    lines += ['', '## Real-revision replay (DataHub dbt)', '',
+              '| Case | Reps completed | MR1 forward | MR1 reverse | Sanity |', '|---|---|---|---|---|']
+    for cid in sorted(real):
+        rr = real[cid]
+        fw = {v['MR1_forward'] for v in rr.values()}
+        rv = {v['MR1_reverse'] for v in rr.values()}
+        sane = all(v['sanity_before'] and v['sanity_after'] for v in rr.values())
+        lines.append(f"| {cid} | {len(rr)}/3 | {'/'.join(sorted(fw))} | {'/'.join(sorted(rv))} | {'pass' if sane else 'fail'} |")
+    args.output.write_text('\n'.join(lines) + '\n')
+    print('\n'.join(lines))
+
+
+if __name__ == '__main__':
+    main()

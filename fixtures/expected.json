@@ -1,0 +1,6 @@
+{
+  "r0": [["a", "out"], ["b", "out"]],
+  "r1": [["a", "out"], ["c", "out"]],
+  "empty": [],
+  "source_models": ["a", "b", "c", "out"]
+}

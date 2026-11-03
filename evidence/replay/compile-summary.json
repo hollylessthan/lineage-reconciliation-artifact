@@ -1,0 +1,11 @@
+{
+  "schema": "zero-dependency-compile-summary/v1",
+  "scope": "post-frozen, dbt-core 1.10 offline parse",
+  "distinct_events": 24,
+  "confirmed_same_identity_zero_dependency": 6,
+  "identity_changed": 1,
+  "could_not_parse_offline": 17,
+  "duplicate_history_events_not_replayed": 12,
+  "source": "Original compile-check run, summarized in docs/zero-dependency-replay.md",
+  "limitations": "Summary counts, not the underlying 24 per-case compiled manifests; raw compiled manifests must be archived separately for full independently rerunnable checks."
+}

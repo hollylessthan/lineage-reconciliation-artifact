@@ -1,0 +1,65 @@
+[
+  {
+    "repository": "dbt-labs/jaffle-shop",
+    "parent": "558fe27bfc552fc8b58dc0dc7e70216d2eb485e1",
+    "commit": "2447e1b505a7401cbe3a3c6a818d7073ed2e61d8",
+    "path": "models/marts/customers.sql",
+    "change_kind": "modified"
+  },
+  {
+    "repository": "stellar/stellar-dbt-public",
+    "parent": "4de1ea370b66397bf9471e6ad3165978b4a6f1c8",
+    "commit": "f3fab93b65b5517cdfdf03e65f644cbbfe7d3f87",
+    "path": "models/intermediate/account_balances/int_account_balances__contracts.sql",
+    "change_kind": "modified"
+  },
+  {
+    "repository": "stellar/stellar-dbt-public",
+    "parent": "9632ca1b23c1092250815739c9fda02dd4893feb",
+    "commit": "94c21500a7c6fc8435907c56a061b5e4d7d0c1df",
+    "path": "models/intermediate/reflector_prices/int_reflector_prices__sdex.sql",
+    "change_kind": "modified"
+  },
+  {
+    "repository": "stellar/stellar-dbt-public",
+    "parent": "4e20c2eabdc78550f47a88d7ce17449a38393575",
+    "commit": "7430ef805c2c63c45fba3d3fd14aec6b66fdbd44",
+    "path": "models/intermediate/tvl/int_tvl_accounts.sql",
+    "change_kind": "modified"
+  },
+  {
+    "repository": "stellar/stellar-dbt-public",
+    "parent": "987da7e6912156960783448c28a4e60c1da7236d",
+    "commit": "11dbc8b8b7dfc2f5edb32cacc8780d6a259e2ba4",
+    "path": "models/intermediate/account_balances/int_account_balances__contracts.sql",
+    "change_kind": "modified"
+  },
+  {
+    "repository": "stellar/stellar-dbt-public",
+    "parent": "3bffac86e849b769c998068ca12a4062d569090f",
+    "commit": "512cfcd46f3f95f392271e7caed57b1880afe518",
+    "path": "models/intermediate/account_balances/int_account_balances__contracts.sql",
+    "change_kind": "modified"
+  },
+  {
+    "repository": "stellar/stellar-dbt-public",
+    "parent": "c5b47b58d59fad7a18683237bc8148e7e2e83ffc",
+    "commit": "ed26ff7032aa922c3ff3e34b1f88cb20fb62e31e",
+    "path": "models/intermediate/account_balances/int_account_balances__contracts.sql",
+    "change_kind": "modified"
+  },
+  {
+    "repository": "stellar/stellar-dbt-public",
+    "parent": "9e2aed8e69bbab84a11cc750291d1b1c852d3587",
+    "commit": "42ca906a8709f5cd2f69aa0231fdf8d283bae95b",
+    "path": "models/marts/tvl/tvl_agg.sql",
+    "change_kind": "modified"
+  },
+  {
+    "repository": "stellar/stellar-dbt-public",
+    "parent": "b27f498372a6bffa9769ee2278f3347fbc9b9fa3",
+    "commit": "9e2aed8e69bbab84a11cc750291d1b1c852d3587",
+    "path": "models/marts/tvl/tvl_agg.sql",
+    "change_kind": "modified"
+  }
+]

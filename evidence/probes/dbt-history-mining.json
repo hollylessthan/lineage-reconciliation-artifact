@@ -1,0 +1,3218 @@
+{
+  "summary": {
+    "repos_cloned": 249,
+    "repos_active": 79,
+    "repos_failed": 1,
+    "repos_with_dep_changes": 64,
+    "repos_with_withdrawal": 50,
+    "repos_with_to_zero_strict": 11,
+    "repos_with_to_zero_any": 26,
+    "totals": {
+      "modified": 11788,
+      "dep_change": 1485,
+      "withdrawal": 740,
+      "model_deleted": 6923,
+      "to_zero_jinja": 63,
+      "to_zero_strict": 36
+    }
+  },
+  "repos": [
+    {
+      "repo": "dbt-labs/docs.getdbt.com",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "aiven/aiven-examples",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "Velir/dbt-ga4",
+      "counts": {
+        "modified": 379,
+        "dep_change": 47,
+        "withdrawal": 34,
+        "model_deleted": 82
+      },
+      "to_zero_events": [],
+      "active": true
+    },
+    {
+      "repo": "EqualExperts/dbt-unit-testing",
+      "counts": {
+        "modified": 28,
+        "dep_change": 8,
+        "withdrawal": 8,
+        "model_deleted": 26
+      },
+      "to_zero_events": [],
+      "active": true
+    },
+    {
+      "repo": "fivetran/dbt_netsuite",
+      "counts": {
+        "modified": 493,
+        "dep_change": 47,
+        "model_deleted": 98,
+        "withdrawal": 18,
+        "to_zero_jinja": 3
+      },
+      "to_zero_events": [
+        {
+          "commit": "bbc94f0bf9f7927b557f2e93e4790cd7057ac93b",
+          "parent": "e9011c59f1cf45c54fd24a6fe575cbea54e410d9",
+          "path": "models/intermediate/int_netsuite__accountxperiod_exchange_rate_map.sql",
+          "kind": "to_zero_jinja",
+          "removed": [
+            "ref.stg_netsuite__accounting_books",
+            "ref.stg_netsuite__accounts",
+            "ref.stg_netsuite__consolidated_exchange_rates",
+            "ref.stg_netsuite__subsidiaries"
+          ],
+          "materialized": "default"
+        },
+        {
+          "commit": "bbc94f0bf9f7927b557f2e93e4790cd7057ac93b",
+          "parent": "e9011c59f1cf45c54fd24a6fe575cbea54e410d9",
+          "path": "models/intermediate/int_netsuite__transaction_and_reporting_periods.sql",
+          "kind": "to_zero_jinja",
+          "removed": [
+            "ref.stg_netsuite__accounting_periods",
+            "ref.stg_netsuite__subsidiaries"
+          ],
+          "materialized": "default"
+        },
+        {
+          "commit": "bbc94f0bf9f7927b557f2e93e4790cd7057ac93b",
+          "parent": "e9011c59f1cf45c54fd24a6fe575cbea54e410d9",
+          "path": "models/intermediate/int_netsuite__transaction_lines_w_accounting_period.sql",
+          "kind": "to_zero_jinja",
+          "removed": [
+            "ref.stg_netsuite__transaction_lines",
+            "ref.stg_netsuite__transactions"
+          ],
+          "materialized": "default"
+        }
+      ],
+      "active": true
+    },
+    {
+      "repo": "Snowflake-Labs/dbt_constraints",
+      "counts": {
+        "modified": 28,
+        "model_deleted": 62,
+        "dep_change": 7,
+        "withdrawal": 7
+      },
+      "to_zero_events": [],
+      "active": true
+    },
+    {
+      "repo": "fivetran/dbt_github",
+      "counts": {
+        "modified": 201,
+        "dep_change": 32,
+        "to_zero_jinja": 6,
+        "withdrawal": 12,
+        "model_deleted": 53
+      },
+      "to_zero_events": [
+        {
+          "commit": "6326f2994447e0e7615eca90f3fad67b5688e242",
+          "parent": "e750d1665a77b0ecebac68c72bd85fd228ed83eb",
+          "path": "models/intermediate/int_github__issue_assignees.sql",
+          "kind": "to_zero_jinja",
+          "removed": [
+            "ref.stg_github__issue_assignee",
+            "ref.stg_github__user"
+          ],
+          "materialized": "default"
+        },
+        {
+          "commit": "6326f2994447e0e7615eca90f3fad67b5688e242",
+          "parent": "e750d1665a77b0ecebac68c72bd85fd228ed83eb",
+          "path": "models/intermediate/int_github__issue_comments.sql",
+          "kind": "to_zero_jinja",
+          "removed": [
+            "ref.stg_github__issue_label"
+          ],
+          "materialized": "default"
+        },
+        {
+          "commit": "6326f2994447e0e7615eca90f3fad67b5688e242",
+          "parent": "e750d1665a77b0ecebac68c72bd85fd228ed83eb",
+          "path": "models/intermediate/int_github__issue_open_length.sql",
+          "kind": "to_zero_jinja",
+          "removed": [
+            "ref.stg_github__issue",
+            "ref.stg_github__issue_closed_history"
+          ],
+          "materialized": "default"
+        },
+        {
+          "commit": "6326f2994447e0e7615eca90f3fad67b5688e242",
+          "parent": "e750d1665a77b0ecebac68c72bd85fd228ed83eb",
+          "path": "models/intermediate/int_github__pull_request_reviewers.sql",
+          "kind": "to_zero_jinja",
+          "removed": [
+            "ref.stg_github__pull_request_review",
+            "ref.stg_github__user"
+          ],
+          "materialized": "default"
+        },
+        {
+          "commit": "6326f2994447e0e7615eca90f3fad67b5688e242",
+          "parent": "e750d1665a77b0ecebac68c72bd85fd228ed83eb",
+          "path": "models/intermediate/int_github__pull_request_times.sql",
+          "kind": "to_zero_jinja",
+          "removed": [
+            "ref.stg_github__issue",
+            "ref.stg_github__issue_merged",
+            "ref.stg_github__pull_request",
+            "ref.stg_github__pull_request_review",
+            "ref.stg_github__requested_reviewer_history"
+          ],
+          "materialized": "default"
+        },
+        {
+          "commit": "6326f2994447e0e7615eca90f3fad67b5688e242",
+          "parent": "e750d1665a77b0ecebac68c72bd85fd228ed83eb",
+          "path": "models/intermediate/int_github__repository_teams.sql",
+          "kind": "to_zero_jinja",
+          "removed": [
+            "ref.stg_github__repo_team",
+            "ref.stg_github__repository",
+            "ref.stg_github__team"
+          ],
+          "materialized": "default"
+        }
+      ],
+      "active": true
+    },
+    {
+      "repo": "fivetran/dbt_fivetran_utils",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "fivetran/dbt_xero",
+      "counts": {
+        "modified": 148,
+        "dep_change": 24,
+        "withdrawal": 5,
+        "model_deleted": 4,
+        "to_zero_jinja": 3
+      },
+      "to_zero_events": [
+        {
+          "commit": "6aff368f9caae2eea7bb12ce857ac5d2fd664e3c",
+          "parent": "e331907d2002a489a653fc0718ac80bddebe4113",
+          "path": "models/xero__general_ledger.sql",
+          "kind": "to_zero_jinja",
+          "removed": [
+            "ref.stg_xero__bank_transaction",
+            "ref.stg_xero__contact",
+            "ref.stg_xero__credit_note",
+            "ref.stg_xero__invoice"
+          ],
+          "materialized": "default"
+        },
+        {
+          "commit": "1c9c33b16f675172f44682ca81a06e88204aebde",
+          "parent": "45c920ec0d83c8dfe56cc7ba7a0e76a97f89ed7d",
+          "path": "models/xero__general_ledger.sql",
+          "kind": "to_zero_jinja",
+          "removed": [
+            "ref.stg_xero__account",
+            "ref.stg_xero__journal",
+            "ref.stg_xero__journal_line"
+          ],
+          "materialized": "default"
+        },
+        {
+          "commit": "1c9c33b16f675172f44682ca81a06e88204aebde",
+          "parent": "45c920ec0d83c8dfe56cc7ba7a0e76a97f89ed7d",
+          "path": "models/xero__invoice_line_items.sql",
+          "kind": "to_zero_jinja",
+          "removed": [
+            "ref.stg_xero__account",
+            "ref.stg_xero__contact",
+            "ref.stg_xero__invoice",
+            "ref.stg_xero__invoice_line_item"
+          ],
+          "materialized": "default"
+        }
+      ],
+      "active": true
+    },
+    {
+      "repo": "dbt-labs/semantic-layer-llm-benchmarking",
+      "counts": {
+        "modified": 29,
+        "dep_change": 29,
+        "model_deleted": 45
+      },
+      "to_zero_events": [],
+      "active": true
+    },
+    {
+      "repo": "fivetran/dbt_marketo",
+      "counts": {
+        "modified": 240,
+        "dep_change": 28,
+        "withdrawal": 8,
+        "model_deleted": 25,
+        "to_zero_jinja": 1
+      },
+      "to_zero_events": [
+        {
+          "commit": "207ccf7ba2f76cf27bd3fa70703d5f0facb9ad4b",
+          "parent": "2ab5f29c692d89e408186966bc4aa5920aef1233",
+          "path": "models/intermediate/int_marketo__lead.sql",
+          "kind": "to_zero_jinja",
+          "removed": [
+            "ref.int_marketo__lead"
+          ],
+          "materialized": "default"
+        }
+      ],
+      "active": true
+    },
+    {
+      "repo": "grafana/dbt_leaner_query",
+      "counts": {
+        "modified": 107,
+        "dep_change": 3,
+        "to_zero_jinja": 1,
+        "withdrawal": 2
+      },
+      "to_zero_events": [
+        {
+          "commit": "a2409ffac45b5d10feef01481a5ae52d80825325",
+          "parent": "b7c7a06938546a210170c7026be3ef91fcb63aa1",
+          "path": "models/staging/bigquery_audit_log/stg_bigquery_audit_log__data_access.sql",
+          "kind": "to_zero_jinja",
+          "removed": [
+            "source.bq_audit_default_project.cloudaudit_googleapis_com_data_access"
+          ],
+          "materialized": "default"
+        }
+      ],
+      "active": true
+    },
+    {
+      "repo": "getindata/first-steps-with-data-pipelines",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "gitlabhq/snowflake_spend",
+      "counts": {
+        "modified": 25,
+        "dep_change": 3,
+        "withdrawal": 1
+      },
+      "to_zero_events": [],
+      "active": true
+    },
+    {
+      "repo": "getindata/data-pipelines-template-example",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "selectdb/dbt-doris",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "ubie-oss/dbt-data-privacy",
+      "counts": {
+        "model_deleted": 4,
+        "modified": 6
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "pvcy/dbt-privacy",
+      "counts": {
+        "modified": 5
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "snowplow/dbt-snowplow-fractribution",
+      "counts": {
+        "modified": 12,
+        "model_deleted": 7
+      },
+      "to_zero_events": [],
+      "active": true
+    },
+    {
+      "repo": "fivetran/dbt_amplitude",
+      "counts": {
+        "modified": 151,
+        "dep_change": 5,
+        "to_zero_jinja": 1,
+        "model_deleted": 4,
+        "withdrawal": 1
+      },
+      "to_zero_events": [
+        {
+          "commit": "869076baf264afb31c34ddda78f8a6e09c035c15",
+          "parent": "30d8ec277d192fb7628e347d7ce2f7448a1a5c28",
+          "path": "models/intermediate/int_amplitude__date_spine.sql",
+          "kind": "to_zero_jinja",
+          "removed": [
+            "ref.amplitude__event_enhanced"
+          ],
+          "materialized": "ephemeral"
+        }
+      ],
+      "active": true
+    },
+    {
+      "repo": "fivetran/dbt_iterable",
+      "counts": {
+        "modified": 279,
+        "dep_change": 29,
+        "model_deleted": 5,
+        "withdrawal": 5,
+        "to_zero_jinja": 4
+      },
+      "to_zero_events": [
+        {
+          "commit": "5ac14b551d2dd39dc49ca31c453e0ee59951ebb4",
+          "parent": "3af095cc2beea68ae7b4dd2ab2ab74710fabf8c0",
+          "path": "models/intermediate/int_iterable__latest_campaign.sql",
+          "kind": "to_zero_jinja",
+          "removed": [
+            "ref.stg_iterable__campaign_history"
+          ],
+          "materialized": "default"
+        },
+        {
+          "commit": "5ac14b551d2dd39dc49ca31c453e0ee59951ebb4",
+          "parent": "3af095cc2beea68ae7b4dd2ab2ab74710fabf8c0",
+          "path": "models/intermediate/int_iterable__latest_user.sql",
+          "kind": "to_zero_jinja",
+          "removed": [
+            "ref.stg_iterable__user_history"
+          ],
+          "materialized": "default"
+        },
+        {
+          "commit": "5ac14b551d2dd39dc49ca31c453e0ee59951ebb4",
+          "parent": "3af095cc2beea68ae7b4dd2ab2ab74710fabf8c0",
+          "path": "models/intermediate/int_iterable__latest_user_device.sql",
+          "kind": "to_zero_jinja",
+          "removed": [
+            "ref.stg_iterable__user_device_history"
+          ],
+          "materialized": "default"
+        },
+        {
+          "commit": "5ac14b551d2dd39dc49ca31c453e0ee59951ebb4",
+          "parent": "3af095cc2beea68ae7b4dd2ab2ab74710fabf8c0",
+          "path": "models/intermediate/int_iterable__list_user_unnest.sql",
+          "kind": "to_zero_jinja",
+          "removed": [
+            "ref.int_iterable__latest_user"
+          ],
+          "materialized": "default"
+        }
+      ],
+      "active": true
+    },
+    {
+      "repo": "fivetran/dbt_twitter_organic",
+      "counts": {
+        "modified": 23,
+        "dep_change": 4
+      },
+      "to_zero_events": [],
+      "active": true
+    },
+    {
+      "repo": "sfc-gh-dflippo/snowflake-dbt-demo",
+      "counts": {
+        "modified": 151,
+        "dep_change": 7,
+        "withdrawal": 6,
+        "model_deleted": 370
+      },
+      "to_zero_events": [],
+      "active": true
+    },
+    {
+      "repo": "dbt-labs/jaffle-sl-template",
+      "counts": {
+        "modified": 47,
+        "model_deleted": 26,
+        "dep_change": 27,
+        "withdrawal": 9,
+        "to_zero_strict": 3,
+        "to_zero_jinja": 3
+      },
+      "to_zero_events": [
+        {
+          "commit": "3133ae1971c19084e9d39ad52960e2d0822fc7ea",
+          "parent": "9cae7a05ac40ec0992dcf0b022bd94ef65dc1adb",
+          "path": "models/staging/stg_customers.sql",
+          "kind": "to_zero_strict",
+          "removed": [
+            "source.ecom.raw_customers"
+          ],
+          "materialized": "default"
+        },
+        {
+          "commit": "3133ae1971c19084e9d39ad52960e2d0822fc7ea",
+          "parent": "9cae7a05ac40ec0992dcf0b022bd94ef65dc1adb",
+          "path": "models/staging/stg_locations.sql",
+          "kind": "to_zero_jinja",
+          "removed": [
+            "source.ecom.raw_stores"
+          ],
+          "materialized": "default"
+        },
+        {
+          "commit": "3133ae1971c19084e9d39ad52960e2d0822fc7ea",
+          "parent": "9cae7a05ac40ec0992dcf0b022bd94ef65dc1adb",
+          "path": "models/staging/stg_order_items.sql",
+          "kind": "to_zero_strict",
+          "removed": [
+            "source.ecom.raw_items"
+          ],
+          "materialized": "default"
+        },
+        {
+          "commit": "3133ae1971c19084e9d39ad52960e2d0822fc7ea",
+          "parent": "9cae7a05ac40ec0992dcf0b022bd94ef65dc1adb",
+          "path": "models/staging/stg_orders.sql",
+          "kind": "to_zero_jinja",
+          "removed": [
+            "source.ecom.raw_orders"
+          ],
+          "materialized": "table"
+        },
+        {
+          "commit": "3133ae1971c19084e9d39ad52960e2d0822fc7ea",
+          "parent": "9cae7a05ac40ec0992dcf0b022bd94ef65dc1adb",
+          "path": "models/staging/stg_products.sql",
+          "kind": "to_zero_strict",
+          "removed": [
+            "source.ecom.raw_products"
+          ],
+          "materialized": "default"
+        },
+        {
+          "commit": "3133ae1971c19084e9d39ad52960e2d0822fc7ea",
+          "parent": "9cae7a05ac40ec0992dcf0b022bd94ef65dc1adb",
+          "path": "models/staging/stg_supplies.sql",
+          "kind": "to_zero_jinja",
+          "removed": [
+            "source.ecom.raw_supplies"
+          ],
+          "materialized": "default"
+        }
+      ],
+      "active": true
+    },
+    {
+      "repo": "clausherther/nfl-dbt",
+      "counts": {
+        "modified": 45,
+        "dep_change": 8,
+        "withdrawal": 6,
+        "model_deleted": 3
+      },
+      "to_zero_events": [],
+      "active": true
+    },
+    {
+      "repo": "snowplow/dbt-snowplow-unified",
+      "counts": {
+        "modified": 160,
+        "dep_change": 9
+      },
+      "to_zero_events": [],
+      "active": true
+    },
+    {
+      "repo": "godatadriven/dbt-date",
+      "counts": {
+        "modified": 22,
+        "model_deleted": 9,
+        "dep_change": 1
+      },
+      "to_zero_events": [],
+      "active": true
+    },
+    {
+      "repo": "tnightengale/dbt-activity-schema",
+      "counts": {
+        "modified": 17,
+        "model_deleted": 9,
+        "dep_change": 1,
+        "withdrawal": 1
+      },
+      "to_zero_events": [],
+      "active": true
+    },
+    {
+      "repo": "nicor88/dbt-serverless",
+      "counts": {
+        "model_deleted": 1
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "Health-Union/dbt-xdb",
+      "counts": {
+        "modified": 167,
+        "dep_change": 4,
+        "model_deleted": 9
+      },
+      "to_zero_events": [],
+      "active": true
+    },
+    {
+      "repo": "fivetran/dbt_facebook_ads_creative_history",
+      "counts": {
+        "modified": 25,
+        "model_deleted": 6
+      },
+      "to_zero_events": [],
+      "active": true
+    },
+    {
+      "repo": "snowplow/dbt-snowplow-utils",
+      "counts": {
+        "modified": 135,
+        "model_deleted": 25
+      },
+      "to_zero_events": [],
+      "active": true
+    },
+    {
+      "repo": "Jam516/BundleBear",
+      "counts": {
+        "modified": 836,
+        "dep_change": 103,
+        "withdrawal": 57,
+        "model_deleted": 214,
+        "to_zero_strict": 1
+      },
+      "to_zero_events": [
+        {
+          "commit": "21ae90ae32cbdda42c966205c8937789309663b5",
+          "parent": "ab0556338d83f1b6ddcb02f52d180ffb94f17ea3",
+          "path": "models/eip7702/metrics/eip7702_metrics_total_summary.sql",
+          "kind": "to_zero_strict",
+          "removed": [
+            "ref.eip7702_all_authorizations",
+            "ref.eip7702_metrics_daily_authority_state"
+          ],
+          "materialized": "table"
+        }
+      ],
+      "active": true
+    },
+    {
+      "repo": "cagov/caldata-infrastructure-template",
+      "counts": {
+        "model_deleted": 2
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "snowplow/dbt-snowplow-ecommerce",
+      "counts": {
+        "modified": 166,
+        "dep_change": 5,
+        "withdrawal": 2,
+        "model_deleted": 12,
+        "to_zero_jinja": 1
+      },
+      "to_zero_events": [
+        {
+          "commit": "49db51a4b11f55c36726c4bc9fd9af77f82a19b9",
+          "parent": "93a60e604fddb5f604321822e06e46b9122f30c7",
+          "path": "models/base/scratch/snowplow_ecommerce_base_sessions_this_run.sql",
+          "kind": "to_zero_jinja",
+          "removed": [
+            "ref.snowplow_ecommerce_base_sessions_lifecycle_manifest"
+          ],
+          "materialized": "default"
+        }
+      ],
+      "active": true
+    },
+    {
+      "repo": "dbt-labs/dbt-proserv",
+      "counts": {
+        "model_deleted": 6
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "ergest/sql_patterns",
+      "counts": {
+        "modified": 21,
+        "dep_change": 1
+      },
+      "to_zero_events": [],
+      "active": true
+    },
+    {
+      "repo": "ecos-labs/ecos",
+      "counts": {
+        "model_deleted": 2
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "godatadriven/dbt-data-ai-summit",
+      "counts": {
+        "modified": 2
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "estie-inc/dbt_snowflake_ml",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "fivetran/dbt_apple_search_ads",
+      "counts": {
+        "modified": 106,
+        "dep_change": 11,
+        "model_deleted": 8,
+        "to_zero_jinja": 5
+      },
+      "to_zero_events": [
+        {
+          "commit": "f3626c750958bb78847bf80850513abe708332a2",
+          "parent": "ddb9cbd47e7b389d7afac691871310949ea60be5",
+          "path": "models/apple_search_ads__ad_group_report.sql",
+          "kind": "to_zero_jinja",
+          "removed": [
+            "ref.int_apple_search_ads__most_recent_ad_group",
+            "ref.int_apple_search_ads__most_recent_campaign"
+          ],
+          "materialized": "default"
+        },
+        {
+          "commit": "f3626c750958bb78847bf80850513abe708332a2",
+          "parent": "ddb9cbd47e7b389d7afac691871310949ea60be5",
+          "path": "models/apple_search_ads__campaign_report.sql",
+          "kind": "to_zero_jinja",
+          "removed": [
+            "ref.int_apple_search_ads__most_recent_campaign"
+          ],
+          "materialized": "default"
+        },
+        {
+          "commit": "f3626c750958bb78847bf80850513abe708332a2",
+          "parent": "ddb9cbd47e7b389d7afac691871310949ea60be5",
+          "path": "models/apple_search_ads__keyword_report.sql",
+          "kind": "to_zero_jinja",
+          "removed": [
+            "ref.int_apple_search_ads__most_recent_ad_group",
+            "ref.int_apple_search_ads__most_recent_campaign",
+            "ref.int_apple_search_ads__most_recent_keyword"
+          ],
+          "materialized": "default"
+        },
+        {
+          "commit": "f3626c750958bb78847bf80850513abe708332a2",
+          "parent": "ddb9cbd47e7b389d7afac691871310949ea60be5",
+          "path": "models/apple_search_ads__organization_report.sql",
+          "kind": "to_zero_jinja",
+          "removed": [
+            "ref.int_apple_search_ads__most_recent_campaign"
+          ],
+          "materialized": "default"
+        },
+        {
+          "commit": "f3626c750958bb78847bf80850513abe708332a2",
+          "parent": "ddb9cbd47e7b389d7afac691871310949ea60be5",
+          "path": "models/apple_search_ads__search_term_report.sql",
+          "kind": "to_zero_jinja",
+          "removed": [
+            "ref.int_apple_search_ads__most_recent_campaign"
+          ],
+          "materialized": "default"
+        }
+      ],
+      "active": true
+    },
+    {
+      "repo": "hightouchio/dbt-hightouch",
+      "counts": {
+        "modified": 4,
+        "dep_change": 1
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "kgmcquate/dbt-testgen",
+      "counts": {
+        "model_deleted": 2,
+        "modified": 3,
+        "dep_change": 1
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "victorcouste/trino-dbt-demo",
+      "counts": {
+        "modified": 1
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "velodb/dbt-for-apache-doris",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "dbt-athena/athena-utils",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "marco-roy/DDO",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "MetricsDAO/harmony_dbt",
+      "counts": {
+        "modified": 165,
+        "dep_change": 26,
+        "withdrawal": 5,
+        "model_deleted": 6,
+        "to_zero_jinja": 2
+      },
+      "to_zero_events": [
+        {
+          "commit": "e0d2728d4a510dd198c05a64300429fda162c45d",
+          "parent": "6ea49cb0c240a8ad39747095b077f3daf6a356bb",
+          "path": "models/core/validators.sql",
+          "kind": "to_zero_jinja",
+          "removed": [
+            "ref.stg_delegators"
+          ],
+          "materialized": "incremental"
+        },
+        {
+          "commit": "fbd2304979ea559bf598f9bb921e63b7502ddec4",
+          "parent": "51e702cfab209a6f55fadf8c918d58e6249395b1",
+          "path": "models/core/logs.sql",
+          "kind": "to_zero_jinja",
+          "removed": [
+            "source.chainwalkers.harmony_txs"
+          ],
+          "materialized": "incremental"
+        }
+      ],
+      "active": true
+    },
+    {
+      "repo": "Cedar-Cat-Studios/dbt_query_game",
+      "counts": {
+        "model_deleted": 19,
+        "modified": 10,
+        "dep_change": 3,
+        "withdrawal": 1
+      },
+      "to_zero_events": [],
+      "active": true
+    },
+    {
+      "repo": "techindicium/dbt-dag-monitoring",
+      "counts": {
+        "modified": 113,
+        "dep_change": 16,
+        "to_zero_jinja": 1,
+        "model_deleted": 44,
+        "withdrawal": 13
+      },
+      "to_zero_events": [
+        {
+          "commit": "c9e6d824dc7491220bccdaad47c9d1e0189ffed2",
+          "parent": "f6731ca2d7d0737b50c36c156e3cce8e1ca7b797",
+          "path": "models/staging/databricks_workflow_sources/stg_task_instance_databricks_workflow.sql",
+          "kind": "to_zero_jinja",
+          "removed": [
+            "source.raw_databricks_workflow_monitoring.job_runs"
+          ],
+          "materialized": "default"
+        }
+      ],
+      "active": true
+    },
+    {
+      "repo": "dbt-labs/Semantic-Layer-Online-Course",
+      "counts": {
+        "modified": 26,
+        "model_deleted": 13,
+        "dep_change": 14,
+        "withdrawal": 12
+      },
+      "to_zero_events": [],
+      "active": true
+    },
+    {
+      "repo": "MaterializeInc/materialize-dbt-utils",
+      "counts": {
+        "modified": 1
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "techvaquero/dbtpcdi",
+      "counts": {
+        "modified": 95,
+        "dep_change": 59,
+        "model_deleted": 594,
+        "to_zero_jinja": 8,
+        "withdrawal": 17,
+        "to_zero_strict": 12
+      },
+      "to_zero_events": [
+        {
+          "commit": "8816fac6bd90ed09b91265aa8ca3fffc3fda0676",
+          "parent": "3ba034d0b9a99fecef8a7a0fa23160c74bea4f10",
+          "path": "Databricks/models/main/incremental/TradeType.sql",
+          "kind": "to_zero_jinja",
+          "removed": [
+            "source.tpcdi.TradeType"
+          ],
+          "materialized": "streaming_table"
+        },
+        {
+          "commit": "3ba034d0b9a99fecef8a7a0fa23160c74bea4f10",
+          "parent": "cc7296979c8bd44edebc50021aacac001ebdb412",
+          "path": "Databricks/models/main/incremental/TaxRate.sql",
+          "kind": "to_zero_jinja",
+          "removed": [
+            "source.tpcdi.TaxRate"
+          ],
+          "materialized": "streaming_table"
+        },
+        {
+          "commit": "cc7296979c8bd44edebc50021aacac001ebdb412",
+          "parent": "24644f319d7a5a28fb8f037af2ba556b22e962dc",
+          "path": "Databricks/models/main/incremental/StatusType.sql",
+          "kind": "to_zero_jinja",
+          "removed": [
+            "source.tpcdi.StatusType"
+          ],
+          "materialized": "streaming_table"
+        },
+        {
+          "commit": "24644f319d7a5a28fb8f037af2ba556b22e962dc",
+          "parent": "4d96f84a82aab3347ac68d10807f2e49331669c5",
+          "path": "Databricks/models/main/incremental/Industry.sql",
+          "kind": "to_zero_jinja",
+          "removed": [
+            "source.tpcdi.Industry"
+          ],
+          "materialized": "streaming_table"
+        },
+        {
+          "commit": "4d96f84a82aab3347ac68d10807f2e49331669c5",
+          "parent": "7cba121acaaf8e1fd0b02583bb7d3104bdec9528",
+          "path": "Databricks/models/main/incremental/DimTime.sql",
+          "kind": "to_zero_jinja",
+          "removed": [
+            "source.tpcdi.DimTime"
+          ],
+          "materialized": "streaming_table"
+        },
+        {
+          "commit": "7cba121acaaf8e1fd0b02583bb7d3104bdec9528",
+          "parent": "5cef7a4566fdad6c10e11db92f240037b019b6f4",
+          "path": "Databricks/models/main/incremental/DimDate.sql",
+          "kind": "to_zero_jinja",
+          "removed": [
+            "source.tpcdi.DimDate"
+          ],
+          "materialized": "streaming_table"
+        },
+        {
+          "commit": "5cef7a4566fdad6c10e11db92f240037b019b6f4",
+          "parent": "045f89f64a69aebfa9a311cc57108071dfc70b2d",
+          "path": "Databricks/models/main/base/BatchDate.sql",
+          "kind": "to_zero_jinja",
+          "removed": [
+            "source.tpcdi.BatchDatedos",
+            "source.tpcdi.BatchDatetres",
+            "source.tpcdi.BatchDateuno"
+          ],
+          "materialized": "streaming_table"
+        },
+        {
+          "commit": "8b62519828ad35edfe9df2e447ac30117b034b95",
+          "parent": "673b46e04743517d7c829b53dc3882790506ab06",
+          "path": "models/snowflake/base/CustomerMgmtView.sql",
+          "kind": "to_zero_jinja",
+          "removed": [
+            "source.tpcdi.CustomerMgmt"
+          ],
+          "materialized": "view"
+        },
+        {
+          "commit": "17de0cf9cf3c3a8b258d519088099088c80a421c",
+          "parent": "c0c73448893f277b7fe4f0fae309972da8aa06f3",
+          "path": "models/incremental/FactWatches.sql",
+          "kind": "to_zero_strict",
+          "removed": [
+            "ref.base_supplier"
+          ],
+          "materialized": "table"
+        },
+        {
+          "commit": "c0c73448893f277b7fe4f0fae309972da8aa06f3",
+          "parent": "4164556473fcee1d4ce9120dda161786636dedf7",
+          "path": "models/incremental/FactCashBalances.sql",
+          "kind": "to_zero_strict",
+          "removed": [
+            "ref.CashTransactionHistory",
+            "ref.CashTransactionIncremental",
+            "ref.DimAccount",
+            "ref.DimDate"
+          ],
+          "materialized": "table"
+        },
+        {
+          "commit": "4164556473fcee1d4ce9120dda161786636dedf7",
+          "parent": "8b11f1e1091432d30eded42f9701731123568535",
+          "path": "models/incremental/FactHoldings.sql",
+          "kind": "to_zero_strict",
+          "removed": [
+            "ref.DimTrade",
+            "ref.HoldingHistory",
+            "ref.HoldingIncremental"
+          ],
+          "materialized": "table"
+        },
+        {
+          "commit": "8b11f1e1091432d30eded42f9701731123568535",
+          "parent": "4ff7bdf2635e67f9f5969cbf792dd172011ddddb",
+          "path": "models/incremental/DimTrade.sql",
+          "kind": "to_zero_strict",
+          "removed": [
+            "ref.base_part_supplier",
+            "ref.parts",
+            "ref.suppliers"
+          ],
+          "materialized": "table"
+        },
+        {
+          "commit": "4ff7bdf2635e67f9f5969cbf792dd172011ddddb",
+          "parent": "177ba93b11bcdd246d46673320b5fc949a01e77e",
+          "path": "models/incremental/FactMarketHistory.sql",
+          "kind": "to_zero_strict",
+          "removed": [
+            "ref.base_part"
+          ],
+          "materialized": "table"
+        },
+        {
+          "commit": "177ba93b11bcdd246d46673320b5fc949a01e77e",
+          "parent": "1406952e2db419772ba2219eaf76b80227361403",
+          "path": "models/incremental/tempSumpFiBasicEps.sql",
+          "kind": "to_zero_strict",
+          "removed": [
+            "ref.base_part"
+          ],
+          "materialized": "table"
+        },
+        {
+          "commit": "1406952e2db419772ba2219eaf76b80227361403",
+          "parent": "481f80a5f3178fa59d26f10a40ce13c107c4e34d",
+          "path": "models/incremental/tempDailyMarketHisorical.sql",
+          "kind": "to_zero_strict",
+          "removed": [
+            "ref.base_line_item",
+            "ref.base_orders"
+          ],
+          "materialized": "table"
+        },
+        {
+          "commit": "481f80a5f3178fa59d26f10a40ce13c107c4e34d",
+          "parent": "1e873adca7c0c37745e975eb18d1ce21f89c7fb7",
+          "path": "models/incremental/DimAccount.sql",
+          "kind": "to_zero_strict",
+          "removed": [
+            "ref.base_line_item",
+            "ref.base_orders"
+          ],
+          "materialized": "table"
+        },
+        {
+          "commit": "1e873adca7c0c37745e975eb18d1ce21f89c7fb7",
+          "parent": "46dd5e290b44a5812f88151ebb7e5c8ddaaadaaa",
+          "path": "models/incremental/Prospect.sql",
+          "kind": "to_zero_strict",
+          "removed": [
+            "ref.base_orders"
+          ],
+          "materialized": "table"
+        },
+        {
+          "commit": "65289455afce1c968357dced159dd7ce829b257c",
+          "parent": "2b7aa7231720f7a16d8d6078c3c621af71962a60",
+          "path": "models/incremental/DimCustomerStg.sql",
+          "kind": "to_zero_strict",
+          "removed": [
+            "ref.base_customer"
+          ],
+          "materialized": "table"
+        },
+        {
+          "commit": "4fd25f1a5ac69f864c1309dce31480fa19e1dfe6",
+          "parent": "84554b4de8c61735b1f17f46e8a957abb8199042",
+          "path": "models/incremental/DimCustomer.sql",
+          "kind": "to_zero_strict",
+          "removed": [
+            "ref.base_nation"
+          ],
+          "materialized": "table"
+        },
+        {
+          "commit": "84554b4de8c61735b1f17f46e8a957abb8199042",
+          "parent": "cfe791c742a375dd9f59855209aa628a1e7b8bf8",
+          "path": "models/incremental/DimAccountStg.sql",
+          "kind": "to_zero_strict",
+          "removed": [
+            "ref.base_orders"
+          ],
+          "materialized": "incremental"
+        }
+      ],
+      "active": true
+    },
+    {
+      "repo": "databricks-demos/dbt-databricks-c360",
+      "counts": {
+        "modified": 7,
+        "dep_change": 3,
+        "model_deleted": 4
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "richardhe-fundamenta/dbt-container-for-bigquery",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "Matts52/dbt-orphan",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "JB-Analytica/model2data",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "noahlearner/data-pipeline",
+      "counts": {
+        "model_deleted": 12,
+        "modified": 1
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "joshuataylor/dbt-docs-markdown",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "getindata/data-pipelines-template-example-aws",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "fivetran/dbt_amazon_ads",
+      "counts": {
+        "modified": 98,
+        "dep_change": 13,
+        "model_deleted": 1
+      },
+      "to_zero_events": [],
+      "active": true
+    },
+    {
+      "repo": "jpmmcneill/dbt-graph-theory",
+      "counts": {
+        "modified": 23,
+        "model_deleted": 37
+      },
+      "to_zero_events": [],
+      "active": true
+    },
+    {
+      "repo": "irvingpop/dbt_otel_export",
+      "counts": {
+        "modified": 2
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "fivetran/dbt_tutorial",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "KranzL/Jevflake",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "malli678/real-time-social-media-sentiment-analysis",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "dwreeves/dbt_pca",
+      "counts": {
+        "modified": 4,
+        "dep_change": 1,
+        "withdrawal": 1
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "shankararul/dbt_eda_tools",
+      "counts": {
+        "model_deleted": 5
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "footprintanalytics/footprint-datalake",
+      "counts": {
+        "model_deleted": 36,
+        "modified": 2,
+        "dep_change": 1
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "fivetran-anthonydelacruz/dbt-tutorial",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "dpguthrie/snowflake-dbt-demo-project",
+      "counts": {
+        "modified": 155,
+        "model_deleted": 62,
+        "dep_change": 19,
+        "withdrawal": 13,
+        "to_zero_strict": 1,
+        "to_zero_jinja": 1
+      },
+      "to_zero_events": [
+        {
+          "commit": "92fa5be053095f2fba3ac957bcb9829fd7c0c6b7",
+          "parent": "20f48b715e0343a0a218af0c780ba9c77922b330",
+          "path": "models/staging/tpch/stg_tpch_suppliers.sql",
+          "kind": "to_zero_strict",
+          "removed": [
+            "source.tpch.supplier"
+          ],
+          "materialized": "default"
+        },
+        {
+          "commit": "4483e7faac084246ade5d1d904aa1c3448759af1",
+          "parent": "e280ef4ec674b8510ec37d2f29318aa90527df89",
+          "path": "models/marts/core/metric_customers.sql",
+          "kind": "to_zero_jinja",
+          "removed": [
+            "ref.fct_orders"
+          ],
+          "materialized": "default"
+        }
+      ],
+      "active": true
+    },
+    {
+      "repo": "dbt-labs/c24-workshops-platform",
+      "counts": {
+        "model_deleted": 3,
+        "modified": 7,
+        "dep_change": 2,
+        "withdrawal": 2
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "pietheinstrengholt/dbt-databricks-adventureworks",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "rittmananalytics/ra_warehouse_internal_clone",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "xylaaaaa/dbt-doris-adapter",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "thealtoclef/dbt-doris",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "slve/dbt-github-workflow",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "move-coop/dbt-ngpvan",
+      "counts": {
+        "modified": 174,
+        "model_deleted": 119,
+        "dep_change": 20,
+        "withdrawal": 20
+      },
+      "to_zero_events": [],
+      "active": true
+    },
+    {
+      "repo": "RedPillAnalytics/dbt_coalesce_workshop",
+      "counts": {
+        "modified": 46,
+        "dep_change": 9,
+        "withdrawal": 6,
+        "model_deleted": 17
+      },
+      "to_zero_events": [],
+      "active": true
+    },
+    {
+      "repo": "Mohammed78-Dch/Project_Data_Werehouse",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "Aidbox/dbt_fhir",
+      "counts": {
+        "modified": 33,
+        "model_deleted": 42,
+        "dep_change": 2,
+        "withdrawal": 1
+      },
+      "to_zero_events": [],
+      "active": true
+    },
+    {
+      "repo": "abduldjafar/elt-with-dagster",
+      "counts": {
+        "modified": 12,
+        "model_deleted": 3,
+        "dep_change": 2,
+        "to_zero_strict": 1
+      },
+      "to_zero_events": [
+        {
+          "commit": "8e3b50b821bb377c837fcb07e817a108205999bc",
+          "parent": "de0e289f3a0547e711251f2efb251e4287fcd1d3",
+          "path": "pipelines/pipelines/dbt_project/models/eight_weeksqlchallenge/eight_weeksqlchallenge_case_study_2_chalange.sql",
+          "kind": "to_zero_strict",
+          "removed": [
+            "ref.eight_weeksqlchallenge_case_study_1_fact_table"
+          ],
+          "materialized": "default"
+        }
+      ],
+      "active": true
+    },
+    {
+      "repo": "saraechcharqy2022/airbyte",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "exmergo/github-repo-analytics",
+      "counts": {
+        "modified": 6,
+        "dep_change": 2
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "Gc-Data/airflow-dbt-starter",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "saras-daton/AmazonSellerCentral",
+      "counts": {
+        "modified": 328,
+        "model_deleted": 56,
+        "dep_change": 2
+      },
+      "to_zero_events": [],
+      "active": true
+    },
+    {
+      "repo": "fueled-io/dbt-fueled-events",
+      "counts": {
+        "modified": 319,
+        "dep_change": 41,
+        "withdrawal": 14,
+        "model_deleted": 54
+      },
+      "to_zero_events": [],
+      "active": true
+    },
+    {
+      "repo": "shifahevo/HevoRepo",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "BindusekharGorintla/dbt-dqx-data-quality",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "fivetran/dbt_customer360",
+      "counts": {
+        "modified": 31,
+        "model_deleted": 10
+      },
+      "to_zero_events": [],
+      "active": true
+    },
+    {
+      "repo": "ricklamers/orchest-dbt",
+      "counts": {
+        "modified": 20
+      },
+      "to_zero_events": [],
+      "active": true
+    },
+    {
+      "repo": "synccomputingcode/databricks-tpcdi",
+      "counts": {
+        "modified": 10,
+        "dep_change": 1,
+        "to_zero_strict": 1
+      },
+      "to_zero_events": [
+        {
+          "commit": "7d6033848a7fb7635206f41557b5c699f2e489b3",
+          "parent": "22f613794f82a8521a627ed2780bd1af42a58857",
+          "path": "models/silver/financials.sql",
+          "kind": "to_zero_strict",
+          "removed": [
+            "ref.companies",
+            "ref.finwire_financial"
+          ],
+          "materialized": "default"
+        }
+      ],
+      "active": true
+    },
+    {
+      "repo": "JarvusInnovations/gtfsrt-sandbox",
+      "counts": {
+        "modified": 31,
+        "model_deleted": 3,
+        "dep_change": 6,
+        "to_zero_jinja": 3
+      },
+      "to_zero_events": [
+        {
+          "commit": "91980de7ecf44a926adf036601cab343641197ba",
+          "parent": "0695a912785e173478f8f18a1842874c57a89a79",
+          "path": "models/staging/stg_service_alerts.sql",
+          "kind": "to_zero_jinja",
+          "removed": [
+            "ref.base_service_alerts"
+          ],
+          "materialized": "default"
+        },
+        {
+          "commit": "91980de7ecf44a926adf036601cab343641197ba",
+          "parent": "0695a912785e173478f8f18a1842874c57a89a79",
+          "path": "models/staging/stg_trip_updates.sql",
+          "kind": "to_zero_jinja",
+          "removed": [
+            "ref.base_trip_updates"
+          ],
+          "materialized": "default"
+        },
+        {
+          "commit": "91980de7ecf44a926adf036601cab343641197ba",
+          "parent": "0695a912785e173478f8f18a1842874c57a89a79",
+          "path": "models/staging/stg_vehicle_positions.sql",
+          "kind": "to_zero_jinja",
+          "removed": [
+            "ref.base_vehicle_positions"
+          ],
+          "materialized": "default"
+        }
+      ],
+      "active": true
+    },
+    {
+      "repo": "TheDataFoundryAU/dbt_sample_project",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "dbt-labs/dbt-query-profiler",
+      "counts": {
+        "modified": 1,
+        "model_deleted": 19
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "tuva-health/canvas_connector",
+      "counts": {
+        "modified": 35,
+        "dep_change": 1,
+        "withdrawal": 1,
+        "model_deleted": 1
+      },
+      "to_zero_events": [],
+      "active": true
+    },
+    {
+      "repo": "alisdairjsmyth/copier-dbt-sql",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "NYCPlanning/data-engineering",
+      "counts": {
+        "modified": 1532,
+        "dep_change": 242,
+        "withdrawal": 146,
+        "model_deleted": 382,
+        "to_zero_jinja": 4
+      },
+      "to_zero_events": [
+        {
+          "commit": "c66f469be6f844c7f4e0827bb58b21347f28c298",
+          "parent": "d902377eeecbc4f75ca32212f3bb765f78cab061",
+          "path": "products/cscl/models/etl_dev_qa/qa__geometry_fgdb_nypuma2020.sql",
+          "kind": "to_zero_jinja",
+          "removed": [
+            "ref.gdb_nypuma2020"
+          ],
+          "materialized": "table"
+        },
+        {
+          "commit": "5178ccf61b0457949c5496c6fbd687fcefc29e8c",
+          "parent": "4b8070af6403ced02581a3d8b32c8b0ca67fc55e",
+          "path": "products/cscl/models/product/snd_and_normalizing_tables/enders.sql",
+          "kind": "to_zero_jinja",
+          "removed": [
+            "ref.stg__facecode_and_featurename"
+          ],
+          "materialized": "default"
+        },
+        {
+          "commit": "5178ccf61b0457949c5496c6fbd687fcefc29e8c",
+          "parent": "4b8070af6403ced02581a3d8b32c8b0ca67fc55e",
+          "path": "products/cscl/models/product/snd_and_normalizing_tables/exception.sql",
+          "kind": "to_zero_jinja",
+          "removed": [
+            "ref.int__exception"
+          ],
+          "materialized": "default"
+        },
+        {
+          "commit": "5c9b6417b228d6dc348b0b7b77b46c535d78d294",
+          "parent": "ea40abfc6790a0a922e5611ae0f7f4c15ce0a574",
+          "path": "products/cscl/models/product/lion/lion_dat.sql",
+          "kind": "to_zero_jinja",
+          "removed": [
+            "ref.lion_dat_by_field"
+          ],
+          "materialized": "default"
+        }
+      ],
+      "active": true
+    },
+    {
+      "repo": "airbytehq/quickstarts",
+      "counts": {
+        "model_deleted": 9,
+        "modified": 3
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "trungtv/IT4931_data_management_and_processing_lab_materials",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "Mohammed78-Dch/customer-review-data-warehouse-dockerized",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "mbforr/modern-gis-live",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "haas-binge/dwa-compare-dbt",
+      "counts": {
+        "modified": 98
+      },
+      "to_zero_events": [],
+      "active": true
+    },
+    {
+      "repo": "tooploox/dbt-unit-testing-bq",
+      "counts": {
+        "model_deleted": 18,
+        "modified": 14,
+        "dep_change": 6,
+        "withdrawal": 6
+      },
+      "to_zero_events": [],
+      "active": true
+    },
+    {
+      "repo": "Atomz-org/data-platform",
+      "counts": {
+        "modified": 13,
+        "dep_change": 4,
+        "withdrawal": 4,
+        "model_deleted": 360
+      },
+      "to_zero_events": [],
+      "active": true
+    },
+    {
+      "repo": "lixx21/airflow-dbt-gcp",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "dingxin-tech/elementary",
+      "counts": {
+        "modified": 2
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "jordandakota/dbt-duckdb-iceberg-azure",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "mayurjainf007/dbtDemo",
+      "counts": {
+        "modified": 95,
+        "dep_change": 59,
+        "model_deleted": 594,
+        "to_zero_jinja": 8,
+        "withdrawal": 17,
+        "to_zero_strict": 12
+      },
+      "to_zero_events": [
+        {
+          "commit": "8816fac6bd90ed09b91265aa8ca3fffc3fda0676",
+          "parent": "3ba034d0b9a99fecef8a7a0fa23160c74bea4f10",
+          "path": "Databricks/models/main/incremental/TradeType.sql",
+          "kind": "to_zero_jinja",
+          "removed": [
+            "source.tpcdi.TradeType"
+          ],
+          "materialized": "streaming_table"
+        },
+        {
+          "commit": "3ba034d0b9a99fecef8a7a0fa23160c74bea4f10",
+          "parent": "cc7296979c8bd44edebc50021aacac001ebdb412",
+          "path": "Databricks/models/main/incremental/TaxRate.sql",
+          "kind": "to_zero_jinja",
+          "removed": [
+            "source.tpcdi.TaxRate"
+          ],
+          "materialized": "streaming_table"
+        },
+        {
+          "commit": "cc7296979c8bd44edebc50021aacac001ebdb412",
+          "parent": "24644f319d7a5a28fb8f037af2ba556b22e962dc",
+          "path": "Databricks/models/main/incremental/StatusType.sql",
+          "kind": "to_zero_jinja",
+          "removed": [
+            "source.tpcdi.StatusType"
+          ],
+          "materialized": "streaming_table"
+        },
+        {
+          "commit": "24644f319d7a5a28fb8f037af2ba556b22e962dc",
+          "parent": "4d96f84a82aab3347ac68d10807f2e49331669c5",
+          "path": "Databricks/models/main/incremental/Industry.sql",
+          "kind": "to_zero_jinja",
+          "removed": [
+            "source.tpcdi.Industry"
+          ],
+          "materialized": "streaming_table"
+        },
+        {
+          "commit": "4d96f84a82aab3347ac68d10807f2e49331669c5",
+          "parent": "7cba121acaaf8e1fd0b02583bb7d3104bdec9528",
+          "path": "Databricks/models/main/incremental/DimTime.sql",
+          "kind": "to_zero_jinja",
+          "removed": [
+            "source.tpcdi.DimTime"
+          ],
+          "materialized": "streaming_table"
+        },
+        {
+          "commit": "7cba121acaaf8e1fd0b02583bb7d3104bdec9528",
+          "parent": "5cef7a4566fdad6c10e11db92f240037b019b6f4",
+          "path": "Databricks/models/main/incremental/DimDate.sql",
+          "kind": "to_zero_jinja",
+          "removed": [
+            "source.tpcdi.DimDate"
+          ],
+          "materialized": "streaming_table"
+        },
+        {
+          "commit": "5cef7a4566fdad6c10e11db92f240037b019b6f4",
+          "parent": "045f89f64a69aebfa9a311cc57108071dfc70b2d",
+          "path": "Databricks/models/main/base/BatchDate.sql",
+          "kind": "to_zero_jinja",
+          "removed": [
+            "source.tpcdi.BatchDatedos",
+            "source.tpcdi.BatchDatetres",
+            "source.tpcdi.BatchDateuno"
+          ],
+          "materialized": "streaming_table"
+        },
+        {
+          "commit": "8b62519828ad35edfe9df2e447ac30117b034b95",
+          "parent": "673b46e04743517d7c829b53dc3882790506ab06",
+          "path": "models/snowflake/base/CustomerMgmtView.sql",
+          "kind": "to_zero_jinja",
+          "removed": [
+            "source.tpcdi.CustomerMgmt"
+          ],
+          "materialized": "view"
+        },
+        {
+          "commit": "17de0cf9cf3c3a8b258d519088099088c80a421c",
+          "parent": "c0c73448893f277b7fe4f0fae309972da8aa06f3",
+          "path": "models/incremental/FactWatches.sql",
+          "kind": "to_zero_strict",
+          "removed": [
+            "ref.base_supplier"
+          ],
+          "materialized": "table"
+        },
+        {
+          "commit": "c0c73448893f277b7fe4f0fae309972da8aa06f3",
+          "parent": "4164556473fcee1d4ce9120dda161786636dedf7",
+          "path": "models/incremental/FactCashBalances.sql",
+          "kind": "to_zero_strict",
+          "removed": [
+            "ref.CashTransactionHistory",
+            "ref.CashTransactionIncremental",
+            "ref.DimAccount",
+            "ref.DimDate"
+          ],
+          "materialized": "table"
+        },
+        {
+          "commit": "4164556473fcee1d4ce9120dda161786636dedf7",
+          "parent": "8b11f1e1091432d30eded42f9701731123568535",
+          "path": "models/incremental/FactHoldings.sql",
+          "kind": "to_zero_strict",
+          "removed": [
+            "ref.DimTrade",
+            "ref.HoldingHistory",
+            "ref.HoldingIncremental"
+          ],
+          "materialized": "table"
+        },
+        {
+          "commit": "8b11f1e1091432d30eded42f9701731123568535",
+          "parent": "4ff7bdf2635e67f9f5969cbf792dd172011ddddb",
+          "path": "models/incremental/DimTrade.sql",
+          "kind": "to_zero_strict",
+          "removed": [
+            "ref.base_part_supplier",
+            "ref.parts",
+            "ref.suppliers"
+          ],
+          "materialized": "table"
+        },
+        {
+          "commit": "4ff7bdf2635e67f9f5969cbf792dd172011ddddb",
+          "parent": "177ba93b11bcdd246d46673320b5fc949a01e77e",
+          "path": "models/incremental/FactMarketHistory.sql",
+          "kind": "to_zero_strict",
+          "removed": [
+            "ref.base_part"
+          ],
+          "materialized": "table"
+        },
+        {
+          "commit": "177ba93b11bcdd246d46673320b5fc949a01e77e",
+          "parent": "1406952e2db419772ba2219eaf76b80227361403",
+          "path": "models/incremental/tempSumpFiBasicEps.sql",
+          "kind": "to_zero_strict",
+          "removed": [
+            "ref.base_part"
+          ],
+          "materialized": "table"
+        },
+        {
+          "commit": "1406952e2db419772ba2219eaf76b80227361403",
+          "parent": "481f80a5f3178fa59d26f10a40ce13c107c4e34d",
+          "path": "models/incremental/tempDailyMarketHisorical.sql",
+          "kind": "to_zero_strict",
+          "removed": [
+            "ref.base_line_item",
+            "ref.base_orders"
+          ],
+          "materialized": "table"
+        },
+        {
+          "commit": "481f80a5f3178fa59d26f10a40ce13c107c4e34d",
+          "parent": "1e873adca7c0c37745e975eb18d1ce21f89c7fb7",
+          "path": "models/incremental/DimAccount.sql",
+          "kind": "to_zero_strict",
+          "removed": [
+            "ref.base_line_item",
+            "ref.base_orders"
+          ],
+          "materialized": "table"
+        },
+        {
+          "commit": "1e873adca7c0c37745e975eb18d1ce21f89c7fb7",
+          "parent": "46dd5e290b44a5812f88151ebb7e5c8ddaaadaaa",
+          "path": "models/incremental/Prospect.sql",
+          "kind": "to_zero_strict",
+          "removed": [
+            "ref.base_orders"
+          ],
+          "materialized": "table"
+        },
+        {
+          "commit": "65289455afce1c968357dced159dd7ce829b257c",
+          "parent": "2b7aa7231720f7a16d8d6078c3c621af71962a60",
+          "path": "models/incremental/DimCustomerStg.sql",
+          "kind": "to_zero_strict",
+          "removed": [
+            "ref.base_customer"
+          ],
+          "materialized": "table"
+        },
+        {
+          "commit": "4fd25f1a5ac69f864c1309dce31480fa19e1dfe6",
+          "parent": "84554b4de8c61735b1f17f46e8a957abb8199042",
+          "path": "models/incremental/DimCustomer.sql",
+          "kind": "to_zero_strict",
+          "removed": [
+            "ref.base_nation"
+          ],
+          "materialized": "table"
+        },
+        {
+          "commit": "84554b4de8c61735b1f17f46e8a957abb8199042",
+          "parent": "cfe791c742a375dd9f59855209aa628a1e7b8bf8",
+          "path": "models/incremental/DimAccountStg.sql",
+          "kind": "to_zero_strict",
+          "removed": [
+            "ref.base_orders"
+          ],
+          "materialized": "incremental"
+        }
+      ],
+      "active": true
+    },
+    {
+      "repo": "jhorlima/sleipnir",
+      "counts": {
+        "modified": 3
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "Vishwajeetbamane/crypto-analytics-pipeline",
+      "counts": {
+        "modified": 5
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "gip-inclusion/pilotage-airflow",
+      "counts": {
+        "model_deleted": 277,
+        "modified": 940,
+        "dep_change": 320,
+        "withdrawal": 188,
+        "to_zero_strict": 2
+      },
+      "to_zero_events": [
+        {
+          "commit": "e10be39fcbfd28b4e558baaef1573c1e74147430",
+          "parent": "aeba3253860c4f33d4d1ca6e0d8e7d1830171ad3",
+          "path": "dbt/models/marts/daily/fiches_deposte_en_tension_recrutement.sql",
+          "kind": "to_zero_strict",
+          "removed": [
+            "ref.stg_fdp",
+            "ref.stg_fdp_actives",
+            "ref.stg_fdp_actives_sans_rec_30jrs",
+            "ref.stg_fdp_actives_sans_rec_30jrs_sans_motif_pasdeposteouvert",
+            "ref.stg_fdp_difficulte_recrutement",
+            "ref.stg_fdp_difficulte_recrutement_sans_candidatures"
+          ],
+          "materialized": "default"
+        },
+        {
+          "commit": "74c9022800c3fabda9069fd3bb1da2c4d56b9696",
+          "parent": "5c2015e46dcd90c996895c7217b334dd52ce679d",
+          "path": "dbt/models/staging/stg_nb_consult_utilisateur_semaine.sql",
+          "kind": "to_zero_strict",
+          "removed": [
+            "ref.suivi_utilisateurs_tb_prive_semaine"
+          ],
+          "materialized": "default"
+        }
+      ],
+      "active": true
+    },
+    {
+      "repo": "anshumank799/dbt_training",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "thalleslemos/deel_globepay_project",
+      "counts": {
+        "model_deleted": 2
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "odxscholars/dbt-learn",
+      "counts": {
+        "model_deleted": 2
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "sureshb208/dbt-demo",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "ArturoAcf/curso_data_engineering",
+      "counts": {
+        "modified": 47,
+        "model_deleted": 8,
+        "dep_change": 6,
+        "withdrawal": 6
+      },
+      "to_zero_events": [],
+      "active": true
+    },
+    {
+      "repo": "manon-siohan/high-peak",
+      "counts": {
+        "modified": 40,
+        "model_deleted": 4,
+        "dep_change": 8,
+        "withdrawal": 3
+      },
+      "to_zero_events": [],
+      "active": true
+    },
+    {
+      "repo": "tomnagengast/netlify-dbt-docs-starter",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "leocmcheung/gz-dbt-repository",
+      "counts": {
+        "model_deleted": 3
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "cyndzx02/elt-ecommerce-pipeline",
+      "counts": {
+        "modified": 3,
+        "dep_change": 3
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "muruasimon/DBT_SNOWFLAKE_REAL_SCENARIO",
+      "counts": {
+        "modified": 9,
+        "model_deleted": 5,
+        "dep_change": 1
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "UncleJosef/dbt_my_practice",
+      "counts": {
+        "modified": 2,
+        "model_deleted": 2
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "yas-archetype/dbt_starter",
+      "counts": {
+        "model_deleted": 2
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "Vinilsx/dbt-models",
+      "counts": {
+        "modified": 5,
+        "model_deleted": 2
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "desmondjeffery/dbt_demo_ma",
+      "counts": {
+        "modified": 1
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "TrainingUser7/DBT_TRAINING-",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "swang2016/dbt-learn-on-demand",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "miaaaalu/dbt_bigquery",
+      "counts": {
+        "modified": 9,
+        "dep_change": 5,
+        "withdrawal": 1,
+        "model_deleted": 8
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "RahulKrishna-DA/my_marketing_pipeline",
+      "counts": {
+        "modified": 23,
+        "dep_change": 2,
+        "withdrawal": 2
+      },
+      "to_zero_events": [],
+      "active": true
+    },
+    {
+      "repo": "fivetran-seanodriscoll/dbt",
+      "counts": {
+        "modified": 2,
+        "dep_change": 2
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "jpgat/taxi_rides_ny",
+      "counts": {
+        "modified": 2,
+        "model_deleted": 2
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "quannm2k2/DBT-demo",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "jott2006/demo-for-dbt",
+      "counts": {
+        "model_deleted": 266
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "PriamF/db_final_project",
+      "counts": {
+        "modified": 3,
+        "dep_change": 1,
+        "model_deleted": 2
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "noelAngelo/dbt-demo",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "Bil3al/urban-mobility-platform",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "AliBnh/urban-mobility-platform",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "RahulPrasad/analytics-engineer-bootcamp",
+      "counts": {
+        "modified": 20
+      },
+      "to_zero_events": [],
+      "active": true
+    },
+    {
+      "repo": "oshaltaev-1995/satisfaction-prediction-ml",
+      "counts": {
+        "modified": 13,
+        "model_deleted": 6,
+        "dep_change": 4
+      },
+      "to_zero_events": [],
+      "active": true
+    },
+    {
+      "repo": "bgall1976/IOT_aws_snowflake_looker",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "khalileldoau/KhalilZoomcamp2024",
+      "counts": {
+        "modified": 3,
+        "model_deleted": 2
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "tinnluo/entity-data-lakehouse",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "tinnlo/entity-data-lakehouse",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "caiombribeiro/1engenharia_dados_claude",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "RamonaFlores/qversity-data-2025-Cali-JuanJoseAngaritaYela",
+      "counts": {
+        "modified": 40,
+        "model_deleted": 4
+      },
+      "to_zero_events": [],
+      "active": true
+    },
+    {
+      "repo": "Emmaue/weather-data-pipeline",
+      "counts": {
+        "model_deleted": 5,
+        "modified": 15
+      },
+      "to_zero_events": [],
+      "active": true
+    },
+    {
+      "repo": "rizkyhaksono/mlops-airflow-tutorial",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "bekk/oppdrift-data-analyse",
+      "counts": {
+        "modified": 4,
+        "model_deleted": 3
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "proyectosdateneo/especializacion-ingenieria-de-datos",
+      "counts": {
+        "modified": 2
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "ZACKHADD/Snowflake_dbt_dagster_CICD",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "IVRAMA/complete-dbt-zero-to-hero",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "diosamuel/city-analysis-pipeline",
+      "counts": {
+        "modified": 17,
+        "dep_change": 4,
+        "model_deleted": 7
+      },
+      "to_zero_events": [],
+      "active": true
+    },
+    {
+      "repo": "Henryhall97/marine-risk-mapping",
+      "counts": {
+        "modified": 61,
+        "dep_change": 9
+      },
+      "to_zero_events": [],
+      "active": true
+    },
+    {
+      "repo": "lazykern/ateda-platform",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "mehd-io/sql-spaghetti-refactoring",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "jakeshivers/airbnb-dbt",
+      "counts": {
+        "modified": 10,
+        "dep_change": 2,
+        "model_deleted": 2
+      },
+      "to_zero_events": [],
+      "active": true
+    },
+    {
+      "repo": "channa7122/retail-lakehouse-platform",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "achrafhadari1/olist-dbt-powerbi",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "abnaitelhaj/Bank-Agency-Reviews-Morocco",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "kien-ly/dbt-test",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "hlrd93/F1-analitica",
+      "counts": {
+        "modified": 3
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "pe5kataa/automated-market-intelligence-system",
+      "counts": {
+        "modified": 3,
+        "model_deleted": 1
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "Phu-Hong-Duong/NYC-taxi-production-with-k8-flavor",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "pedromateusalmeida/receita-federal-api",
+      "counts": {
+        "modified": 1
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "Isaac-Ndirangu-Muturi-749/End_to_end_data_pipeline--Optimizing_Online_Retail_Analytics_with_Data_and_Analytics_Engineering",
+      "counts": {
+        "model_deleted": 9,
+        "modified": 1
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "PridAn18/DE-repo",
+      "counts": {
+        "model_deleted": 14
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "ChaJiKwon/mavenfuzzyfactory-etl-pipeline",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "gwygain/mini-project",
+      "counts": {
+        "modified": 3
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "hollylessthan/metric-intent-assurance",
+      "error": "clone failed"
+    },
+    {
+      "repo": "taticorrea/dataengineering",
+      "counts": {
+        "model_deleted": 138
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "dylanprole/formula-one-analytics",
+      "counts": {
+        "modified": 5
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "awaemma/altshool_final_project",
+      "counts": {
+        "modified": 2
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "alloyha/experiments",
+      "counts": {
+        "modified": 100,
+        "dep_change": 15,
+        "withdrawal": 15,
+        "model_deleted": 168
+      },
+      "to_zero_events": [],
+      "active": true
+    },
+    {
+      "repo": "pawel26/movies_analysis",
+      "counts": {
+        "modified": 8,
+        "dep_change": 7,
+        "to_zero_strict": 1,
+        "model_deleted": 3,
+        "withdrawal": 6
+      },
+      "to_zero_events": [
+        {
+          "commit": "73221e97419adf81864dade958e3b0084b9783b9",
+          "parent": "77cb48a94d397d5af6046a955c3f7608b9bb162c",
+          "path": "movies/models/movies/dim_movie.sql",
+          "kind": "to_zero_strict",
+          "removed": [
+            "source.dev.raw_source"
+          ],
+          "materialized": "default"
+        }
+      ],
+      "active": false
+    },
+    {
+      "repo": "the-gauss/tiny-projects-de",
+      "counts": {
+        "modified": 9,
+        "dep_change": 3,
+        "withdrawal": 3,
+        "model_deleted": 2
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "HuhtaLauri/gitsights",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "ntrdgs21/projetoRIO",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "tigisthailay/financial-analytics-pipeline",
+      "counts": {
+        "model_deleted": 1
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "hungnguyen0508/FSDS",
+      "counts": {
+        "model_deleted": 13,
+        "modified": 10,
+        "dep_change": 5
+      },
+      "to_zero_events": [],
+      "active": true
+    },
+    {
+      "repo": "Razellion/datafellowship-11",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "mosaleem2/lakehouse",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "eduardogalba/SakstarETL",
+      "counts": {
+        "modified": 40,
+        "dep_change": 3,
+        "model_deleted": 66,
+        "withdrawal": 2
+      },
+      "to_zero_events": [],
+      "active": true
+    },
+    {
+      "repo": "Francois-lenne/cinema_freq_data",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "kmiller96/menagerie",
+      "counts": {
+        "model_deleted": 6
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "miatulcan/ciencia-de-datos",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "julian-passebecq/datapass-mosaic-vscode",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "harbor-framework/harbor-adapters-experiments",
+      "counts": {
+        "model_deleted": 111
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "gabrielcepedag/sib-airbyte",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "dbt-labs/dbt",
+      "counts": {
+        "modified": 2217,
+        "model_deleted": 2505,
+        "dep_change": 15,
+        "withdrawal": 5,
+        "to_zero_jinja": 1
+      },
+      "to_zero_events": [
+        {
+          "commit": "f4ca94f6d80d9325730a9e7643fdec45546d6e0e",
+          "parent": "3103442447e9908e827f2ed420491cbc1b03d67a",
+          "path": "test/integration/001_simple_copy_test/models/materialized.sql",
+          "kind": "to_zero_jinja",
+          "removed": [
+            "ref.seed"
+          ],
+          "materialized": "table"
+        }
+      ],
+      "active": true
+    },
+    {
+      "repo": "xlang-ai/Spider2",
+      "counts": {
+        "model_deleted": 4811
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "dhruvalpatel/dhruval-capstone-project",
+      "counts": {
+        "model_deleted": 92,
+        "modified": 4,
+        "dep_change": 4,
+        "withdrawal": 4
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "XDJBPX02/web-server-analytics-pipeline",
+      "counts": {
+        "modified": 9,
+        "model_deleted": 110,
+        "dep_change": 4,
+        "withdrawal": 1
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "federicofavero/dbt-labs-dbt-core",
+      "counts": {
+        "modified": 132,
+        "model_deleted": 117,
+        "dep_change": 15,
+        "withdrawal": 5,
+        "to_zero_jinja": 1
+      },
+      "to_zero_events": [
+        {
+          "commit": "f4ca94f6d80d9325730a9e7643fdec45546d6e0e",
+          "parent": "3103442447e9908e827f2ed420491cbc1b03d67a",
+          "path": "test/integration/001_simple_copy_test/models/materialized.sql",
+          "kind": "to_zero_jinja",
+          "removed": [
+            "ref.seed"
+          ],
+          "materialized": "table"
+        }
+      ],
+      "active": true
+    },
+    {
+      "repo": "EstherYang2000/ReCAPAgent",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "QuangChinhDE/appbi-pipeline",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "gbholdings/straterai-gates",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "datarootsio/prefect-dbt-flow",
+      "counts": {
+        "modified": 4
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "moritzkoerber/local-data-stack",
+      "counts": {
+        "modified": 2,
+        "model_deleted": 2
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "NiclasOlofsson/dbt-core-mcp",
+      "counts": {
+        "modified": 2
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "Kemetra/Seshat-BI",
+      "counts": {
+        "modified": 1
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "Chideraozigbo/CDE-Capstone-Project",
+      "counts": {
+        "modified": 26,
+        "model_deleted": 16,
+        "dep_change": 1
+      },
+      "to_zero_events": [],
+      "active": true
+    },
+    {
+      "repo": "datalakehouse/dlh-stripe-analytics-dbt",
+      "counts": {
+        "modified": 98,
+        "dep_change": 17,
+        "model_deleted": 49,
+        "withdrawal": 6,
+        "to_zero_jinja": 6,
+        "to_zero_strict": 1
+      },
+      "to_zero_events": [
+        {
+          "commit": "ef6d8125bb29f29899889d6753d6c2401aedace1",
+          "parent": "d0831289707415b4977355ed12d91c8f7cc134db",
+          "path": "models/staging/BUDGET/V_BUDGET_STG.sql",
+          "kind": "to_zero_jinja",
+          "removed": [
+            "source.TEST_SCHEMA_EXT_DEV.DOORDASH_RAW"
+          ],
+          "materialized": "view"
+        },
+        {
+          "commit": "ef6d8125bb29f29899889d6753d6c2401aedace1",
+          "parent": "d0831289707415b4977355ed12d91c8f7cc134db",
+          "path": "models/staging/CURRENCIES/V_CURRENCIES_STG.sql",
+          "kind": "to_zero_jinja",
+          "removed": [
+            "source.TEST_SCHEMA_EXT_DEV.DOORDASH_RAW"
+          ],
+          "materialized": "view"
+        },
+        {
+          "commit": "ef6d8125bb29f29899889d6753d6c2401aedace1",
+          "parent": "d0831289707415b4977355ed12d91c8f7cc134db",
+          "path": "models/staging/DELIVERY_ADDRESS/V_DELIVERY_ADDRESS_STG.sql",
+          "kind": "to_zero_jinja",
+          "removed": [
+            "source.TEST_SCHEMA_EXT_DEV.DOORDASH_RAW"
+          ],
+          "materialized": "view"
+        },
+        {
+          "commit": "ef6d8125bb29f29899889d6753d6c2401aedace1",
+          "parent": "d0831289707415b4977355ed12d91c8f7cc134db",
+          "path": "models/staging/EMPLOYEES/V_EMPLOYEES_STG.sql",
+          "kind": "to_zero_jinja",
+          "removed": [
+            "source.TEST_SCHEMA_EXT_DEV.DOORDASH_RAW"
+          ],
+          "materialized": "view"
+        },
+        {
+          "commit": "ef6d8125bb29f29899889d6753d6c2401aedace1",
+          "parent": "d0831289707415b4977355ed12d91c8f7cc134db",
+          "path": "models/staging/MERCHANTS/V_MERCHANTS_STG.sql",
+          "kind": "to_zero_jinja",
+          "removed": [
+            "source.TEST_SCHEMA_EXT_DEV.DOORDASH_RAW"
+          ],
+          "materialized": "view"
+        },
+        {
+          "commit": "ef6d8125bb29f29899889d6753d6c2401aedace1",
+          "parent": "d0831289707415b4977355ed12d91c8f7cc134db",
+          "path": "models/staging/TEAM_ACCOUNTS/V_TEAM_ACCOUNTS_STG.sql",
+          "kind": "to_zero_jinja",
+          "removed": [
+            "source.TEST_SCHEMA_EXT_DEV.DOORDASH_RAW"
+          ],
+          "materialized": "view"
+        },
+        {
+          "commit": "ef6d8125bb29f29899889d6753d6c2401aedace1",
+          "parent": "d0831289707415b4977355ed12d91c8f7cc134db",
+          "path": "models/staging/WEATHER_CONDITIONS/V_COUNTRY_CODES_STG.sql",
+          "kind": "to_zero_strict",
+          "removed": [
+            "source.TEST_SCHEMA_EXT_DEV.COUNTRY_CODES"
+          ],
+          "materialized": "view"
+        }
+      ],
+      "active": true
+    },
+    {
+      "repo": "crugroup/dbt-snow-cortex",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "zsvoboda/covid",
+      "counts": {
+        "modified": 10,
+        "model_deleted": 2
+      },
+      "to_zero_events": [],
+      "active": true
+    },
+    {
+      "repo": "AbdouSadou/plateforme-gouvernance-donnees",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "aaronsime/cloud-warehouse-snowflake",
+      "counts": {
+        "modified": 8,
+        "dep_change": 3,
+        "withdrawal": 3,
+        "model_deleted": 2
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "grey8848/my_dbt_project",
+      "counts": {
+        "modified": 1,
+        "dep_change": 1,
+        "withdrawal": 1,
+        "model_deleted": 2
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "dgarhdez/dbt-ie",
+      "counts": {
+        "modified": 4,
+        "model_deleted": 25
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "Mohanaaravind/dbt_hands_on_1",
+      "counts": {
+        "modified": 13,
+        "model_deleted": 1,
+        "dep_change": 4,
+        "withdrawal": 4
+      },
+      "to_zero_events": [],
+      "active": true
+    },
+    {
+      "repo": "winniemutai21/gz-dbt-repository",
+      "counts": {
+        "model_deleted": 6,
+        "modified": 12,
+        "dep_change": 4,
+        "to_zero_strict": 1
+      },
+      "to_zero_events": [
+        {
+          "commit": "0c9aefa81c4afbc49ff577a3bae9dce52c5edb30",
+          "parent": "3bde1c97e17705d0ef961e66830048eed048dc4e",
+          "path": "models/int_sales_margin.sql",
+          "kind": "to_zero_strict",
+          "removed": [
+            "ref.stg_raw__product",
+            "ref.stg_raw__sales"
+          ],
+          "materialized": "default"
+        }
+      ],
+      "active": true
+    },
+    {
+      "repo": "GuuhRodrigues/northwind-academy",
+      "counts": {
+        "model_deleted": 4
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "thelord82/dbtlearn",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "lemieuxjm/data-engineering-zoomcamp",
+      "counts": {
+        "model_deleted": 14,
+        "modified": 1
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "modernth3ory/bde-at3-dbt",
+      "counts": {
+        "modified": 7,
+        "model_deleted": 2
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "daniloNatan/projeto-novadrive",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "dave-connors-3/dbt-sks",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "Alexey-Samodurov/dbt_lecture",
+      "counts": {
+        "model_deleted": 1
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "InKaptur/inkaptur-cdc-demo",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "Unais2003/ELT_Bigdata_Pipeline_DBT",
+      "counts": {
+        "modified": 4,
+        "dep_change": 1,
+        "to_zero_strict": 1
+      },
+      "to_zero_events": [
+        {
+          "commit": "6d1115a5fc235d7824e13d2207fe30acb7dd3b38",
+          "parent": "40ee4c7d473f51118c997998f62c66f3477474de",
+          "path": "models/staging/stg_taxi_trips.sql",
+          "kind": "to_zero_strict",
+          "removed": [
+            "source.raw.yellow_taxi_trips"
+          ],
+          "materialized": "default"
+        }
+      ],
+      "active": false
+    },
+    {
+      "repo": "djdev/week4_ny_taxi_dbt_zoomcamp",
+      "counts": {
+        "modified": 3,
+        "model_deleted": 2
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "samiHEL/dbt_cicd",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "MitchellBarker/dbt-fundamentals-property-management",
+      "counts": {
+        "model_deleted": 2
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "LuccaCoelho/DBT-Pipeline-Project",
+      "counts": {
+        "model_deleted": 2
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "keeinlev/DAP",
+      "counts": {
+        "model_deleted": 6,
+        "modified": 4
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "k-zozulia/dbt_task",
+      "counts": {
+        "model_deleted": 11,
+        "modified": 6,
+        "dep_change": 6,
+        "withdrawal": 3
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "vinsliu/dbt-quickstart-bq",
+      "counts": {
+        "model_deleted": 5
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "Gede-A/Building-a-Data-Warehouse",
+      "counts": {
+        "model_deleted": 2
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "K-jaka/dbt-ecommerce-analytics",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "dhananjay93/dbt_snowflake_data_end_to_end_project",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "edgarts/data-warehousing",
+      "counts": {
+        "modified": 17
+      },
+      "to_zero_events": [],
+      "active": true
+    },
+    {
+      "repo": "Thanatura/my-parleman",
+      "counts": {
+        "modified": 52,
+        "model_deleted": 27,
+        "dep_change": 11,
+        "withdrawal": 11
+      },
+      "to_zero_events": [],
+      "active": true
+    },
+    {
+      "repo": "Core-Load/seoul-airflow",
+      "counts": {
+        "modified": 51,
+        "dep_change": 9,
+        "withdrawal": 6,
+        "model_deleted": 14
+      },
+      "to_zero_events": [],
+      "active": true
+    },
+    {
+      "repo": "TechPopsicles/dbt-mesh-platform",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "rabeur/VelibAvailability_DE_Project",
+      "counts": {
+        "modified": 17
+      },
+      "to_zero_events": [],
+      "active": true
+    },
+    {
+      "repo": "Mahmuuod/Walmart-Data-Warehouse",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "Paxsign/tw_analyser",
+      "counts": {
+        "modified": 20,
+        "model_deleted": 62
+      },
+      "to_zero_events": [],
+      "active": true
+    },
+    {
+      "repo": "TherNgyn/Vietnam_economic_lakehouse",
+      "counts": {
+        "modified": 216,
+        "dep_change": 43,
+        "withdrawal": 29,
+        "model_deleted": 27,
+        "to_zero_strict": 1
+      },
+      "to_zero_events": [
+        {
+          "commit": "6d36bf0d4b34323dadbd978784f45f38b4a4de5c",
+          "parent": "3a5588cf1144c97a4a18da255617efb0c273589e",
+          "path": "dbt/models/dimensions/dim_time.sql",
+          "kind": "to_zero_strict",
+          "removed": [
+            "ref.stg_agriculture",
+            "ref.stg_gdp",
+            "ref.stg_interest_rate",
+            "ref.stg_investment",
+            "ref.stg_macro_indicator",
+            "ref.stg_ohlc",
+            "ref.stg_product_market",
+            "ref.stg_social_investment"
+          ],
+          "materialized": "delta_table"
+        }
+      ],
+      "active": true
+    },
+    {
+      "repo": "jadm333/sofia_data_eng_challenge",
+      "counts": {
+        "modified": 1
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "FA3001/Pokemon-Data-Process",
+      "counts": {
+        "modified": 4,
+        "model_deleted": 6
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "ghadfield32/real_time_data_engineering",
+      "counts": {
+        "modified": 14
+      },
+      "to_zero_events": [],
+      "active": true
+    },
+    {
+      "repo": "deborasantoss/dbt_adv",
+      "counts": {
+        "model_deleted": 14
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "Circhastic/de-zoomcamp-2025",
+      "counts": {
+        "modified": 3
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "Mansi-Sun/Data-Engineer-Practise",
+      "counts": {
+        "modified": 1
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "jazz-min/earthquake-data-pipeline",
+      "counts": {
+        "modified": 6
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "TheDataSculptor/dbt",
+      "counts": {
+        "modified": 2,
+        "model_deleted": 8
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "suvenk31/dbtZerotoHero",
+      "counts": {
+        "modified": 2,
+        "model_deleted": 8
+      },
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "Carol123-huang/dbt-bootcamp",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "juninnio/multi-client-data-pipeline",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    },
+    {
+      "repo": "Vanelfokamcode/pulseearth",
+      "counts": {},
+      "to_zero_events": [],
+      "active": false
+    }
+  ]
+}

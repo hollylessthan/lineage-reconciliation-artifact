@@ -1,0 +1,399 @@
+{
+  "schema": "lineage-matrix/v1",
+  "paths": [
+    {
+      "path": "dh-dbt",
+      "relations": {
+        "MR1a": "holds",
+        "MR1b": "violation",
+        "MR1c": "holds",
+        "MR2a": "holds",
+        "MR2b": "holds",
+        "MR3": "holds",
+        "MR4a": "not_applicable",
+        "MR4b": "not_applicable",
+        "MR7": "holds"
+      },
+      "admissible": true
+    },
+    {
+      "path": "dh-dbt [DataHub 1.5.0]",
+      "relations": {
+        "MR1a": "holds",
+        "MR1b": "violation",
+        "MR1c": "holds",
+        "MR2a": "holds",
+        "MR2b": "holds",
+        "MR3": "holds",
+        "MR4a": "not_applicable",
+        "MR4b": "not_applicable",
+        "MR7": "holds"
+      },
+      "admissible": true
+    },
+    {
+      "path": "dh-ol",
+      "relations": {
+        "MR1a": "holds",
+        "MR1b": "holds",
+        "MR1c": "holds",
+        "MR2a": "holds",
+        "MR4a": "not_applicable",
+        "MR5": "holds",
+        "MR5i": "differs",
+        "MR9a": "violation",
+        "MR9b": "holds",
+        "MR9c": "violation"
+      },
+      "admissible": true
+    },
+    {
+      "path": "dh-ol [DataHub 1.5.0]",
+      "relations": {},
+      "admissible": false
+    },
+    {
+      "path": "dh-ol-patch [v1.5.0]",
+      "relations": {
+        "MR1a": "not_applicable",
+        "MR1b": "not_applicable",
+        "MR1c": "not_applicable",
+        "MR2a": "holds",
+        "MR4a": "holds",
+        "MR5": "holds",
+        "MR5i": "differs",
+        "MR9a": "holds",
+        "MR9b": "holds",
+        "MR9c": "holds"
+      },
+      "admissible": true
+    },
+    {
+      "path": "dh-ol-patch [v1.8.0]",
+      "relations": {
+        "MR1a": "not_applicable",
+        "MR1b": "not_applicable",
+        "MR1c": "not_applicable",
+        "MR2a": "holds",
+        "MR4a": "holds",
+        "MR5": "holds",
+        "MR5i": "differs",
+        "MR9a": "holds",
+        "MR9b": "holds",
+        "MR9c": "holds"
+      },
+      "admissible": true
+    },
+    {
+      "path": "dh-view",
+      "relations": {
+        "MR1a": "holds",
+        "MR1b": "violation",
+        "MR1c": "holds",
+        "MR2a": "holds",
+        "MR2b": "holds",
+        "MR3": "holds",
+        "MR4a": "not_applicable",
+        "MR4b": "not_applicable"
+      },
+      "admissible": true
+    },
+    {
+      "path": "dh-view [DataHub 1.5.0]",
+      "relations": {
+        "MR1a": "holds",
+        "MR1b": "violation",
+        "MR1c": "holds",
+        "MR2a": "holds",
+        "MR2b": "holds",
+        "MR3": "holds",
+        "MR4a": "not_applicable",
+        "MR4b": "not_applicable"
+      },
+      "admissible": true
+    },
+    {
+      "path": "dh-view-clickhouse",
+      "relations": {
+        "MR1a": "holds",
+        "MR1b": "violation",
+        "MR1c": "holds",
+        "MR2a": "holds",
+        "MR2b": "holds",
+        "MR3": "holds",
+        "MR4a": "not_applicable",
+        "MR4b": "not_applicable"
+      },
+      "admissible": true
+    },
+    {
+      "path": "dh-view-incremental",
+      "relations": {
+        "MR1a": "not_applicable",
+        "MR1b": "not_applicable",
+        "MR1c": "not_applicable",
+        "MR2a": "holds",
+        "MR2b": "holds",
+        "MR3": "holds",
+        "MR4a": "holds",
+        "MR4b": "holds"
+      },
+      "admissible": true
+    },
+    {
+      "path": "dh-view-mariadb",
+      "relations": {
+        "MR1a": "holds",
+        "MR1b": "violation",
+        "MR1c": "holds",
+        "MR2a": "holds",
+        "MR2b": "holds",
+        "MR3": "holds",
+        "MR4a": "not_applicable",
+        "MR4b": "not_applicable"
+      },
+      "admissible": true
+    },
+    {
+      "path": "dh-view-mssql",
+      "relations": {},
+      "admissible": false
+    },
+    {
+      "path": "dh-view-mysql",
+      "relations": {
+        "MR1a": "holds",
+        "MR1b": "violation",
+        "MR1c": "holds",
+        "MR2a": "holds",
+        "MR2b": "holds",
+        "MR3": "holds",
+        "MR4a": "not_applicable",
+        "MR4b": "not_applicable"
+      },
+      "admissible": true
+    },
+    {
+      "path": "dh-view-trino",
+      "relations": {
+        "MR1a": "holds",
+        "MR1b": "violation",
+        "MR1c": "holds",
+        "MR2a": "holds",
+        "MR2b": "holds",
+        "MR3": "holds",
+        "MR4a": "not_applicable",
+        "MR4b": "not_applicable"
+      },
+      "admissible": true
+    },
+    {
+      "path": "marquez-ol",
+      "relations": {
+        "MR1a": "holds",
+        "MR1b": "holds",
+        "MR1c": "holds",
+        "MR2a": "holds",
+        "MR4a": "not_applicable",
+        "MR5": "holds",
+        "MR5i": "holds",
+        "MR9a": "holds",
+        "MR9b": "holds",
+        "MR9c": "holds"
+      },
+      "admissible": true
+    },
+    {
+      "path": "odd-dbt",
+      "relations": {
+        "MR1a": "holds",
+        "MR1b": "holds",
+        "MR1c": "holds",
+        "MR2a": "holds",
+        "MR2b": "holds",
+        "MR4a": "not_applicable",
+        "MR4b": "not_applicable",
+        "MR7": "differs"
+      },
+      "admissible": true
+    },
+    {
+      "path": "om-dbt-default",
+      "relations": {
+        "MR1a": "not_applicable",
+        "MR1b": "not_applicable",
+        "MR1c": "not_applicable",
+        "MR2a": "holds",
+        "MR2b": "holds",
+        "MR3": "holds",
+        "MR4a": "holds",
+        "MR4b": "holds",
+        "MR5": "holds",
+        "MR7": "holds"
+      },
+      "admissible": true
+    },
+    {
+      "path": "om-dbt-override",
+      "relations": {
+        "MR1a": "holds",
+        "MR1b": "violation",
+        "MR1c": "holds",
+        "MR2a": "holds",
+        "MR2b": "holds",
+        "MR3": "holds",
+        "MR4a": "not_applicable",
+        "MR4b": "not_applicable",
+        "MR5": "holds",
+        "MR7": "holds"
+      },
+      "admissible": true
+    },
+    {
+      "path": "om-dbt-override [OpenMetadata 1.13.6]",
+      "relations": {
+        "MR1a": "holds",
+        "MR1b": "violation",
+        "MR1c": "holds",
+        "MR2a": "holds",
+        "MR2b": "holds",
+        "MR3": "holds",
+        "MR4a": "not_applicable",
+        "MR4b": "not_applicable",
+        "MR5": "holds",
+        "MR7": "holds"
+      },
+      "admissible": true
+    },
+    {
+      "path": "om-ol",
+      "relations": {
+        "MR1a": "not_applicable",
+        "MR1b": "not_applicable",
+        "MR1c": "not_applicable",
+        "MR2a": "holds",
+        "MR4a": "holds",
+        "MR5": "holds",
+        "MR5i": "holds",
+        "MR9a": "violation",
+        "MR9b": "holds",
+        "MR9c": "violation"
+      },
+      "admissible": true
+    },
+    {
+      "path": "om-ol [OpenMetadata 1.13.6]",
+      "relations": {
+        "MR1a": "not_applicable",
+        "MR1b": "not_applicable",
+        "MR1c": "not_applicable",
+        "MR2a": "holds",
+        "MR4a": "holds",
+        "MR5": "holds",
+        "MR5i": "holds",
+        "MR9a": "violation",
+        "MR9b": "holds",
+        "MR9c": "violation"
+      },
+      "admissible": true
+    },
+    {
+      "path": "om-view",
+      "relations": {
+        "MR1a": "holds",
+        "MR1b": "violation",
+        "MR1c": "holds",
+        "MR2a": "holds",
+        "MR2b": "holds",
+        "MR3": "holds",
+        "MR4a": "not_applicable",
+        "MR4b": "not_applicable"
+      },
+      "admissible": true
+    },
+    {
+      "path": "om-view [OpenMetadata 1.13.6]",
+      "relations": {
+        "MR1a": "holds",
+        "MR1b": "violation",
+        "MR1c": "holds",
+        "MR2a": "holds",
+        "MR2b": "holds",
+        "MR3": "holds",
+        "MR4a": "not_applicable",
+        "MR4b": "not_applicable"
+      },
+      "admissible": true
+    },
+    {
+      "path": "om-view-clickhouse",
+      "relations": {
+        "MR1a": "holds",
+        "MR1b": "violation",
+        "MR1c": "holds",
+        "MR2a": "holds",
+        "MR2b": "holds",
+        "MR3": "holds",
+        "MR4a": "not_applicable",
+        "MR4b": "not_applicable"
+      },
+      "admissible": true
+    },
+    {
+      "path": "om-view-mariadb",
+      "relations": {
+        "MR1a": "holds",
+        "MR1b": "violation",
+        "MR1c": "holds",
+        "MR2a": "holds",
+        "MR2b": "holds",
+        "MR3": "holds",
+        "MR4a": "not_applicable",
+        "MR4b": "not_applicable"
+      },
+      "admissible": true
+    },
+    {
+      "path": "om-view-mssql",
+      "relations": {
+        "MR1a": "holds",
+        "MR1b": "violation",
+        "MR1c": "holds",
+        "MR2a": "holds",
+        "MR2b": "holds",
+        "MR3": "holds",
+        "MR4a": "not_applicable",
+        "MR4b": "not_applicable"
+      },
+      "admissible": true
+    },
+    {
+      "path": "om-view-mysql",
+      "relations": {
+        "MR1a": "holds",
+        "MR1b": "violation",
+        "MR1c": "holds",
+        "MR2a": "holds",
+        "MR2b": "holds",
+        "MR3": "holds",
+        "MR4a": "not_applicable",
+        "MR4b": "not_applicable"
+      },
+      "admissible": true
+    },
+    {
+      "path": "om-view-trino",
+      "relations": {
+        "MR1a": "holds",
+        "MR1b": "violation",
+        "MR1c": "holds",
+        "MR2a": "holds",
+        "MR2b": "holds",
+        "MR3": "holds",
+        "MR4a": "not_applicable",
+        "MR4b": "not_applicable"
+      },
+      "admissible": true
+    }
+  ]
+}

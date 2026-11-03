@@ -1,0 +1,35 @@
+name: offline artifact verification
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.11'
+      - run: python -m unittest discover -s tests -p 'test_*.py' -v
+      - run: python scripts/verify_summary.py
+      - run: python scripts/verify_frozen.py
+      - run: python scripts/verify_replay.py
+      - run: python scripts/generate_matrix.py --check
+      - run: python -m compileall -q scripts
+      - run: python scripts/release_audit.py
+      - run: python scripts/sanitize_unlicensed_manifests.py --check
+      - run: python scripts/verify_evidence_hashes.py
+      - name: Generate and verify complete tracked-file snapshot
+        run: |
+          python scripts/hash_snapshot.py --output /tmp/SNAPSHOT_SHA256.json
+          python scripts/hash_snapshot.py --check --output /tmp/SNAPSHOT_SHA256.json
+      - name: Verify committed snapshot if present
+        if: hashFiles('docs/SNAPSHOT_SHA256.json') != ''
+        run: python scripts/hash_snapshot.py --check
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: tracked-snapshot-sha256
+          path: /tmp/SNAPSHOT_SHA256.json
+          retention-days: 30

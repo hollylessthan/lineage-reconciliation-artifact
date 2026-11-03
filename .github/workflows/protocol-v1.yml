@@ -1,0 +1,35 @@
+name: protocol-v1 paper runs
+# Runs every path of the frozen protocol three times, each repetition on fresh servers.
+# Triggered only by the commit tagged protocol-v1 (see docs/protocol-v1.md).
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  core-rep1:
+    uses: ./.github/workflows/metamorphic.yml
+    with: {rep: '-p1-rep1'}
+  core-rep2:
+    uses: ./.github/workflows/metamorphic.yml
+    with: {rep: '-p1-rep2'}
+  core-rep3:
+    uses: ./.github/workflows/metamorphic.yml
+    with: {rep: '-p1-rep3'}
+  engines-rep1:
+    uses: ./.github/workflows/round2-engines.yml
+    with: {rep: '-p1-rep1'}
+  engines-rep2:
+    uses: ./.github/workflows/round2-engines.yml
+    with: {rep: '-p1-rep2'}
+  engines-rep3:
+    uses: ./.github/workflows/round2-engines.yml
+    with: {rep: '-p1-rep3'}
+  catalogs-rep1:
+    uses: ./.github/workflows/round2b.yml
+    with: {rep: '-p1-rep1'}
+  catalogs-rep2:
+    uses: ./.github/workflows/round2b.yml
+    with: {rep: '-p1-rep2'}
+  catalogs-rep3:
+    uses: ./.github/workflows/round2b.yml
+    with: {rep: '-p1-rep3'}
