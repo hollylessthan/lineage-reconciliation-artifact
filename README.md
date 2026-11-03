@@ -4,6 +4,15 @@ Companion artifact for *When Lineage Goes Stale: Contract-Conditioned Metamorphi
 
 This repository provides preserved experimental observations, scripts to reproduce the reported analysis, and a fresh-environment Docker smoke test for a representative lineage-removal scenario in DataHub and OpenMetadata.
 
+## Cite this artifact
+
+**Release:** [v1.0.0](https://github.com/hollylessthan/lineage-reconciliation-artifact/releases/tag/v1.0.0)  
+**Archived DOI:** [10.5281/zenodo.23905996](https://doi.org/10.5281/zenodo.23905996)
+
+Lo, F. (2026). *Lineage Reconciliation Research Artifact* (v1.0.0) [Software and research artifact]. Zenodo. https://doi.org/10.5281/zenodo.23905996
+
+The DOI identifies the archived v1.0.0 release. For machine-readable citation details, see [`CITATION.cff`](CITATION.cff).
+
 ## Reproduce the reported results
 
 With Python 3.9 or later, clone the repository and run these standard-library-only checks from its root:
@@ -39,7 +48,7 @@ The frozen source identifier is `58c995f32abdf23d3441cc2bbb7053f7de247ee3` (`pro
 
 ## Optional live Docker validation
 
-The [clean-repository smoke-test run](https://github.com/hollylessthan/lineage-reconciliation-artifact/actions/runs/41570439429) deployed fresh DataHub v1.8.0 and OpenMetadata 2.0.7 instances and evaluated the source-free synthetic dbt revision pair `zero01`. Both systems passed their before/after lineage oracle checks, reproduced an MR1 forward stale-lineage violation, and satisfied the reverse relation.
+The [clean-repository smoke-test run](https://github.com/hollylessthan/lineage-reconciliation-artifact/actions/runs/41577748623) deployed fresh DataHub v1.8.0 and OpenMetadata 2.0.7 instances and evaluated the source-free synthetic dbt revision pair `zero01`. Both systems passed their before/after lineage oracle checks, reproduced an MR1 forward stale-lineage violation, and satisfied the reverse relation.
 
 To repeat this validation, use **Actions → Sanitized dbt manifest live smoke test → Run workflow** on `main`, or inspect `.github/workflows/sanitized-manifest-smoke.yml` for the exact dependencies, container configuration, and commands. The smoke test is manually triggered to avoid accidental Docker runner costs. The other manual workflows under `.github/workflows/` document the broader experiment configurations, which require Docker Engine, Compose, and their specified Python dependencies.
 
