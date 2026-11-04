@@ -1,14 +1,14 @@
 cff-version: 1.2.0
-message: "If you use this research artifact, please cite the archived v1.0.0 release."
+message: "If you use this research artifact, please cite the archived v1.0.1 release."
 title: "Lineage Reconciliation Research Artifact"
 type: software
 authors:
   - family-names: Lo
     given-names: Fangyu
-doi: 10.5281/zenodo.23905996
-version: 1.0.0
-date-released: 2026-11-03
+doi: 10.5281/zenodo.23964886
+version: 1.0.1
+date-released: 2026-11-04
 license: Apache-2.0
 repository-code: "https://github.com/hollylessthan/lineage-reconciliation-artifact"
-url: "https://doi.org/10.5281/zenodo.23905996"
+url: "https://doi.org/10.5281/zenodo.23964886"
 abstract: "Code, preserved evidence, and reproduction workflows for contract-conditioned metamorphic testing of metadata catalog ingestion."
