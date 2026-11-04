@@ -6,12 +6,12 @@ This repository provides preserved experimental observations, scripts to reprodu
 
 ## Cite this artifact
 
-**Release:** [v1.0.0](https://github.com/hollylessthan/lineage-reconciliation-artifact/releases/tag/v1.0.0)  
-**Archived DOI:** [10.5281/zenodo.23905996](https://doi.org/10.5281/zenodo.23905996)
+**Release:** [v1.0.1](https://github.com/hollylessthan/lineage-reconciliation-artifact/releases/tag/v1.0.1)  
+**Archived DOI:** [10.5281/zenodo.23964886](https://doi.org/10.5281/zenodo.23964886)
 
-Lo, F. (2026). *Lineage Reconciliation Research Artifact* (v1.0.0) [Software and research artifact]. Zenodo. https://doi.org/10.5281/zenodo.23905996
+Lo, F. (2026). *Lineage Reconciliation Research Artifact* (v1.0.1) [Software and research artifact]. Zenodo. https://doi.org/10.5281/zenodo.23964886
 
-The DOI identifies the archived v1.0.0 release. For machine-readable citation details, see [`CITATION.cff`](CITATION.cff).
+The DOI identifies the archived v1.0.1 release. For machine-readable citation details, see [`CITATION.cff`](CITATION.cff).
 
 ## Reproduce the reported results
 
