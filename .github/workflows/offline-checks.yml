@@ -13,6 +13,10 @@ jobs:
         with:
           python-version: '3.11'
       - run: python -m unittest discover -s tests -p 'test_*.py' -v
+      - name: Validate the dbt fixture profile and manifest compilation
+        run: |
+          python -m pip install dbt-postgres==1.11.0
+          dbt parse --project-dir fixtures --profiles-dir fixtures --no-partial-parse
       - run: python scripts/verify_summary.py
       - run: python scripts/verify_frozen.py
       - run: python scripts/verify_replay.py
