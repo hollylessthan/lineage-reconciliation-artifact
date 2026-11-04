@@ -1,0 +1,13 @@
+# Local-only dbt profile for manifest parsing. No database connection is opened by dbt parse.
+reconciliation_fixture:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: 127.0.0.1
+      port: 5432
+      user: pilot
+      password: pilot
+      dbname: fixture
+      schema: main
+      threads: 1
